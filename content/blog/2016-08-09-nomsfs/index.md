@@ -111,7 +111,7 @@ Showing it off has all the normal glory of a systems demo! Check out the [docume
 
 Create and mount a filesystem from a new local Noms dataset:
 
-```
+```console
 $ go build
 $ mkdir /var/tmp/mnt
 $ go run nomsfs.go /var/tmp/nomsfs::fs /var/tmp/mnt
@@ -120,11 +120,11 @@ running...
 
 You can open the folder and drop data into it.
 
-\[caption id="attachment\_1723" align="aligncenter" width="614" caption="Your database fell into my filesystem!"\][![](images/Screen-Shot-2016-08-06-at-3.36.24-PM-1024x469.png "Screen Shot 2016-08-06 at 3.36.24 PM")](http://ahl.dtrace.org/wp-content/uploads/2016/08/Screen-Shot-2016-08-06-at-3.36.24-PM.png)\[/caption\]
+![](images/Screen-Shot-2016-08-06-at-3.36.24-PM.png)
 
 Now let’s take a look at the underlying Noms dataset:
 
-```
+```console
 $ noms show http://demo.noms.io/ahl_blog::fs
 struct Commit {
   meta: struct {},

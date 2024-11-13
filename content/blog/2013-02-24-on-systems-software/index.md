@@ -7,7 +7,8 @@ tags:
   - "systems"
 ---
 
-[![](images/cctv-278x300.jpg "cctv")](http://ahl.dtrace.org/wp-content/uploads/2013/02/cctv.jpeg)A prospective new college hire recently related an odd comment from his professor: systems programming is dead. I was nonplussed; what could the professor have meant? Systems is clearly very much alive. Interesting and important projects march under the banner of systems. But as I tried to construct a less emotional rebuttal, I realized I lacked a crisp definition of what systems programming is.
+![](images/cctv.jpeg)]
+A prospective new college hire recently related an odd comment from his professor: systems programming is dead. I was nonplussed; what could the professor have meant? Systems is clearly very much alive. Interesting and important projects march under the banner of systems. But as I tried to construct a less emotional rebuttal, I realized I lacked a crisp definition of what systems programming is.
 
 Wikipedia [defines systems software](http://en.wikipedia.org/wiki/System_software) in the narrowest terms: the stuff that interacts with hardware. But that covers a tiny fraction of modern systems. So what is systems software? It depends on **when** you're asking the question. At one time, the web server was the application; now it's the systems software on which many web-facing applications are built. At one time a database was the application; now it's systems software that supports a variety of custom and off-the-shelf applications. Before my time, shells were probably considered a bleeding edge application; now they're systems software on which some of the lowest-level plumbing of modern operating systems are built.
 

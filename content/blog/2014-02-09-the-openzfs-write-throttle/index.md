@@ -9,7 +9,8 @@ tags:
   - "performance"
 ---
 
-[![](images/American-Flyer-Trains-1949-page-27-300x208.jpg "American Flyer Trains 1949, page 27")](http://ahl.dtrace.org/wp-content/uploads/2014/02/American-Flyer-Trains-1949-page-27.jpg)In my last blog post, I wrote about the [ZFS write throttle](http://dtrace.org/blogs/ahl/2013/12/27/zfs-fundamentals-the-write-throttle/), and how we saw it lead to pathological latency variability on customer systems. Matt Ahrens, the co-founder of ZFS, and I set about to fix it in [OpenZFS](http://www.open-zfs.org). While the solution we came to may seem obvious, we arrived at it only through a bit of wandering in a wide open solution space.
+![](images/American-Flyer-Trains-1949-page-27.jpg)
+In my last blog post, I wrote about the [ZFS write throttle](http://dtrace.org/blogs/ahl/2013/12/27/zfs-fundamentals-the-write-throttle/), and how we saw it lead to pathological latency variability on customer systems. Matt Ahrens, the co-founder of ZFS, and I set about to fix it in [OpenZFS](http://www.open-zfs.org). While the solution we came to may seem obvious, we arrived at it only through a bit of wandering in a wide open solution space.
 
 The ZFS write throttle was fundamentally flawed — the data indelibly supported this diagnosis. The cure was far less clear. The core problem involved the actual throttling mechanism, allowing many fast writes while stalling some writes nearly without bound, with some artificially delayed writes ostensibly to soften the landing. Further, the mechanism relied on an accurate calculation of the backend throughput — a problem in itself, but one we’ll set aside for the moment.
 

@@ -5,7 +5,9 @@ categories:
   - "delphix"
 ---
 
-Delphix cust![signs](images/signs.jpeg)omers include top companies across a wide range of industries, most of them executing around the clock. Should a problem arise they require support from Delphix around the clock as well. To serve our customers’ needs we’ve drawn from industry best-practices while recently mixing in an unconventional approach to providing the best possible customer service regardless of when a customer encounters a problem.
+<!-- ![signs](images/signs.jpeg) -->
+
+Delphix customers include top companies across a wide range of industries, most of them executing around the clock. Should a problem arise they require support from Delphix around the clock as well. To serve our customers’ needs we’ve drawn from industry best-practices while recently mixing in an unconventional approach to providing the best possible customer service regardless of when a customer encounters a problem.
 
 There are three common approaches to support: outsourcing, shifts, and “follow the sun”. Outsourcing is economical but quality and consistency suffer especially for difficult cases. Asking outstanding engineers to cover undesirable shifts is unappealing. An on-call rotation (shifts “lite”) may be more tolerable but can be inadequate — and stressful — in a crisis. Hiring a geographically dispersed team — whose natural work day “follows the sun” — provides a more durable solution but has its own challenges. Interviewing is tough. Training is tougher. And maintaining education and consistency across the globe is nearly impossible.
 
