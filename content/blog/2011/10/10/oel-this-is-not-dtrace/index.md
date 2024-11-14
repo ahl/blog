@@ -1,5 +1,5 @@
 ---
-title: "Oracle&#039;s port: this is not DTrace"
+title: "Oracle's port: this is not DTrace"
 date: "2011-10-10"
 categories: 
   - "dtrace"

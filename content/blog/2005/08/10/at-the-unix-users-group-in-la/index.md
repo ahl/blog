@@ -1,5 +1,5 @@
 ---
-title: "At the Unix Users&#039; Group in LA"
+title: "At the Unix Users' Group in LA"
 date: "2005-08-10"
 categories: 
   - "dtrace"

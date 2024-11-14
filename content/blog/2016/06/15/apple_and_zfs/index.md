@@ -1,5 +1,5 @@
 ---
-title: "ZFS: Apple&#039;s New Filesystem That Wasn&#039;t"
+title: "ZFS: Apple's New Filesystem That Wasn't"
 date: "2016-06-15"
 categories: 
   - "zfs"

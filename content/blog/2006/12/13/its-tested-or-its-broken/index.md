@@ -1,5 +1,5 @@
 ---
-title: "It&#039;s tested or it&#039;s broken"
+title: "It's tested or it's broken"
 date: "2006-12-12"
 categories: 
   - "software"

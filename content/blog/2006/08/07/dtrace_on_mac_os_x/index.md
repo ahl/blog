@@ -1,5 +1,5 @@
 ---
-title: "Apple&#039;s DTrace team"
+title: "Apple's DTrace team"
 date: "2006-08-07"
 categories: 
   - "dtrace"

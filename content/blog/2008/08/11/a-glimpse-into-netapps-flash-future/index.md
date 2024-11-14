@@ -1,5 +1,5 @@
 ---
-title: "A glimpse into Netapp&#039;s flash future"
+title: "A glimpse into Netapp's flash future"
 date: "2008-08-11"
 categories: 
   - "fishworks"

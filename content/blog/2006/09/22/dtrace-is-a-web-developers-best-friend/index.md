@@ -1,5 +1,5 @@
 ---
-title: "DTrace is a web developer&#039;s best friend"
+title: "DTrace is a web developer's best friend"
 date: "2006-09-22"
 categories: 
   - "dtrace"

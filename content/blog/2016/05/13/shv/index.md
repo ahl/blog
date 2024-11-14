@@ -1,5 +1,5 @@
 ---
-title: "Finding What&#039;s Next"
+title: "Finding What's Next"
 date: "2016-05-13"
 categories: 
   - "shv"

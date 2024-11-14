@@ -1,5 +1,5 @@
 ---
-title: "I didn&#039;t mean strace"
+title: "I didn't mean strace"
 date: "2005-08-08"
 categories: 
   - "dtrace"

@@ -1,5 +1,5 @@
 ---
-title: "Baby&#039;s first DTrace"
+title: "Baby's first DTrace"
 date: "2004-11-18"
 categories: 
   - "dtrace"
