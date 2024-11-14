@@ -1,13 +1,14 @@
 ---
 title: "A Logzilla for your ZFS box"
 date: "2010-07-19"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "chrisgeorge"
   - "ddrdrive"
   - "zfs"
   - "zil"
+permalink: /2010/07/19/ddrdrive/
 ---
 
 A key component of the ZFS [Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm) is Logzilla, a very fast device to accelerate synchronous writes. This component hides the write latency of disks to enable the use of economical, high-capacity drives. [In the Sun Storage 7000 series](http://dtrace.org/blogs/ahl/fishworks_launch), we use some very fast SAS and SATA SSDs from [STEC](http://www.stec-inc.com/) as our Logzilla &mdash the devices are great and STEC continues to be a terrific partner. The most important attribute of a good Logzilla device is that it have very low latency for sequential, uncached writes. The STEC part gives us about 100μs latency for a 4KB write — much much lower than most SSDs. Using SAS-attached SSDs rather than the more traditional PCI-attached, non-volatile DRAM enables a much simpler and more reliable clustering solution since the intent-log devices are accessible to both nodes in the cluster, but SAS is much slower than PCIe...

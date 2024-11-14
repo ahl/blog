@@ -1,8 +1,9 @@
 ---
 title: "dtrace.conf post-post-mortem"
 date: "2008-05-04"
-categories: 
+categories:
   - "dtrace"
+permalink: /2008/05/05/dtrace-conf-post-post-mortem/
 ---
 
 ![](images/dtrace_conf.jpg)

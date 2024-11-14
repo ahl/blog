@@ -1,8 +1,9 @@
 ---
 title: "Flash workshop at ASPLOS"
 date: "2009-02-19"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/02/19/flash-workshop-at-asplos/
 ---
 
 [![](images/wish09.png)](http://csl.cse.psu.edu/wish2009.html)

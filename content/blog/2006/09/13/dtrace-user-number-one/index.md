@@ -1,8 +1,9 @@
 ---
 title: "DTrace user number one"
 date: "2006-09-13"
-categories: 
+categories:
   - "dtrace"
+permalink: /2006/09/13/dtrace-user-number-one/
 ---
 
 Some people think DTrace was built for developers; others think it was for system administrators; some even think it was a tool designed just for Solaris kernel hackers but was so useful we decided to unleash it on the world. All wrong. The user we always had in mind was Solaris user extraordinaire Jarod Jenson. DTrace let's you explore virtually any element of the system -- it's biggest limitation is the user's own knowledge of the system. Jarod has the most diverse and expansive knowledge of enterprise computing bar none; in his hands DTrace seemingly has no limit.

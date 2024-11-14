@@ -1,8 +1,9 @@
 ---
 title: "Logzillas: to mirror or stripe?"
 date: "2009-12-09"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/12/09/log_devices_to_mirror_or/
 ---
 
 The [Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm) integrates flash into the storage hierarchy in two specific ways: as a massive read cache and as fast log devices. For read cache devices, Readzillas, there's no need for redundant configurations; it's a clean cache so the data necessarily also resides on disk. For log devices, Logzillas, redundancy is essential, but how that translates to their configuration can be complicated. How to decide whether to stripe or mirror?

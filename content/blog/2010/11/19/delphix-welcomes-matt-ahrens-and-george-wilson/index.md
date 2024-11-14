@@ -1,13 +1,14 @@
 ---
 title: "Delphix welcomes Matt Ahrens and George Wilson"
 date: "2010-11-19"
-categories: 
+categories:
   - "delphix"
-tags: 
+tags:
   - "delphix"
   - "georgewilson"
   - "mattahrens"
   - "zfs"
+permalink: /2010/11/19/delphix-welcomes-matt-ahrens-and-george-wilson/
 ---
 
 This week it was my pleasure to welcome my former Sun colleague Matt Ahrens and George Wilson to [Delphix](http://www.delphix.com). Matt and I studied computer science together at Brown and then joined Sun in 2001. Matt joined [Jeff Bonwick](http://blogs.sun.com/bonwick/entry/and_now_page_2) to start ZFS while I worked on [DTrace](http://wikis.sun.com/display/DTrace/DTrace). George joined Sun in 1996, and worked in a variety of roles, joining the ZFS team in 2006 (just as I was leaving to help start [Fishworks](http://blogs.sun.com/fishworks)).

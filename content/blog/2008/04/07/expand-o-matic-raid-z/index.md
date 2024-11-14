@@ -1,13 +1,14 @@
 ---
 title: "Expand-O-Matic RAID-Z"
 date: "2008-04-07"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "opensolaris"
   - "raid-z"
   - "solaris"
   - "zfs"
+permalink: /2008/04/07/expand-o-matic-raid-z/
 ---
 
 I was having a conversation with an OpenBSD user and developer the other day, and he mentioned some ongoing work in the community to consolidate support for RAID controllers. The problem, he was saying, was that each controller had a different administrative model and utility -- but all I could think was that the _real_ problem was the presence of a RAID controller in the first place! As far as I'm concerned, [ZFS](http://opensolaris.org/os/community/zfs/) and [RAID-Z](http://en.wikipedia.org/wiki/Non-standard_RAID_levels#RAID-Z) have obviated the need for hardware RAID controllers.

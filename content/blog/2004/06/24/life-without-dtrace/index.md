@@ -1,8 +1,9 @@
 ---
 title: "Life without DTrace"
 date: "2004-06-23"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/06/24/life-without-dtrace/
 ---
 
 As a member of the Solaris Kernel Group, I've obviously developed an affinity for using Solaris. There are tools like truss(1) and pstack(1) that come out of my fingers before I know what I'm typing, and now DTrace has taken such a central role in how I develop software, administer boxes, and chase down problems that I can't imagine doing without it.

@@ -1,6 +1,7 @@
 ---
 title: "Oxide and Friends Season 4"
 date: "2024-01-13"
+permalink: /2024/01/13/oxide-and-friends-season-4/
 ---
 
 In 2021 Twitter rolled out Spaces. Listen to people you follow! Talk to followers! It sounded awful--the neologism "webinar" uncomfortably close. So when Bryan asked if I'd hang out with him to give it a shot, I set aside my skepticism--at the very least it would break up the mid-pandemic monotony!

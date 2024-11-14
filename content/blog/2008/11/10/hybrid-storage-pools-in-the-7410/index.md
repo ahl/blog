@@ -1,8 +1,9 @@
 ---
 title: "Hybrid Storage Pools in the 7410"
 date: "2008-11-09"
-categories: 
+categories:
   - "fishworks"
+permalink: /2008/11/10/hybrid-storage-pools-in-the-7410/
 ---
 
 The Sun Storage 7000 Series launches today, and with it Sun has the world's first complete product that seamlessly adds flash into the storage hierarchy in what we call the **Hybrid Storage Pool**. The HSP represents a departure from convention, and a new way of thinking designing a storage system. I've [written before](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm) about the principles of the HSP, but now that it has been formally announced I can focus on the specifics of the Sun Storage 7000 Series and how it implements the HSP.

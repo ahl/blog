@@ -1,8 +1,9 @@
 ---
 title: "Comment out of context"
 date: "2005-06-16"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/06/16/comment-out-of-context/
 ---
 
 The [OpenSolaris](http://opensolaris.org) launch has been pretty fun -- I've already had some discussions with customers over the source code. Of course, the first thing people seemed to do with the source code is look for references to "shit" and "fuck". This was titillating to be sure. Unsatisfied with the cheap laugh, ZDNet wanted to [draw some conclusions](http://www.zdnet.com.au/news/software/0,2000061733,39197326,00.htm) from the profanity:

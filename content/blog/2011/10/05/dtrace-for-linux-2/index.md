@@ -1,9 +1,9 @@
 ---
 title: "DTrace for Linux"
 date: "2011-10-05"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "dtrace"
   - "illumos"
   - "linux"
@@ -12,6 +12,7 @@ tags:
   - "opensolaris"
   - "oracle"
   - "solaris"
+permalink: /2011/10/05/dtrace-for-linux-2/
 ---
 
 Yesterday (October 4, 2011) Oracle made the surprising announcement that they would be porting some key Solaris features, DTrace and Zones, to Oracle Enterprise Linux. As one of the original authors, the news about DTrace was particularly interesting to me, so I started digging.

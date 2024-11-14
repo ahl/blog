@@ -1,9 +1,9 @@
 ---
 title: "dtrace.conf(12) wrap-up"
 date: "2012-04-09"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "bryancantrill"
   - "davepacheco"
   - "dtrace"
@@ -13,6 +13,7 @@ tags:
   - "krisvanhees"
   - "mattahrens"
   - "oel"
+permalink: /2012/04/09/dtrace-conf12-wrap-up/
 ---
 
 [![](images/dtrace.conf12_tee.png "dtrace.conf(12) tee")](http://ahl.dtrace.org/wp-content/uploads/2012/04/dtrace.conf12_tee.png)For the [second time](http://dtrace.org/blogs/ahl/2008/05/05/dtrace-conf-post-post-mortem/) in as many quadrennial [dtrace.conf](http://wiki.smartos.org/display/DOC/dtrace.conf)s, I was impressed at how well the unconference format worked out. Sharing coffee with the DTrace community, it was great to see some of the oldest friends of DTrace -- [Jarod Jenson](http://dl.acm.org/citation.cfm?id=1117399), [Stephen O'Grady](https://twitter.com/#!/sogrady), [Jonathan Adams](https://blogs.oracle.com/jwadams/) to name a few -- and to put faces to names -- [Scott Fritchie](https://twitter.com/#!/slfritchie), [Dustin Sallings](https://twitter.com/#!/dlsspy), Blake Irvin, etc -- of the many new additions to the DTrace community. You can see all the [slides and videos](http://wiki.smartos.org/display/DOC/dtrace.conf+Schedule); these are my thoughts and notes on the day.

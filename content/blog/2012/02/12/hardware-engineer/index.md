@@ -1,15 +1,16 @@
 ---
 title: "Hardware Engineer"
 date: "2012-02-12"
-categories: 
+categories:
   - "fishworks"
-tags: 
+tags:
   - "adamleventhalhardwareengineer"
   - "hardware"
   - "iwashi"
   - "riverwalk"
   - "ssd"
   - "thumper"
+permalink: /2012/02/12/hardware-engineer/
 ---
 
 [![](images/card1-300x300.jpg "card1")](http://ahl.dtrace.org/wp-content/uploads/2012/02/card1.jpg)

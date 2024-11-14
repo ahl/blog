@@ -1,11 +1,12 @@
 ---
 title: "Delphix Next"
 date: "2011-05-13"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "delphix"
   - "software-2"
+permalink: /2011/05/13/delphix-next/
 ---
 
 It's rare to get software right the first time. I'm not referring to bugs in implementation requiring narrow fixes, but rather places in a design that simply missed the mark. Even if getting it absolutely right the first time were possible, it would be prohibitively expensive (and time-consuming) so we make the best decisions we can, hammer it out, and then wait. Users of a product quickly become experts on its strengths and weaknesses for them.  Customers aren't beta testers -- again, I'm not talking about bugs -- but rather they expose use cases you never anticipated, and present environments too convoluted to ever conceive at a whiteboard.

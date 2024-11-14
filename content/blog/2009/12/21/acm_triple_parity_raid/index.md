@@ -1,8 +1,9 @@
 ---
 title: "The need for triple-parity RAID"
 date: "2009-12-21"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/12/21/acm_triple_parity_raid/
 ---
 
 ![](images/leventhal_queue_raid_f5.png)

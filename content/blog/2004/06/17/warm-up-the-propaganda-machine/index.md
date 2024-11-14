@@ -1,8 +1,9 @@
 ---
 title: "Warm up the propaganda machine"
 date: "2004-06-17"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/06/17/warm-up-the-propaganda-machine/
 ---
 
 I'm a Solaris Kernel engineer at Sun working on [DTrace](http://www.sun.com/bigadmin/content/dtrace/), the new dynamic instrumentation framework in Solaris 10, along side my coconspirators [Bryan Cantrill](http://blogs.sun.com/bmc) and Mike Shapiro. In addition to spending a large amount of my time improving DTrace, I have and continue to work on observability and debugging tools in Solaris -- mdb(1), the p-tools, /proc file system -- stuff like that.

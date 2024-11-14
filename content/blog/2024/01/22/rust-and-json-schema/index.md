@@ -1,6 +1,7 @@
 ---
 title: "Rust and JSON Schema: odd couple or perfect strangers"
 date: "2024-01-21"
+permalink: /2024/01/22/rust-and-json-schema/
 ---
 
 A bit over two years ago, I started work on [typify](https://crates.io/crates/typify), a library to generate Rust types from JSON Schema. It took me a while to figure out it was a compiler, but I’ll call it that now: it’s a compiler! It started life as a necessary component of an OpenAPI SDK generator—a pretty important building block for the control plane services at Oxide. Evolving the compiler has become somewhere between a hobby and an obsession, trying to generate increasingly idiomatic Rust from increasingly esoteric schemas.

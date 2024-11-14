@@ -1,11 +1,12 @@
 ---
 title: "First Rust Program Pain (So you can avoid it...)"
 date: "2015-06-22"
-categories: 
+categories:
   - "software"
-tags: 
+tags:
   - "rust"
   - "scrabble"
+permalink: /2015/06/22/first-rust-program-pain/
 ---
 
 ![](http://www.rust-lang.org/logos/rust-logo-blk.svg)Like many programmers I like to try out new languages. After lunch with Alex Crichton, one of the Rust contributors, I started writing my favorite program in Rust. Rust is a “safe” systems language that introduces concepts of data ownership and mutability to semantically prevent whole categories of problems. It’s primarily developed at Mozilla Research in service of a next generation rendering engine, and while I presume that the name is a poke in the eye of Google’s Chrome, no one was brave enough to confirm that lest their next Uber ride reroute them to [Bagram](https://en.wikipedia.org/wiki/Black_jail).

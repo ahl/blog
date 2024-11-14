@@ -1,8 +1,9 @@
 ---
 title: "Open-Sourcing the JavaOne Keynote"
 date: "2005-06-27"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/06/27/open-sourcing-the-javaone-keynote/
 ---
 
 This morning I gave a demo of [DTrace](http://www.sun.com/bigadmin/content/dtrace/) with the [Java agents](https://solaris10-dtrace-vm-agents.dev.java.net) during the keynote at [JavaOne](http://java.sun.com/javaone). In the past few hours I've had a lot of great feedback from Java developers -- we've found a bunch of _big_ performance wins already, and I expect we'll find more this week (remember the [DTrace challenge](http://www.sun.com/software/solaris/javaone_challenge.jsp)). For the demo, I ran /usr/java/demo/jfc/Java2D/Java2Demo.jar with the Java DTrace agents enabled and ran a couple of scripts on it.

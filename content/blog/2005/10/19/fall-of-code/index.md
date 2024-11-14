@@ -1,8 +1,9 @@
 ---
 title: "Fall of Code?"
 date: "2005-10-19"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2005/10/19/fall-of-code/
 ---
 
 Actually, Fall, Winter and Spring of code. Sun just announced the [Solaris 10 Univesity Challenge Content](http://www.sun.com/software/solaris/contest/univ_challenge.jsp). That's right, it's a challenge [_and_ a contest](http://snltranscripts.jt.org/75/75ishimmer.phtml) and with three times the staying power of [single season of code](http://code.google.com/summerofcode.html). Apparently in a modern day [treaty of Brest-Litovsk](http://en.wikipedia.org/wiki/Treaty_of_brest-litovsk), Google ceded the rest of the year to Sun. Perhaps this was the real [beef](http://www.eweek.com/article2/0,1895,1872448,00.asp) of the recent [Sun/Google agreement](http://news.zdnet.com/2100-3513-5887923.html).

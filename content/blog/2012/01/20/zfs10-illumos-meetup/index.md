@@ -1,9 +1,10 @@
 ---
 title: "ZFS+10: illumos meetup"
 date: "2012-01-20"
-categories: 
+categories:
   - "delphix"
   - "illumos"
+permalink: /2012/01/20/zfs10-illumos-meetup/
 ---
 
 ZFS recently celebrated its informal [10th anniversary](http://blog.delphix.com/ahl/2011/zfs-10th-anniversary/); to mark the occasion, [Delphix](http://www.delphix.com) hosted a [ZFS-themed meetup](http://www.meetup.com/illumos-User-Group/events/41665962/) for the illumos community (sponsored generously by [Joyent](http://www.joyent.com)). Many thanks to [Deirdre Straughan](https://twitter.com/#!/DeirdreS), the new illumos community manager, for helping to organize and for filming the event. Three of my colleagues at Delphix presented work they've been doing in the ZFS ecosystem.

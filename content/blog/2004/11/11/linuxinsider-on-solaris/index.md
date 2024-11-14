@@ -1,8 +1,9 @@
 ---
 title: "LinuxInsider on Solaris"
 date: "2004-11-11"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/11/11/linuxinsider-on-solaris/
 ---
 
 Check out LinuxInsider's [article on Solaris 10](http://www.linuxinsider.com/story/The-Importance-of-Solaris-10-37993.html). In particular, the last paragraph has high praise for Solaris 10 and Sun's forthcoming hardware ventures:

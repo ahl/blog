@@ -1,8 +1,9 @@
 ---
 title: "Dancing with the Anarchist"
 date: "2009-02-26"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/02/26/dancing-with-the-anarchist/
 ---
 
 Barry Burke, the [Storage Anarchist](http://thestorageanarchist.typepad.com/weblog/), has written an [interesting roundup ("don't miss the amazing vendor flash dance")](http://thestorageanarchist.typepad.com/weblog/2009/02/1039-dont-miss-the-amazing-vendor-flash-dance.html) covering the flash strategies of some players in the server and storage spaces. Sun's position on flash comes out a bit mangled, but Barry can certainly be forgiven for missing the mark since Sun hasn't always communicated its [position](http://dtrace.org/blogs/ahl/hsp_goes_glossy) well. Allow me to clarify our version of the flash dance.

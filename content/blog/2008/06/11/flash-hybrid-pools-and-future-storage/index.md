@@ -1,8 +1,9 @@
 ---
 title: "Flash, Hybrid Pools, and Future Storage"
 date: "2008-06-10"
-categories: 
+categories:
   - "fishworks"
+permalink: /2008/06/11/flash-hybrid-pools-and-future-storage/
 ---
 
 Jonathan had a [terrific post](http://blogs.sun.com/jonathan/entry/not_a_flash_in_the) yesterday that does an excellent job of presenting Sun's strategy for flash for the next few years. With my colleagues at Fishworks, an advanced product development team, I've spent more than a year working with flash and figuring out ways to integrate flash into ZFS, the storage hierarchy, and our future storage products — a fact to which John Fowler, EVP of storage, [alluded](http://searchstorage.techtarget.com/news/article/0,289142,sid5_gci1316134,00.html) recently. Flash opens surprising new vistas; it's exciting to see Sun leading in this field, and it's frankly exciting to be part of it.

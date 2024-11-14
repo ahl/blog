@@ -1,8 +1,9 @@
 ---
 title: "gzip for ZFS update"
 date: "2007-01-31"
-categories: 
+categories:
   - "zfs"
+permalink: /2007/01/31/gzip-for-zfs-update/
 ---
 
 The other day I [posted about a prototype](http://dtrace.org/blogs/ahl/a_little_zfs_hack) I had created that adds a **gzip** compression algorithm to ZFS. ZFS already allows administrators to choose to compress filesystems using the [LZJB compression algorithm](http://en.wikipedia.org/wiki/LZJB). This prototype introduced a more effective -- albeit more computationally expensive -- alternative based on [zlib](http://www.zlib.net/).

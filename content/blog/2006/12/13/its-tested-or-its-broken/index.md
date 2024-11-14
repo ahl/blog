@@ -1,8 +1,9 @@
 ---
 title: "It's tested or it's broken"
 date: "2006-12-12"
-categories: 
+categories:
   - "software"
+permalink: /2006/12/13/its-tested-or-its-broken/
 ---
 
 It's amazing how lousy software is. That we as a society have come to accept buggy software as an inevitability is either a testament to our collective tolerance, or -- much more likely -- the near ubiquity of crappy software. So we are guilty of accepting low standards for software, but the smaller we of software writers are guilty of setting those low expectations. And I mean _we_: all of us. Every programmer has at some time written buggy software (or has never written any software of any real complexity), and while we're absolutely at fault its not from lack of exertion. From time immemorial PhD candidates have scratched their whiteboard markers dry in attempts to eliminate bugs with new languages, analysis, programming techniques, and styles. The simplest method for finding bugs before they're released into the wild remains the most generally effective: testing.

@@ -1,9 +1,10 @@
 ---
 title: "Delphix and Flash"
 date: "2013-05-05"
-categories: 
+categories:
   - "delphix"
   - "flash-2"
+permalink: /2013/05/06/delphix-and-flash/
 ---
 
 ![](images/dellight.png "delphix")

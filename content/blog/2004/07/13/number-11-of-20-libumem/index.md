@@ -1,8 +1,9 @@
 ---
 title: "Number 11 of 20: libumem"
 date: "2004-07-13"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/13/number-11-of-20-libumem/
 ---
 
 [go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)

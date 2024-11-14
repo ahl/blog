@@ -1,8 +1,9 @@
 ---
 title: "DTrace OEL Dynamic Language Support"
 date: "2014-12-27"
-categories: 
+categories:
   - "dtrace"
+permalink: /2014/12/27/dtrace-oel-dynamic-language-support/
 ---
 
 We built DTrace to solve problems; at the start, the problems we understood best were our own. In the Solaris Kernel Group we started by instrumenting the kernel and system calls, the user/kernel boundary. Early use required detailed knowledge of kernel internals. As DTrace use grew—within the team, in Sun and then beyond—we extended DTrace to turn every function and every instruction in user programs into probes. We added stable points of instrumentation both in the kernel and in user-land so that no deep knowledge of program or kernel internals would be required.

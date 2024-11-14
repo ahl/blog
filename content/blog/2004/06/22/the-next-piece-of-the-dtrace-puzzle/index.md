@@ -1,8 +1,9 @@
 ---
 title: "The next piece of the DTrace puzzle"
 date: "2004-06-22"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/06/22/the-next-piece-of-the-dtrace-puzzle/
 ---
 
 When we first wrote DTrace, we needed to make sure it satisfied our fundamental goals: stable, safe, extensive, available in production, zero probe effect when disabled. By extensive, we meant that every corner of the system had to be covered, from kernel function calls, and kstats through system calls to any instruction in any process.

@@ -1,15 +1,16 @@
 ---
 title: "A Filesystem on Noms"
 date: "2016-08-09"
-categories: 
+categories:
   - "software"
-tags: 
+tags:
   - "apfs"
   - "btrfs"
   - "fuse"
   - "go"
   - "noms"
   - "zfs"
+permalink: /2016/08/09/nomsfs/
 ---
 
 Since Noms [dropped last week](https://medium.com/@aboodman/noms-init-98b7f0c3566#.ev67mzuzr) the dev community has seemed into it. “Git for data” — it simultaneously evokes something very familiar and yet unconstrained. Something that hasn’t been well-noted is how much care the team has taken to make Noms fun to build with, and it is.

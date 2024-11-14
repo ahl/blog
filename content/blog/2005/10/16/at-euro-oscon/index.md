@@ -1,8 +1,9 @@
 ---
 title: "At Euro OSCON"
 date: "2005-10-16"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2005/10/16/at-euro-oscon/
 ---
 
 This week I'll be in Amsterdam attending and speaking at [Euro OSCON](http://conferences.oreillynet.com/eurooscon/). I'll be running [a session](http://conferences.oreillynet.com/cs/eurooscon/view/e_sess/7933) on [DTrace](http://www.opensolaris.org/os/community/dtrace/) on Thursday at 1:30. For the uninitiated, DTrace is the systemic observability framework in OpenSolaris that allows for tracing of the kernel and applications on production systems. At OSCON in Portland, [Bryan](http://blogs.sun.com/bmc) and [Wez](http://netevil.org/) extended [DTrace into php](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_php) (it already worked on C/C++ and [Java](http://dtrace.org/blogs/ahl/dtracing_java)); since then, the DTrace community has extended DTrace into [Ruby](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_ruby) and [Perl](http://blogs.sun.com/roller/page/alanbur?entry=dtrace_and_perl) -- we'll see if we can come up with something new this week.

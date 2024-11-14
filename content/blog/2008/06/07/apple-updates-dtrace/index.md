@@ -1,8 +1,9 @@
 ---
 title: "Apple updates DTrace"
 date: "2008-06-07"
-categories: 
+categories:
   - "dtrace"
+permalink: /2008/06/07/apple-updates-dtrace/
 ---
 
 Back in January, I [posted about a problem](http://dtrace.org/blogs/ahl/mac_os_x_and_the) with Apple's port of [DTrace](http://opensolaris.org/os/community/dtrace/) to Mac OS X. The heart of the issue is that their port would silently drop data such that certain experiments would be quietly invalid. Unfortunately, [most reactions seized on a headline](http://developers.slashdot.org/article.pl?sid=08/01/22/2156244) paraphrasing a line of the post — albeit with the critical negation omitted (the subject and language were, perhaps, too baroque to expect [the press](http://www.theregister.co.uk/2008/01/22/sun_apple_dtrace/) to read every excruciating word). The good news is that Apple has (quietly) fixed the problem in Mac OS X 10.5.3.

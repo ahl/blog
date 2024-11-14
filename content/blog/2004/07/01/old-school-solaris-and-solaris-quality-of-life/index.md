@@ -1,8 +1,9 @@
 ---
 title: "old school Solaris and Solaris quality of life"
 date: "2004-07-01"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/01/old-school-solaris-and-solaris-quality-of-life/
 ---
 
 I don't like to dwell on past Solaris releases, but in Solaris 9 I wrote a cool update for `nohup(1)`. The `nohup(1)` utility takes a command and its arguments and makes sure that it keeps runnning even if your shell dies or your telnet session drops. Usually the way people use `nohup(1)` is they login from home, start up a long running process, forget that they should have been running it under `nohup(1)` and either take their chances with their ISDN line or kill the process and restart it: `nohup long-running-command ...`.

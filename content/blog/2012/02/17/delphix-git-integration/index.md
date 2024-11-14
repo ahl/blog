@@ -1,11 +1,12 @@
 ---
 title: "Delphix git integration"
 date: "2012-02-16"
-categories: 
+categories:
   - "delphix"
-tags: 
+tags:
   - "git"
   - "zubairkhan"
+permalink: /2012/02/17/delphix-git-integration/
 ---
 
 [![](images/delphix_git-300x225.jpg "delphix_git")](http://ahl.dtrace.org/wp-content/uploads/2012/02/delphix_git.pdf)

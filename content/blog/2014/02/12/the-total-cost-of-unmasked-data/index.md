@@ -1,10 +1,11 @@
 ---
 title: "The Total Cost of Unmasked Data"
 date: "2014-02-12"
-categories: 
+categories:
   - "delphix"
-tags: 
+tags:
   - "masking"
+permalink: /2014/02/12/the-total-cost-of-unmasked-data/
 ---
 
 [![](images/20140125_FNP004_0.jpg "20140125_FNP004_0")](http://ahl.dtrace.org/wp-content/uploads/2014/02/20140125_FNP004_0.jpg)Data breaches make headlines at a regular cadence. Each is a surprise, but they are not, as a whole, surprising. While the [extensive and sophisticated Target breach](http://www.forbes.com/sites/paularosenblum/2014/01/17/the-target-data-breach-is-becoming-a-nightmare/) stuck in the headlines, a significant breach at three South Korean credit card companies happened around the same time. The theft of personal information for 20m subscribers didn't have near the level of sophistication. Developers and contractors were simply given copies of production databases filled with personal information that they shouldn't have been able to access.

@@ -1,8 +1,9 @@
 ---
 title: "Solaris 10 Launch"
 date: "2004-11-17"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/11/17/solaris-10-launch/
 ---
 
 I was at the Solaris 10 launch for most of Monday, and it was a pretty fantastic day for everyone working on Solaris 10. I spent about two hours helping to answer questions in an online chat -- here's the [transcript](http://sunchat.savvis.tv/post/20041115/) -- about Solaris 10 in what was dubbed a webchat sweatshop. There were a bunch of us from the Solaris group as well as Scott and some other execs all huddled around laptops while the HR folks beat the drum at a slow, but steady pace: [These answers have to be on the streets of Hong Kong by morning.](http://www.thesimpsons.com/episode_guide/0401.htm)

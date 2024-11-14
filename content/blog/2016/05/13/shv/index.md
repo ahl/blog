@@ -1,8 +1,9 @@
 ---
 title: "Finding What's Next"
 date: "2016-05-13"
-categories: 
+categories:
   - "shv"
+permalink: /2016/05/13/shv/
 ---
 
 After nearly nine years at Sun and then six at Delphix I’m looking for the next technology, team, and market to dive into. I’ve had the extremely good fortune of working with three groups—the DTrace team, Fishworks at Sun, and Delphix—that featured top-tier technologists working on differentiated products, each of them a wonderful place and time. Most recently, as CTO of Delphix, I grew the engineering team from a tiny seed, and was fortunate enough to be joined by so many people from my past including some of my best best friends and long-term colleagues. I’m forever grateful to the team and to the founder, Jed Yueh, who convinced me to join, knowing better than I the team, company, and products we could build.

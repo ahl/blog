@@ -1,8 +1,9 @@
 ---
 title: "DTrace Insanity at JavaOne"
 date: "2005-06-17"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/06/17/dtrace-insanity-at-javaone/
 ---
 
 Something kind of crazy is going on. I got a call from [Chris](http://blogs.sun.com/chrisra); "Check out what we're going to do at JavaOne," he said. Here's the deal: come to [JavaOne](http://java.sun.com/javaone), bring your Java application (on a usb device or CD or whatever), and we'll[\[1\]](#some_val) improve your application using DTrace. Or you get a free tchotchke -- possibly one of several iPods. Usually you only see this kind of offer at furniture stores, and there's some catch, but this is the real deal: either your application goes faster because of our clever DTrace trickery or you're up some whizzy gadget. I was dubious until I saw the [official announcement](http://www.sun.com/software/solaris/javaone_challenge.jsp).

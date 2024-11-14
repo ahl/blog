@@ -1,14 +1,15 @@
 ---
 title: "The future of Solaris"
 date: "2010-08-27"
-categories: 
+categories:
   - "illumos"
   - "opensolaris"
-tags: 
+tags:
   - "illumos"
   - "opensolaris"
   - "oracle"
   - "sun"
+permalink: /2010/08/27/the-future-of-solaris/
 ---
 
 In 2005, Sun released the source code to Solaris,  described then as the company's crown jewel. Why do this? The simplest answer is that Solaris had been losing ground to an open source competitor in Linux. Losing ground was a symptom of  economics. Students who had once been raised on Solaris were being inculcated with Linux knowlege. The combination of Linux and x86 were good enough and significantly cheaper; new companies for whom the default had once been Sun/Solaris/SPARC were instead building on x86/Linux. OpenSolaris along with x86 support were specifically intended to address this trend. Indeed, the codename for OpenSolaris was "tonic" — the tonic for Solaris' problems.

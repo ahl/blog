@@ -1,8 +1,9 @@
 ---
 title: "a small ZFS hack"
 date: "2007-01-28"
-categories: 
+categories:
   - "zfs"
+permalink: /2007/01/29/a-small-zfs-hack/
 ---
 
 I've been [dabbling](http://dtrace.org/blogs/ahl/double_parity_raid_z) a bit in [ZFS](http://www.opensolaris.org/os/community/zfs/) recently, and what's amazing is not just how well it solved the well-understood filesystem problem, but how its design opens the door to novel ways to manage data. Compression is a great example. An almost accidental by-product of the design is that your data can be stored compressed on disk. This is especially interesting in an era when we have CPU cycles to spare, many too few available IOPs, and disk latencies that you can measure with a stop watch (well, not really, but you get the idea). With ZFS can you trade in some of those spare CPU cycles for IOPs by turning on compression, and the additional latency introduced by decompression is dwarfed by the time we spend twiddling our thumbs waiting for the platter to complete another revolution.

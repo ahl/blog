@@ -1,12 +1,13 @@
 ---
 title: "Joining Delphix"
 date: "2010-08-23"
-categories: 
+categories:
   - "delphix"
-tags: 
+tags:
   - "delphix"
   - "illumos"
   - "opensolaris"
+permalink: /2010/08/24/delphix/
 ---
 
 [![](images/delphix.png "delphix")](http://ahl.dtrace.org/wp-content/uploads/2010/08/delphix.png)As I wrote about last time, [I've left Oracle](http://dtrace.org/blogs/ahl/2010/08/18/leaving_oracle/). What I was looking for in my next gig was technology that excites me, excellent management, and a chance to build something significant and successful. I'm confident that I've found those things with [Delphix](http://www.delphix.com).

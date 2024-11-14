@@ -1,8 +1,9 @@
 ---
 title: "DTrace: a history"
 date: "2006-11-02"
-categories: 
+categories:
   - "dtrace"
+permalink: /2006/11/02/dtrace-a-history/
 ---
 
 An unsurprisingly common [request](http://www.opensolaris.org/jive/thread.jspa?messageID=63888&#63888) on the [DTrace discussion forum](http://www.opensolaris.org/jive/forum.jspa?forumID=7) has been for updated documentation. People have been -- on the whole -- very pleased with the [Solaris Dynamic Tracing Guide](http://docs.sun.com/app/docs/doc/817-6223) that [w](http://blogs.sun.com/mws)[e](http://blogs.sun.com/bmc) worked hard to produce, but I readily admit that we haven't been nearly as diligent in updating it. OK: we haven't updated it at all.

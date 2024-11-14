@@ -1,8 +1,9 @@
 ---
 title: "DTrace User-Land"
 date: "2005-07-19"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/07/20/dtrace-user-land/
 ---
 
 One of the primary motivations for [DTrace](http://www.opensolaris.org/os/community/dtrace/) was the absence of a framework that united observability into all aspects of the system. There were certainly tools for looking at the individual components (iostat(1) for I/O; mpstat(1) and prstat(1) for some basic system monitoring; truss(1), gdb(1), mdb(1) and dbx(1) for examining processes), but correlating the data from the disparate sources was difficult or impossible (tell that to a room of system administrators and they start nodding like a bunch of [Barry Bonds bobble-heads](http://www.encoremusic.com/gift/2850176.html)). DTrace was designed to fill that hole -- to be a framework for _systemic_ analysis and to provide a single interface for observing and combining data from any corner of the system.

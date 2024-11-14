@@ -1,8 +1,9 @@
 ---
 title: "Number 16 of 20: improved watchpoints"
 date: "2004-07-18"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/18/number-16-of-20-improved-watchpoints/
 ---
 
 [go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)

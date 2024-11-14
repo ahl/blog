@@ -1,8 +1,9 @@
 ---
 title: "DTrace and JavaOne: The End of the Beginning"
 date: "2008-04-10"
-categories: 
+categories:
   - "dtrace"
+permalink: /2008/04/10/dtrace-and-javaone-the-end-of-the-beginning/
 ---
 
 It was a good run, but [Jarod](http://www.forsythesunsolutions.com/jarod) and I didn't make the cut for JavaOne this year...

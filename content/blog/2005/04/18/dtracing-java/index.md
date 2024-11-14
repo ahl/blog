@@ -1,8 +1,9 @@
 ---
 title: "DTracing Java"
 date: "2005-04-18"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/04/18/dtracing-java/
 ---
 
 DTrace has cast light on parts of the system that were previously only dimly illuminated by previous tools, but there have been some parts of the system frustratingly left in the dark. The prevalent example is Java. Java has been relatively unobservable with DTrace; the [jstack() action](http://docs.sun.com/app/docs/doc/817-6223/6mlkidlhg?a=view#chp-actsub-39) has offered a narrow beam of light into interactions between Java code and the rest of the system, but we really need is Java probes in the DTrace framework.

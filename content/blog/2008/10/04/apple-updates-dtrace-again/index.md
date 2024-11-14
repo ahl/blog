@@ -1,8 +1,9 @@
 ---
 title: "Apple updates DTrace... again"
 date: "2008-10-04"
-categories: 
+categories:
   - "dtrace"
+permalink: /2008/10/04/apple-updates-dtrace-again/
 ---
 
 Back in January, I [ranted](http://dtrace.org/blogs/ahl/mac_os_x_and_the) about Apple's ham-handed breakage in their DTrace port. After some injured feelings and teary embraces, Apple [cleaned things up a bit](http://dtrace.org/blogs/ahl/apple_updates_dtrace), but some nagging issues remained as I wrote:

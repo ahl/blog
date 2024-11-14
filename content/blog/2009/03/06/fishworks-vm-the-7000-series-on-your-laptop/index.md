@@ -1,8 +1,9 @@
 ---
 title: "Fishworks VM: the 7000 series on your laptop"
 date: "2009-03-06"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/03/06/fishworks-vm-the-7000-series-on-your-laptop/
 ---
 
 ![](images/setup_virtual.png)

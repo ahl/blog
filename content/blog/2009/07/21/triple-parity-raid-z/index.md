@@ -1,9 +1,9 @@
 ---
 title: "Triple-Parity RAID-Z"
 date: "2009-07-21"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "fishworks"
   - "galoisfield"
   - "opensolaris"
@@ -11,6 +11,7 @@ tags:
   - "raidz3"
   - "solaris"
   - "zfs"
+permalink: /2009/07/21/triple-parity-raid-z/
 ---
 
 Double-parity RAID, or RAID-6, is the _de facto_ industry standard for storage; when I started talking about triple-parity RAID for ZFS earlier this year, the need wasn't always immediately obvious. Double-parity RAID, of course, provides protection from up to two failures (data corruption or the whole drive) within a RAID stripe. The necessity of triple-parity RAID arises from the observation that while hard drive capacity has roughly followed Kryder's law, doubling annually, hard drive throughput has improved far more modestly. Accordingly, the time to populate a replacement drive in a RAID stripe is increasing rapidly. Today, a 1TB SAS drive takes about 4 hours to fill at its theoretical peak throughput; in a real-world environment that number can easily double, and 2TB and 3TB drives expected this year and next won't move data much faster. Those long periods spent in a degraded state increase the exposure to the bit errors and other drive failures that would in turn lead to data loss. The industry moved to double-parity RAID because one parity disk was insufficient; longer resilver times mean that we're spending more and more time back at single-parity. From that it was obvious that double-parity will soon become insufficient. (I'm working on an article that examines these phenomena quantitatively so stay tuned... **update Dec 21, 2009:** you can find the article [here](http://dtrace.org/blogs/ahl/acm_triple_parity_raid))

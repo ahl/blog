@@ -1,16 +1,17 @@
 ---
 title: "illumos and ZFS days"
 date: "2012-11-25"
-categories: 
+categories:
   - "illumos"
   - "zfs"
-tags: 
+tags:
   - "hsp"
   - "illumos"
   - "opensolaris"
   - "oraclesolaris"
   - "talk"
   - "zfs"
+permalink: /2012/11/25/illumos-and-zfs-days/
 ---
 
 Back in October I was pleased to attend -- and my employer, Delphix, was pleased to sponsor -- [illumos day and ZFS day](http://zfsday.com), run concurrently with Oracle Open World. Inspired by the success of dtrace.conf(12) in the Spring, the goal was to assemble developers, practitioners, and users of ZFS and illumos-derived distributions to educate, share information, and discuss the future.

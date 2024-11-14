@@ -1,12 +1,13 @@
 ---
 title: "The OpenZFS write throttle"
 date: "2014-02-09"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "mattahrens"
   - "openzfs"
   - "performance"
+permalink: /2014/02/10/the-openzfs-write-throttle/
 ---
 
 ![](images/American-Flyer-Trains-1949-page-27.jpg)

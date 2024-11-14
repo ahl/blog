@@ -1,6 +1,7 @@
 ---
 title: "Austin API Summit Wrap-up"
 date: "2024-04-17"
+permalink: /2024/04/17/austin-api-summit-wrap-up/
 ---
 
 I started the year thinking that we had done some neat work in the Rust / API / OpenAPI ecosystem and I wanted to talk about it. I found my people at the Nordic APIs Austin Summit; it’s a conference that had been on my radar for a while, but it was my first time attending. I was pleasantly surprised by how interesting the sessions and conversations were… and was pleased to share some stuff we’ve been up to.

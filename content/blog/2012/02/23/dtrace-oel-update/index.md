@@ -1,12 +1,13 @@
 ---
 title: "DTrace OEL update"
 date: "2012-02-23"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "dtrace"
   - "oel"
   - "oracle"
+permalink: /2012/02/23/dtrace-oel-update/
 ---
 
 A few months ago I took [DTrace on OEL](http://dtrace.org/blogs/ahl/2011/10/05/dtrace-for-linux-2/) for a spin after Oracle announced it. The [results were ugly](http://dtrace.org/blogs/ahl/2011/10/10/oel-this-is-not-dtrace/); as one of the authors of DTrace, I admit to being shocked by shoddiness of the effort. Yesterday, [Oracle dropped an updated beta](https://blogs.oracle.com/wim/entry/dtrace_update_to_0_2) so I wanted to see how far they've come in the 4+ months since that initial false start.

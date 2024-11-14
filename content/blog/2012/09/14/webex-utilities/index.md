@@ -1,11 +1,12 @@
 ---
 title: "Webex utilities"
 date: "2012-09-14"
-categories: 
+categories:
   - "delphix"
-tags: 
+tags:
   - "mac-os-x"
   - "webex"
+permalink: /2012/09/14/webex-utilities/
 ---
 
 I wish that none of our customers encountered problems with our product, but they do, and when they do our means for remotely accessing their systems is often via a Webex shared screen. We remotely control their Delphix server to collect data (often using DTrace). While investigating a customer issue recently I developed a couple of techniques to work around common problems; I thought I'd share them in case others have similar problems -- and as a note to my future self who will certainly forget the specifics next time.

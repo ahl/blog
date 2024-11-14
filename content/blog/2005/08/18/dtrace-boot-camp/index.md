@@ -1,8 +1,9 @@
 ---
 title: "DTrace boot camp"
 date: "2005-08-18"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/08/18/dtrace-boot-camp/
 ---
 
 I just got back from an extended DTrace world tour -- Prague, Watford, London, San Francisco, Los Angeles, and San Diego. Along the way, I gave a couple of workshops on using DTrace. The slides are far from finished[\[1\]](#slides_story), but if you're learning DTrace, they might be a good place to start. The workshop is designed to take you through DTrace gradually and includes many examples and exercises.

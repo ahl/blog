@@ -1,8 +1,9 @@
 ---
 title: "The mysteries of _init"
 date: "2005-09-15"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2005/09/15/the-mysteries-of-_init/
 ---
 
 I hadn't been fully aware that I felt this way, but I recently had a realization: I love the linker. It's a technology that's amazing in both its simplicity and its complexity. I'm sure my feelings are influenced in no small way by the caliber of the engineers working on it -- [Rod](/rie) and [Mike](/msw) are always eager to explain how the some facet of the linker works or to add something new and whizzy if it can't quite do what I need.

@@ -1,8 +1,9 @@
 ---
 title: "Inside nohup -p"
 date: "2004-07-09"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/09/inside-nohup-p/
 ---
 
 I always thought it was cool, but I was surprised by the amount of [interest](http://www.evilrob.org/journal/archives/000078.html) expressed for my [recent post](http://dtrace.org/blogs/ahl/old_school_solaris_and_solaris) on `nohup -p`. There was even a comment asking how `nohup` manages the trick of redirecting the output of a running process. I'll describe in some detail now `nohup -p` works.

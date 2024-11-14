@@ -1,8 +1,9 @@
 ---
 title: "Sun Storage 7000 simulator upgrade"
 date: "2009-04-27"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/04/27/sun-storage-7000-simulator-upgrade/
 ---
 
 ![](images/photo_virtual.png)

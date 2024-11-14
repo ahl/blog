@@ -1,8 +1,9 @@
 ---
 title: "Delphix Sync"
 date: "2015-11-04"
-categories: 
+categories:
   - "delphix"
+permalink: /2015/11/04/delphix-sync/
 ---
 
 [![](images/ahl_sync-300x235.jpg "ahl_sync")](http://ahl.dtrace.org/wp-content/uploads/2015/11/ahl_sync.jpg)Oracle OpenWorld is always a huge event for us at Delphix; it brings together our customers and partners like nothing else. And so it was the perfect venue to launch our new Delphix user group: Sync.

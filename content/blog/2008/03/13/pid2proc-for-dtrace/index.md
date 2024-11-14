@@ -1,8 +1,9 @@
 ---
 title: "pid2proc for DTrace"
 date: "2008-03-12"
-categories: 
+categories:
   - "dtrace"
+permalink: /2008/03/13/pid2proc-for-dtrace/
 ---
 
 The other day, there was an [interesting post](http://opensolaris.org/jive/thread.jspa?threadID=54199&tstart=0) on the DTrace mailing list asking how to **derive a process name from a pid**. This really ought to be a built-in feature of D, but it isn't (at least not yet). I hacked up a solution to the user's problem by cribbing the algorithm from mdb's `::pid2proc` function whose source code you can find [here](http://cvs.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/cmd/mdb/common/modules/mdb_ks/mdb_ks.c#mdb_pid2proc). The basic idea is that you need to look up the pid in `pidhash` to get a chain of `struct pid` that you need to walk until you find the pid in question. This in turn gives you an index into `procdir` which is an array of pointers to proc structures. To find out more about these structures, poke around the source code or `mdb -k` which is what I did.

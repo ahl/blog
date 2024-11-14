@@ -1,8 +1,9 @@
 ---
 title: "DTrace on Geek Muse"
 date: "2006-06-16"
-categories: 
+categories:
   - "dtrace"
+permalink: /2006/06/16/dtrace-on-geek-muse/
 ---
 
 [DTrace](http://www.opensolaris.org/os/community/dtrace/) was recently featured on [episode 35](http://geekmuse.net/blog/index.php?entry=entry060607-224250) of [Geek Muse](http://geekmuse.net/). DTrace was brought to their attention because of John Birrell's [recent work](http://blogs.sun.com/roller/page/bmc?entry=dtrace_on_freebsd) to port it to FreeBSD (nice work, John!). The plug was nice, but I did want to respond to a few things:

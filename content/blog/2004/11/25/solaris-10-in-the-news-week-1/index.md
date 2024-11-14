@@ -1,8 +1,9 @@
 ---
 title: "Solaris 10 in the news: week 1"
 date: "2004-11-25"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/11/25/solaris-10-in-the-news-week-1/
 ---
 
 It's been just over a week since we officially launched Solaris 10 and the reactions from the press have been all over the map. Consider these two declarations:

@@ -1,15 +1,16 @@
 ---
 title: "Double-Parity RAID-Z"
 date: "2006-06-18"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "galoisfield"
   - "opensolaris"
   - "raid-z"
   - "raidz2"
   - "solaris"
   - "zfs"
+permalink: /2006/06/18/double-parity-raid-z/
 ---
 
 When ZFS first started, it was just [Jeff](http://blogs.sun.com/bonwick) trying to pair old problems with new solutions in margins too small to contain either. Then [Matt](http://blogs.sun.com/ahrens) joined up to bring some young blood to the project. By the time the project putback, the team had grown to more than a dozen. And now I've been pulled in -- if only for a cameo.

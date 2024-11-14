@@ -1,8 +1,9 @@
 ---
 title: "My New DTrace Favorite"
 date: "2012-07-27"
-categories: 
+categories:
   - "dtrace"
+permalink: /2012/07/28/my-new-dtrace-favorite/
 ---
 
 The mantra as we initially developed DTrace was to make impossible things possible, not easy things easier. Since codifying that, the tendency toward the latter in developer tools has been apparent. Our focus on the former however has left certain usability burrs that stymie newbies, and annoy vets. Much of the DTrace development of late has focused on a middle category: simplifying hard things that should be simple.

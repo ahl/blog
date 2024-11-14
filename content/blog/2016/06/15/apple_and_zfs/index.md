@@ -1,11 +1,12 @@
 ---
 title: "ZFS: Apple's New Filesystem That Wasn't"
 date: "2016-06-15"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "apple"
   - "mac-os-x"
+permalink: /2016/06/15/apple_and_zfs/
 ---
 
 #### Prologue (2006)

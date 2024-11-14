@@ -1,8 +1,9 @@
 ---
 title: "Inside Solaris Express"
 date: "2004-08-19"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/08/19/inside-solaris-express/
 ---
 
 Since a few people in various forums have been asking about it, I thought I'd explain a little about how [Solaris Express](http://wwws.sun.com/software/solaris/solaris-express/sol_index.html) works. I know the story best from the kernel side, but keep in mind there are other parts of Solaris -- Java, the X server, etc. -- that have slightly different processes.

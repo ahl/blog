@@ -1,8 +1,9 @@
 ---
 title: "User-land tracing gets better and better"
 date: "2006-05-08"
-categories: 
+categories:
   - "dtrace"
+permalink: /2006/05/08/user-land-tracing-gets-better-and-better/
 ---
 
 As I've mentioned in the past, developers can add their own DTrace probes using the [user-land statically defined tracing](http://docs.sun.com/app/docs/doc/817-6223/6mlkidlms?a=view) (USDT) mechanism. It's been used to instrument [Postgres](http://www.sun.com/software/solaris/postgres.jsp) and [Apache](http://daemons.net/~matty/code/apache.html), and to add observability into dynamic languages such as [Java](http://blogs.sun.com/roller/page/kamg?entry=built_in_dtrace_probes_in), [Ruby](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_ruby), and [php](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_php). I recently made a couple of improvements to USDT that I mentioned [here](http://www.opensolaris.org/jive/thread.jspa?messageID=23815&#23815) and [here](http://www.opensolaris.org/jive/thread.jspa?messageID=31314), but I think deserve a little more discussion.

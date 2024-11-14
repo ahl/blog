@@ -1,8 +1,9 @@
 ---
 title: "Sanity and FUD"
 date: "2005-02-17"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2005/02/17/sanity-and-fud/
 ---
 
 With all the [FUD](http://news.zdnet.co.uk/software/linuxunix/0,39020390,39188058,00.htm) coming out of Red Hat, I thought the online rags would fall all over themselves to call shotgun on the anti-Solaris bandwagon. But LinuxInsider seems to have planted their flag on [rational reporting](http://www.linuxinsider.com/story/Red-Hat-Wont-Eclipse-Sun-with-New-Release-Say-Analysts-40633.html):

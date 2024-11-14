@@ -1,8 +1,9 @@
 ---
 title: "DTrace at Home"
 date: "2016-12-17"
-categories: 
+categories:
   - "dtrace"
+permalink: /2016/12/18/dtrace-at-home/
 ---
 
 I had been procrastinating making the family holiday card. It was a combination of having a lot on my plate and dreading the formulation of our annual note recapping the year; there were some great moments, but I’m glad I don’t have to do 2016 again. It was just before midnight and either I’d make the card that night or leave an empty space on our friends’ refrigerators. Adobe Illustrator had other ideas:

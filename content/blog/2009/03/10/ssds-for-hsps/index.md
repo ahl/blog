@@ -1,8 +1,9 @@
 ---
 title: "SSDs for HSPs"
 date: "2009-03-10"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/03/10/ssds-for-hsps/
 ---
 
 ![](images/fimm.png)

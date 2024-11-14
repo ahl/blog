@@ -1,8 +1,9 @@
 ---
 title: "DTrace is open"
 date: "2005-01-25"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/01/25/dtrace-is-open/
 ---
 
 It's a pretty exciting day for the DTrace team as our code is the first part of Solaris to be released under the CDDL. I thought I'd take the opportunity to end my blogging hiatus and to draw attention to some of my favorite corners of the code. [Bryan](http://blogs.sun.com/bmc) has written an exhaustive overview of the code structure as well as some of his favorite parts of the code.

@@ -1,11 +1,12 @@
 ---
 title: "Engineers and customers"
 date: "2011-06-03"
-categories: 
+categories:
   - "delphix"
   - "software"
-tags: 
+tags:
   - "delphix"
+permalink: /2011/06/03/engineers-and-customers/
 ---
 
 Today I took the train out to Long Island to meet up with our New York sales team for a visit with a prospective customer. You never know with an initial meeting, but this one was great. I thought I'd share a bit about what made these guys so excited which is the same stuff that gets me excited about what we're doing at [Delphix](http://www.delphix.com).

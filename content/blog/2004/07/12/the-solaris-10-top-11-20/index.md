@@ -1,8 +1,9 @@
 ---
 title: "The Solaris 10 top 11-20"
 date: "2004-07-12"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/12/the-solaris-10-top-11-20/
 ---
 
 Solaris 10 has _way_ more features than any release of Solaris that I can remember, and Sun's been marketing the hell out of them. Here's my top 10 list roughly in order of how cool I think each is:

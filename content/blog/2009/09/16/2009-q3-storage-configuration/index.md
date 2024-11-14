@@ -1,8 +1,9 @@
 ---
 title: "2009.Q3 Storage Configuration"
 date: "2009-09-16"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/09/16/2009-q3-storage-configuration/
 ---
 
 Today we shipped our [2009.Q3 release](http://blogs.sun.com/fishworks/entry/sun_storage_7000_2009_q3). Amidst the many great new features, enhancements and bug fixes, we've added new storage profiles for [triple-parity RAID](http://dtrace.org/blogs/ahl/triple_parity_raid_z) and three-way mirroring. Here's an example on a 9 JBOD system of what you'll see in the updated storage configuration screen:

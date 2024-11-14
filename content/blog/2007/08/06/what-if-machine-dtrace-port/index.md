@@ -1,8 +1,9 @@
 ---
 title: "What-If Machine: DTrace Port"
 date: "2007-08-05"
-categories: 
+categories:
   - "dtrace"
+permalink: /2007/08/06/what-if-machine-dtrace-port/
 ---
 
 ![](images/whatifmachine.jpg)  

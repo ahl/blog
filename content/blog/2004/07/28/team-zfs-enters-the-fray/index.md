@@ -1,8 +1,9 @@
 ---
 title: "team ZFS enters the fray"
 date: "2004-07-28"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/28/team-zfs-enters-the-fray/
 ---
 
 Two members of the ZFS team have joined the blogging fray. Check out [Matt Ahrens](http://blogs.sun.com/ahrens)'s and [Val Henson](http://blogs.sun.com/val)'s weblogs.

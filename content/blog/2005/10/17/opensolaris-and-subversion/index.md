@@ -1,8 +1,9 @@
 ---
 title: "OpenSolaris and Subversion"
 date: "2005-10-17"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2005/10/17/opensolaris-and-subversion/
 ---
 
 I just attended [Brian W. Fitzpatrick](http://www.red-bean.com/fitz/)'s [talk on Subversion](http://conferences.oreillynet.com/cs/eurooscon/view/e_sess/7444) at [EuroOSCON](http://conferences.oreillynet.com/eurooscon/). Brian did a great job and Subversion looks like a really complete replacement for cvs -- the stated goal of the project. What I was particularly interested in was the feasibility of using Subversion as the revision control system for [OpenSolaris](http://opensolaris.org); according to the [road map](http://opensolaris.org/os/about/roadmap/) we still have a few months to figure it out, but, as my grandmother always said while working away at her mechanical Turing machine, time flies when you're debating the merits of various revision control systems.

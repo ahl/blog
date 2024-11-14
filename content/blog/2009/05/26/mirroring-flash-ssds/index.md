@@ -1,8 +1,9 @@
 ---
 title: "Mirroring flash SSDs"
 date: "2009-05-26"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/05/26/mirroring-flash-ssds/
 ---
 
 ![](images/ssd_mirror.png)

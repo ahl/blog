@@ -1,8 +1,9 @@
 ---
 title: "Presentation: Hybrid Storage Pools and SSDs"
 date: "2009-03-07"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/03/07/presentation-hybrid-storage-pools-and-ssds/
 ---
 
 [![](images/leventhal_wish_2009.jpg)](http://dtrace.org/resources/ahl/leventhal_wish_2009.pdf)

@@ -1,8 +1,9 @@
 ---
 title: "iSCSI DTrace provider and more to come"
 date: "2007-07-03"
-categories: 
+categories:
   - "dtrace"
+permalink: /2007/07/04/iscsi-dtrace-provider-and-more-to-come/
 ---
 
 People often ask about the future direction of DTrace, and while we have some stuff planned for the core infrastructure, the future is really about extending DTrace's scope into every language, protocol, and application with new providers -- and this development is being done by many different members of the DTrace community. An important goal of this new work is to have consistent providers that work predictably. To that end, [Brendan](http://blogs.sun.com/brendan/) and I have started to [sketch out an array of providers](http://www.solarisinternals.com/wiki/index.php/DTrace_Topics) so that we can build a consistent model.

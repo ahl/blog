@@ -1,8 +1,9 @@
 ---
 title: "OpenSolaris and svk"
 date: "2005-10-19"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2005/10/19/opensolaris-and-svk/
 ---
 
 Today at [EuroOSCON](http://conferences.oreillynet.com/eurooscon/), I attended a introductory [talk on svn](http://conferences.oreillynet.com/cs/eurooscon/view/e_sess/7293) by [Chia-liang Kao](http://svk.elixus.org/?ChiaLiangKao). I was hopeful that [svk](http://svk.elixus.org/) might address [some of the issues](http://dtrace.org/blogs/ahl/opensolaris_and_subversion) that I thought would prevent us from adopting Subversion for [OpenSolaris](http://opensolaris.org). In particular, Subversion requires a centralized repository whereas svk, which is built on top of Subversion, provides the distributed revision control system that we'd need. After the talk, my overall impression was that svk seemed to lack a certain polish, but after struggling to phrase that in less subjective terms, I'm coming around a bit.

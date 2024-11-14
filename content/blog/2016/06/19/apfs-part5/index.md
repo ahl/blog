@@ -1,12 +1,13 @@
 ---
 title: "APFS in Detail: Data Integrity"
 date: "2016-06-19"
-categories: 
+categories:
   - "software"
-tags: 
+tags:
   - "apfs"
   - "checksums"
   - "raid"
+permalink: /2016/06/19/apfs-part5/
 ---
 
 _This series of posts covers APFS, Apple's new filesystem announced at WWDC 2016. See the [first post]( http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1) for the table of contents._

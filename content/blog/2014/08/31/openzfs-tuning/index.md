@@ -1,15 +1,16 @@
 ---
 title: "Tuning the OpenZFS write throttle"
 date: "2014-08-31"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "dtrace"
   - "mattahrens"
   - "openzfs"
   - "performance"
   - "tuning"
   - "zfs"
+permalink: /2014/08/31/openzfs-tuning/
 ---
 
 [![](images/Magnetic-Fun-and-Facts-300x207.jpg "Magnetic-Fun-and-Facts")](http://ahl.dtrace.org/wp-content/uploads/2014/08/Magnetic-Fun-and-Facts.jpg)In previous posts I discussed [the problems with the legacy ZFS write throttle](http://dtrace.org/blogs/ahl/2013/12/27/zfs-fundamentals-the-write-throttle/) that cause degraded performance and wildly variable latencies. I then presented the [new OpenZFS write throttle and I/O scheduler](http://dtrace.org/blogs/ahl/2014/02/10/the-openzfs-write-throttle/) that Matt Ahrens and I designed. In addition to solving several problems in ZFS, the new approach was designed to be easy to reason about, measure, and adjust. In this post I’ll cover performance analysis and tuning — using DTrace of course. These details are intended for those using OpenZFS and trying to optimize performance — if you have only a casual interest in ZFS consider yourself warned!

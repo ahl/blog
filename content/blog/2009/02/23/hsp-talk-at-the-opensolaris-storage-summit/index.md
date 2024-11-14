@@ -1,8 +1,9 @@
 ---
 title: "HSP talk at the OpenSolaris Storage Summit"
 date: "2009-02-23"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/02/23/hsp-talk-at-the-opensolaris-storage-summit/
 ---
 
 [![](images/opensolaris_hsp.jpg)](http://dtrace.org/resources/ahl/opensolaris_hsp.pdf)

@@ -1,8 +1,9 @@
 ---
 title: "Hybrid Storage Pools: The L2ARC"
 date: "2008-07-23"
-categories: 
+categories:
   - "fishworks"
+permalink: /2008/07/23/hybrid-storage-pools-the-l2arc/
 ---
 
 I've [written recently](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm) about the hybrid storage pool (HSP), using ZFS to augment the conventional storage stack with flash memory. The resulting system improve performance, cost, density, capacity, power dissipation — pretty much evey axis of importance.

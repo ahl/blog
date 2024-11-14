@@ -1,9 +1,9 @@
 ---
 title: "OpenZFS: the next phase of ZFS development"
 date: "2013-09-16"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "freebsd"
   - "illumos"
   - "linux"
@@ -11,6 +11,7 @@ tags:
   - "mattahrens"
   - "openzfs"
   - "zfs"
+permalink: /2013/09/17/openzfs/
 ---
 
 [![](images/openzfs-trans.png "openzfs-trans")](http://ahl.dtrace.org/wp-content/uploads/2013/09/openzfs-trans.png)I've been watching ZFS from moments after its inception at the hands of [Matt Ahrens](http://blog.delphix.com/matt/) and Jeff Bonwick, so I'm excited to see it enter its newest phase of development in [OpenZFS](http://open-zfs.org/wiki/Announcement). While ZFS has long been regarded as the hottest filesystem on 128 bits, and has shipped in many different products, what's been most impressive to me about ZFS development has been the constant iteration and reinvention.

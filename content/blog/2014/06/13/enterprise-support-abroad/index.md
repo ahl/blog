@@ -1,8 +1,9 @@
 ---
 title: "Enterprise support and the term abroad"
 date: "2014-06-12"
-categories: 
+categories:
   - "delphix"
+permalink: /2014/06/13/enterprise-support-abroad/
 ---
 
 <!-- ![signs](images/signs.jpeg) -->

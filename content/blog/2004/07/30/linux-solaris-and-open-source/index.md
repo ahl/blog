@@ -1,8 +1,9 @@
 ---
 title: "Linux, Solaris, and Open Source"
 date: "2004-07-30"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/30/linux-solaris-and-open-source/
 ---
 
 This past week at [OSCON](http://conferences.oreillynet.com/os2004/) I've spent my time trying to understand open source processes, talking about Solaris, and trying to figure out what OpenSolaris is going to look like.

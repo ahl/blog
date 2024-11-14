@@ -1,8 +1,9 @@
 ---
 title: "DTrace Presentation at JavaOne"
 date: "2005-06-30"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/06/30/dtrace-presentation-at-javaone/
 ---
 
 Thanks to everyone who attended Jarod's and my talk this afternoon at JavaOne and especially to those who had to go to the overflow room. The rest of the DTrace team and I were thrilled by the turnout -- we would never have thought that 900+ Java developers would be so interested in DTrace. We spent the next few hours hashing out some ways to get better support for Java in DTrace; we look forward to giving an update at next year's conference.

@@ -1,8 +1,9 @@
 ---
 title: "JavaOne DTrace Session 2006"
 date: "2006-05-22"
-categories: 
+categories:
   - "dtrace"
+permalink: /2006/05/22/javaone-dtrace-session-2006/
 ---
 
 Jarod Jenson and I presented at JavaOne last week. If you're interested, here are the slides we used:

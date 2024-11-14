@@ -1,8 +1,9 @@
 ---
 title: "Apple's DTrace team"
 date: "2006-08-07"
-categories: 
+categories:
   - "dtrace"
+permalink: /2006/08/07/dtrace_on_mac_os_x/
 ---
 
 As [Bryan](http://blogs.sun.com/bmc) wrote, [Apple has ported DTrace to Mac OS X](http://blogs.sun.com/roller/page/bmc?entry=dtrace_on_mac_os_x). The Apple kernel team invited us to the WWDC today for the (albeit muted) announcement of their DTrace support, and then for a demo and dinner. It was surprisingly fun to play with DTrace on another OS, and it was a true pleasure to talk to the Apple guys who worked on the port. And it's my pleasure to introduce those engineers to the DTrace community at large:

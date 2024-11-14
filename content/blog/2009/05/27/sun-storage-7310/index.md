@@ -1,8 +1,9 @@
 ---
 title: "Sun Storage 7310"
 date: "2009-05-26"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/05/27/sun-storage-7310/
 ---
 
 ![](images/maguro.png)

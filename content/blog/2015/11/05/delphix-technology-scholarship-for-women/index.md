@@ -1,8 +1,9 @@
 ---
 title: "Delphix Technology Scholarship for Women"
 date: "2015-11-05"
-categories: 
+categories:
   - "delphix"
+permalink: /2015/11/05/delphix-technology-scholarship-for-women/
 ---
 
 Walk around almost any software development shop or university CS department and you’ll be struck by the underrepresentation of women. At least you would be were this not an expected norm of our industry. And of course much has been written about this recently hot topic in Silicon Valley. What do companies and organizations do about it? At Delphix our culture is one of focus and purpose; our approach to diversity follows in that spirit.

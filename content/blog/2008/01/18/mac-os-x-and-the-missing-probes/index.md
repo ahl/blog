@@ -1,8 +1,9 @@
 ---
 title: "Mac OS X and the missing probes"
 date: "2008-01-18"
-categories: 
+categories:
   - "dtrace"
+permalink: /2008/01/18/mac-os-x-and-the-missing-probes/
 ---
 
 As has been [thoroughly](http://www.mactech.com/articles/mactech/Vol.23/23.11/ExploringLeopardwithDTrace/index.html) [recorded](http://dtrace.org/blogs/ahl/dtrace_on_mac_os_x), Apple has [included DTrace in Mac OS X](http://www.apple.com/macosx/technology/unix.html). I've been using it as often as I have the opportunity, and it's a joy to be able to use the fruits of our labor on another operating system. But I hit a rather surprising case recently which led me to discover a **serious** problem with Apple's implementation.

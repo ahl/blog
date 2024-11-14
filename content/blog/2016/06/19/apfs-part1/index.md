@@ -5,6 +5,7 @@ categories:
   - "software"
 tags:
   - "apfs"
+permalink: /2016/06/19/apfs-part1/
 ---
 
 <img src="images/wwdc16-og.jpg" alt="Description" class="float-right">Apple announced a new file system that will make its way into all of its OS variants (macOS, tvOS, iOS, watchOS) in the coming years. Media coverage to this point has been mostly breathless elongations of [Apple’s developer documentation](https://developer.apple.com/library/prerelease/content/documentation/FileManagement/Conceptual/APFS_Guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40016999-CH1-DontLinkElementID_27). With a dearth of detail I decided to attend the [presentation](http://devstreaming.apple.com/videos/wwdc/2016/701q0pnn0ietcautcrv/701/701_introducing_apple_file_system.pdf) and Q&A with the APFS team at WWDC. Dominic Giampaolo and Eric Tamura, two members of the APFS team, [gave an overview to a packed room](https://developer.apple.com/videos/play/wwdc2016/701/); along with other members of the team, they patiently answered questions later in the day. With those data points and some first hand usage I wanted to provide an overview and analysis both as a user of Apple-ecosystem products and as a long-time operating system and file system developer.

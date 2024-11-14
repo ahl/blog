@@ -1,8 +1,9 @@
 ---
 title: "On Blogging (Briefly)"
 date: "2015-03-04"
-categories: 
+categories:
   - "delphix"
+permalink: /2015/03/04/on-blogging/
 ---
 
 I gave a presentation today on the methods and reasons of blogging for Delphix Engineering.

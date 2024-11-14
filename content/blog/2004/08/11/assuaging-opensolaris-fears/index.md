@@ -1,8 +1,9 @@
 ---
 title: "Assuaging OpenSolaris fears"
 date: "2004-08-11"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/08/11/assuaging-opensolaris-fears/
 ---
 
 While trawling through b.s.c., a comment caught my eye in this [post](http://blogs.sun.com/roller/comments/gaw/Weblog/hey_jane_stop_this_crazy) from [Glenn's weblog](http://blogs.sun.com/gaw):

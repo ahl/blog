@@ -1,14 +1,15 @@
 ---
 title: "DTrace Knockoffs"
 date: "2007-08-02"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "dtrace"
   - "linux"
   - "opensource"
   - "solaris"
   - "systemtap"
+permalink: /2007/08/02/dtrace-knockoffs/
 ---
 
 **Update 8/6/2007:** Those of you interested in this entry may also want to check out [my next entry](http://dtrace.org/blogs/ahl/what_if_machine_dtrace_port) on the legality of a hypothetical port of DTrace to Linux.

@@ -1,14 +1,15 @@
 ---
 title: "DTrace for Linux"
 date: "2005-12-13"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "brandz"
   - "dtrace"
   - "linux"
   - "opensolaris"
   - "solaris"
+permalink: /2005/12/13/dtrace-for-linux/
 ---
 
 With [BrandZ](http://opensolaris.org/os/community/brandz), it's now possible to use [DTrace](http://opensolaris.org/os/community/dtrace) on Linux applications. For the uninitiated, DTrace is the dynamic tracing facility in [OpenSolaris](http://opensolaris.org); it allows for **systemic** analysis of a scope and precision unequalled in the industry. With DTrace, administrators and developers can trace low level services like I/O and scheduling, up the system stack through kernel functions calls, system calls, and system library calls, and into applications written in C and C++ or any of a host of dynamic languages like Java, Ruby, Perl or php. One of my contributions to BrandZ was to extend DTrace support for Linux binaries executed in a branded Zone.

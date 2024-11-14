@@ -1,13 +1,14 @@
 ---
 title: "Hybrid Storage Pools in CACM"
 date: "2008-07-01"
-categories: 
+categories:
   - "fishworks"
-tags: 
+tags:
   - "cacm"
   - "flash"
   - "hsp"
   - "zfs"
+permalink: /2008/07/01/hybrid-storage-pools-in-cacm/
 ---
 
 [![](images/cacm_2008_07.jpg)](http://mags.acm.org/communications/200807)

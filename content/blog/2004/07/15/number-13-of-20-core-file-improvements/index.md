@@ -1,8 +1,9 @@
 ---
 title: "Number 13 of 20: Core file improvements"
 date: "2004-07-15"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/15/number-13-of-20-core-file-improvements/
 ---
 
 [go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)

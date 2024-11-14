@@ -1,8 +1,9 @@
 ---
 title: "Casting the shadow of the Hybrid Storage Pool"
 date: "2008-12-01"
-categories: 
+categories:
   - "fishworks"
+permalink: /2008/12/01/casting-the-shadow-of-the-hybrid-storage-pool/
 ---
 
 ![](images/ssd1.png)

@@ -1,8 +1,9 @@
 ---
 title: "DTrace time"
 date: "2004-10-29"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/10/29/dtrace-time/
 ---
 
 The other day I spent some time with a customer tuning their app using DTrace. I hadn't done much work on apps outside of Sun, so I was excited to see what I could do with DTrace other people's code. I'm certainly not the first person to use DTrace on a real-world app (I'm probably the 10,000th), so I had some expectations to live up to.

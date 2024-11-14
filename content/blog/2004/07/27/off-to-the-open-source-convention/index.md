@@ -1,8 +1,9 @@
 ---
 title: "off to the Open Source Convention..."
 date: "2004-07-27"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/27/off-to-the-open-source-convention/
 ---
 
 This afternoon, I'm leaving for [OSCON](http://conferences.oreillynet.com/os2004) (easily confused with the [bi-mon-sci-fi-con](http://www.snpp.com/episodes/AABF05)). Here in Solaris Kernel Development we've been talking a bunch about the impending open sourcing of Solaris and what that's going to look like. I'm very excited about OpenSolaris itself, and I'm looking forward to talking to folks at OSCON to hear what they think.

@@ -1,15 +1,16 @@
 ---
 title: "Farewell to Bryan Cantrill"
 date: "2010-08-12"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "bryancantrill"
   - "dtrace"
   - "ffmf"
   - "fishworks"
   - "joyent"
   - "opensolaris"
+permalink: /2010/08/12/bye_bye_bmc/
 ---
 
 I've been expecting this automated mail for a while now, but it was disheartening nonetheless:

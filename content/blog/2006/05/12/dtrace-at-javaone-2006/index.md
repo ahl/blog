@@ -1,8 +1,9 @@
 ---
 title: "DTrace at JavaOne 2006"
 date: "2006-05-12"
-categories: 
+categories:
   - "dtrace"
+permalink: /2006/05/12/dtrace-at-javaone-2006/
 ---
 
 At last year's JavaOne, [DTrace](http://www.opensolaris.org/os/community/dtrace/) enjoyed some modicum of celebrity, being featured in [a keynote](http://dtrace.org/blogs/ahl/dtrace_in_the_javaone_keynote), [a session](http://dtrace.org/blogs/ahl/dtrace_presentation_at_javaone), and [the DTrace challenge](http://dtrace.org/blogs/ahl/crazy_dtrace_java_challenge). The session was attended by about 1,000 people (out of about 10,000 at the conference), and the DTrace Challenge -- which promised to find a performance win in Java applications brought to us or fork over an iPod -- went an [impressive 15 for 16](http://blogs.sun.com/roller/page/chrisra?entry=solaris_performance_challenge_at_javaone) (and that one outlier was a trivial 200 line program -- we've added a 2,000 line minimum this year).

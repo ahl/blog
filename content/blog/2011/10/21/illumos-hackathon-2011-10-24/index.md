@@ -1,8 +1,9 @@
 ---
 title: "illumos hackathon on October, 24"
 date: "2011-10-20"
-categories: 
+categories:
   - "illumos"
+permalink: /2011/10/21/illumos-hackathon-2011-10-24/
 ---
 
 [![](images/IllumosPhoenixRGB.png "IllumosPhoenixRGB")](http://ahl.dtrace.org/wp-content/uploads/2011/10/IllumosPhoenixRGB.png)On Monday, the Delphix systems crew is rolling down the 101 to the illumos hackathon in San Jose. Anyone who's working on [illumos](https://www.illumos.org/), developing illumos-derived technologies like [ZFS](http://en.wikipedia.org/wiki/ZFS) or [DTrace](http://en.wikipedia.org/wiki/DTrace), or who wants to cut some OS code, should drop by. Here's the [sign up](http://www.eventbrite.com/event/2334121420).

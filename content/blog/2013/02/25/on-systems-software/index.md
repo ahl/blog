@@ -1,10 +1,11 @@
 ---
 title: "On Systems Software"
 date: "2013-02-24"
-categories: 
+categories:
   - "software"
-tags: 
+tags:
   - "systems"
+permalink: /2013/02/25/on-systems-software/
 ---
 
 ![](images/cctv.jpeg)]

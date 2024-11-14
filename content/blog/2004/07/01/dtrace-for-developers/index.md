@@ -1,8 +1,9 @@
 ---
 title: "DTrace for developers"
 date: "2004-07-01"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/07/01/dtrace-for-developers/
 ---
 
 After presenting our [paper](http://www.sun.com/bigadmin/content/dtrace/dtrace_usenix.pdf) at [USENIX](http://www.usenix.org/events/usenix04/index.html) on Monday, I was talking with a CMU student who said, "DTrace sounds cool, but I'm not a sysadmin or anything..." When we talk about DTrace we often discuss it with a bias towards sysadmins or sytem integrators, but that's just because those folks have been working with nothing for years. DTrace is a [developer's dream](http://slashdot.org/~kma/journal/75427) come true; it lets you see any aspect of a program and in any way you can imagine.

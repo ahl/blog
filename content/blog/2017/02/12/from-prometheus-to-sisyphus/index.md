@@ -1,8 +1,9 @@
 ---
 title: "From Prometheus to Sisyphus"
 date: "2017-02-12"
-categories: 
+categories:
   - "dtrace"
+permalink: /2017/02/12/from-prometheus-to-sisyphus/
 ---
 
 When Apple announced their new file system, APFS, in June, I hustled to be in the front row of the WWDC presentation, questions with the presenters, and then the open Q&A session. I took a week to write up my notes which turned into as 12 page behemoth of a blog post — longer than my college thesis. Despite [reassurances from the tweeps](https://twitter.com/ahl/status/743258869523087361), I was sure that the blog post was an order of magnitude longer than the modern attention span. I was wrong; so wrong that Ars Technica wanted to republish the blog post. [Never underestimate the interest in all things Apple](https://developers.slashdot.org/story/08/01/22/2156244/apple-crippled-its-dtrace-port).

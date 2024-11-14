@@ -1,15 +1,16 @@
 ---
 title: "The case of the un-unmountable tmpfs"
 date: "2011-12-12"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "anonymous"
   - "boot"
   - "dtrace"
   - "pageout"
   - "tmpfs"
   - "zfs"
+permalink: /2011/12/12/the-case-of-the-unmountable-tmpfs/
 ---
 
 Every once in a rare while our development machines encounter an fatal error during boot because we couldn't unmount tmpfs. This weekend I cracked the case, so I thought I'd share my uses of [boot-time DTrace](http://wikis.sun.com/display/DTrace/Anonymous+Tracing), and the musty corners of the operating systems that I encountered along the way. First I should explain a little bit about what happens during boot and why we were unmounting a tmpfs filesystem.

@@ -1,8 +1,9 @@
 ---
 title: "the pid provider and &gt; 10 arguments"
 date: "2005-04-04"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/04/04/the-pid-provider-and-10-arguments/
 ---
 
 A long-time DTrace user was recently examining an ugly C++ application, and this obvious DTrace invocation to trace the 15th argument (zero-indexed) to a particularly ugly function:

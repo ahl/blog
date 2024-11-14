@@ -1,13 +1,14 @@
 ---
 title: "Another reason Apple misses ZFS"
 date: "2011-05-20"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "apple"
   - "hsp"
   - "l2arc"
   - "zfs"
+permalink: /2011/05/20/another-reason-apple-misses-zfs/
 ---
 
 Apple recently announced a new iMac model -- in itself, only as notable as the seasons -- but with an interesting option: users can choose to have [**both** an HDD and an SSD](http://www.tuaw.com/2011/05/04/new-imacs-and-hdd-ssd-configurations-how-do-they-work/). Their use of these two is absolutely pedestrian, as noted on the Apple store:

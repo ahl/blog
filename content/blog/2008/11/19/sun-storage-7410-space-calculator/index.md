@@ -1,8 +1,9 @@
 ---
 title: "Sun Storage 7410 space calculator"
 date: "2008-11-19"
-categories: 
+categories:
   - "fishworks"
+permalink: /2008/11/19/sun-storage-7410-space-calculator/
 ---
 
 ![](images/storagecalc.png)

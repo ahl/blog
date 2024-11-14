@@ -1,8 +1,9 @@
 ---
 title: "Flash Memory Summit 2009"
 date: "2009-08-11"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/08/12/flash-memory-summit-2009/
 ---
 
 ![](images/fms.png)

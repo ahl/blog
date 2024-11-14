@@ -1,8 +1,9 @@
 ---
 title: "from linux.kernel"
 date: "2004-06-29"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/06/29/from-linux-kernel/
 ---
 
 I noticed the following usenet post the other day:

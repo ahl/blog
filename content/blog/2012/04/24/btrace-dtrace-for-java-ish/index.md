@@ -1,12 +1,13 @@
 ---
 title: "BTrace: DTrace for Java... ish"
 date: "2012-04-24"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "btrace"
   - "dtrace"
   - "java"
+permalink: /2012/04/24/btrace-dtrace-for-java-ish/
 ---
 
 DTrace [first peered into Java](http://dtrace.org/blogs/ahl/2005/04/18/dtracing-java/) in early 2005 thanks to an early prototype by Jarod Jenson that led eventually to the inclusion of USDT probes in the [HotSpot JVM](http://en.wikipedia.org/wiki/HotSpot). If you want to see where, say, the java.net.SocketOutputStream.write() method is called, you can simply run this DTrace script:

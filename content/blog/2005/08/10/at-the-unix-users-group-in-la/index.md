@@ -1,8 +1,9 @@
 ---
 title: "At the Unix Users' Group in LA"
 date: "2005-08-10"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/08/10/at-the-unix-users-group-in-la/
 ---
 
 Next week I'll be continuing the DTrace world tour in LA and San Diego (see [Matt's](http://blogs.sun.com/roller/page/mingenthron) [announcement](http://blogs.sun.com/roller/page/mingenthron?entry=announcement_adam_leventhal_scheduled_in)). On Monday, August 15 from 7pm-9pm I'll be talk to the [Unix Users' Group](http://www.bolthole.com/uuala/) here:  

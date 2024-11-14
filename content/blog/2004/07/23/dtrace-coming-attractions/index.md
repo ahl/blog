@@ -1,8 +1,9 @@
 ---
 title: "DTrace: coming attractions"
 date: "2004-07-23"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/07/23/dtrace-coming-attractions/
 ---
 
 I haven't been as prolific a blog writer as I like for the last few days because I've been working morning, noon, and night on some pretty cool new stuff for DTrace. Here's a teaser, I promise I'll give you more later when I have it all working:

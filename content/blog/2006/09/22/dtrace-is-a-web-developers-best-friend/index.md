@@ -1,8 +1,9 @@
 ---
 title: "DTrace is a web developer's best friend"
 date: "2006-09-22"
-categories: 
+categories:
   - "dtrace"
+permalink: /2006/09/22/dtrace-is-a-web-developers-best-friend/
 ---
 
 I have this friend who might be most accurately described as a web developer. When DTrace was able to [observe php](http://blogs.sun.com/bmc/entry/dtrace_and_php_demonstrated) he was interested. Me: "I should give you a demo some time." Him: "Absolutely..."

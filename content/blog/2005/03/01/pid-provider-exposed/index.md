@@ -1,8 +1,9 @@
 ---
 title: "pid provider exposed"
 date: "2005-03-01"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/03/01/pid-provider-exposed/
 ---
 
 In the kernel group, we occasionally give presentations on interesting work we've been doing. Last week, I gave a talk on the implementation the DTrace pid provider, and -- in the spirit of community that the [OpenSolaris](http://opensolaris.org/) project has engendered -- I'm posting it on my blog:

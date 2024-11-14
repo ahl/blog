@@ -1,8 +1,9 @@
 ---
 title: "I Love Go; I Hate Go"
 date: "2016-08-01"
-categories: 
+categories:
   - "software"
+permalink: /2016/08/02/i-love-go-i-hate-go/
 ---
 
 I liked Go right away. It was close enough to C and Java to be instantly familiar, the examples and tutorials were straightforward, and I was quickly writing real code. I've wanted to learn Go since its [popularity was surging](http://redmonk.com/sogrady/2016/07/20/language-rankings-6-16/#advanced_iframe) few years ago. In no danger of being judged an early adopter, I happily found a great project that—as it happened—had to be in Go (more in a future post).

@@ -1,14 +1,15 @@
 ---
 title: "ZFS trivia: metaslabs and growing vdevs"
 date: "2012-11-08"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "georgewilson"
   - "mattahrens"
   - "metaslab"
   - "spacemap"
   - "zfs"
+permalink: /2012/11/08/zfs-trivia-metaslabs/
 ---
 
 Lately, I've been rooting around in the bowels of [ZFS](http://en.wikipedia.org/wiki/ZFS) as we've explored some long-standing performance pathologies. To that end I've been fortunate to learn at the feet of [Matt Ahrens](http://blog.delphix.com/matt/) who was half of the ZFS founding team and George Wilson who has forgotten more about ZFS than most people will ever know. I wanted to start sharing some of the interesting details I've unearthed.

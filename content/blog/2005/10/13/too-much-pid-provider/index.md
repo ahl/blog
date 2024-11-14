@@ -1,8 +1,9 @@
 ---
 title: "Too much pid provider"
 date: "2005-10-13"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/10/13/too-much-pid-provider/
 ---
 
 Perhaps it's a bit Machiavellian, but I just love code that in some way tricks another piece of code. For example, in college I wrote some code that trolled through the address space of my favorite game to afford me certain advantages. Most recently, I've been working on some code that tricks other code into believing a complete fiction[\[1\]](#fearslut) about what operating system it's executing on. While working on that, I discovered an interesting problem with the [pid provider](http://docs.sun.com/app/docs/doc/817-6223/6mlkidlls?a=view) -- code that's all about deception and sleight of hand. Before you read further, be warned: I've already written two completely numbing accounts of the details of the pid provider [here](http://dtrace.org/blogs/ahl/pid_provider_exposed) and [here](http://dtrace.org/blogs/ahl/the_pid_provider_and_10), and this is going to follow much in that pattern. If you skip this one for fear of being bored to death[\[2\]](#bored), I won't be offended.

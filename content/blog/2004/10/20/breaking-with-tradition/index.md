@@ -1,8 +1,9 @@
 ---
 title: "breaking with tradition"
 date: "2004-10-20"
-categories: 
+categories:
   - "other"
+permalink: /2004/10/20/breaking-with-tradition/
 ---
 
 In this weblog, I've tried to stick to the facts, talk about the things I know about DTrace, Solaris and the industry, and not stray into the excrutiating minutia of the rest of my life. But:

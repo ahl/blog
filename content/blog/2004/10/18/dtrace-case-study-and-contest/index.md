@@ -1,8 +1,9 @@
 ---
 title: "DTrace case study and contest"
 date: "2004-10-18"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/10/18/dtrace-case-study-and-contest/
 ---
 
 Jay Danielson has posted a great [case study](http://developers.sun.com/solaris/articles/dtrace_for_dev.html) of using DTrace to solve a problem porting a linux driver to Solaris. It's not an incredibly complicated example, but I find this kind of tracking a problem from symptoms to root cause to be very helpful at understanding how to use DTrace.

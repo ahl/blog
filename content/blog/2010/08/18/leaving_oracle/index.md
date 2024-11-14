@@ -1,13 +1,14 @@
 ---
 title: "Leaving Oracle"
 date: "2010-08-18"
-categories: 
+categories:
   - "fishworks"
-tags: 
+tags:
   - "dtrace"
   - "fishworks"
   - "oracle"
   - "solaris"
+permalink: /2010/08/18/leaving_oracle/
 ---
 
 I joined the Solaris Kernel Group in 2001 at what turned out to be a remarkable place and time for the industry. More by luck and intuition than by premonition, I found myself surrounded by superlative engineers working on revolutionary technologies that were the products of their own experience and imagination rather than managerial fiat. I feel very lucky to have worked with [Bryan](http://dtrace.org/blogs/bmc) and [Mike](http://blogs.sun.com/mws) on DTrace; it was amazing that just down the hall our colleagues reinvented the operating system with Zones, ZFS, FMA, SMF and other innovations.

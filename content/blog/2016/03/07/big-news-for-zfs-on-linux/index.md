@@ -1,8 +1,9 @@
 ---
 title: "Big News for ZFS on Linux"
 date: "2016-03-07"
-categories: 
+categories:
   - "zfs"
+permalink: /2016/03/07/big-news-for-zfs-on-linux/
 ---
 
 ![](images/Ubuntu-old.png "Ubuntu")Canonical announced a few weeks ago that ZFS will be included in the next release of Ubuntu Linux, on by default and fully supported. And it’s no exaggeration when Dustin Kirkland describes ZFS as "[one of the most exciting new features Linux has seen in a very long time.](https://insights.ubuntu.com/2016/02/16/zfs-is-the-fs-for-containers-in-ubuntu-16-04/)” In the words of our 47th Vice President, [this is a big F—ing deal](https://www.youtube.com/watch?v=HHKq9tt50O8). Ubuntu is an [extremely popular Linux distribution](https://en.wikipedia.org/wiki/Ubuntu_(operating_system)#Installed_base), particularly so for servers, and while the Linux ecosystem doesn’t want for variety when it comes to filesystem choices, there is not a clear champion when it comes to stability, functionality, and performance. By throwing their full weight behind ZFS, Canonical brings the Linux community an enterprise-class, modern filesystem, stable, but still under active development, designed to perform well for a variety of workloads.

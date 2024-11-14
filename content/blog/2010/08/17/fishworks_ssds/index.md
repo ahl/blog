@@ -1,9 +1,9 @@
 ---
 title: "Fishworks history of SSDs"
 date: "2010-08-17"
-categories: 
+categories:
   - "fishworks"
-tags: 
+tags:
   - "fishworks"
   - "flash"
   - "hsp"
@@ -11,6 +11,7 @@ tags:
   - "ssd"
   - "sun"
   - "zfs"
+permalink: /2010/08/17/fishworks_ssds/
 ---
 
 [![](images/ssd_history.jpg "ssd_history")](http://ahl.dtrace.org/wp-content/uploads/2010/08/ssd_history.jpg) This year's flash memory summit got me thinking about our use of SSDs over the years at Fishworks. The picture of our left is a visual history of SSD evals in rough chronological order from the oldest at the bottom to the newest at the top (including some that have yet to see the light of day).

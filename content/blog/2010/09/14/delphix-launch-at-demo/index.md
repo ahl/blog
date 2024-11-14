@@ -1,15 +1,16 @@
 ---
 title: "Delphix launch at DEMO"
 date: "2010-09-14"
-categories: 
+categories:
   - "delphix"
-tags: 
+tags:
   - "delphix"
   - "dtrace"
   - "fishworks"
   - "tivo"
   - "virtualization"
   - "vmware"
+permalink: /2010/09/14/delphix-launch-at-demo/
 ---
 
 At 4:08pm today, we will launch Delphix Server at DEMO. At the presentation, Richard Rothschild from TiVo will describe how they have been using Delphix. [TiVo](http://www.tivo.com/), of course, has been canonized as technology that changes the way we live or work. My past work on [DTrace](http://en.wikipedia.org/wiki/DTrace) was described by users as "[TiVo for the kernel](http://quantblog.wordpress.com/2008/10/01/dtrace-fascinating-hilarious-google-video-talk/)" — a revolutionary technology from which there is no going back. The comment that “[Delphix is like TiVo for databases](http://delphix.com/company.php?tab=demo2010news)" is all the more profound coming from the Senior Director of IT at TiVo.

@@ -1,8 +1,9 @@
 ---
 title: "a new view into software"
 date: "2004-08-31"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/08/31/a-new-view-into-software/
 ---
 
 As [Bryan](http://blogs.sun.com/bmc) has observed the past, software has a quality unique to engineering disciplines in that you can build it, but you can't see it. [DTrace](http://www.sun.com/bigadmin/content/dtrace/) changes that by opening windows into parts of the system that were previously unobservable and it does so in a way that minimally changes what you're attempting to observe -- this software "uncertainty principle" has limited the utility of previous observability tools. One of the darkest areas of debugging in user-land has been around **lock contention**.

@@ -1,8 +1,9 @@
 ---
 title: "Number 18 of 20: pmap(1) improvements"
 date: "2004-07-17"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/17/number-18-of-20-pmap1-improvements/
 ---
 
 [go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)

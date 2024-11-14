@@ -1,8 +1,9 @@
 ---
 title: "back from the DTrace road show"
 date: "2004-10-05"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/10/05/back-from-the-dtrace-road-show/
 ---
 
 A number of factors have conspired to keep me away from blogging, not the least of which being that I've been on a coast-to-coast DTrace road show. Now that I'm back, I've got some news to report from the road.

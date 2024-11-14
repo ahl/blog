@@ -1,8 +1,9 @@
 ---
 title: "A glimpse into Netapp's flash future"
 date: "2008-08-11"
-categories: 
+categories:
   - "fishworks"
+permalink: /2008/08/11/a-glimpse-into-netapps-flash-future/
 ---
 
 The latest edition of [Communications of the ACM](http://cacm.acm.org/) includes a [panel discussion](http://mags.acm.org/communications/200808/?pg=47) between "seven world-class storage experts". The primary topic was flash memory and how it impacts the world of storage. The most interesting comment came from Steve Kleiman, Senior Vice President and Chief Scientist at Netapp:

@@ -1,9 +1,10 @@
 ---
 title: "DTrace probes in Rust"
 date: "2023-12-29"
-categories: 
+categories:
   - "dtrace"
 coverImage: "Untitled.jpg"
+permalink: /2023/12/29/dtrace-probes-in-rust/
 ---
 
 DTrace's User-land Statically-Defined Tracing (USDT) was... kind of an accident. [Bryan](https://mastodon.social/@bcantrill) has (kindly) retconned the genesis of USDT as a way to understand dynamic languages\[citation needed\]. Indeed, it's been essential for that, but its origins were much less ambitious or prescient.

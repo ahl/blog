@@ -1,8 +1,9 @@
 ---
 title: "Real Java debugging w/ DTrace"
 date: "2005-05-29"
-categories: 
+categories:
   - "dtrace"
+permalink: /2005/05/29/real-java-debugging-w-dtrace/
 ---
 
 When I was in [college](http://www.brown.edu) one of the rights of passage in the [computer science](http://www.cs.brown.edu) department was the [software engineering class](http://www.cs.brown.edu/courses/cs032) which involved a large group project. Fresh from completing that class, my brother turned up the other day in San Francisco (where I live); naturally I wanted to try out the game he and his friends had written. [Hogs](http://sourceforge.net/projects/hogs/) is a 3-D tank game written in Java -- when it failed to run on my Solaris 10 laptop I decided to use the new [DTrace agents for the JVM](https://solaris10-dtrace-vm-agents.dev.java.net/) that I blogged about recently.

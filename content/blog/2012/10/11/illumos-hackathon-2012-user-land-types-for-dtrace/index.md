@@ -1,14 +1,15 @@
 ---
 title: "illumos hackathon 2012: user-land types for DTrace"
 date: "2012-10-11"
-categories: 
+categories:
   - "dtrace"
-tags: 
+tags:
   - "dtrace"
   - "hackathon"
   - "illumos"
   - "pid"
   - "user-land"
+permalink: /2012/10/11/illumos-hackathon-2012-user-land-types-for-dtrace/
 ---
 
 At the illumos hackathon last week, [Robert Mustacchi](http://dtrace.org/blogs/rm/) and I prototyped better support for manipulating user-land structures. As anyone who's used it knows, DTrace is currently very kernel-centric -- this both reflects the reality of how operating systems and DTrace are constructed, and the origins of DTrace itself in the Solaris Kernel Group. Discussions at [dtrace.conf(12)](http://dtrace.org/blogs/ahl/2012/04/09/dtrace-conf12-wrap-up/) this spring prompted me to chart a path to better user-land support. This prototype of copyin-automagic was a first step.

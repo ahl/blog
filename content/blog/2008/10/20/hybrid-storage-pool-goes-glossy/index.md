@@ -1,8 +1,9 @@
 ---
 title: "Hybrid Storage Pool goes glossy"
 date: "2008-10-20"
-categories: 
+categories:
   - "fishworks"
+permalink: /2008/10/20/hybrid-storage-pool-goes-glossy/
 ---
 
 ![](images/hsp_glossy.jpg)

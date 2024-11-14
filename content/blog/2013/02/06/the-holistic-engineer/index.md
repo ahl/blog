@@ -1,8 +1,9 @@
 ---
 title: "The Holistic Engineer"
 date: "2013-02-06"
-categories: 
+categories:
   - "software"
+permalink: /2013/02/06/the-holistic-engineer/
 ---
 
 [![](images/erectorsets-300x205.jpg "erectorsets")](http://ahl.dtrace.org/wp-content/uploads/2013/02/erectorsets.jpg)The idea of the holistic engineer embodies the point of view that an engineer needs to consider the whole system, the whole body of work that makes a product successful. It bears no relation to [holistic health](http://en.wikipedia.org/wiki/Holistic_health) -- and it's not some even newer age quackery. There are many specialist roles in the software industry -- marketing, product management, project management, documentation, education, support, etc. -- but the best software engineers are generalists who can assume a portion of each specialty. Further, some software is particularly well-suited for generalists who can combine a deep understanding of the market, the technology, and the implementation.

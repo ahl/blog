@@ -1,8 +1,9 @@
 ---
 title: "Debugging cross calls on OpenSolaris"
 date: "2005-06-14"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2005/06/14/debugging-cross-calls-on-opensolaris/
 ---
 
 I think the thing I love most about debugging software is that each tough bug can seem like an insurmountable challenge -- until you figure it out. But until you do, each tough bugs is the hardest problem you've ever had to solve. There are weeks when every morning presents me with a seemingly impossible challenge, and each afternoon I get to spike my keyboard and do a little victory dance before running for the [train](http://www.caltrain.com).

@@ -1,11 +1,12 @@
 ---
 title: "Delphix CEO joins the blogosphere"
 date: "2010-11-14"
-categories: 
+categories:
   - "delphix"
-tags: 
+tags:
   - "delphix"
   - "jedyueh"
+permalink: /2010/11/15/delphix-ceo-joins-the-blogosphere/
 ---
 
 Welcome to Jed Yueh, our CEO at Delphix, who recently posted his [first blog entry](http://blog.delphix.com/jyueh/2010/12/21/clarity-and-creativity/).

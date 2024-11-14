@@ -1,9 +1,9 @@
 ---
 title: "Flash news I wish I could read"
 date: "2011-07-01"
-categories: 
+categories:
   - "flash-2"
-tags: 
+tags:
   - "compellent"
   - "emc"
   - "flash"
@@ -14,6 +14,7 @@ tags:
   - "sun"
   - "theregister"
   - "zfs"
+permalink: /2011/07/01/flash-news-i-wish-i-could-read/
 ---
 
 For a short while, I ran the flash memory strategy at Sun and then Oracle, so I still keep my ear to the ground regarding flash news. That news is often frustratingly light — journalists in the space who are fully capable of providing analysis end up brushing the surface. With a tip of the hat to the [FJM](http://www.firejoemorgan.com/) crew, here's my commentary on a [recent article](http://www.theregister.co.uk/2011/07/01/netapp_hybrid_aggregates/).

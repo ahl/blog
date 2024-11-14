@@ -1,8 +1,9 @@
 ---
 title: "SS 7000 simulator update plus VirtualBox"
 date: "2009-05-04"
-categories: 
+categories:
   - "fishworks"
+permalink: /2009/05/04/ss-7000-simulator-update-plus-virtualbox/
 ---
 
 On the heels of the 2009.Q2.0.0 release, we've posted an update to the [Sun Storage 7000 simulator](http://dtrace.org/blogs/ahl/fishworks_vm). The simulator contains the exact same software as the other members of the 7000 series, but runs inside a VM rather than on actual hardware. It supports all the same features, and has all the same UI components; just remember that an actual 7000 series appliance is going to perform significantly better than a VM running a [puny laptop CPU](http://blogs.sun.com/bmc/entry/moore_s_outlaws). Download the simulator [here](http://www.sun.com/storage/disk_systems/unified_storage/resources.jsp).

@@ -1,8 +1,9 @@
 ---
 title: "DTrace @ JavaOne 2007"
 date: "2007-05-28"
-categories: 
+categories:
   - "dtrace"
+permalink: /2007/05/28/dtrace-javaone-2007/
 ---
 
 This year, [Jarod Jenson](http://www.sun.com/bigadmin/content/dtrace/blogs/jarod/) and I gave an updated version of our DTrace for Java (technology-based applications) talk:

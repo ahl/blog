@@ -1,8 +1,9 @@
 ---
 title: "2010.Q1 simulator"
 date: "2010-03-31"
-categories: 
+categories:
   - "fishworks"
+permalink: /2010/03/31/2010-q1-simulator/
 ---
 
 ![](images/photo_virtual.png)

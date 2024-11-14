@@ -1,8 +1,9 @@
 ---
 title: "DTrace &quot;Scobleized&quot;"
 date: "2007-07-05"
-categories: 
+categories:
   - "dtrace"
+permalink: /2007/07/05/dtrace-scobleized/
 ---
 
 ![](images/scoble.png)

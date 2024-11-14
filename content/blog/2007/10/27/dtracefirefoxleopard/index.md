@@ -1,8 +1,9 @@
 ---
 title: "DTrace/Firefox/Leopard"
 date: "2007-10-27"
-categories: 
+categories:
   - "dtrace"
+permalink: /2007/10/27/dtracefirefoxleopard/
 ---
 
 It's been more than a year since [I first saw DTrace on Mac OS X](http://dtrace.org/blogs/ahl/dtrace_on_mac_os_x), and now it's at last generally available to the public. Not only did Apple port DTrace, but they've also included a bunch of USDT providers. Perl, Python, Ruby -- they all ship in Leopard with built-in DTrace probes that allow developers to observe function calls, object allocation, and other points of interest from the perspective of that dynamic language. Apple did make some odd choices (e.g. no [Java provider](http://java.sun.com/javase/6/docs/technotes/guides/vm/dtrace.html), spurious modifications to the publicly available providers, a different build process), but on the whole it's very impressive.

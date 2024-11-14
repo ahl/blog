@@ -1,8 +1,9 @@
 ---
 title: "Number 20 of 20: event ports"
 date: "2004-07-21"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/21/number-20-of-20-event-ports/
 ---
 
 [go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)

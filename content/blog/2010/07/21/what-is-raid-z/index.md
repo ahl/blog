@@ -1,15 +1,16 @@
 ---
 title: "What is RAID-Z?"
 date: "2010-07-21"
-categories: 
+categories:
   - "zfs"
-tags: 
+tags:
   - "fishworks"
   - "hsp"
   - "jeffbonwick"
   - "raid"
   - "raid-z"
   - "zfs"
+permalink: /2010/07/21/what-is-raid-z/
 ---
 
 The mission of ZFS was to simplify storage and to construct an enterprise level of quality from volume components by building smarter software — indeed that notion is at the heart of the [7000 series](http://www.oracle.com/us/products/servers-storage/storage/unified-storage/index.html). An important piece of that puzzle was eliminating the expensive RAID card used in traditional storage and replacing it with high performance, software RAID. To that end, [Jeff invented RAID-Z](http://blogs.sun.com/bonwick/entry/raid_z); it's key innovation over other software RAID techniques was to close the "RAID-5 write hole" by using variable width stripes. RAID-Z, however, is definitely not RAID-5 despite that being the most common comparison.

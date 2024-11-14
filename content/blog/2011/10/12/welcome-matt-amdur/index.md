@@ -1,12 +1,13 @@
 ---
 title: "Welcome Matt Amdur"
 date: "2011-10-12"
-categories: 
+categories:
   - "delphix"
-tags: 
+tags:
   - "delphix"
   - "dtrace"
   - "mattamdur"
+permalink: /2011/10/12/welcome-matt-amdur/
 ---
 
 It's my pleasure to welcome Matt Amdur to Delphix, to the world of DTrace, and -- just today -- to the blogosphere. Matt joined [Delphix](http://www.delphix.com/) about two months after 10 years of software engineering, most recently at VMware. Matt and I met in at Brown University in 1997 where we worked together closely for all four years. We've had in the back of our minds that our professional lives would converge at some point; I couldn't be happier to have my good friend onboard.

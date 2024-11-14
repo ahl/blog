@@ -1,8 +1,9 @@
 ---
 title: "I am not a resource"
 date: "2015-09-24"
-categories: 
+categories:
   - "other"
+permalink: /2015/09/24/i-am-not-a-resource/
 ---
 
 \[youtube\_sc url="https://youtu.be/4RV3RXMNGVs?list=FLnl7t6fBvSzzUoPv0pn9G1g" end="20" modestbranding="1" width="244" class="align right"\]

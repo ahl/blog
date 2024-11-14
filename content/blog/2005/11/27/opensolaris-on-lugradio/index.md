@@ -1,8 +1,9 @@
 ---
 title: "OpenSolaris on LugRadio"
 date: "2005-11-27"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2005/11/27/opensolaris-on-lugradio/
 ---
 
 The good folks over at [LugRadio](http://www.lugradio.org) (that [LUG](http://en.wikipedia.org/wiki/Linux_User_Group); not the other [LUG](http://en.wikipedia.org/wiki/Lesbian_until_graduation) of course) invited me on their show to answer some of their questions about [OpenSolaris](http://opensolaris.org). You can find it in the [latest episode](http://www.lugradio.org/episodes/38). Check your volume before you start playing the episode: the first reference to masturbation is approximately 6 seconds in.

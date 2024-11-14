@@ -1,8 +1,9 @@
 ---
 title: "Baby's first DTrace"
 date: "2004-11-18"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/11/18/babys-first-dtrace/
 ---
 
 At the Solaris 10 launch on Monday I was talking to a sysadmin about DTrace. He was clearly very excited about it -- finally he could end a fight between the database guys and the appserver guys about whose stuff was to blame -- but he had one reservation: Where do I start? Since DTrace lets you look at almost anything on the system, it can be hard knowing the first thing to look at, here's what I told him:

@@ -1,8 +1,9 @@
 ---
 title: "Number 17 of 20: java stack traces"
 date: "2004-07-20"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/07/20/number-17-of-20-java-stack-traces/
 ---
 
 [go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)

@@ -1,10 +1,11 @@
 ---
 title: "Lessons from a decade of blogging"
 date: "2014-06-17"
-categories: 
+categories:
   - "other"
-tags: 
+tags:
   - "blogging"
+permalink: /2014/06/17/lessons-from-a-decade-of-blogging/
 ---
 
 [![](images/wayback_19771.jpg "wayback_1977")](http://ahl.dtrace.org/wp-content/uploads/2014/06/wayback_19771.jpg)I started my blog [June 17, 2004](http://dtrace.org/blogs/ahl/2004/06/17/warm-up-the-propaganda-machine/), tempted by the opportunity of Sun’s blogging policy, and cajoled by [Bryan Cantrill](http://dtrace.org/blogs/bmc)’s presentation to the Solaris Kernel Team “Guerrilla Marketing” (net: Sun has forgotten about Solaris so let’s get the word out). I was a skeptical blogger. I even resisted the contraction “blog”, insisting on calling it “[Adam Leventhal's Weblog](https://blogs.oracle.com/ahl/)” as if linguistic purity would somehow elevate me above the vulgar blogspotter opining over toothpaste brands. (That linguistic purity did not, however, carry over into my early writing — my goodness it was painful to open that unearthed time capsule.)

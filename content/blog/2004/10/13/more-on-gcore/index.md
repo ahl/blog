@@ -1,8 +1,9 @@
 ---
 title: "more on gcore"
 date: "2004-10-13"
-categories: 
+categories:
   - "opensolaris"
+permalink: /2004/10/13/more-on-gcore/
 ---
 
 Trawling through b.s.c I noticed [Fintan Ryan](http://blogs.sun.com/fintanr) [talking](http://blogs.sun.com/roller/page/fintanr/20041011#gcore) about [gcore(1)](http://docs.sun.com/db/doc/816-5165/6mbb0m9h7?a=view), and I realized that I hadn't sufficently promoted this cool utility. As part of my work adding [variable core file content](http://dtrace.org/blogs/ahl/number_13_of_20_core), I rewote gcore from scratch (it used to be a real pile) to add a few new features and to make it use libproc (i.e. make it slightly less of a pile).

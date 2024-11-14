@@ -1,8 +1,9 @@
 ---
 title: "open challenge: vim for DTrace"
 date: "2004-11-02"
-categories: 
+categories:
   - "dtrace"
+permalink: /2004/11/02/open-challenge-vim-for-dtrace/
 ---
 
 Inspired by the [Ansari X-Prize](http://www.xprize.org/), I thought I'd start issuing open challenges to the community of DTrace and Solaris users. This isn't because I hate you, or even because I like you necessarily: it's because I'm lazy. Or if not lazy, at least busy. So my first open challenge is this:

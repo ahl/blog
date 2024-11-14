@@ -1,15 +1,16 @@
 ---
 title: "On RAID-6 recovery"
 date: "2011-09-21"
-categories: 
+categories:
   - "software"
-tags: 
+tags:
   - "evenodd"
   - "flash"
   - "raid"
   - "raid-6"
   - "rdp"
   - "zfs"
+permalink: /2011/09/21/on-raid-6-recovery/
 ---
 
 \[latexpage\] RAID algorithms have become a particular fascination of mine, and I recently read a [very interesting paper that describes an optimization for RAID reconstruction](http://www.cse.cuhk.edu.hk/~cslui/PUBLICATION/TOS.pdf) (by Xiang, Xu, Lui, Chang, Pan, and Li). Before writing [double-](http://dtrace.org/blogs/ahl/2006/06/18/double-parity-raid-z/) and [triple-parity](http://dtrace.org/blogs/ahl/2009/07/21/triple-parity-raid-z/) RAID algorithms for ZFS, I spent a fair bit of time researching the subject and have stayed interested since. Before describing the reconstruction optimization, some preamble is required. RAID algorithms can be divided into two buckets: one-dimensional algorithms, and multi-dimensional algorithms (terms of my own choosing; I haven't seen this distinction discussed in literature).

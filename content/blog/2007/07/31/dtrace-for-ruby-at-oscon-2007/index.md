@@ -1,8 +1,9 @@
 ---
 title: "DTrace for Ruby at OSCON 2007"
 date: "2007-07-31"
-categories: 
+categories:
   - "dtrace"
+permalink: /2007/07/31/dtrace-for-ruby-at-oscon-2007/
 ---
 
 [![](images/dtrace_ruby_oscon_2007.gif)](http://dtrace.org/resources/ahl/dtrace_ruby_oscon_2007.pdf)
