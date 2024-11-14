@@ -1,13 +1,13 @@
 ---
 title: "APFS in Detail: Overview"
 date: "2016-06-19"
-categories: 
+categories:
   - "software"
-tags: 
+tags:
   - "apfs"
 ---
 
-[![](images/wwdc16-og-300x300.jpg "wwdc16-og")](http://ahl.dtrace.org/wp-content/uploads/2016/06/wwdc16-og.jpg)Apple announced a new file system that will make its way into all of its OS variants (macOS, tvOS, iOS, watchOS) in the coming years. Media coverage to this point has been mostly breathless elongations of [Apple’s developer documentation](https://developer.apple.com/library/prerelease/content/documentation/FileManagement/Conceptual/APFS_Guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40016999-CH1-DontLinkElementID_27). With a dearth of detail I decided to attend the [presentation](http://devstreaming.apple.com/videos/wwdc/2016/701q0pnn0ietcautcrv/701/701_introducing_apple_file_system.pdf) and Q&A with the APFS team at WWDC. Dominic Giampaolo and Eric Tamura, two members of the APFS team, [gave an overview to a packed room](https://developer.apple.com/videos/play/wwdc2016/701/); along with other members of the team, they patiently answered questions later in the day. With those data points and some first hand usage I wanted to provide an overview and analysis both as a user of Apple-ecosystem products and as a long-time operating system and file system developer.
+<img src="images/wwdc16-og.jpg" alt="Description" class="float-right">Apple announced a new file system that will make its way into all of its OS variants (macOS, tvOS, iOS, watchOS) in the coming years. Media coverage to this point has been mostly breathless elongations of [Apple’s developer documentation](https://developer.apple.com/library/prerelease/content/documentation/FileManagement/Conceptual/APFS_Guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40016999-CH1-DontLinkElementID_27). With a dearth of detail I decided to attend the [presentation](http://devstreaming.apple.com/videos/wwdc/2016/701q0pnn0ietcautcrv/701/701_introducing_apple_file_system.pdf) and Q&A with the APFS team at WWDC. Dominic Giampaolo and Eric Tamura, two members of the APFS team, [gave an overview to a packed room](https://developer.apple.com/videos/play/wwdc2016/701/); along with other members of the team, they patiently answered questions later in the day. With those data points and some first hand usage I wanted to provide an overview and analysis both as a user of Apple-ecosystem products and as a long-time operating system and file system developer.
 
 I've divided my review into several sections that span a few posts. I'd encourage you to jump around to topics of interest or skip right to [the conclusion](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part6/#apfs-conclusion) (or to the [tweet summary](https://twitter.com/ahl/status/743923994466758657)). Highest praise goes to [encryption](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part2/#apfs-encryption); ire to [data integrity](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part5/#apfs-data).
 

@@ -19,7 +19,7 @@ Pretty uncontroversial take for Rust programmers: sum types are great. We use `e
 
 My woodworking mentor as a kid observed that I start projects in the middle. That’s exactly what happened here. Reconstructing `enum`s from their generated schemas seemed tricky and interesting, so that’s where I started. Generally, an `enum` turns into a `oneOf` construction ("data must conform to exactly one of the given subschemas"). I try to apply heuristics that correspond to each of the [serde enum formats](https://serde.rs/enum-representations.html):
 
-```
+```rust
  let ty = self
     .maybe_option(type_name.clone(), metadata, subschemas)
     .or_else(|| self.maybe_externally_tagged_enum(type_name.clone(), metadata, subschemas))
@@ -31,7 +31,7 @@ My woodworking mentor as a kid observed that I start projects in the middle. Tha
 
 Externally tagged enums have this basic shape:
 
-```
+```json
 {
   "<variant-name>": { .. }
 }
@@ -39,7 +39,7 @@ Externally tagged enums have this basic shape:
 
 Internally tagged enums look like this:
 
-```
+```json
 {
   "<tag-name>": { "const": ["<variant-name>"] },
   … other properties …
@@ -48,7 +48,7 @@ Internally tagged enums look like this:
 
 Externally tagged enums:
 
-```
+```json
 {
   "<tag-name>": { "const": ["<variant-name>"] },
   "<content-name>": { .. }
@@ -63,19 +63,19 @@ Seeing enums traverse JSON Schema and turn back into the same Rust code was very
 
 In JSON Schema an “allOf" indicates that a data value needs to conform to all subschemas… to no one’s surprise. So you see things like this:
 
-```
+```json
 {
-  “title": “Doodad",
-  “allOf" [
-    { “$ref": “#/$defs/Thingamajig" },
-    { “$ref": “#/$defs/Whosiewhatsit" },
+  "title": "Doodad",
+  "allOf" [
+    { "$ref": "#/$defs/Thingamajig" },
+    { "$ref": "#/$defs/Whosiewhatsit" },
   ]
 }
 ```
 
 Serde has a `#[serde(flatten)]` annotation that takes the contents of a struct and, effectively, dumps it into the container struct. This seemed to match the `allOf` construct perfectly; the above schema would become:
 
-```
+```rust
 // ⬇️ This is wrong; don’t do this ⬇️
 struct Doodad {
     #[serde(flatten)]
@@ -92,7 +92,7 @@ Perhaps more precisely the code above is only right under the narrow conditions 
 
 Here’s an example from a github-related schema I found:
 
-```
+```json
 "allOf": [
   { "$ref": "#/definitions/issue" },
   {
@@ -108,7 +108,7 @@ Here’s an example from a github-related schema I found:
 
 The “issue" type is an object with non-required properties like:
 
-```
+```json
 {
   "state": {
     "type": "string",
@@ -123,7 +123,7 @@ The result of this allOf is a type where state is required and must have the val
 
 This is very very different than what #\[serde(flatten)\] gives us. Originally I was generating a broken type like this:
 
-```
+```rust
 struct ClosedIssue {
     #[serde(flatten)]
     type_1: Issue,
@@ -143,7 +143,7 @@ Wrong and not actually useful. More recently I’ve applied merging logic to the
 
 I got `allOf` wrong. I got `anyOf` much wronger. `AnyOf` says that a valid value should conform to any of the given subschemas. So if an `allOf` is just a struct with a bunch of flattened members then it would make sense that an `anyOf` is a struct with a bunch of optional members. It makes sense, especially if you don’t think about it.
 
-```
+```rust
 // ⬇️ This is wrong; don’t do this ⬇️
 struct Doodad {
     #[serde(flatten)]
@@ -157,20 +157,20 @@ But if you do think about it even briefly, you realize that a type like carries 
 
 So what’s a valid representation of `anyOf` as a Rust type? In a way I’m glad I went with this quick, clever, and very very wrong approach because a robust approach is a huge pain the neck! Consider an `anyOf` like this:
 
-```
+```json
 {
-  “title": “Something",
-  “anyOf": [
-    { “$ref": “#/$defs/A" },
-    { “$ref": “#/$defs/B" },
-    { “$ref": “#/$defs/C" },
+  "title": "Something",
+  "anyOf": [
+    { "$ref": "#/$defs/A" },
+    { "$ref": "#/$defs/B" },
+    { "$ref": "#/$defs/C" },
   ]
 }
 ```
 
 Bear in mind, my goal is to allow only valid states to be represented by the generated types. That is, I want type-checking at build time rather than, say, validation by a runtime builder. Consequentially, I think we need a Rust type that’s effectively:
 
-```
+```rust
 enum Something {
     A,
     B,
@@ -192,17 +192,17 @@ What I want is a schema definition for affirmative construction, describing the 
 
 As an example of this, consider JSON Schema’s `if`/`then`/`else` construction.
 
-```
+```json
 {
-  “if": { “$ref": “#/$defs/A" },
-  “then": { “$ref": “#/$defs/B" },
-  “else": { “$ref": “#/$defs/C" }
+  "if": { "$ref": "#/$defs/A" },
+  "then": { "$ref": "#/$defs/B" },
+  "else": { "$ref": "#/$defs/C" }
 }
 ```
 
 If the value conforms to a schema, then it must conform to another schema… otherwise it must conform to a third schema. Why does JSON Schema even support this? I think (but am deeply unsure) that this is equivalent to:
 
-```
+```json
 {
   "oneOf": [
     {
