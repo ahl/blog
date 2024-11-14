@@ -6,7 +6,9 @@ categories:
 permalink: /2016/03/07/big-news-for-zfs-on-linux/
 ---
 
-![](images/Ubuntu-old.png "Ubuntu")Canonical announced a few weeks ago that ZFS will be included in the next release of Ubuntu Linux, on by default and fully supported. And it’s no exaggeration when Dustin Kirkland describes ZFS as "[one of the most exciting new features Linux has seen in a very long time.](https://insights.ubuntu.com/2016/02/16/zfs-is-the-fs-for-containers-in-ubuntu-16-04/)” In the words of our 47th Vice President, [this is a big F—ing deal](https://www.youtube.com/watch?v=HHKq9tt50O8). Ubuntu is an [extremely popular Linux distribution](https://en.wikipedia.org/wiki/Ubuntu_(operating_system)#Installed_base), particularly so for servers, and while the Linux ecosystem doesn’t want for variety when it comes to filesystem choices, there is not a clear champion when it comes to stability, functionality, and performance. By throwing their full weight behind ZFS, Canonical brings the Linux community an enterprise-class, modern filesystem, stable, but still under active development, designed to perform well for a variety of workloads.
+<img src="images/Ubuntu-old.png" alt="Description" class="float-right">
+
+Canonical announced a few weeks ago that ZFS will be included in the next release of Ubuntu Linux, on by default and fully supported. And it’s no exaggeration when Dustin Kirkland describes ZFS as "[one of the most exciting new features Linux has seen in a very long time.](https://insights.ubuntu.com/2016/02/16/zfs-is-the-fs-for-containers-in-ubuntu-16-04/)” In the words of our 47th Vice President, [this is a big F—ing deal](https://www.youtube.com/watch?v=HHKq9tt50O8). Ubuntu is an [extremely popular Linux distribution](https://en.wikipedia.org/wiki/Ubuntu_(operating_system)#Installed_base), particularly so for servers, and while the Linux ecosystem doesn’t want for variety when it comes to filesystem choices, there is not a clear champion when it comes to stability, functionality, and performance. By throwing their full weight behind ZFS, Canonical brings the Linux community an enterprise-class, modern filesystem, stable, but still under active development, designed to perform well for a variety of workloads.
 
 ### What’s ZFS?
 
@@ -14,7 +16,7 @@ ZFS was originally developed at Sun Microsystem for the Solaris operating system
 
 ### Why ZFS?
 
-![](images/Open-ZFS-Primary-Logo-Colour-150x150.png "OpenZFS")
+<img src="images/Open-ZFS-Primary-Logo-Colour-150x150.png" alt="Description" class="float-right">
 
 While the distinguishing features of ZFS are broadly useful, they have become [specifically relevant in a containerizing world](https://docs.docker.com/engine/userguide/storagedriver/zfs-driver/). Users need to save, clone, and replicate containers at will; ZFS provides key facilities for doing so. Containers and ZFS are a fantastic match, something I’ve seen my friends at Joyent demonstrate decisively for the [past decade](http://cuddletech.com/?p=63). Ubuntu has selected the most capable technology for our modern computing ecosystem.
 

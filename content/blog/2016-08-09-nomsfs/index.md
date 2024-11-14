@@ -47,7 +47,7 @@ Noms has all the core components of a modern filesystem. My goal was to write th
 
 It’s in the name: Noms eats all the data. Feed it whatever data you like, and let Noms [infer a schema as you go](https://github.com/attic-labs/noms/blob/c6d99f2fabcf870d9cf0cd4de9c540300de3f030/doc/intro.md#type-accretion). For a filesystem though I wanted to define a fixed structure. I started with a schema modeled on a simplified ZFS. Filesystems keep track of files and directories with a structure called an “inode” each of which has a unique integer identifier, the “inode number”. ZFS keeps track of files and directories with DMU objects named by their integer ID. The schema would use a Map<number, Inode> to serve the same function (**spoiler: read on and don’t copy this!**):
 
-```
+```go
 struct Filesystem {
      inodes: Map<Number, struct Inode {
           attr: struct Attr { /* e.g. permissions, modification time, etc. */ }
@@ -59,7 +59,6 @@ struct Filesystem {
      rootInode: Number
      maxInode: Number
 }
-
 ```
 
 Nice and simple. Files are just Noms Blobs represented by a sequence of bytes. Directories are a Map of strings (the name of the directory entry) to the inode number; the inode number can be used to find the actual content by looking in the top-level map.
@@ -76,7 +75,7 @@ This made sense for a filesystem. Did it make sense for Noms? I wasn’t trying 
 
 My first try made for a fine filesystem, just not a Noms filesystem. With a better understanding of the principles, and with help from the Noms team, I built this schema:
 
-```
+```go
 struct Filesystem {
      root: struct Inode {
           attr: struct Attr { /* e.g. permissions, modification time, etc. */ }
@@ -86,12 +85,11 @@ struct Filesystem {
           }
      }
 }
-
 ```
 
 Obviously simpler; the thing that bears explanation is the use of so-called “Cycle” types. A Cycle is a means of expressing a recursive relationship within Noms types. The integer parameter specifies the ancestor struct to which the cycle refers. Consider a linked list type:
 
-```
+```go
 struct LinkedList {
     data: Blob
     next: Cycle<0>

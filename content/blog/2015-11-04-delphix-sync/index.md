@@ -6,7 +6,7 @@ categories:
 permalink: /2015/11/04/delphix-sync/
 ---
 
-[![](images/ahl_sync-300x235.jpg "ahl_sync")](http://ahl.dtrace.org/wp-content/uploads/2015/11/ahl_sync.jpg)Oracle OpenWorld is always a huge event for us at Delphix; it brings together our customers and partners like nothing else. And so it was the perfect venue to launch our new Delphix user group: Sync.
+<img src="images/ahl_sync.jpg" alt="Description" class="float-right"> Oracle OpenWorld is always a huge event for us at Delphix; it brings together our customers and partners like nothing else. And so it was the perfect venue to launch our new Delphix user group: Sync.
 
 In its history Delphix has learned best from our customers. As I heard Marc Benioff opine at Dropbox’s inaugural event this morning, customers are the greatest source of a company’s innovation. At Delphix we’ve built an incredible multi-tool; our customers have taught us dozens of new ways of using it to deliver value to their organizations. Further, the most compelling education has always been user-to-user. Sync is the forum for local, global, live, and virtual events to build connections between users as well as directly into Delphix development.
 

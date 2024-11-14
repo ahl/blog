@@ -24,4 +24,5 @@ Referring to our colleagues as resources is dehumanizing, callous, and offensive
 
 Let’s kill this one off. Let’s **staff** projects for success. When we need help let’s ask for additional **people**, or, if we’re more discerning than that, let’s ask for **developers** or **program managers** or **masseurs**. Managers, let’s manage teams of **engineers**; let’s learn what makes them different and celebrate those differences rather than guiding them to sameness. While we’re being magnanimous we can even extend this courtesy to contractors—yes, Finance, I know, we don’t pay for the warranty (health care plan). And when possible try to remember a name or two; the resources tend to like it.
 
-\[caption id="attachment\_1482" align="aligncenter" width="550" caption="Project Mayhem suffers a resourcing gap through unwanted attrition."\][![](images/resource-naming.gif "Tyler Durden, Vice President of Human Resources")](http://ahl.dtrace.org/wp-content/uploads/2015/09/resource-naming.gif)\[/caption\]
+<img src="images/resource-naming.gif" alt="Project Mayhem suffers a resourcing gap through unwanted attrition."/>
+
