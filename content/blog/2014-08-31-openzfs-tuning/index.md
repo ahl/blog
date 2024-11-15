@@ -12,8 +12,7 @@ tags:
   - "zfs"
 permalink: /2014/08/31/openzfs-tuning/
 ---
-
-[![](images/Magnetic-Fun-and-Facts-300x207.jpg "Magnetic-Fun-and-Facts")](http://ahl.dtrace.org/wp-content/uploads/2014/08/Magnetic-Fun-and-Facts.jpg)In previous posts I discussed [the problems with the legacy ZFS write throttle](http://dtrace.org/blogs/ahl/2013/12/27/zfs-fundamentals-the-write-throttle/) that cause degraded performance and wildly variable latencies. I then presented the [new OpenZFS write throttle and I/O scheduler](http://dtrace.org/blogs/ahl/2014/02/10/the-openzfs-write-throttle/) that Matt Ahrens and I designed. In addition to solving several problems in ZFS, the new approach was designed to be easy to reason about, measure, and adjust. In this post I’ll cover performance analysis and tuning — using DTrace of course. These details are intended for those using OpenZFS and trying to optimize performance — if you have only a casual interest in ZFS consider yourself warned!
+<img src="images/Magnetic-Fun-and-Facts-300x207.jpg" alt="" class="float-right"> In previous posts I discussed [the problems with the legacy ZFS write throttle](http://dtrace.org/blogs/ahl/2013/12/27/zfs-fundamentals-the-write-throttle/) that cause degraded performance and wildly variable latencies. I then presented the [new OpenZFS write throttle and I/O scheduler](http://dtrace.org/blogs/ahl/2014/02/10/the-openzfs-write-throttle/) that Matt Ahrens and I designed. In addition to solving several problems in ZFS, the new approach was designed to be easy to reason about, measure, and adjust. In this post I’ll cover performance analysis and tuning — using DTrace of course. These details are intended for those using OpenZFS and trying to optimize performance — if you have only a casual interest in ZFS consider yourself warned!
 
 ## Buffering dirty data
 
@@ -27,7 +26,7 @@ Most workloads contain variability. Think of the dirty data as a buffer for that
 
 Track the amount of outstanding dirty data within your storage pool to know which way to adjust zfs\_dirty\_data\_max:
 
-```
+```dtrace
 txg-syncing
 {
         this->dp = (dsl_pool_t *)arg0;
@@ -39,7 +38,8 @@ txg-syncing
         printf("%4dMB of %4dMB used", this->dp->dp_dirty_total / 1024 / 1024,
             `zfs_dirty_data_max / 1024 / 1024);
 }
-
+```
+```console
 # dtrace -s dirty.d pool
 dtrace: script 'dirty.d' matched 2 probes
 CPU ID FUNCTION:NAME
@@ -50,11 +50,11 @@ CPU ID FUNCTION:NAME
 0 8730 txg_sync_thread:txg-syncing 858MB of 4096MB used
 ```
 
-The write throttle kicks in once the amount of dirty data exceeds zfs\_delay\_min\_dirty\_percent of the limit (60% by default). If the the amount of dirty data fluctuates above and below that threshold, it might be possible to avoid throttling by increasing the size of the buffer. If the metric stays low, you may reduce zfs\_dirty\_data\_max. Weigh this tuning against other uses of memory on the system (a larger value means that there’s less memory for applications or the OpenZFS ARC for example).
+The write throttle kicks in once the amount of dirty data exceeds `zfs_delay_min_dirty_percent` of the limit (60% by default). If the the amount of dirty data fluctuates above and below that threshold, it might be possible to avoid throttling by increasing the size of the buffer. If the metric stays low, you may reduce zfs\_dirty\_data\_max. Weigh this tuning against other uses of memory on the system (a larger value means that there’s less memory for applications or the OpenZFS ARC for example).
 
 A larger buffer also means that flushing a transaction group will take longer. This is relevant for certain OpenZFS administrative operations (sync tasks) that occur when a transaction group is committed to stable storage such as creating or cloning a new dataset. If the interactive latency of these commands is important, consider how long it would take to flush zfs\_dirty\_data\_max bytes to disk. You can measure the time to sync transaction groups ([recall, there are up to three active at any given time](http://dtrace.org/blogs/ahl/2012/12/13/zfs-fundamentals-transaction-groups/)) like this:
 
-```
+```dtrace
 txg-syncing
 /((dsl_pool_t *)arg0)->dp_spa->spa_name == $$1/
 {
@@ -68,7 +68,8 @@ txg-synced
         printf("sync took %d.%02d seconds", this->d / 1000000000,
             this->d / 10000000 % 100);
 }
-
+```
+```console
 # dtrace -s duration.d pool
 dtrace: script 'duration.d' matched 2 probes
 CPU ID FUNCTION:NAME
@@ -86,7 +87,7 @@ Note that the value of zfs\_dirty\_data\_max is relevant when sizing a separate 
 
 Where ZFS had a single IO queue for all IO types, OpenZFS has five IO queues for each of the different IO types: sync reads (for normal, demand reads), async reads (issued from the prefetcher), sync writes (to the intent log), async writes (bulk writes of dirty data), and scrub (scrub and resilver operations). Note that bulk dirty data described above are scheduled in the async write queue. See [vdev\_queue.c](http://src.illumos.org/source/xref/illumos-gate/usr/src/uts/common/fs/zfs/vdev_queue.c#138) for the related tunables:
 
-```
+```c
 uint32_t zfs_vdev_sync_read_min_active = 10;
 uint32_t zfs_vdev_sync_read_max_active = 10;
 uint32_t zfs_vdev_sync_write_min_active = 10;
@@ -105,7 +106,7 @@ At a high level, the appropriate values for these tunables will be specific to y
 
 A simple way to tune these values is to monitor I/O throughput and latency under load. Increase values by 20-100% until you find a point where throughput no longer increases, but latency is acceptable.
 
-```
+```dtrace
 #pragma D option quiet
 
 BEGIN
@@ -145,7 +146,8 @@ END
             "iops", "throughput");
         printa("%-30s %@9uus %@9uus %@9u/s %@8uk/s\n", @a, @v, @i, @b);
 }
-
+```
+```console
 # dtrace -s rw.d -c 'sleep 60'
 
   read
@@ -201,7 +203,7 @@ The old behavior was to schedule a fixed number of operations regardless of the 
 
 In addition to tuning the minimum and maximum number of concurrent operations sent to the device, there are two other tunables related to asynchronous writes: zfs\_vdev\_async\_write\_active\_min\_dirty\_percent and zfs\_vdev\_async\_write\_active\_max\_dirty\_percent. Along with the min and max operation counts (zfs\_vdev\_async\_write\_min\_active and zfs\_vdev\_aysync\_write\_max\_active), these four tunables define a piece-wise linear function that determines the number of operations scheduled as depicted in this lovely ASCII art graph [excerpted from the comments](http://src.illumos.org/source/xref/illumos-gate/usr/src/uts/common/fs/zfs/vdev_queue.c#84):
 
-```
+```c
  * The number of concurrent operations issued for the async write I/O class
  * follows a piece-wise linear function defined by a few adjustable points.
  *
@@ -226,7 +228,7 @@ Tune zfs\_vdev\_async\_write\_max\_active as described above to maximize through
 
 To tune the min and max percentages, watch both latency and the number of scheduled async write operations. If the operation count fluctuates wildly and impacts latency, you may want to flatten the slope by decreasing the min and/or increasing the max (note below that you will likely want to increase zfs\_delay\_min\_dirty\_percent if you increase zfs\_vdev\_async\_write\_active\_max\_dirty\_percent -- see below).
 
-```
+```dtrace
 #pragma D option aggpack
 #pragma D option quiet
 
@@ -251,7 +253,8 @@ fbt::vdev_queue_max_async_writes:return
 {
         self->spa = 0;
 }
-
+```
+```console
 # dtrace -s q.d dcenter
 
 min .--------------------------------. max | count
@@ -282,7 +285,7 @@ Delaying writes is an aggressive step to ensure consistent latency. It is requir
 
 First check to see how often writes are delayed. This simple DTrace one-liner does the trick:
 
-```
+```console
 # dtrace -n fbt::dsl_pool_need_dirty_delay:return'{ @[args[1] == 0 ? "no delay" : "delay"] = count(); }'
 ```
 
@@ -290,7 +293,7 @@ If a relatively small percentage of writes are delayed, increasing the amount of
 
 If many writes are being delayed, the client really is trying to push data faster than the LUNs can handle. In that case, check for consistent latency, again, with a DTrace one-liner:
 
-```
+```console
 # dtrace -n delay-mintime'{ @ = quantize(arg2); }'
 ```
 
@@ -298,4 +301,4 @@ With high variance or if many write operations are being delayed for the maximum
 
 ## Summing up
 
-Our experience at [Delphix](www.delphix.com) tuning the new write throttle has been so much better than in the [old ZFS world](https://www.oracle.com/storage/nas/index.html): each tunable has a clear and comprehensible purpose, their relationships are well-defined, and the issues in tension pulling values up or down are both easy to understand and -- most importantly -- easy to measure. I hope that this tuning guide helps others trying to get the most out of their OpenZFS systems whether on [Linux](http://zfsonlinux.org/), [FreeBSD](https://wiki.freebsd.org/ZFS), [Mac OS X](https://openzfsonosx.org/), [illumos](www.illumos.org) -- not to mention the support engineers for the many products that incorporate OpenZFS into a larger solution.
+Our experience at [Delphix](https://www.delphix.com) tuning the new write throttle has been so much better than in the [old ZFS world](https://www.oracle.com/storage/nas/index.html): each tunable has a clear and comprehensible purpose, their relationships are well-defined, and the issues in tension pulling values up or down are both easy to understand and -- most importantly -- easy to measure. I hope that this tuning guide helps others trying to get the most out of their OpenZFS systems whether on [Linux](http://zfsonlinux.org/), [FreeBSD](https://wiki.freebsd.org/ZFS), [Mac OS X](https://openzfsonosx.org/), [illumos](https://www.illumos.org) -- not to mention the support engineers for the many products that incorporate OpenZFS into a larger solution.
