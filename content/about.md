@@ -4,6 +4,6 @@ const eleventyNavigation = {
 	order: 3
 };
 ---
-# About
+# Adam H. Leventhal
 
-I am a person that writes stuff.
+
