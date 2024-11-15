@@ -12,124 +12,121 @@ DTrace users really want to be able to trace Java methods in the same way they c
 
 For example, examining the size of Java allocations is now a snap. The `object-alloc` probe fires every time an object gets allocated, and one of the arguments is the size.
 
-```
+```console
 # dtrace -n 'djvm$target:::object-alloc{ @ = quantize(arg1) }' -p `pgrep -n java`
 dtrace: description 'djvm$target:::object-alloc' matched 1 probe
 ^C
 value  ------------- Distribution ------------- count
-4 |                                         0
-8 |                                         43
-16 |@@@@@@@@@@@@@@@@@                        18771
-32 |@@@@@@@@@@@@@@@@                         17482
-64 |@@@@@                                    5292
-128 |@                                        1486
-256 |                                         106
-512 |                                         165
-1024 |                                         319
-2048 |                                         149
-4096 |                                         48
-8192 |                                         0
+    4 |                                         0
+    8 |                                         43
+   16 |@@@@@@@@@@@@@@@@@                        18771
+   32 |@@@@@@@@@@@@@@@@                         17482
+   64 |@@@@@                                    5292
+  128 |@                                        1486
+  256 |                                         106
+  512 |                                         165
+ 1024 |                                         319
+ 2048 |                                         149
+ 4096 |                                         48
+ 8192 |                                         0
 16384 |                                         1
 32768 |                                         1
 65536 |                                         0
-
 ```
 
 One of the most troublesome areas when dealing with production Java code seems to be around garbage collection. There are two probes -- that fire at the start and end of a GC run -- that can be used, for example, to look for latency spikes in garbage collection:
 
-```
+```dtrace
 bash-3.00# dtrace -s /dev/stdin -p `pgrep -n java`
 djvm$target:::gc-start
 {
-self->ts = vtimestamp;
+        self->ts = vtimestamp;
 }
 djvm$target:::gc-finish
 /self->ts/
 {
-@ = quantize(vtimestamp - self->ts);
-self->ts = 0;
+        @ = quantize(vtimestamp - self->ts);
+        self->ts = 0;
 }
 dtrace: script '/dev/stdin' matched 2 probes
 ^C
-value  ------------- Distribution ------------- count
-16777216 |                                         0
-33554432 |@@                                       1
-67108864 |@@@@@@                                   3
+    value  ------------- Distribution ------------- count
+ 16777216 |                                         0
+ 33554432 |@@                                       1
+ 67108864 |@@@@@@                                   3
 134217728 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         16
 268435456 |                                         0
-
 ```
 
-Let's say there's some itermittent problem where GC takes a long time. This sort of script can help you identify the standard behavior and the outliers, and other DTrace facility -- notably speculative tracing -- will let you drill down on the source of the problem ("I care about these events only when the GC run takes more than 10ms?).
+Let's say there's some intermittent problem where GC takes a long time. This sort of script can help you identify the standard behavior and the outliers, and other DTrace facility -- notably speculative tracing -- will let you drill down on the source of the problem ("I care about these events only when the GC run takes more than 10ms?).
 
 One of the most exciting moments early on with DTrace was observing the flow of control from a user-land function through a system call and into the kernel -- as far as I know we were seeing something that hadn't been done before ([Bryan](http://blogs.sun.com/bmc)'s last example in this [blog post](http://blogs.sun.com/roller/page/bmc/20040805#demo_ing_dtrace) demonstrates this). Here's a script that instruments a particular Java method (java.io.InputStreamReader.read()) and follows the thread of control from that method call through Java, libc, the system call table, and the kernel -- and back out:
 
-```
+```dtrace
 #pragma D option quiet
 djvm$target:::method-entry
 /copyinstr(arg0) == "java/io/InputStreamReader" && copyinstr(arg1) == "read"/
 {
-self->interested = 1;
-self->indent = 0;
+        self->interested = 1;
+        self->indent = 0;
 }
 djvm$target:::method-entry
 /self->interested/
 {
-self->indent += 2;
-printf("%*s -> %s:%s\n", self->indent, "",
-copyinstr(arg0), copyinstr(arg1));
+        self->indent += 2;
+        printf("%*s -> %s:%s\n", self->indent, "",
+        copyinstr(arg0), copyinstr(arg1));
 }
 djvm$target:::method-return
 /self->interested/
 {
-printf("%*s indent, "",
-copyinstr(arg0), copyinstr(arg1));
-self->indent -= 2;
+        printf("%*s indent, "",
+        copyinstr(arg0), copyinstr(arg1));
+        self->indent -= 2;
 }
 syscall:::entry
 /self->interested/
 {
-self->indent += 2;
-printf("%*s => %s\n", self->indent, "", probefunc);
+        self->indent += 2;
+        printf("%*s => %s\n", self->indent, "", probefunc);
 }
 syscall:::return
 /self->interested/
 {
-printf("%*s indent, "", probefunc);
-self->indent -= 2;
+        printf("%*s indent, "", probefunc);
+        self->indent -= 2;
 }
 pid$target:libc.so.1::entry
 /self->interested/
 {
-self->indent += 2;
-printf("%*s -> %s:%s\n", self->indent, "", probemod, probefunc);
+        self->indent += 2;
+        printf("%*s -> %s:%s\n", self->indent, "", probemod, probefunc);
 }
 pid$target:libc.so.1::return
 /self->interested/
 {
-printf("%*s indent, "", probemod, probefunc);
-self->indent -= 2;
+        printf("%*s indent, "", probemod, probefunc);
+        self->indent -= 2;
 }
 fbt:::entry
 /self->interested/
 {
-self->indent += 2;
-printf("%*s -> %s:%s\n", self->indent, "", probemod, probefunc);
+        self->indent += 2;
+        printf("%*s -> %s:%s\n", self->indent, "", probemod, probefunc);
 }
 fbt:::return
 /self->interested/
 {
-printf("%*s indent, "", probemod, probefunc);
-self->indent -= 2;
+        printf("%*s indent, "", probemod, probefunc);
+        self->indent -= 2;
 }
 djvm$target:::method-return
 /copyinstr(arg0) == "java/io/InputStreamReader" && copyinstr(arg1) == "read" &&
 self->interested/
 {
-self->interested = 0;
-exit(0);
+        self->interested = 0;
+        exit(0);
 }
-
 ```
 
 Not especially beautiful -- I had to hand roll my own flowindent -- but the results are pretty spectacular. I've uploaded the [whole shebang](http://dtrace.org/resources/ahl/jtrace.txt), but here's an abbreviated version:

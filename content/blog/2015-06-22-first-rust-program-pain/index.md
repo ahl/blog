@@ -15,7 +15,7 @@ My standard “hello world” is a anagrammer / Scrabble cheater. Why? In most l
 
 So with the help of Stack Overflow I wrote the first chunk:
 
-```
+```rust
   1 use std::fs::File;
   2 use std::path::Path;
   3 use std::error::Error;
@@ -42,7 +42,7 @@ So with the help of Stack Overflow I wrote the first chunk:
 
 So far so good? Well I ran it and it didn’t seem to be terminating...
 
-```
+```console
 $ time ./scrabble >/dev/null
 <time passes>
 
@@ -50,7 +50,7 @@ $ time ./scrabble >/dev/null
 
 What’s happening?
 
-```
+```console
 $ ./scrabble | head
 aa
 
@@ -68,7 +68,7 @@ thread '<main>' panicked at 'failed printing to stdout: Broken pipe (os error 32
 
 Okay — first lesson: String::clear(). As the documentation clearly states, BufReader::read\_line() appends to an existing string; my own expectations and preconceptions are beside the point.
 
-```
+```rust
   1 use std::fs::File;
   2 use std::path::Path;
   3 use std::error::Error;
@@ -97,7 +97,7 @@ Okay — first lesson: String::clear(). As the documentation clearly states, Buf
 
 Better? Yes:
 
-```
+```console
 $ ./scrabble | head
 aa
 aah
@@ -115,7 +115,7 @@ thread '<main>' panicked at 'failed printing to stdout: Broken pipe (os error 32
 
 Correct? No:
 
-```
+```console
 $ time ./scrabble >/dev/null
 <time passes>
 
@@ -123,7 +123,7 @@ $ time ./scrabble >/dev/null
 
 It turns out that BufReader::read\_line() indeed is\_ok() even at EOF. Again, documented but—to me—counter-intuitive. And it turns out that this is a [somewhat divisive topic](https://github.com/rust-lang/rust/issues/22588). No matter; how about something else? Well it works, but the ever persnickety rustc finds ‘while true’ too blue-collar of a construct:
 
-```
+```console
 $ rustc scrabble.rs
 scrabble.rs:18:2: 25:3 warning: denote infinite loops with loop { ... }, #[warn(while_true)] on by default
 scrabble.rs:18     while true {
@@ -138,14 +138,14 @@ scrabble.rs:23         println!("{}", s);
 
 Trying to embrace the fastidious methodology (while ever temped to [unsafe](https://doc.rust-lang.org/book/unsafe.html)\-and-let-execution-be-the-judge) I gave up on read\_line() and its controversial EOF and error semantics to try out BufReader::lines():
 
-```
+```rust
  18         for s in b.lines() {
  19                 println!("{}", s);
  20         }
 
 ```
 
-```
+```console
 $ rustc scrabble2.rs
 scrabble2.rs:18:18: 18:19 error: the trait `core::fmt::Display` is not implemented for the type `core::result::Result<collections::string::String, std::io::error::Error>` [E0277]
 scrabble2.rs:18         println!("{}", s);
@@ -171,7 +171,7 @@ error: aborting due to previous error
 
 Okay; that was apparently very wrong. The BufReader::lines() iterator gives us Result<String>s which we need to unwrap(). No problem.
 
-```
+```rust
  18         for line in b.lines() {
  19                 let s = line.unwrap();
  20                 println!("{}", s);
@@ -179,7 +179,7 @@ Okay; that was apparently very wrong. The BufReader::lines() iterator gives us R
 
 ```
 
-```
+```console
 scrabble.rs:15:6: 15:11 warning: variable does not need to be mutable, #[warn(unused_mut)] on by default
 scrabble.rs:15     let mut b = BufReader::new(file);
 
@@ -187,7 +187,7 @@ scrabble.rs:15     let mut b = BufReader::new(file);
 
 Fine, rustc, you’re the boss. Now it's simpler and it’s cranking:
 
-```
+```rust
   1 use std::fs::File;
   2 use std::path::Path;
   3 use std::error::Error;
@@ -215,7 +215,7 @@ Fine, rustc, you’re the boss. Now it's simpler and it’s cranking:
 
 Now let’s build up our map. We’ll create a map from the sorted characters to the list of anagrams. For that we’ll use matching, another handy construct.
 
-```
+```rust
  23                 let mut v: Vec<char> = s.chars().collect();
  24                 v.sort();
  25                 let ss: String = v.into_iter().collect();
@@ -233,7 +233,7 @@ Now let’s build up our map. We’ll create a map from the sorted characters to
 
 What could be simpler? I love this language! But not so fast...
 
-```
+```console
 scrabble.rs:28:19: 28:20 error: cannot borrow immutable borrowed content `*v` as mutable
 scrabble.rs:28             Some(mut v) => v.push(s),
                                            ^
@@ -256,7 +256,7 @@ This is where in C I’d start casting away const. Not an option here. Okay, but
 
 Mutability, check! The Hashmap::get() yielded an immutable borrow that would exist for as long as its return value was in scope. Easily solved by changing it to a get\_mut():
 
-```
+```console
 scrabble.rs:32:5: 32:9 error: cannot borrow `dict` as mutable more than once at a time
 scrabble.rs:32                 dict.insert(ss, v);
                                ^~~~
@@ -274,7 +274,7 @@ error: aborting due to previous error
 
 Wrong again. Moving me right down the Kübler-Ross model from anger into bargaining. You’re saying that I can’t mutate it because I can already mutate it? What do I have, rustc, that you want? How about if I pull the insert() out of the context of that get\_mut()?
 
-```
+```rust
  27                 let mut bb = false;
  28
  29                 match dict.get_mut(&ss) {
@@ -293,7 +293,7 @@ Wrong again. Moving me right down the Kübler-Ross model from anger into bargain
 
 Inelegant, yes, but Rust was billed as safe-C, not elegant-C, right?
 
-```
+```console
 scrabble.rs:37:11: 37:12 error: use of moved value: `s`
 scrabble.rs:37             v.push(s);
                                   ^
@@ -308,7 +308,7 @@ So by pushing the anagram into the list at line 30 we lost ownership, and even t
 
 After walking away for day to contemplate, here’s the compromise I came to:
 
-```
+```rust
  27                 if dict.contains_key(&ss) {
  28                         dict.get_mut(&ss).unwrap().push(s);
  29                 } else {
@@ -316,30 +316,27 @@ After walking away for day to contemplate, here’s the compromise I came to:
  31                         v.push(s);
  32                         dict.insert(ss, v);
  33                 }
-
 ```
 
 And everyone was happy! But it turns out that there’s an even Rustier way of doing this (thanks to Delphix intern, John Ericson) with a very specific API:
 
-```
+```rust
                 let mut v = dict.entry(sort_str(&s)).or_insert(Vec::new());
                 v.push(s);
-
 ```
 
 This is starting to look at lot less like safe C and a lot more like the stacking magic of C++. No matter; I’m just trying to cheat at Scrabble, not debate philosophy. Now that I’ve got my map built, let’s prompt the user and do the lookup. We’ll put the string sorting logic into a function:
 
-```
+```rust
   8 fn sort_str(s: String) -> String {
   9         let mut v: Vec<char> = s.chars().collect();
  10         v.sort();
  11         let ss: String = v.into_iter().collect();
  12         ss
  13 }
-
 ```
 
-```
+```console
 scrabble.rs:32:36: 32:37 error: use of moved value: `s`
 scrabble.rs:32             dict.get_mut(&ss).unwrap().push(s);
                                                            ^
@@ -358,19 +355,18 @@ error: aborting due to 2 previous errors
 
 This was wrong because we need to pass s as a reference or else its borrowed and destroyed; this needs to happen both in the function signature and call site.
 
-```
+```rust
   8 fn sort_str(s: &String) -> String {
   9         let mut v: Vec<char> = s.chars().collect();
  10         v.sort();
  11         let ss: String = v.into_iter().collect();
  12         ss
  13 }
-
 ```
 
 As an aside I’d note how goofy I think it is that the absence of a semi-colon denotes function return. And that using an explicit return is sneered at as “un-idiomatic”. I’ve been told that this choice enables deeply elegant constructs with closures and that I’m simply behind the times. Fair enough. Now we’ll read the user-input:
 
-```
+```rust
  41         for line in stdin().lock().lines() {
  42                 let s = line.unwrap();
  43
@@ -385,10 +381,9 @@ As an aside I’d note how goofy I think it is that the absence of a semi-colon 
  52                         _ => println!("no dice"),
  53                 }
  54         }
-
 ```
 
-```
+```console
 scrabble.rs:43:14: 43:21 error: borrowed value does not live long enough
 scrabble.rs:43     for line in stdin().lock().lines() {
                                ^~~~~~~
@@ -417,12 +412,11 @@ scrabble.rs:47             Some(v) => {
 scrabble.rs:48                 print!("anagrams for {}: ", s);
                ...
 error: aborting due to previous error
-
 ```
 
 Okay! Too cute! Got it. Here’s the final program with some clean up here and there:
 
-```
+```rust
   1 use std::fs::File;
   2 use std::path::Path;
   3 use std::error::Error;
@@ -471,7 +465,6 @@ Okay! Too cute! Got it. Here’s the final program with some clean up here and t
  46                 }
  47         }
  48 }
-
 ```
 
 ## Lessons

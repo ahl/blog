@@ -40,5 +40,10 @@ Prism.languages.dtrace = {
         pattern: /[-+*/%<>=!&|^~?:]/,
         alias: 'operator'
     },
-    'punctuation': /[{}[\];(),.:]/
+    'punctuation': /[{}[\];(),.:]/,
+    'property': {
+        pattern: /(^\s*)#\s*[a-zA-Z_]\w*/m,
+        lookbehind: true
+    },
+
 };
