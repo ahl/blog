@@ -1,0 +1,44 @@
+---js
+const eleventyNavigation = {
+key: "Home",
+order: 1
+};
+
+const numberOfLatestPostsToShow = 3;
+---
+
+{%- css %}{% include "node_modules/prismjs/themes/prism-twilight.css" %}{% endcss %}
+{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+
+{% set postsCount = collections.posts | length %}
+{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+
+{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
+
+{# {% set postslistCounter = postsCount %} #}
+{# {% include "postslist.njk" %} #}
+
+{% for post in postslist | reverse %}
+<article>
+	<a href="{{ post.url }}">
+		<h1>{{ post.data.title }}</h1>
+	</a>
+	<ul class="post-metadata">
+		<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
+	</ul>
+	{{ post.templateContent | safe }}
+
+	{% if loop.index < postslist.length %}
+	<ul class="links-nextprev"/>
+  	{% endif %}
+</article>
+{% endfor %}
+
+{% set morePosts = postsCount - numberOfLatestPostsToShow %}
+{% if morePosts > 0 %}
+{% set previousPost = collections.posts[morePosts - 1] %}
+<ul class="links-nextprev">
+	<li class="links-nextprev-prev">← Previous<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>
+</ul>
+{% endif %}
