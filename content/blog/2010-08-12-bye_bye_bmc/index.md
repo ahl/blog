@@ -23,7 +23,11 @@ Reason:     Excessive or fatal bounces.
 
 ```
 
-\[caption id="attachment\_685" align="alignright" width="320" caption="Bryan Cantrill, VP of Engineering at Joyent, earning $15."\][![](images/bmc_v_onion.jpg "bmc_v_onion")](http://ahl.dtrace.org/wp-content/uploads/2010/08/bmc_v_onion.jpg)\[/caption\]
+<figure>
+  <img src="images/bmc_v_onion.jpg" alt="bmc v. onion" />
+  <figcaption>Bryan Cantrill, VP of Engineering at Joyent, earning $15</figcaption>
+</figure>
+
 
 As one of the moderators of the DTrace discussion list, I see people subscribe and unsubscribe. Bryan has, of course, [left Oracle](http://dtrace.org/blogs/bmc/2010/07/25/good-bye-sun/) and [joined Joyent](http://dtrace.org/blogs/bmc/2010/07/30/hello-joyent/) to be their [VP of engineering](http://www.joyent.com/2010/07/joyent-names-bryan-cantrill-vice-president-of-engineering/).
 
