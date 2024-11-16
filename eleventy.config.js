@@ -119,6 +119,11 @@ export default async function (eleventyConfig) {
 	// eleventyConfig.addPlugin(embedEverything);
 	eleventyConfig.addPlugin(mathjaxPlugin);
 
+	// Custom shortcode to use PrismJS for DTrace
+	eleventyConfig.addPairedShortcode("highlight", (content, language) => {
+		const html = Prism.highlight(content, Prism.languages[language], language);
+		return `<pre><code class="language-${language}">${html}</code></pre>`;
+	});
 
 };
 

@@ -58,7 +58,7 @@ Externally tagged enums:
 
 Unlike other formats, the final format, “untagged", doesn’t include any indication of the variant name—it just dumps the raw type data (and one needs to be careful that the subschemas are mutually exclusive).
 
-Seeing enums traverse JSON Schema and turn back into the same Rust code was very satisfying.While I basically got enum generation right, there are a couple of JSON Schema constructs that I really screwed up.
+Seeing enums traverse JSON Schema and turn back into the same Rust code was very satisfying. While I basically got enum generation right, there are a couple of JSON Schema constructs that I really screwed up.
 
 ## allOf
 
@@ -67,7 +67,7 @@ In JSON Schema an “allOf" indicates that a data value needs to conform to all 
 ```json
 {
   "title": "Doodad",
-  "allOf" [
+  "allOf": [
     { "$ref": "#/$defs/Thingamajig" },
     { "$ref": "#/$defs/Whosiewhatsit" },
   ]
@@ -89,7 +89,7 @@ struct Doodad {
 
 This is wrong! Very very wrong. So wrong it often results in structs for which no data results in valid deserialization or serializations that don’t match the given schema. In particular, imagine if both Thingamajig and Whosiewhatis have a fields of the same name with incompatible types.
 
-Perhaps more precisely the code above is only right under the narrow conditions that the subschemas are all fully orthogonal. In the wild (as we JSON Schema wranglers refer to its practical application), allOf is mostly commonly used to apply constraints to existing types.
+Perhaps more precisely: the code above is only right under the narrow conditions that the subschemas are all fully orthogonal. In the wild (as we JSON Schema wranglers refer to its practical application), `allOf` is most commonly used to apply constraints to existing types.
 
 Here’s an example from a github-related schema I found:
 
@@ -142,7 +142,7 @@ Wrong and not actually useful. More recently I’ve applied merging logic to the
 
 ## `anyOf`
 
-I got `allOf` wrong. I got `anyOf` much wronger. `AnyOf` says that a valid value should conform to any of the given subschemas. So if an `allOf` is just a struct with a bunch of flattened members then it would make sense that an `anyOf` is a struct with a bunch of optional members. It makes sense, especially if you don’t think about it.
+I got `allOf` wrong. I got `anyOf` much wronger. `AnyOf` says that a valid value should conform to any of the given subschemas. So if an `allOf` is just a struct with a bunch of flattened members then it would make sense that an `anyOf` is a struct with a bunch of optional members. It makes sense! especially if you don’t think about it!
 
 ```rust
 // ⬇️ This is wrong; don’t do this ⬇️
