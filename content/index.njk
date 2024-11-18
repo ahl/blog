@@ -12,7 +12,7 @@ const numberOfLatestPostsToShow = 3;
 
 {% set postsCount = collections.posts | length %}
 {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+<h1>Recent Posts</h1>
 
 {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
 
@@ -25,7 +25,7 @@ const numberOfLatestPostsToShow = 3;
 		<h1>{{ post.data.title }}</h1>
 	</a>
 	<ul class="post-metadata">
-		<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
+		<li><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}</time></li>
 	</ul>
 	{{ post.templateContent | safe }}
 
