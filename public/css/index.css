@@ -295,3 +295,14 @@ header {
 	max-width: 50%;
 	height: auto;
 }
+
+.hero-image {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+figcaption {
+	color: var(--color-gray-50);
+}

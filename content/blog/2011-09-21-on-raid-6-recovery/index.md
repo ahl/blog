@@ -17,7 +17,13 @@ permalink: /2011/09/21/on-raid-6-recovery/
 
 ### One-dimensional RAID
 
-A one-dimensional algorithm is one in which all data in a single RAID stripe is used to compute all parities. The RAID algorithm used by ZFS falls into this category as do most algorithms derived from Reed-Solomon coding. For a given RAID stripe's set of data blocks, $D$, we can compute the nth parity block with some function $p(D, n)$. For example, ZFS, roughly, uses the formula \\\[ p(D,n) = \\sum\_{i=1}^{\\left|{D}\\right|} 2^{(i-1)(n-1)} \\cdot D\_{i} \\\] Here, addition and multiplication are defined over a Galois Field – the explanation would be far longer than it would be interesting or relevant so I’ll omit it from this post. It is worth noting that this particular approach only works for three parity disks or fewer, but that too is an entirely different subject (albeit an interesting one). Reconstruction of a missing block in a one-dimensional algorithm requires reading the available data, and performing some computation; each stripe may be reconstructed separately (and thus, in parallel).
+A one-dimensional algorithm is one in which all data in a single RAID stripe is used to compute all parities. The RAID algorithm used by ZFS falls into this category as do most algorithms derived from Reed-Solomon coding. For a given RAID stripe's set of data blocks, $D$, we can compute the nth parity block with some function \\(p(D, n)\\). For example, ZFS, roughly, uses the formula
+
+\\[
+p(D,n) = \sum_{i=1}^{\left|{D}\right|} 2^{(i-1)(n-1)} \cdot D_{i}
+\\]
+
+Here, addition and multiplication are defined over a Galois Field – the explanation would be far longer than it would be interesting or relevant so I’ll omit it from this post. It is worth noting that this particular approach only works for three parity disks or fewer, but that too is an entirely different subject (albeit an interesting one). Reconstruction of a missing block in a one-dimensional algorithm requires reading the available data, and performing some computation; each stripe may be reconstructed separately (and thus, in parallel).
 
 ### Multi-dimensional RAID
 

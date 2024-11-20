@@ -117,7 +117,17 @@ export default async function (eleventyConfig) {
 	// ahl additions
 	// --
 	// eleventyConfig.addPlugin(embedEverything);
-	eleventyConfig.addPlugin(mathjaxPlugin);
+	eleventyConfig.addPlugin(mathjaxPlugin, {
+		tex: {
+			inlineMath: [
+				['\\(', '\\)']
+			],
+			displayMath: [
+				['\\[', '\\]']
+			],
+		}
+
+	});
 
 	// Custom shortcode to use PrismJS for DTrace
 	eleventyConfig.addPairedShortcode("highlight", (content, language) => {
