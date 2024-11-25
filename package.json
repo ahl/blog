@@ -42,6 +42,7 @@
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
 		"cross-env": "^7.0.3",
 		"eleventy-plugin-mathjax": "^2.0.4",
+		"eleventy-plugin-youtube-embed": "^1.11.0",
 		"luxon": "^3.5.0",
 		"zod": "^3.23.8",
 		"zod-validation-error": "^3.3.1"

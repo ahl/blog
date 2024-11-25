@@ -7,6 +7,7 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import pluginFilters from "./_config/filters.js";
 
 import mathjaxPlugin from "eleventy-plugin-mathjax";
+import embedYouTube from "eleventy-plugin-youtube-embed";
 
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
@@ -116,7 +117,8 @@ export default async function (eleventyConfig) {
 	// --
 	// ahl additions
 	// --
-	// eleventyConfig.addPlugin(embedEverything);
+
+	// Only use use these to denote formulas:
 	eleventyConfig.addPlugin(mathjaxPlugin, {
 		tex: {
 			inlineMath: [
@@ -128,6 +130,8 @@ export default async function (eleventyConfig) {
 		}
 
 	});
+
+	eleventyConfig.addPlugin(embedYouTube);
 
 	// Custom shortcode to use PrismJS for DTrace
 	eleventyConfig.addPairedShortcode("highlight", (content, language) => {

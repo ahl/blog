@@ -8,6 +8,7 @@
 :root {
 	--color-gray-20: #e0e0e0;
 	--color-gray-50: #C0C0C0;
+	--color-gray-70: #A0A0A0;
 	--color-gray-90: #333;
 
 	--background-color: #fff;
@@ -16,6 +17,7 @@
 	--text-color-link: #082840;
 	--text-color-link-active: #5f2b48;
 	--text-color-link-visited: #17050F;
+	--text-color-caption: var(--color-gray-70);
 
 	--syntax-tab-size: 2;
 }
@@ -24,6 +26,7 @@
 	:root {
 		--color-gray-20: #e0e0e0;
 		--color-gray-50: #C0C0C0;
+		--color-gray-70: #C0C0C0;
 		--color-gray-90: #dad8d8;
 
 		/* --text-color is assigned to --color-gray-_ above */
@@ -304,5 +307,8 @@ header {
 }
 
 figcaption {
-	color: var(--color-gray-50);
+	color: var(--text-color-caption);
+	font-size: 0.9em;
+	display: flex;
+	justify-content: center;
 }
