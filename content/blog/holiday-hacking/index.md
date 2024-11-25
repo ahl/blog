@@ -126,7 +126,7 @@ $ cat xx.vcd | sed -n 's/^#\(.*\)/\1/p' | awk 'NR>1{ print $1-last } {last=$1 }'
 17968,1970,1997,1992,3998,2013,2001,1964,2002,81,2,
 ```
 
-Scanning vertically, the numbers looked close enough that felt like I might be onto something, so I threw them into a [spreadsheet](https://docs.google.com/spreadsheets/d/1U8YG2iLemHUOoMn0lv56K9RbTZK-YdoSblHdrBGJE8M/edit?usp=sharing) to verify ([I ❤️ spreadsheets](https://blog.usejournal.com/aws-outposts-68e78592c7f8?)):
+Scanning vertically, the numbers looked close enough that felt like I might be onto something, so I threw them into a [spreadsheet](https://docs.google.com/spreadsheets/d/1U8YG2iLemHUOoMn0lv56K9RbTZK-YdoSblHdrBGJE8M/edit?usp=sharing) to verify ([I ❤️ spreadsheets](../aws-outposts-68e78592c7f8)):
 
 <img class="hero-image" src="images/table1.png" alt="">
 
