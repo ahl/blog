@@ -8,7 +8,7 @@ permalink: /2005/08/18/dtrace-boot-camp/
 
 I just got back from an extended DTrace world tour -- Prague, Watford, London, San Francisco, Los Angeles, and San Diego. Along the way, I gave a couple of workshops on using DTrace. The slides are far from finished[\[1\]](#slides_story), but if you're learning DTrace, they might be a good place to start. The workshop is designed to take you through DTrace gradually and includes many examples and exercises.
 
-[![](images/dtrace_course.2005.8.18.jpg)](http://dtrace.org/resources/ahl/dtrace_course.2005.8.18.pdf)
+[![](images/dtrace_course.2005.8.18.jpg)](/resources/dtrace_course.2005.8.18.pdf)
 
 If you have suggestions for how to improve the talk or content you'd like to see in there, please let me know. If you'd like some hints or solutions for the exercises, feel free to post a comment, mail me privately, or (probably the best) post a question to the [DTrace discussion forum](http://www.opensolaris.org/jive/forum.jspa?forumID=7) (or [subscribe](mailto:dtrace-discuss-subscribe@opensolaris.org) to it).
 
