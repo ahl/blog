@@ -12,20 +12,20 @@ The first script just gathered a frequency count for each method invoked -- noth
 
 **jmethod.d**
 
-```
+```dtrace
 #!/usr/sbin/dtrace -s
 dvm$1:::method-entry
 {
-@[copyinstr(arg0), copyinstr(arg1)] = count();
+        @[copyinstr(arg0), copyinstr(arg1)] = count();
 }
 END
 {
-printa("%-10@u %s.%s()\n", @);
+        printa("%-10@u %s.%s()\n", @);
 }
 
 ```
 
-```
+```console
 bash-3.00# dtrace -s jmethods.d `pgrep java`
 ...
 574        sun/java2d/SunGraphics2D.getCompClip()
@@ -45,14 +45,13 @@ bash-3.00# dtrace -s jmethods.d `pgrep java`
 1702       sun/java2d/SunGraphics2D.getSurfaceData()
 3457       java/lang/Math.min()
 ^C
-
 ```
 
 The second demo was a little more exciting: this guy followed a thread of control all the way from Java code through the native library code, the system calls, and all the kernel function calls to the lowest levels of the system. Each different layer of the stack is annotated with _color_ -- the first use of color in a DTrace script as far as I know.
 
 **follow.d**
 
-```
+```dtrace
 #!/usr/sbin/dtrace -s
 /*
 * This script was used for the DTrace demo during the JavaOne keynote.
@@ -66,89 +65,92 @@ dvm$1:::method-entry
 /copyinstr(arg0) == "sun/java2d/pipe/AlphaColorPipe" &&
 copyinstr(arg1) == "renderPathTile"/
 {
-self->interested = 1;
-self->depth = 8;
+        self->interested = 1;
+        self->depth = 8;
 }
 dvm$1:::method-entry
 /self->interested/
 {
-printf("33[01;35m%*.*s -> %s.%s33[0m\n",
-self->depth, self->depth, "",
-copyinstr(arg0), copyinstr(arg1));
-self->depth += 2;
+        printf("33[01;35m%*.*s -> %s.%s33[0m\n",
+            self->depth, self->depth, "",
+            copyinstr(arg0), copyinstr(arg1));
+        self->depth += 2;
 }
 dvm$1:::method-return
 /self->interested/
 {
-self->depth -= 2;
-printf("33[01;35m%*.*s depth, self->depth, "",
-copyinstr(arg0), copyinstr(arg1));
+        self->depth -= 2;
+        printf("33[01;35m%*.*s depth, self->depth, "",
+            copyinstr(arg0), copyinstr(arg1));
 }
 dvm$1:::method-return
 /self->interested &&
 copyinstr(arg0) == "sun/java2d/pipe/AlphaColorPipe" &&
 copyinstr(arg1) == "renderPathTile"/
 {
-self->interested = 0;
-self->depth = 0;
-exit(0);
+        self->interested = 0;
+        self->depth = 0;
+        exit(0);
 }
 pid$1:::entry
 /self->interested && probemod != "libdvmti.so"/
 {
-printf("33[01;31m%*.*s -> %s`%s33[0m\n",
-self->depth, self->depth, "",
-probemod, probefunc);
-self->depth += 2;
+        printf("33[01;31m%*.*s -> %s`%s33[0m\n",
+            self->depth, self->depth, "",
+            probemod, probefunc);
+        self->depth += 2;
 }
 pid$1:::return
 /self->interested && probemod != "libdvmti.so"/
 {
-self->depth -= 2;
-printf("33[01;31m%*.*s depth, self->depth, "",
-probemod, probefunc);
+        self->depth -= 2;
+        printf("33[01;31m%*.*s depth, self->depth, "",
+            probemod, probefunc);
 }
 syscall:::entry
 /self->interested/
 {
-printf("33[01;34m%*.*s => %s33[0m\n",
-self->depth, self->depth, "",
-probefunc);
-self->depth += 2;
+        printf("33[01;34m%*.*s => %s33[0m\n",
+            self->depth, self->depth, "", probefunc);
+        self->depth += 2;
 }
 syscall:::return
 /self->interested/
 {
-self->depth -= 2;
-printf("33[01;34m%*.*s depth, self->depth, "",
-probefunc);
+        self->depth -= 2;
+        printf("33[01;34m%*.*s depth, self->depth, "",
+            probefunc);
 }
 fbt:::entry
 /self->interested/
 {
-printf("33[32m%*.*s -> %s33[0m\n",
-self->depth, self->depth, "",
-probefunc);
-self->depth += 2;
+        printf("33[32m%*.*s -> %s33[0m\n",
+        self->depth, self->depth, "",
+            probefunc);
+        self->depth += 2;
 }
 fbt:::return
 /self->interested/
 {
-self->depth -= 2;
-printf("33[32m%*.*s depth, self->depth, "",
-probefunc);
+        self->depth -= 2;
+        printf("33[32m%*.*s depth, self->depth, "", probefunc);
 }
-
 ```
 
-`bash-3.00# dtrace -s follow.d \`pgrep java\`  
-     -> sun/java2d/pipe/AlphaColorPipe.renderPathTile       -> copyout  
-       <- kcopy       -> sun/java2d/SunGraphics2D.getSurfaceData...  
-           <- libc.so.1\`\_lwp\_cond\_signal  
-         <- libjvm.so\`\_\_1cNObjectMonitorEexit6MpnGThread\_\_v\_  
-       <- libjvm.so\`\_\_1cSObjectSynchronizerIjni\_exit6FpnHoopDesc\_pnGThread\_\_v\_  
-     <- libjvm.so\`jni\_MonitorExit  
-   <- libawt.so\`Java\_sun\_java2d\_loops\_MaskFill\_MaskFill<- sun/java2d/pipe/AlphaColorPipe.renderPathTile`
+```console
+# dtrace -s follow.d `pgrep java`  
+     -> sun/java2d/pipe/AlphaColorPipe.renderPathTile
+       -> copyout  
+       <- kcopy
+       -> sun/java2d/SunGraphics2D.getSurfaceData
+...  
+           <- libc.so.1`_lwp_cond_signal  
+         <- libjvm.so`__1cNObjectMonitorEexit6MpnGThread__v_  
+       <- libjvm.so`__1cSObjectSynchronizerIjni_exit6FpnHoopDesc_pnGThread__v_  
+     <- libjvm.so`jni_MonitorExit  
+   <- libawt.so`Java_sun_java2d_loops_MaskFill_MaskFill
+<- sun/java2d/pipe/AlphaColorPipe.renderPathTile
+```
 
 Now you can give a keynote demo of your very own.
 
