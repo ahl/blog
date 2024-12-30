@@ -27,7 +27,7 @@ const numberOfLatestPostsToShow = 3;
 	<ul class="post-metadata">
 		<li><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}</time></li>
 	</ul>
-	{{ post.templateContent | safe }}
+	{{ post.templateContent | fixImagePaths(post.filePathStem) | safe }}
 
 	{% if loop.index < postslist.length %}
 	<ul class="links-nextprev"/>

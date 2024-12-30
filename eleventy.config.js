@@ -8,6 +8,7 @@ import pluginFilters from "./_config/filters.js";
 
 import mathjaxPlugin from "eleventy-plugin-mathjax";
 import embedYouTube from "eleventy-plugin-youtube-embed";
+import path from "path";
 
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
@@ -139,6 +140,23 @@ export default async function (eleventyConfig) {
 		return `<pre><code class="language-${language}">${html}</code></pre>`;
 	});
 
+	eleventyConfig.addFilter("fixImagePaths", function (content, pageUrl) {
+		// Get the base directory of the page URL (e.g., /blog/post/)
+		const basePath = pageUrl.replace(/\/[^\/]*$/, ""); // Remove the filename
+
+		// Rewrite relative paths in HTML <img> tags of the form src="image/xxx"
+		return content.replace(/<img src="images\/([^"]+)"/g, (match, src) => {
+			const resolvedPath = path.join(basePath, "images", src).replace(/\\/g, "/");
+			return `<img src="${resolvedPath}"`;
+		});
+
+		return content;
+	});
+
+	eleventyConfig.addFilter("log", function (value) {
+		console.log(value);
+		return value;
+	});
 };
 
 export const config = {
