@@ -4,7 +4,7 @@ date: "2024-12-29"
 permalink: /oxf-2024-in-images/
 ---
 
-[Bryan](https://bcantrill.dtrace.org) and I just wrapped up [season 4](/oxide-and-friends-season-4/) of [Oxide and Friends](https://oxide-and-friends.transistor.fm/). Borrowing from [The Changelog](https://changelog.com/), we capped the season with a look back on the past year of episodes. While the Changelog folks pick their favorite titles, we had more to say about our favorite cover images. Below I've summarized our year in images. Click on the left for YouTube, and the right for the podcast (with links to various podcast platforms).
+[Bryan](https://bcantrill.dtrace.org) and I just wrapped up [season 4](/2024/01/13/oxide-and-friends-season-4/) of [Oxide and Friends](https://oxide-and-friends.transistor.fm/). Borrowing from [The Changelog](https://changelog.com/), we capped the season with a look back on the past year of episodes. While the Changelog folks pick their favorite titles, we had more to say about our favorite cover images. Below I've summarized our year in images. Click on the left for YouTube, and the right for the podcast (with links to various podcast platforms).
 
 We record most Mondays on the [Oxide Discord server](https://discord.gg/gcQxNHAKCB); join us live to chime in or just heckle us in chat.
 
