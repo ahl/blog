@@ -1,6 +1,6 @@
 ---
 title: "DTrace at Rustlab 2024"
-date: "2025-01-05"
+date: "2025-01-05T15:00:00"
 permalink: /dtrace-at-rustlab-2024/
 ---
 
