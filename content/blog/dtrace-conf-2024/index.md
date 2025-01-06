@@ -38,7 +38,7 @@ Dave (the man, the myth, the legend) provided resources for users learning DTrac
 
 https://youtu.be/UM0YYB7McMw
 
-Kris, our invited speaker from Oracle, presented the work he and his team did porting DTrace to an eBPF backend on Linux. This is and incredible advancement for both DTrace and eBPF users.
+Kris, our invited speaker from Oracle, presented the work he and his team did porting DTrace to an eBPF backend on Linux. This is an incredible advancement for both DTrace and eBPF users.
 
 https://youtu.be/rMOmaWQ18d4
 
