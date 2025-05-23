@@ -42,6 +42,10 @@ Kris, our invited speaker from Oracle, presented the work he and his team did po
 
 https://youtu.be/rMOmaWQ18d4
 
+Ry gave an amazing talk on integrating P4 and DTrace.
+
+https://youtu.be/3GZQSwZyoOs
+
 Robert presented a future for user-land tracing with DTrace that's both exciting and tantalizingly close at-hand.
 
 https://youtu.be/yK7xs2SmfFY
