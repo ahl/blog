@@ -52,7 +52,7 @@ $ gcc -o db provider.o src.o ...
 
 ```
 
-If you've looked at the old USDT usage, the big differences are the creation and use of `provider.h`, and that we use the `_PROVIDER\_PROBE_()` macro rather than the generic `DTRACE\_PROBE1()` macro. In addition to working with C++, this has the added benefit that it engages the compiler's type checking since the macros in the generated header file require the types specified in the provider definition.
+If you've looked at the old USDT usage, the big differences are the creation and use of `provider.h`, and that we use the `_PROVIDER_PROBE_()` macro rather than the generic `DTRACE_PROBE1()` macro. In addition to working with C++, this has the added benefit that it engages the compiler's type checking since the macros in the generated header file require the types specified in the provider definition.
 
 #### Is-Enabled Probes
 
@@ -74,7 +74,7 @@ RUBY_RETURN(rb_class2name(klass), rb_id2name(method));
 
 ```
 
-Where `rb\_class2name()` and `rb\_id2name` perform quite expensive operations.
+Where `rb_class2name()` and `rb_id2name` perform quite expensive operations.
 
 With is-enabled probes, Bryan was able to [greatly reduce the overhead](http://blogs.sun.com/roller/page/bmc?entry=dtrace_on_rails) of the Ruby provider to essentially zero:
 

@@ -120,7 +120,7 @@ dtrace: description 'pid332:::entry' matched 264630 probes
 I let it run for a while, made iTunes do some work, and the result when I stopped the script? Nothing. The expensive DTrace invocation clearly caused iTunes to do a lot more work, but DTrace was giving me no output.  
 Which started me thinking... did they? Surely not. They wouldn't disable DTrace for certain applications.
 
-But that's exactly what Apple's done with their DTrace implementation. The notion of true systemic tracing was a bit too egalitarian for their classist sensibilities so they added this glob of lard into `dtrace\_probe()` -- the heart of DTrace:
+But that's exactly what Apple's done with their DTrace implementation. The notion of true systemic tracing was a bit too egalitarian for their classist sensibilities so they added this glob of lard into `dtrace_probe()` -- the heart of DTrace:
 
 ```
 #if defined(__APPLE__)

@@ -30,7 +30,7 @@ Computer systems can fail at any time—crashes, bugs, power outages, etc.—so 
 
 Overwriting data creates the most obvious opening for inconsistency. If the file system needs to overwrite several regions there is a window where some regions represent the new state and some represent the former state. Copy-on-write (COW) is a method to avoid this by always allocating new regions and then releasing old ones for reuse rather than modifying data in-place. APFS claims to implement a “novel copy-on-write metadata scheme”; APFS lead developer Dominic Giampaolo emphasized the novelty of this approach without delving into the details. In conversation later, he made it clear that APFS does not employ the ZFS mechanism of copying all metadata above changed user data which allows for a single, atomic update of the file system structure.
 
-It’s surprising to see that APFS includes `[fsck\_apfs](https://forums.developer.apple.com/thread/49207)`—even after asking Dominic I’m not sure why it would be necessary. For comparison I don't believe there’s been an instance where `fsck` for ZFS would have found a problem that the file system itself didn’t already know how to detect. But Dominic was just as confused about why ZFS would forego `fsck`, so perhaps it’s just a matter of opinion.
+It’s surprising to see that APFS includes `[fsck_apfs](https://forums.developer.apple.com/thread/49207)`—even after asking Dominic I’m not sure why it would be necessary. For comparison I don't believe there’s been an instance where `fsck` for ZFS would have found a problem that the file system itself didn’t already know how to detect. But Dominic was just as confused about why ZFS would forego `fsck`, so perhaps it’s just a matter of opinion.
 
 ### Checksums
 
@@ -44,7 +44,7 @@ As someone who has data he cares about on a Mac, who has seen data lost from HFS
 
 ### Scrub
 
-As data ages you might occasionally want to check for bit rot. Likely `fsck\_apfs` can accomplish this; as noted though there’s no data redundancy and no checksums for user data, so scrub would only help to find problems and likely wouldn’t help to correct them. And if it makes it any easier for Apple to reverse course, let’s say it’s for the el cheap-o drive I bought from Fry’s not for the gold-plated device I got from Apple.
+As data ages you might occasionally want to check for bit rot. Likely `fsck_apfs` can accomplish this; as noted though there’s no data redundancy and no checksums for user data, so scrub would only help to find problems and likely wouldn’t help to correct them. And if it makes it any easier for Apple to reverse course, let’s say it’s for the el cheap-o drive I bought from Fry’s not for the gold-plated device I got from Apple.
 
  
 

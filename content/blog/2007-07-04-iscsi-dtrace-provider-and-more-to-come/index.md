@@ -56,7 +56,7 @@ uint8_t *ic_cdb;        /* CDB data */
 
 ```
 
-Note that the arguments go from most generic (the connection for the application protocol) to most specific. As an aside, we'd like future protocol providers to make use of the `conninfo\_t` so that one could write a simple script to see a table of frequent consumers for all protocols:
+Note that the arguments go from most generic (the connection for the application protocol) to most specific. As an aside, we'd like future protocol providers to make use of the `conninfo_t` so that one could write a simple script to see a table of frequent consumers for all protocols:
 
 ```
 iscsi*:::,

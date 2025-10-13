@@ -25,7 +25,7 @@ DTrace has a little bit of functionality that lives in the core kernel. The code
 
 ### DTrace Kernel Modules
 
-The other DTrace kernel components are divided into several loadable kernel modules. There's the main DTrace module and then the instrumentation provider modules that connect to the core framework through an internal interface. These constitute the vast majority of the in-kernel DTrace code. Google modifies these to use slightly different interfaces (e.g. `mutex\_enter()` becomes `mutex\_lock()`); the final result is a collection of kernel modules still licensed under the CDDL. Of course, Google posts any modifications to CDDL files.
+The other DTrace kernel components are divided into several loadable kernel modules. There's the main DTrace module and then the instrumentation provider modules that connect to the core framework through an internal interface. These constitute the vast majority of the in-kernel DTrace code. Google modifies these to use slightly different interfaces (e.g. `mutex_enter()` becomes `mutex_lock()`); the final result is a collection of kernel modules still licensed under the CDDL. Of course, Google posts any modifications to CDDL files.
 
 ### DTrace Libraries and Commands
 

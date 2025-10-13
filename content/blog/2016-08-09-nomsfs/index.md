@@ -195,7 +195,7 @@ Embedded 'Splore! [http://splore.noms.io/?db=https://demo.noms.io/ahl\_blog&hash
 
 <iframe width="100%" height="400px" scrolling="yes" src="http://splore.noms.io/?db=https://demo.noms.io/ahl_blog&amp;hash=2nhi5utm4s38hka22vt9ilv5i3l8r2ol"></iframe>
 
-You can see the all of the various states that the filesystem has been through — each state change — using `noms log http://demo.noms.io/ahl\_blog::fsnoms`. You can sync it to your local computer with `noms sync http://demo.noms.io/ahl\_blog::fsnoms /var/tmp/fs` or checkout some previous state from the log (just like a filesystem snapshot). Diff two states from the log or make your own changes and diff it with the original using `noms diff`.
+You can see the all of the various states that the filesystem has been through — each state change — using `noms log http://demo.noms.io/ahl_blog::fsnoms`. You can sync it to your local computer with `noms sync http://demo.noms.io/ahl_blog::fsnoms /var/tmp/fs` or checkout some previous state from the log (just like a filesystem snapshot). Diff two states from the log or make your own changes and diff it with the original using `noms diff`.
 
 ## Nom Nom Nom
 

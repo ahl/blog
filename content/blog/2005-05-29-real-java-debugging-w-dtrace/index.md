@@ -126,7 +126,7 @@ self->interested = 0;
 
 ```
 
-In the output I found a smoking gun: `gethostbyname\_r(3NSL)` was returning NULL. A little more investigation confirmed that the argument to `gethostbyname\_r(3NSL)` was "epizooty"; a little test program showed the same problem. Now well away from Java and in more familar waters, I quickly realized that adding an entry into `/etc/hosts` was all I needed to do to clear up the problem.
+In the output I found a smoking gun: `gethostbyname_r(3NSL)` was returning NULL. A little more investigation confirmed that the argument to `gethostbyname_r(3NSL)` was "epizooty"; a little test program showed the same problem. Now well away from Java and in more familar waters, I quickly realized that adding an entry into `/etc/hosts` was all I needed to do to clear up the problem.
 
 This was a great experience: not only was I able to use this `dvm` stuff to great effect (for which my excitement had been largely theoretical), but I got to prove to my brother how amazingly cool this DTrace thing really is. As I haven't done any serious Java debugging for quite a while I'd like to pose this question to anyone who's managed to stay with me so far: How would anyone debug this without DTrace? Are there other tools that let you observe Java _and_ the native calls _and_ the library routines? And, though I didn't need it here, are there tools that let you correlate Java calls to low level kernel facilities? I welcome your feedback.
 
