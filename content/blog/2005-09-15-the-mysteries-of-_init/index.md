@@ -10,7 +10,7 @@ I hadn't been fully aware that I felt this way, but I recently had a realization
 
 Over the course of developing [user-level statically defined tracing](http://docs.sun.com/app/docs/doc/817-6223/6mlkidlms?a=view) USDT, I've worked (and continue to work) with the linker guys to figure out the best way to slot the two technologies together. Recently, some users of USDT have run into a problem where binaries compiled with USDT probes weren't actually making them available to the system. We eventually tracked it down to incorrect use of the linker. I thought it would be helpful to describe the problem and the solution in case other people bump into something similar.
 
-First a little bit on initialization. In a C compiler, you can specify an initialization function like this: `#pragma init(my\_init)`. The intention of this is to have the specified function (e.g. `my\_init`) called when the binary is loaded into the program. This is a good place to do initialization like memory allocation or other set up used in the rest of the binary. What the compiler actually does when you specify this is create a ".init" section which contains a call to the specified function.
+First a little bit on initialization. In a C compiler, you can specify an initialization function like this: `#pragma init(my_init)`. The intention of this is to have the specified function (e.g. `my_init`) called when the binary is loaded into the program. This is a good place to do initialization like memory allocation or other set up used in the rest of the binary. What the compiler actually does when you specify this is create a ".init" section which contains a call to the specified function.
 
 As a concrete example (and the example relevant to this specific manifestation of the problem), take a look at this code in [usr/src/lib/libdtrace/common/drti.c](http://cvs.opensolaris.org/source/xref/usr/src/lib/libdtrace/common/drti.c#88):
 
@@ -22,7 +22,7 @@ As a concrete example (and the example relevant to this specific manifestation o
 
 ```
 
-When we compile this into an object file (which we then deliver in /usr/lib/dtrace/drti.o), the compiler generates a .init ELF section that contains a call to `dtrace\_dof\_init()` (actually it contains a call with a relocation that gets filled into to be the address of `dtrace\_dof\_init()`, but that's a detail for another blog entry).
+When we compile this into an object file (which we then deliver in /usr/lib/dtrace/drti.o), the compiler generates a .init ELF section that contains a call to `dtrace_dof_init()` (actually it contains a call with a relocation that gets filled into to be the address of `dtrace_dof_init()`, but that's a detail for another blog entry).
 
 The linker doesn't really do anything special with .init ELF sections -- it just concatenates them like it does all other sections with the same name. So when you compile a bunch of object files with .init sections, they just get crammed together -- there's still nothing special that causes them to get executed with the binary is loaded.
 

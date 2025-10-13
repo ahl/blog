@@ -10,7 +10,7 @@ I think the thing I love most about debugging software is that each tough bug ca
 
 For my first [OpenSolaris](www.opensolaris.org) blog post, I thought I talk about one of my favorite such bugs. This particularly [nasty bug](http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id=5095242) had to do with a tricky interaction between [VMware](http://www.vmware.com) and [DTrace](http://www.sun.com/bigadmin/content/dtrace/) (pre-production versions of each to be clear). My buddy Keith -- a fellow [Brown](http://www.brown.edu) [CS](http://www.cs.brown.edu) Grad -- gave me a call and told me about some strange behavior he was seeting running DTrace inside of a VMware VM. Keith is a [big fan](http://slashdot.org/~kma/journal/75427) of DTrace, but an intermittant, but reproducable problem was putting a damper on his DTrace enthusiasm. Every once in a while, running DTrace would cause the system to freeze. Because Solaris was running in the virtual environment, he could see that both virtual CPUs where spinning away, but they weren't making any forward progress. After a couple of back and forths over email, I made the trip down to Palo Alto so we could work on the problem together.
 
-Using some custom debugging tools, we were able to figure out where the two virtual CPUs were spinning. One CPU was in `xc\_common()` and the other was in `xc\_serv()` -- code to handle cross calls. So what was going on?
+Using some custom debugging tools, we were able to figure out where the two virtual CPUs were spinning. One CPU was in `xc_common()` and the other was in `xc_serv()` -- code to handle cross calls. So what was going on?
 
 ### cross calls
 
@@ -18,7 +18,7 @@ Before I can really delve into the problem, I want to give just a brief overview
 
 DTrace uses xcalls synchronize data used by all CPUs by ensuring that all CPUs have reached a certain point in the code. DTrace executes actions with interrupts disabled (an explanation of why this must be so is well beyond the bounds of this discussion) so we can tell that a CPU isn't in probe context if its able to handle our xcall. When DTrace is stopping tracing activity, for example, it will update some data that affects all CPUs and then use a xcall to make sure that every CPU has seen its effects before proceeding:
 
-[`dtrace\_state\_stop()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/common/dtrace/dtrace.c#dtrace_state_stop)
+[`dtrace_state_stop()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/common/dtrace/dtrace.c#dtrace_state_stop)
 
 ```
 10739           /*
@@ -31,13 +31,13 @@ DTrace uses xcalls synchronize data used by all CPUs by ensuring that all CPUs h
 
 ```
 
-`dtrace\_sync()` sends a xcall to all other CPUs and has them spin in a holding pattern until all CPUs have reached that point at which time the CPU which sent the xcall releases them all (and they go back to whatever they had been doing when they received the interrupt). That's the high level overview; let's go into a little more detail on how xcalls work (well, actually a lot more detail).
+`dtrace_sync()` sends a xcall to all other CPUs and has them spin in a holding pattern until all CPUs have reached that point at which time the CPU which sent the xcall releases them all (and they go back to whatever they had been doing when they received the interrupt). That's the high level overview; let's go into a little more detail on how xcalls work (well, actually a lot more detail).
 
 ### xcall implementation
 
-If you follow the sequence of functions called by [`dtrace\_sync()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/common/dtrace/dtrace.c#dtrace_sync) (and I encourage you to do so), you'll find that this eventually calls `xc\_common()` to do the heavy lifting. It's important to note that this call to [`xc\_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#xc_common) will have the `sync` argument set to `1`. What's that mean? In a text book example of good software engineering, [someone](http://blogs.sun.com/JoeBonasera) did a good job documenting what this value means:
+If you follow the sequence of functions called by [`dtrace_sync()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/common/dtrace/dtrace.c#dtrace_sync) (and I encourage you to do so), you'll find that this eventually calls `xc_common()` to do the heavy lifting. It's important to note that this call to [`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#xc_common) will have the `sync` argument set to `1`. What's that mean? In a text book example of good software engineering, [someone](http://blogs.sun.com/JoeBonasera) did a good job documenting what this value means:
 
-[`xc\_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#432)
+[`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#432)
 
 ```
 411    /*
@@ -60,11 +60,11 @@ If you follow the sequence of functions called by [`dtrace\_sync()`](http://cvs.
 
 ```
 
-Before you start beating your brain out trying to figure out what you're missing here, in this particular case, this destinction bewteen `sync` having the value of 1 and 2 is nil: the service (function pointer specified by the `func` argument) that we're running is [`dtrace\_sync\_func()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/dtrace_subr.c#dtrace_sync_func) which does literally nothing.
+Before you start beating your brain out trying to figure out what you're missing here, in this particular case, this destinction bewteen `sync` having the value of 1 and 2 is nil: the service (function pointer specified by the `func` argument) that we're running is [`dtrace_sync_func()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/dtrace_subr.c#dtrace_sync_func) which does literally nothing.
 
-Let's start picking apart `xc\_common()`:
+Let's start picking apart `xc_common()`:
 
-[`xc\_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#467)
+[`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#467)
 
 ```
 446            /*
@@ -93,11 +93,11 @@ Let's start picking apart `xc\_common()`:
 
 ```
 
-We take a first pass through all the processors; if the processor is ready to go and is in the set of processors we care about (they all are in the case of `dtrace\_sync()`) we set the remote CPU's **ack** flag to 0, it's **wait** flag to `sync` (remember, 1 in this case), and it's **state** flag to `XC\_SYNC\_OP` and then actually send the interrupt with the call to `send\_dirint()`.
+We take a first pass through all the processors; if the processor is ready to go and is in the set of processors we care about (they all are in the case of `dtrace_sync()`) we set the remote CPU's **ack** flag to 0, it's **wait** flag to `sync` (remember, 1 in this case), and it's **state** flag to `XC_SYNC_OP` and then actually send the interrupt with the call to `send_dirint()`.
 
 Next we wait for the remote CPUs to acknowledge that they've executed the requested service which they do by setting the **ack** flag to 1:
 
-[`xc\_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#500)
+[`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#500)
 
 ```
 479            /*
@@ -116,11 +116,11 @@ Next we wait for the remote CPUs to acknowledge that they've executed the reques
 
 ```
 
-That `while` loop spins waiting for **ack** to become 1. If you look at the definition of [`return\_instr()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/ml/mpcore.s#764) it's name is actually more descriptive that you might imagine: it's just a return instruction -- the most trivial function possible. I'm not absolutely certain, but I think it was put there so the compiler wouldn't "optimize" the loop away. The call to the inline function [`ht\_pause()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/intel/amd64/ml/amd64.il#296) is so that the thread spins in such a way that's considerate on an [hyper-threaded](http://www.intel.com/technology/hyperthread/) CPU. The call to `ht\_pause()` is probably sufficient to prevent the compiler from being overly clever, but the legacy call to `return\_instr()` remains.
+That `while` loop spins waiting for **ack** to become 1. If you look at the definition of [`return_instr()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/ml/mpcore.s#764) it's name is actually more descriptive that you might imagine: it's just a return instruction -- the most trivial function possible. I'm not absolutely certain, but I think it was put there so the compiler wouldn't "optimize" the loop away. The call to the inline function [`ht_pause()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/intel/amd64/ml/amd64.il#296) is so that the thread spins in such a way that's considerate on an [hyper-threaded](http://www.intel.com/technology/hyperthread/) CPU. The call to `ht_pause()` is probably sufficient to prevent the compiler from being overly clever, but the legacy call to `return_instr()` remains.
 
-Now let's look at the other side of this conversation: what happens on a remote CPU as a result of this interrupt? This code is in `xc\_serv()`
+Now let's look at the other side of this conversation: what happens on a remote CPU as a result of this interrupt? This code is in `xc_serv()`
 
-[`xc\_serv()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#159)
+[`xc_serv()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#159)
 
 ```
 138    	/*
@@ -135,7 +135,7 @@ I'm sure it comes as no surprise that after executing the given function, it jus
 
 Since in this case we're dealing with a synchronous xcall, the remote CPU then needs to just chill out until the CPU that initiated the xcall discovers that all remote CPUs have executed the function and are ready to be released:
 
-[`xc\_serv()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#167)
+[`xc_serv()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#167)
 
 ```
 146    	/*
@@ -157,7 +157,7 @@ Since in this case we're dealing with a synchronous xcall, the remote CPU then n
 
 And here's the code on the initiating side that releases all the remote CPUs by setting the **wait** and **state** flags to the values that the remote CPUs are waiting to see:
 
-[`xc\_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#523)
+[`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#523)
 
 ```
  502            /*
@@ -179,30 +179,30 @@ And here's the code on the initiating side that releases all the remote CPUs by 
 
 Wait! Without reading ahead in the code, does anyone see the problem?
 
-Back at VMware, Keith hacked up a version of the virtual machine monitor which allowed us to trace certain points in the code and figure out the precise sequence in which they occurred. We traced the entry and return to `xc\_common()` and `xc\_serv()`. Almost every time we'd see something like this:
+Back at VMware, Keith hacked up a version of the virtual machine monitor which allowed us to trace certain points in the code and figure out the precise sequence in which they occurred. We traced the entry and return to `xc_common()` and `xc_serv()`. Almost every time we'd see something like this:
 
-- enter `xc\_common()` on CPU 0
-- enter `xc\_serv()` on CPU 1
-- exit `xc\_serv()` on CPU 1
-- exit `xc\_common()` on CPU 0
+- enter `xc_common()` on CPU 0
+- enter `xc_serv()` on CPU 1
+- exit `xc_serv()` on CPU 1
+- exit `xc_common()` on CPU 0
 
 or:
 
-- enter `xc\_common()` on CPU 0
-- enter `xc\_serv()` on CPU 1
-- exit `xc\_common()` on CPU 0
-- exit `xc\_serv()` on CPU 1
+- enter `xc_common()` on CPU 0
+- enter `xc_serv()` on CPU 1
+- exit `xc_common()` on CPU 0
+- exit `xc_serv()` on CPU 1
 
 But the problem happened when we saw a sequence like this:
 
-- enter `xc\_common()` on CPU 0
-- enter `xc\_serv()` on CPU 1
-- exit `xc\_common()` on CPU 0
-- enter `xc\_common()` on CPU 0
+- enter `xc_common()` on CPU 0
+- enter `xc_serv()` on CPU 1
+- exit `xc_common()` on CPU 0
+- enter `xc_common()` on CPU 0
 
-And nothing futher. What was happening was that after releasing remote CPUs, CPU 0 was exiting from the call to `xc\_common()` and calling it again before the remote invocation of `xc\_serv()` on the other CPU had a change to exit.
+And nothing futher. What was happening was that after releasing remote CPUs, CPU 0 was exiting from the call to `xc_common()` and calling it again before the remote invocation of `xc_serv()` on the other CPU had a change to exit.
 
-Recall that one of the the first things that `xc\_common()` does is set the **state** flag. If the first call to `xc\_common()` sets the **state** flag to release the remote CPU from `xc\_sync()`, but when things go wrong, `xc\_common()` was overwriting that flag before the remote CPU got a change to see it.
+Recall that one of the the first things that `xc_common()` does is set the **state** flag. If the first call to `xc_common()` sets the **state** flag to release the remote CPU from `xc_sync()`, but when things go wrong, `xc_common()` was overwriting that flag before the remote CPU got a change to see it.
 
 ### the problem
 
@@ -216,9 +216,9 @@ There are actually quite a few ways to fix this problem -- I'm sure you can thin
 
 Keith predicted a few possible situations where this same bug could manifest itself on physical CPUs: on hyper-threaded CPUs, or in the presence of service management interrupts. And that prediction turned out to be spot on: a few weeks after root causing the bug under VMware, we hit the same problem on a system with four hyper-threaded chips (8 logical CPUs).
 
-Since at that time we were even closer to shipping Solaris 10, I chose the fix I thought was the safest and least likely to have nasty side effects. After releasing remote CPUs, the code in `xc\_common()` would now wait for remote CPUs to check in -- wait for them to acknowledge receipt of the directive to proceed.
+Since at that time we were even closer to shipping Solaris 10, I chose the fix I thought was the safest and least likely to have nasty side effects. After releasing remote CPUs, the code in `xc_common()` would now wait for remote CPUs to check in -- wait for them to acknowledge receipt of the directive to proceed.
 
-[`xc\_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#536)
+[`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#536)
 
 ```
  515            /*
@@ -244,9 +244,9 @@ Since at that time we were even closer to shipping Solaris 10, I chose the fix I
 
 ```
 
-In that comment, I tried to summarize in 6 lines what has just taken me several pages to describe. And maybe I should have said "livelock" -- oh well. Here's the complementary code in `xc\_serv()`:
+In that comment, I tried to summarize in 6 lines what has just taken me several pages to describe. And maybe I should have said "livelock" -- oh well. Here's the complementary code in `xc_serv()`:
 
-[`xc\_serv()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#191)
+[`xc_serv()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#191)
 
 ```
  170            /*

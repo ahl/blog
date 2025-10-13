@@ -12,7 +12,7 @@ permalink: /2004/07/13/number-11-of-20-libumem/
 
 In Solaris 2.4 we replaced the old buddy allocator1 the slab allocator2 invented by Jeff Bonwick. The slab allocator is covered in pretty much every operating systems text book -- and that's because most operating systems are now using it. In Solaris 103, Jonathan Adams brought the slab allocator to user-land in the form of **libumem**4.
 
-Getting started with `libumem` is easy; just do the [linker](http://blogs.sun.com/rie) trick of setting `LD\_PRELOAD` to "libumem.so" and any program you execute will use libumem's `malloc(3C)` and `free(3C)` (or `new` and `delete` if you're into that sort of [thing](http://nothings.org/computer/cpp.html)). Alteratively, if you like what you see, you can start linking your programs against libumem by passing `\-lumem` to your compiler or linker. But I'm getting ahead of myself; why is `libumem` so great?
+Getting started with `libumem` is easy; just do the [linker](http://blogs.sun.com/rie) trick of setting `LD_PRELOAD` to "libumem.so" and any program you execute will use libumem's `malloc(3C)` and `free(3C)` (or `new` and `delete` if you're into that sort of [thing](http://nothings.org/computer/cpp.html)). Alteratively, if you like what you see, you can start linking your programs against libumem by passing `\-lumem` to your compiler or linker. But I'm getting ahead of myself; why is `libumem` so great?
 
 ### Scalability
 
@@ -62,7 +62,7 @@ You can use other `mdb` dcmds like ::umem\_verify to look for corruption. The ke
 
 ### Programmatic Interface
 
-In addition to offering the well-known `malloc()` and `free()`, also has a programmatic interface for creating your own object caches backed by the heap or memory mapped files or whatever. This offers additional flexibility and precision and allows you to futher optimize your application around libumem. Check out the man pages for [`umem\_alloc()`](http://docs.sun.com/db/doc/817-0692/6mgfnkutq?a=view) and [`umem\_cache\_alloc()`](http://docs.sun.com/db/doc/817-0692/6mgfnkutr?a=view) for _all_ the details.
+In addition to offering the well-known `malloc()` and `free()`, also has a programmatic interface for creating your own object caches backed by the heap or memory mapped files or whatever. This offers additional flexibility and precision and allows you to futher optimize your application around libumem. Check out the man pages for [`umem_alloc()`](http://docs.sun.com/db/doc/817-0692/6mgfnkutq?a=view) and [`umem_cache_alloc()`](http://docs.sun.com/db/doc/817-0692/6mgfnkutr?a=view) for _all_ the details.
 
 ### Summary
 

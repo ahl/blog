@@ -28,7 +28,7 @@ APFS brings a much-desired file system feature: snapshots. A snapshot lets you f
 
 ZFS includes snapshots and serialization mechanisms that make it efficient to backup file systems or transfer file systems to a remote location. Will APFS work like that? Probably not, answered Dominic Giampaolo, APFS lead developer. ZFS sends all changed data while Time Machine can have exclusion lists and the like. That seems surmountable, but we’ll see what Apple does. APFS right now is incompatible with Time Machine due to the lack of directory hard links, a fairly disgusting implementation that likely contributes to Time Machine’s questionable reliability. Hopefully APFS will create some efficient serialization for Time Machine backup.
 
-While Eric Tamura, APFS dev manager, demonstrated snapshots at WWDC, the required utilities aren’t included in the macOS Sierra beta. I used DTrace (technology I’m increasingly amazed that Apple ported from OpenSolaris) to find a tantalizingly-named new system call `fs\_snapshot`; I’ll leave it to others to reverse engineer its proper use.
+While Eric Tamura, APFS dev manager, demonstrated snapshots at WWDC, the required utilities aren’t included in the macOS Sierra beta. I used DTrace (technology I’m increasingly amazed that Apple ported from OpenSolaris) to find a tantalizingly-named new system call `fs_snapshot`; I’ll leave it to others to reverse engineer its proper use.
 
 ## Management
 
