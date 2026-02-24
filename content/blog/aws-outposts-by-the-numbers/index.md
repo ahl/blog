@@ -11,7 +11,7 @@ Now that the pricing is public, I ripped apart the data. These are big, expensiv
 
 What follows is the analysis I wanted, but couldn’t find. If you’ve been thinking “I wish I had a spreadsheet to get a deep understanding of Outpost pricing”, you’ve come to the right place. If you think spreadsheets are tedious, or perhaps a bizarre thing for a person to do in his idle time, spoiler: I’m going to get really excited about an Excel optimizer, conditionally color some cells, and use RATE() for the first time. So, yeah, it’s going to be wild / I won’t be offended if you leave after watching the “is it on-premise or on-premises?” supercut.
 
-https://www.youtube.com/embed/RWHocP0AzMc?si=JB0W_g1Fm5NWnSUZ
+https://youtu.be/RWHocP0AzMc
 
 <figure>
 <figcaption>(1:06) AWS Outpost on-premises/premise announcement from re:Invent 2018</figcaption>
