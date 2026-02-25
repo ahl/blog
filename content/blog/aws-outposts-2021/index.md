@@ -7,7 +7,7 @@ permalink: /aws-outposts-2021-stories-for-folks-who-love-spreadsheets-72a2adcfb7
 
 <img class="hero-image" src="images/splash.png" alt="">
 
-AWS Outposts is a rack-scale computer that runs on premises. The most recent re:Invent had a bunch of sessions about changes to Outposts. One change that happened without much fanfare is a new lower price (note: LOW-ER, not LOW). [I looked at Outposts pricing last year shortly after it was released.](https://medium.com/@ahl/aws-outposts-68e78592c7f8) As with that analysis there are some more stories and oddities hiding in the numbers: customer and sales feedback, trial balloons popped, months-long miscommunications, and --- as with any pandemic-era story --- a reversion to tedium.
+AWS Outposts is a rack-scale computer that runs on premises. The most recent re:Invent had a bunch of sessions about changes to Outposts. One change that happened without much fanfare is a new lower price (note: LOW-ER, not LOW). [I looked at Outposts pricing last year shortly after it was released.](/aws-outposts-68e78592c7f8/) As with that analysis there are some more stories and oddities hiding in the numbers: customer and sales feedback, trial balloons popped, months-long miscommunications, and --- as with any pandemic-era story --- a reversion to tedium.
 
 <figure>
 <img class="hero-image" src="images/1*H2GaqIjEtUZxuA58DbWB4w.png" alt="">
@@ -83,7 +83,7 @@ In contrast, the 2019 rates for Outposts were as wild as you get in the office o
 <figure>
 <img class="hero-image" src="images/1*7ij9KfhkAXFohZFnj0dWQQ.png" alt="">
 <figcaption>
-Break out your D20 --- it's time to do some pricing!
+Break out your D20  &mdash;it's time to do some pricing!
 </figcaption>
 </figure>
 

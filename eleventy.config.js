@@ -10,6 +10,8 @@ import mathjaxPlugin from "eleventy-plugin-mathjax";
 import embedYouTube from "eleventy-plugin-youtube-embed";
 import path from "path";
 
+import markdownIt from "markdown-it";
+
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
@@ -157,6 +159,16 @@ export default async function (eleventyConfig) {
 		console.log(value);
 		return value;
 	});
+
+	// 2/24/2026
+	// Added to convert '---' to an em-dash.
+	const md = markdownIt({
+		html: true,
+		linkify: true,
+		typographer: true, // -- and --- conversions happen here
+	});
+
+	eleventyConfig.setLibrary("md", md);
 };
 
 export const config = {
