@@ -6,9 +6,9 @@ categories:
 permalink: /2004/06/17/warm-up-the-propaganda-machine/
 ---
 
-I'm a Solaris Kernel engineer at Sun working on [DTrace](http://www.sun.com/bigadmin/content/dtrace/), the new dynamic instrumentation framework in Solaris 10, along side my coconspirators [Bryan Cantrill](http://blogs.sun.com/bmc) and Mike Shapiro. In addition to spending a large amount of my time improving DTrace, I have and continue to work on observability and debugging tools in Solaris -- mdb(1), the p-tools, /proc file system -- stuff like that.
+I'm a Solaris Kernel engineer at Sun working on [DTrace](https://dtrace.org), the new dynamic instrumentation framework in Solaris 10, along side my coconspirators [Bryan Cantrill](http://bcantrill.dtrace.org/) and Mike Shapiro. In addition to spending a large amount of my time improving DTrace, I have and continue to work on observability and debugging tools in Solaris -- mdb(1), the p-tools, /proc file system -- stuff like that.
 
-My goal with this weblog is to write to no one in particular about what we have cooking for DTrace in the future. I'm sure I'll occassionally degenerate into unbridled [rants](http://blogs.sun.com/roller/page/bmc/20040616) as in the vogue for weblogs, but I'll try to keep it vaguely interesting...
+My goal with this weblog is to write to no one in particular about what we have cooking for DTrace in the future. I'm sure I'll occassionally degenerate into unbridled [rants](http://bcantrill.dtrace.org/) as in the vogue for weblogs, but I'll try to keep it vaguely interesting...
 
 Most of my work on DTrace has been directed towards tracing user-level applications. My first contribution, over two years ago, was the `ustack()` action to let you take an application stack backtrace from DTrace. Next I made the `pid` provider that lets you trace not only any user-level function entry and return, but every single instruction in a function. So you can do stuff like this:
 
