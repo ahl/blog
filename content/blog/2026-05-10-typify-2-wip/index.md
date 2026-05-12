@@ -272,13 +272,17 @@ The `exclusiveOneOf` can then cleanly map to a Rust `enum` without concerns
 about ambiguity (i.e. a given value in Rust should round-trip
 (serialize/deserialize) back into the same Rust value).
 
-## Converter
+## Schema converter
 
-Conversion in `typify` is pretty complex because we have to handle all kinds of
-inputs. Conversion of normalized schemas can be both much simpler and more
-obviously exhaustive. Previously, this was mind-bending and complex. In the new
-architecture, it's fun to carve out particular patterns of canonical schemas
-and map them to Rust type representations.
+Converting schemas into Rust types in `typify` is quite complex because we have
+to handle all kinds of arbitrary JSON Schema inputs. *Normalized* schemas have
+a lot less surface area--that's the whole point! The new process of converting
+normalized schemas into rust types is not only simpler, but it's easier to
+validate what situations are handled or where to add new code to handle new
+cases. Previously, this step was mind-bending and complex. It was easy to
+subtly break one case while fixing another. In the new architecture, it's
+actually *fun* to carve out particular patterns of canonical schemas and map
+them to Rust type representations.
 
 ## Type representation
 
