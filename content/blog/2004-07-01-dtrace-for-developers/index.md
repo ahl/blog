@@ -6,7 +6,7 @@ categories:
 permalink: /2004/07/01/dtrace-for-developers/
 ---
 
-After presenting our [paper](http://www.sun.com/bigadmin/content/dtrace/dtrace_usenix.pdf) at [USENIX](http://www.usenix.org/events/usenix04/index.html) on Monday, I was talking with a CMU student who said, "DTrace sounds cool, but I'm not a sysadmin or anything..." When we talk about DTrace we often discuss it with a bias towards sysadmins or sytem integrators, but that's just because those folks have been working with nothing for years. DTrace is a [developer's dream](http://slashdot.org/~kma/journal/75427) come true; it lets you see any aspect of a program and in any way you can imagine.
+After presenting our [paper](https://web.archive.org/web/*/http://www.sun.com/bigadmin/content/dtrace/dtrace_usenix.pdf) at [USENIX](https://web.archive.org/web/*/http://www.usenix.org/events/usenix04/index.html) on Monday, I was talking with a CMU student who said, "DTrace sounds cool, but I'm not a sysadmin or anything..." When we talk about DTrace we often discuss it with a bias towards sysadmins or sytem integrators, but that's just because those folks have been working with nothing for years. DTrace is a [developer's dream](http://slashdot.org/~kma/journal/75427) come true; it lets you see any aspect of a program and in any way you can imagine.
 
 You don't need to know much about DTrace to start using it in development. The simplest use is as an better debugging-with-printfs -- let's say I want to know the input parameters to a function that's acting up:
 
@@ -70,7 +70,7 @@ CPU FUNCTION
 
 ```
 
-Not a complicated D script, but a reallly powerful use for developers that simplifies what would formerly have been an incredibly arduous task. I've mentioned this [before](http://dtrace.org/blogs/ahl/warm_up_the_propaganda_machine), but it certainly bears repeating. Another cool use for developers is evaluating algorithms in running programs. DTrace is great for making sure your hash functions have the distribution you expect:
+Not a complicated D script, but a reallly powerful use for developers that simplifies what would formerly have been an incredibly arduous task. I've mentioned this [before](/2004/06/17/warm-up-the-propaganda-machine/), but it certainly bears repeating. Another cool use for developers is evaluating algorithms in running programs. DTrace is great for making sure your hash functions have the distribution you expect:
 
 ```
 bash-2.05# dtrace -n pid`pgrep testapp`::hash_func:return'{ @ = lquantize(arg1, 0,  50); }'
