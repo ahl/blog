@@ -28,6 +28,6 @@ DTRACE_PROBE1(my_provider, my_probe, arg->a);
 
 ```
 
-You then build the object file, and, before linking the object, you'll use `dtrace(1m)` to post-process all the object files; the [Solaris Dynamic Tracing Guide](http://www.sun.com/bigadmin/content/dtrace/d10_latest.pdf) will describe this in excruciating specificity once I work out the details. This will create this probe `my_provider<pid>:<object name>my_func:my_probe` where <pid> is the process ID of the process that mapped this load object (executable or shared object) and <object name> is the name of that load object.
+You then build the object file, and, before linking the object, you'll use `dtrace(1m)` to post-process all the object files; the [Solaris Dynamic Tracing Guide](https://illumos.org/books/dtrace/) will describe this in excruciating specificity once I work out the details. This will create this probe `my_provider<pid>:<object name>my_func:my_probe` where <pid> is the process ID of the process that mapped this load object (executable or shared object) and <object name> is the name of that load object.
 
 With user-level stable providers, applications and shared objects will be able to describe their own probes which should lead to simpler administration and support. Later it might be possible to leave in all those debugging printfs as DTrace probes. I'd love to hear about any other interesting ideas for user-level stable providers. Now back to the code...
