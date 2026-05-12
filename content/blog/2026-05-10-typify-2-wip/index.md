@@ -19,7 +19,7 @@ impatient) typify users.
 The only way I know how to build the right thing is to build the wrong thing
 first. Maybe that's a bit hyperbolic, so: the only way to build something
 better is to first build something worse. I think that's more or less universal
-among software engineers I've worked with. Some are better at thinking through; others need to feel out the code (I'm much more in that latter camp); but no one get it all right the first time.
+among software engineers I've worked with. Some are better at thinking through; others need to feel out the code (I'm much more in that latter camp); but no one gets it all right the first time.
 
 Typify is the apotheosis of this: the first thing was definitely going to be
 wrong. Why? JSON Schema is big and hairy, and if I had tried to build the
@@ -53,7 +53,7 @@ Sure JSON Schema is complicated, but I could safely ignore a big chunk of that c
 
 # So much wrong
 
-With a OpenAPI SDK generator and JSON type compiler, folks (including folks at
+With an OpenAPI SDK generator and JSON type compiler, folks (including folks at
 Oxide) found other use cases for `progenitor` and `typify`. Plenty of those use
 cases exposed ways in which we mishandled schemas or had a flawed understanding
 of JSON Schema. I was proud of the utility people were getting, but also a
@@ -147,7 +147,7 @@ A schema (or OpenAPI description) can span documents. It's quite annoying. The
 
 ## IR
 
-Code specific to each version (e.g. OpenAPI 3.0.x or Json Schema 2020-12)
+Code specific to each version (e.g. OpenAPI 3.0.x or JSON Schema 2020-12)
 interprets structures and produces a generic internal representation (IR). This
 is big missing piece of the current design which makes multi-version support
 particularly challenging.
@@ -156,7 +156,7 @@ particularly challenging.
 
 As noted above, there are an infinity of different, but equivalent schemas.
 Trying to somehow handle them all and wind up with the same type proved to be
-intractable. Instead, the normalizer transforms the IR in a canonical form.
+intractable. Instead, the normalizer transforms the IR into a canonical form.
 
 A schema can have an arbitrarily deep nesting of "subschemas":
 
@@ -265,7 +265,7 @@ obviously exhaustive.
 Another discrete, seemingly generic layer to fall out is that of type
 representation. "Build me an enum with this name and these variants." or "Make
 a struct with these properties." Nice, generic stuff that can be separately
-developed and tested. It pulls our some of the type-specific complexity and
+developed and tested. It pulls out some of the type-specific complexity and
 configurability into its own entity. Do you want to use `BTreeMap`, `HashMap`
 or something custom? Do you prefer `String` or `::std::string::String`?
 
@@ -283,8 +283,8 @@ Here `bar` could be absent or have a value of `null`. Some folks add a
 `#[serde(default)]` annotation, thinking it affects this... when, in fact, it
 does nothing.
 
-If you care about the distinction between `null` and absent, of if you want to
-precisely model schemas one is permitted but the other is not, this layer
+If you care about the distinction between `null` and absent, or if you want to
+precisely model schemas where one is permitted but the other is not, this layer
 isolates this kind of fastidiousness, and allows testing independent of
 anything related to JSON Schema.
 
@@ -308,8 +308,8 @@ how would we represent a schema like this in Rust?
 {
   "type": "array",
   "prefixItems": [
-    { "type": "string" }
     { "type": "string" },
+    { "type": "string" }
   ],
   "items": { "type": "integer" },
   "minItems": 2
@@ -360,7 +360,7 @@ Firmly in the nice-to-have bucket not the hair-on-fire bucket.
 
 That said, each new issue keeps me motivated; each new bolt-on work-around for
 the structural inadequacies makes me want to work on the new version more. I
-have a plan for incrementally rolling it out--crash landing a re-write if
+have a plan for incrementally rolling it out--crash landing a re-write is
 famously tough to do smoothly. In the meantime, it's satisfying having the
 right bones, the right structure, building the better version from what I've
 learned from the first version.
