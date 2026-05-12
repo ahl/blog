@@ -96,11 +96,11 @@ In 2020-12, that becomes:
 
 Before 2020-12 `items` could either be a single schema or an array of schemas
 (with `additionalItems` meaning "and this schema for everything past that array
-if items"). In 2020-12, `items` can **only** be a single schema and
-`prefixItems` enumerates the discrete array items. It's a sensible,
-incompatible change (Note: also an example of how OpenAPI 3.1 isn't backward
-compatible with 3.0). Typify? It just ignores `prefixItems` and tries its best,
-so you get something like:
+of items"). In 2020-12, `items` can **only** be a single schema and
+`prefixItems` enumerates the discrete array items. It's a highly sensible, and
+also incompatible change (Note: also an example of how OpenAPI 3.1 isn't
+backward compatible with 3.0). Typify? It just ignores `prefixItems` and tries
+its best, so you get something like:
 
 ```rust
 struct Foo(pub [::serde_json::Value; 2usize]);
@@ -149,7 +149,7 @@ inadequacies of the first version. My own experience and that of other users mad
   why did it fail?)
 
 - More generally, a flexible structure to be able to handle schema
-  constructures as we encounter them in the wild
+  constructions as we encounter them in the wild
 
 
 # First, a better architecture
@@ -167,7 +167,7 @@ A schema (or OpenAPI description) can span documents. It's quite annoying. The
 
 Code specific to each version (e.g. OpenAPI 3.0.x or JSON Schema 2020-12)
 interprets structures and produces a generic internal representation (IR). This
-is big missing piece of the current design which makes multi-version support
+is a big missing piece of the current design which makes multi-version support
 particularly challenging.
 
 ## Normalizer
@@ -379,7 +379,7 @@ example, it would be great to move all our servers and clients to a more recent
 version of OpenAPI... but being on an older version doesn't have any acute
 downsides. There are newer OpenAPI documents from which--sure--we'd like to
 make SDKs... but there aren't that many and often we can convert, say, OpenAPI
-3.1 to 3.0 without losing fidelity. It's firmly in the nice-to-have bucket not
+3.1 to 3.0 without losing fidelity. It's firmly in the nice-to-have bucket, not
 the hair-on-fire bucket.
 
 That said, each new issue keeps me motivated; each new bolt-on work-around for
