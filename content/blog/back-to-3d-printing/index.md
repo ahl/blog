@@ -1,7 +1,7 @@
 ---
 title: "Back to 3D Printing"
 date: "2026-06-19"
-permalink: /2026/06/20/back-to-3d-printing/
+permalink: /2026/06/19/back-to-3d-printing/
 ---
 
 I've used a 3D printer in a hobby capacity off and on for over 10 years. I just
