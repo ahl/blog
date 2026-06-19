@@ -44,7 +44,7 @@ My son was now 14, and I think we both expected it to be a fun
 activity--designing stuff, downloading designs, making neat stuff. It never was
 particularly fun.
 
-<img src="images/ender5.png" class="hero-image" alt="">
+<img src="images/ender5.jpg" class="hero-image" alt="">
 
 3D printing in that era required a bunch of tinkering. For each type of
 filament and model, what was the right nozzle temperature, bed temperature? Was
@@ -62,7 +62,7 @@ and tinkering would be required, and a more realistic understanding of the
 patience of a (then) six-year-old. We made some neat stuff with designs we
 downloaded and a few we remixed.
 
-<img src="images/success_2025.png" class="hero-image" alt="">
+<img src="images/success_2025.jpg" class="hero-image" alt="">
 
 As the printer and the filament aged, and our patience declined, the hobby
 became less of something we'd do together, and much more of a second job I did
@@ -78,7 +78,7 @@ So I started exploring ways to buy my way to success. I settled on the [Bambu
 Lab P2S](https://bambulab.com/en-us/p2s) and it is simply outstanding. Every
 review and video gushed over its consistency and simplicity, and it's all true.
 
-<img src="images/bambu_p2s.png" class="hero-image" alt="">
+<img src="images/bambu_p2s.jpg" class="hero-image" alt="">
 
 I could have paid less for one of the lesser models, but I've had enough
 experience with both how fun 3D printing can be when it's working well, and how
@@ -101,3 +101,5 @@ and great printers are good value. The user experience is incredibly simple,
 the results are great, and, best of all, we're having fun! If you like to
 tinker, design, and build, or have a kid who does, it's a good time to give 3D
 printing a shot.
+
+<img src="images/new_stuff.jpg" class="hero-image" alt="">
