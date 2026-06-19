@@ -1,7 +1,7 @@
 ---
-title: "Back to 3D Printing"
+title: "3D Printing Is Finally Fun"
 date: "2026-06-19"
-permalink: /2026/06/19/back-to-3d-printing/
+permalink: /2026/06/19/3d-printing-is-fun/
 ---
 
 I've used a 3D printer in a hobby capacity off and on for over 10 years. I
