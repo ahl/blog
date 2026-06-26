@@ -15,7 +15,7 @@ The time to populate a drive is directly relevant for RAID rebuild. As disks in 
 > **Triple-Parity RAID and Beyond**  
 > **ADAM LEVENTHAL, SUN MICROSYSTEMS**  
 > As hard-drive capacities continue to outpace their throughput, the time has come for a new level of RAID. How much longer will current RAID techniques persevere? The RAID levels were codified in the late 1980s; double-parity RAID, known as RAID-6, is the current standard for high-availability, space-efficient storage. The incredible growth of hard-drive capacities, however, could impose serious limitations on the reliability even of RAID-6 systems. Recent trends in hard drives show that triple-parity RAID must soon become pervasive. In 2005, Scientific American reported on Kryder's law, which predicts that hard-drive density will double annually. While the rate of doubling has not quite maintained that pace, it has been close.  
->   
+>  
 > Problematically for RAID, hard-disk throughput has failed to match that exponential rate of growth. Today repairing a high-density disk drive in a RAID group can easily take more than four hours, and the problem is getting significantly more pronounced as hard-drive capacities continue to outpace their throughput. As the time required for rebuilding a disk increases, so does the likelihood of data loss. The ability of hard-drive vendors to maintain reliability while pushing to higher capacities has already been called into question in this magazine. Perhaps even more ominously, in a few years, reconstruction will take so long as to effectively strip away a level of redundancy. What follows is an examination of RAID, the rate of capacity growth in the hard-drive industry, and the need for triple-parity RAID as a response to diminishing reliability.  
->   
+>  
 > \[[...](http://queue.acm.org/detail.cfm?id=1670144)\]

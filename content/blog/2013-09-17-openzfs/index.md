@@ -20,6 +20,6 @@ Before shipping in Solaris 10 update 2, major components of ZFS had already adva
 
 OpenZFS doesn't need a caretaker community for a finished project; if that were the case, porting OpenZFS to Linux, FreeBSD, and Mac OS X would have been the end. Instead, it was the beginning. The need for the OpenZFS community grew out of the porting efforts who wanted the world's most advanced filesystem on their platforms and in their products. I wouldn't trust my customers' data to a filesystem that hadn't been through those trials and triumphs over more than a decade. I can't wait to see the next phase of evolution that OpenZFS brings.
 
- 
+
 
 If you're at LinuxCon today, stop by the [talk by Matt Ahrens and Brian Behlendor](http://sched.co/15NfsCV) for more on OpenZFS; follow [@OpenZFS](https://twitter.com/openzfs) for all OpenZFS news.

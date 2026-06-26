@@ -42,7 +42,7 @@ I didn't even care about *all* of that JSON Schema subset. JSON Schema is...
 either flexible or chaotic depending on your perspective. Having started my
 programming life in the chaos of Perl, I now gravitate to the inflexibility
 (and precision) of Rust: I'd like there to be exactly one way to do a
-particular thing (of course, Rust has oodles of flexibility--just saying 
+particular thing (of course, Rust has oodles of flexibility--just saying
 restrictiveness can be a virtue). The purpose of the SDK generator was (and is,
 primarily) to turn OpenAPI docs derived from Rust code into Rust SDKs. That
 meant that typify needed to turn schemas--whose origins were Rust types--
@@ -179,7 +179,7 @@ intractable. Instead, the normalizer transforms the IR into a canonical form.
 A schema can have an arbitrarily deep nesting of "subschemas":
 
 ```json
-{ 
+{
   "allOf": [
     {
       "oneOf": [

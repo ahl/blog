@@ -17,15 +17,15 @@ Thanks for the feedback. I was curious if people would find this interesting and
 In reply to some of the comments:
 
 > _**UX-admin** One could choose between lzjb for day-to-day use, or bzip2 for heavily compressed, "archival" file systems (as we all know, bzip2 beats the living daylights out of gzip in terms of compression about 95-98% of the time)._
-> 
+>
 > It may be that bzip2 is a better algorithm, but we already have (and need zlib) in the kernel, and I'm loath to add another algorithm
-> 
+>
 > _**ivanvdb25** Hi, I was just wondering if the gzip compression has been enabled, does it give problems when an ZFS volume is created on an X86 system and afterwards imported on a Sun Sparc?_
-> 
+>
 > That isn't a problem. Data can be moved from one architecture to another (and I'll be verifying that before I putback).
-> 
+>
 > _**dennis** Are there any documents somewhere explaining the hooks of zfs and how to add features like this to zfs? Would be useful for developers who want to add features like filesystem-based encryption to it. Thanks for your great work!_
-> 
+>
 > There aren't any documents exactly like that, but there's plenty of documentation in the code itself -- that's how I figured it out, and it wasn't too bad. The [ZFS source tour](http://www.opensolaris.org/os/community/zfs/source) will probably be helpful for figuring out the big picture.
 
 **Update 3/22/2007:** This work was integrated into build 62 of onnv.

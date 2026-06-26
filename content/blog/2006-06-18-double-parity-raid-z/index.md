@@ -27,7 +27,16 @@ For a given stripe of _n_ data blocks, **D0 .. Dn-1**, RAID-5 computes the conte
 
 To talk about this, it's easier -- believe it or not -- to define a Galois field (or a finite field as I learned it) over the integers \[0..255\] -- the values that can be stored in a single byte. The addition field operation (+) is just bitwise **XOR**. Multiplication (x) by 2 is given by this bitwise operation for _x_ **x** 2 = _y_:
 
-<table><tbody><tr><td><em>y</em><sub>7</sub></td><td>=</td><td><em>x</em><sub>6</sub></td></tr><tr><td><em>y</em><sub>6</sub></td><td>=</td><td><em>x</em><sub>5</sub></td></tr><tr><td><em>y</em><sub>5</sub></td><td>=</td><td><em>x</em><sub>4</sub></td></tr><tr><td><em>y</em><sub>4</sub></td><td>=</td><td><em>x</em><sub>3</sub> + <em>x</em><sub>7</sub></td></tr><tr><td><em>y</em><sub>3</sub></td><td>=</td><td><em>x</em><sub>2</sub> + <em>x</em><sub>7</sub></td></tr><tr><td><em>y</em><sub>2</sub></td><td>=</td><td><em>x</em><sub>1</sub> + <em>x</em><sub>7</sub></td></tr><tr><td><em>y</em><sub>1</sub></td><td>=</td><td><em>x</em><sub>0</sub></td></tr><tr><td><em>y</em><sub>0</sub></td><td>=</td><td><em>x</em><sub>7</sub></td></tr></tbody></table>
+|     |     |     |
+| --- | --- | --- |
+| *y*<sub>7</sub> | = | *x*<sub>6</sub> |
+| *y*<sub>6</sub> | = | *x*<sub>5</sub> |
+| *y*<sub>5</sub> | = | *x*<sub>4</sub> |
+| *y*<sub>4</sub> | = | *x*<sub>3</sub> + *x*<sub>7</sub> |
+| *y*<sub>3</sub> | = | *x*<sub>2</sub> + *x*<sub>7</sub> |
+| *y*<sub>2</sub> | = | *x*<sub>1</sub> + *x*<sub>7</sub> |
+| *y*<sub>1</sub> | = | *x*<sub>0</sub> |
+| *y*<sub>0</sub> | = | *x*<sub>7</sub> |
 
 A couple of simple things worth noting: addition (+) is the same as subtraction (-), 0 is the additive identity and the multiplicative annihilator, 1 is the multiplicative identity. Slightly more subtle: each element of the field except for 0 (i.e. \[1..255\]) can be represented as 2_n_ for some _n_. And importantly: _x_\-1 = _x_254. Also note that _x_ x _y_ can be rewritten as 2log _x_ x 2log _y_ or 2log _x_ + log _y_ (where _+_ in that case is normal integer addition).
 

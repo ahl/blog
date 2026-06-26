@@ -30,7 +30,7 @@ On the eve that this new piece was about to run I was nervously scrolling throug
 
 Then I found this and my heart dropped:
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Slides from the "Storing our digital lives: Mac filesystems from MFS to APFS" session at MacTech Conference 2016: <a href="https://t.co/uJJuqLL8n9">https://t.co/uJJuqLL8n9</a></p>— Rich Trouton (@rtrouton) <a href="https://twitter.com/rtrouton/status/799339130643615744">November 17, 2016</a></blockquote> 
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Slides from the "Storing our digital lives: Mac filesystems from MFS to APFS" session at MacTech Conference 2016: <a href="https://t.co/uJJuqLL8n9">https://t.co/uJJuqLL8n9</a></p>— Rich Trouton (@rtrouton) <a href="https://twitter.com/rtrouton/status/799339130643615744">November 17, 2016</a></blockquote>
 
 Skim past the craziness of MFS and the hairball of HFS, and start digging through the APFS section. Slide 49, “APFS Snapshots” and there it is “apfs\_snapshot” — not a tool that anyone laboriously reverse engineered, deciphering system calls and semi-published APIs — a tool shipped from Apple and included in macOS by default. F — .
 

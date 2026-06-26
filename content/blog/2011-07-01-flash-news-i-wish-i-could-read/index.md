@@ -38,7 +38,7 @@ An Aggregate is the term NetApp uses for a collection of drives. A Hybrid Aggreg
 Is this still the NetApp announcement or is this back to the journalism? It's a new paragraph so I guess it's the latter. Fusion-io will be happy to learn that it only took a couple of lines to be upgraded from "disadvantageous" to "complementary". And you may be interested to know why NetApp says that host-based flash is complementary. There's a vendor out there working with NetApp on a host-based flash PCIe card that NetApp will treat as part of its caching tier, pushing data to the card for fast access by the host. I'd need to dig up my notes from the many vendor roadmaps I saw to recall who is building this, but in the context of a public blog post it's probably better that I don't.
 
 > NetApp has a patent in this Hybrid Aggregate disk drive area called "Mechanisms for moving data in a Hybrid Aggregate".
-> 
+>
 > ...
 
 I won't bore you by reposting the except from the patent, but the broad language of the patent does recall to mind the many recent [invalidated NetApp patents...](http://www.theregister.co.uk/2008/10/07/sun_gets_netapp_patent_invalidated/)
