@@ -12,11 +12,11 @@ I noticed the following usenet post the other day:
 > ruleset (blocking some IP's) running 2.6.7 with the deadline i/o  
 > scheduler. vmstat was reporting that system time was around 80%. I did  
 > the following  
->   
+>  
 > readprofile -r ; sleep 240 ; readprofile -n -m /boot/System.map-\`uname -r\` | sort -rn -k 1,1 | head -22  
->   
+>  
 > <snip>  
->   
+>  
 > I am trying to determine where the system time is going and don't have  
 > much zen to begin with. Any assistance would be appreciated ?  
 
@@ -27,7 +27,7 @@ Seems like a tricky problem, and there were some responses on the [thread](http:
 > This doesn't look like very intense context switching in either case. 2.6.7  
 > appears to be doing less context switching. I don't see a significant  
 > difference in system time, either.  
->   
+>  
 > Could you please send me complete profiles?  
 
 and
@@ -36,7 +36,7 @@ and
 > Most likely you just have far too many of them. readprofile will attribute  
 > most of the cost to finish\_task\_switch, because that one reenables the  
 > interrupts (and the profiling only works with interrupts on)  
->   
+>  
 > Too many context switches are usually caused by user space.  
 
 This is exactly the type of problem that DTrace was designed for -- my system is slow; why? Rather than just having the output from `readprofile`, you could find out exactly what applications are being forced off CPU while they still have work to do, or what system calls are accounting for the most time on the box, or whatever. And not only could you get the answers to these questions, you could do so quickly and then move onto the next question or revise your initial hypothesis. Interestingly, someone brought this up:

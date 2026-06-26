@@ -46,6 +46,6 @@ As someone who has data he cares about on a Mac, who has seen data lost from HFS
 
 As data ages you might occasionally want to check for bit rot. Likely `fsck_apfs` can accomplish this; as noted though there’s no data redundancy and no checksums for user data, so scrub would only help to find problems and likely wouldn’t help to correct them. And if it makes it any easier for Apple to reverse course, let’s say it’s for the el cheap-o drive I bought from Fry’s not for the gold-plated device I got from Apple.
 
- 
+
 
 _Next in this series: [Conclusions](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part6/)_

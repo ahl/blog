@@ -39,6 +39,6 @@ APFS engineers don’t seem to have many use cases in mind; at WWDC they asked f
 
 Side note: Finder copy creates space-efficient clones, but cp from the command line does not.
 
- 
+
 
 _Next in this series: [Performance](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part4/)_

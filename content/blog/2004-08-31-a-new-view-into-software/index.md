@@ -16,13 +16,21 @@ I just finished work on the plockstat provider for DTrace as well as a new plock
 
 The plockstat provider has these probes:
 
-<table><tbody><tr><td>mutex-acquire</td><td>fires when a mutex is acquired</td></tr><tr><td>mutex-release</td><td>fires when a mutex is released</td></tr><tr><td>mutex-block</td><td>fires when a thread blocks waiting for a mutex</td></tr><tr><td>mutex-spin</td><td>fires when a thread spins waiting for a mutex</td></tr><tr><td>rw-acquire</td><td>fires when an R/W lock is acquired</td></tr><tr><td>rw-release</td><td>fires when an R/W lock is released</td></tr><tr><td>rw-block</td><td>fires when a thread blocks waiting for an R/W lock</td></tr></tbody></table>
+|     |     |
+| --- | --- |
+| `mutex-acquire` | fires when a mutex is acquired |
+| `mutex-release` | fires when a mutex is released |
+| `mutex-block` | fires when a thread blocks waiting for a mutex |
+| `mutex-spin` | fires when a thread spins waiting for a mutex |
+| `rw-acquire` | fires when an R/W lock is acquired |
+| `rw-release` | fires when an R/W lock is released |
+| `rw-block` | fires when a thread blocks waiting for an R/W lock |
 
 It's possible with other tools to observe these points, but -- as anyone who's tried it can attest -- other tools can alter the effects you're trying to observe. Traditional debuggers can effectively serialize your parallel program removing any trace of the lock contention you'd see during a normal run. DTrace and the plockstat provider avoid eliminate this problem.
 
 With the plockstat provider you can answer questions that were previously very difficult to solve, such as "where is my program blocked on mutexes":
 
-```
+```console
 bash-2.05b# dtrace -n plockstat1173:::mutex-block'{ @[ustack()] = count() }'
 dtrace: description 'plockstat1173:::mutex-block' matched 2 probes
 ^C
@@ -41,7 +49,6 @@ c4ec1d6a
 libc.so.1`_thr_setup+0x50
 libc.so.1`_lwp_start
 1
-
 ```
 
 (any guesses as to what program this might be?)
@@ -52,29 +59,28 @@ Not just a new view for DTrace, but a new view for user-land.
 
 DTrace is an incredibly powerful tool, but some tasks are so common that we want to make it as easy as possible to use DTrace's facilities without knowing anything about DTrace. The plockstat(1m) command wraps up a bunch of knowledge about lock contention in a neat and easy to use package:
 
-```
+```console
 # plockstat -s 10 -A -p `pgrep locker`
 ^C
 Mutex block
 -------------------------------------------------------------------------------
 Count     nsec Lock                         Caller
-13 22040260 locker`lock1                 locker`go_lock+0x47
-nsec ---- Time Distribution --- count Stack
-65536 |@@@@@@@@@@@@@@          |     8 libc.so.1`mutex_lock+0x38
-131072 |                        |     0 locker`go_lock+0x47
-262144 |@@@@@                   |     3 libc.so.1`_thr_setup+0x50
-524288 |                        |     0 libc.so.1`_lwp_start
-1048576 |                        |     0
-2097152 |                        |     0
-4194304 |                        |     0
-8388608 |                        |     0
-16777216 |@                       |     1
-33554432 |                        |     0
-67108864 |                        |     0
+   13 22040260 locker`lock1                 locker`go_lock+0x47
+     nsec ---- Time Distribution --- count Stack
+    65536 |@@@@@@@@@@@@@@          |     8 libc.so.1`mutex_lock+0x38
+   131072 |                        |     0 locker`go_lock+0x47
+   262144 |@@@@@                   |     3 libc.so.1`_thr_setup+0x50
+   524288 |                        |     0 libc.so.1`_lwp_start
+  1048576 |                        |     0
+  2097152 |                        |     0
+  4194304 |                        |     0
+  8388608 |                        |     0
+ 16777216 |@                       |     1
+ 33554432 |                        |     0
+ 67108864 |                        |     0
 134217728 |                        |     0
 268435456 |@                       |     1
 ...
-
 ```
 
 This has been a bit of a teaser. I only integrated plockstat into Solaris 10 yesterday and it will be a few weeks before you can access plockstat as part of the [Solaris Express](http://wwws.sun.com/software/solaris/solaris-express/sol_index.html) program, but keep an eye on the [DTrace Solaris Express Schedule](http://blogs.sun.com/ahl/dtracesched).

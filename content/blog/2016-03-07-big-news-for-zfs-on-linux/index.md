@@ -40,9 +40,9 @@ Now that you understand a bit of the context here’s my suggestion: [consider t
 
 I personally could not be more excited by the announcement. The Ubuntu community is going to have built-in support for a filesystem that’s better and more capable than anything they’ve had in the past. The OpenZFS community is going to have a ton more users, more interest, and more drivers for innovation. Both are going to be stronger together.
 
- 
 
- 
+
+
 
 * * *
 

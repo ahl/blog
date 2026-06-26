@@ -92,7 +92,7 @@ Clearly someone put an end to that fun in 2020. The new rates are precisely 8.49
 <figure>
 <img class="hero-image" src="images/1*Zw3lWQ3yHGjLAUef7DnRZg.png" alt="">
 <figcaption>
-<p>It <strong> is </strong> color-coded (there's just no variance).</p>
+It **is** color-coded (there's just no variance).
 </figcaption>
 </figure>
 

@@ -34,7 +34,7 @@ Now, this bit involves some hearsay and conjecture[\[1\]](#hutz), but apparently
 
 When the project started in January of 2005, early discussion by the SystemTap team referred to "inspiration" that they derived from DTrace. They had a mandate to come up with an equivalent, so I assumed that they had spent the time to truly _understand_ DTrace: to come up with an equivalent for DTrace -- or really to duplicate any technology -- the first step is to understand what it is completely. From day one, DTrace was designed to be used on **mission critical systems**, to always be safe, to induce no overhead when not in use, to allow for **arbitrary data gathering**, and to have **systemic scope** from the kernel to user-land and on up the stack into higher level languages. Those fundamental constraints led to some important, and non-obvious design decisions (e.g. our own language "D", a micro virtual machine, conservative probe point selection).
 
-  
+
 SystemTap -- the "Sorny" of dynamic tracing
 
 Instead of taking the time to understand DTrace, and instead of using it and scouring the documentation, SystemTap charged ahead, completely missing the boat on safety with an architecture which is nearly impossible to secure (e.g. running a SystemTap script drops in a generated kernel module). Truly systemic scope remains an elusive goal as they're only toe-deep in user-land (forget about Ruby, Java, python, etc). And innovations in DTrace such as scalable data aggregation and speculative tracing are replicated poorly if at all. By failing to examine DTrace, and by rushing to have some sort of response, SystemTap isn't like DTrace: it's a knockoff.

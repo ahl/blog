@@ -1,5 +1,5 @@
 ---
-title: "DTrace &quot;Scobleized&quot;"
+title: 'DTrace "Scobleized"'
 date: "2007-07-05"
 categories:
   - "dtrace"

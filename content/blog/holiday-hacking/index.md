@@ -215,28 +215,28 @@ There were a bunch of moving parts; I was stoked (and surprised) to see it all c
 Parts List:
 
 *   Happy Tappers (available on eBay)
-    
+
 *   [BitMagic Basic Logic Analyzer from 1 Bit Squared](https://1bitsquared.com/collections/all-products/products/bitmagic-basic)
-    
+
 *   [PulseView](https://sigrok.org/wiki/Downloads)
-    
+
 *   [Adafruit FT232H Breakout — General Purpose USB to GPIO+SPI+I2C](https://www.adafruit.com/product/2264)
-    
+
 *   You’ll need some sort of soldering iron for the FT232H; I used my one from RadioShack in 1995
-    
+
 *   [Etekcity MSR-R500 Digital Multimeter](https://www.amazon.com/gp/product/B01N9QW620) (no endorsement other than it being cheap and available on Prime)
-    
+
 *   [HiLetgo 3pcs 400 Ties Mini Solderless Breadboard](https://www.amazon.com/gp/product/B00LSG5BJK) (not strictly necessary)
-    
+
 *   [EDGELEC 120pcs Breadboard Jumper Wires](https://www.amazon.com/gp/product/B07GD2BWPY)
-    
+
 *   Song data from [BeatSaver](https://beatsaver.com/)
-    
+
 
 Optional:
 
 *   [Oculus Quest](https://www.oculus.com/quest) / HTC Vive + a gaming PC
-    
+
 *   [Beat Saber](https://beatsaber.com/)
-    
+
 *   Lots of time

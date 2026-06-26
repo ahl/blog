@@ -38,6 +38,6 @@ Speaking with Dominic and other members of the APFS team, we discussed how volum
 
 Space sharing is more like an operational detail than a game changing feature. You can think of it like special folders with snapshot and encryption controls… which is probably why Apple’s marketing department has yet to make me a job offer. Unfortunately this feature isn’t working in the macOS Sierra beta, so I wasn’t able to have more than one volume per container. Adding new volumes can fail with an opaque error (-69625 mean anything to you?), but using a larger disk image resolve the problem.
 
- 
+
 
 _Next in this series: [Space Efficiency and Clones](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part3/)_

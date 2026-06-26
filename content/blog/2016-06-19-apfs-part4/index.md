@@ -26,6 +26,6 @@ Also on the topic of flash, APFS includes TRIM support. TRIM is a command in the
 
 APFS also focuses on latency; Apple’s number one goal is to avoid the beachball of doom. APFS addresses this with I/O QoS (quality of service) to prioritize accesses that are immediately visible to the user over background activity that doesn’t have the same time-constraints. This is inarguably a benefit to users and a sophisticated file system capability.
 
- 
+
 
 _Next in this series: [Data Integrity](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part5/)_

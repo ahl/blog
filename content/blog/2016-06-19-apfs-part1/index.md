@@ -36,6 +36,6 @@ APFS first and foremost pays down the unsustainable technical debt that Apple ha
 
 Compression is an obvious gap in the APFS feature list that is common in many file systems. It’s conceptually quite easy, I told the development team (we had it in ZFS from the outset), so why not include it? To appeal to Dominic’s BeOS nostalgia I even recalled my job interview with Be in 2000 when they talked about how compression actually improved overall performance since data I/O is far more expensive than computation (obvious now, but novel then). The Apple folks agreed, and—in typical Apple fashion—neither confirmed nor denied while strongly implying that it’s definitely a feature we can expect in APFS. I’ll be surprised if compression isn’t included in its public launch.
 
- 
+
 
 _Next in this series: [Encryption, Snapshots, and Backup](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part2/)_

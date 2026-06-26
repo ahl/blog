@@ -18,9 +18,15 @@ permalink: /2014/08/31/openzfs-tuning/
 
 OpenZFS limits the amount of dirty data on the system according to the tunable zfs\_dirty\_data\_max. It’s default value is 10% of memory up to 4GB. The tradeoffs are pretty simple:
 
-<table><tbody><tr><td><strong>Lower</strong></td><td><strong>Higher</strong></td></tr><tr><td>Less memory reserved for use by OpenZFS</td><td>More memory reserved for use by OpenZFS</td></tr><tr><td>Able to absorb less workload variation before throttling</td><td>Able to absorb more workload variation before throttling</td></tr><tr><td>Less data in each transaction group</td><td>More data in each transaction group</td></tr><tr><td>Less time spent syncing out each transaction group</td><td>More time spent syncing out each transaction group</td></tr><tr><td>More metadata written due to less amortization</td><td>Less metadata written due to more amortization</td></tr></tbody></table>
+| **Lower** | **Higher** |
+|-----------|------------|
+| Less memory reserved for use by OpenZFS | More memory reserved for use by OpenZFS |
+| Able to absorb less workload variation before throttling | Able to absorb more workload variation before throttling |
+| Less data in each transaction group | More data in each transaction group |
+| Less time spent syncing out each transaction group | More time spent syncing out each transaction group |
+| More metadata written due to less amortization | Less metadata written due to more amortization |
 
- 
+
 
 Most workloads contain variability. Think of the dirty data as a buffer for that variability. Let’s say the LUNs assigned to your OpenZFS storage pool are able to sustain 100MB/s in aggregate. If a workload consistently writes at 100MB/s then only a very small buffer would be required. If instead the workload oscillates between 200MB/s and 0MB/s for 10 seconds each, then a small buffer would limit performance. A buffer of 800MB would be large enough to absorb the full 20 second cycle over which the average is 100MB/s. A buffer of only 200MB would cause OpenZFS to start to throttle writes — inserting artificial delays — after less than 2 seconds during which the LUNs could flush 200MB of dirty data while the client tried to generate 400MB.
 
@@ -50,7 +56,7 @@ CPU ID FUNCTION:NAME
 0 8730 txg_sync_thread:txg-syncing 858MB of 4096MB used
 ```
 
-The write throttle kicks in once the amount of dirty data exceeds `zfs_delay_min_dirty_percent` of the limit (60% by default). If the the amount of dirty data fluctuates above and below that threshold, it might be possible to avoid throttling by increasing the size of the buffer. If the metric stays low, you may reduce zfs\_dirty\_data\_max. Weigh this tuning against other uses of memory on the system (a larger value means that there’s less memory for applications or the OpenZFS ARC for example).
+The write throttle kicks in once the amount of dirty data exceeds `zfs_delay_min_dirty_percent` of the limit (60% by default). If the amount of dirty data fluctuates above and below that threshold, it might be possible to avoid throttling by increasing the size of the buffer. If the metric stays low, you may reduce zfs\_dirty\_data\_max. Weigh this tuning against other uses of memory on the system (a larger value means that there’s less memory for applications or the OpenZFS ARC for example).
 
 A larger buffer also means that flushing a transaction group will take longer. This is relevant for certain OpenZFS administrative operations (sync tasks) that occur when a transaction group is committed to stable storage such as creating or cloning a new dataset. If the interactive latency of these commands is important, consider how long it would take to flush zfs\_dirty\_data\_max bytes to disk. You can measure the time to sync transaction groups ([recall, there are up to three active at any given time](http://dtrace.org/blogs/ahl/2012/12/13/zfs-fundamentals-transaction-groups/)) like this:
 
