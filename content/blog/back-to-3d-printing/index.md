@@ -14,7 +14,10 @@ to consider getting a 3D printer.
 I assume 3D printing sounds as magical to everyone as it did (does?) to me: a
 machine that fabricates objects? Unreal. Of course, the reality is much more
 pedestrian... especially when I first started messing around in 2013. We got a
-3D printer (I don't recall the brand) at the office (Delphix) for no particular
+3D printer (I don't recall the brand; **UPDATE 7/1:** It was a MakerBot Replicator
+2; my memory was jogged by [this delightful
+video](https://www.youtube.com/watch?v=KgwFTv9J7ik)) at the office (Delphix)
+for no particular
 purpose, but a buddy in marketing and I decided that revenue was up enough, and
 the accounting team was bullish enough that we wouldn't get in too much trouble
 expensing it.
