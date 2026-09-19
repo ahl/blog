@@ -6,7 +6,7 @@ categories:
 permalink: /2004/07/13/number-12-of-20-file-names-in-pfiles1/
 ---
 
-[go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)
+[go to the Solaris 10 top 11-20 list for more](/2004/07/12/the-solaris-10-top-11-20/)
 
 [Eric Schrock](http://blogs.sun.com/eschrock) has tagged in to talk about [file names in pfiles(1)](http://blogs.sun.com/roller/page/eschrock/20040712#nuts_and_bolts_of_pfiles). This is something we've wanted for forever; here's a teaser:
 

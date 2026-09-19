@@ -6,7 +6,7 @@ categories:
 permalink: /2004/08/06/number-19-of-20-per-thread-p-tools/
 ---
 
-[go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)
+[go to the Solaris 10 top 11-20 list for more](/2004/07/12/the-solaris-10-top-11-20/)
 
 ### p-tools
 
@@ -102,4 +102,4 @@ lwp id 107/5: was not bound, now 0
 
 ```
 
-These are perfect examples of Solaris responding to requests from users: there was no easy way to solve these problems, and that was causing our users pain, so we fixed it. After the BOF at OSCON, a Solaris user had a laundry lists of problems and requests, and was skeptical about our interest in fixing them, but I convinced him that we do care, but we need to hear about them. So let's hear about your gripes and wish lists for Solaris. Many of the usability features (the p-tools for example) came out of our own use of Solaris in kernel development -- once [OpenSolaris](http://dtrace.org/blogs/ahl/linux_solaris_and_open_source) lets everyone be a Solaris kernel developer, I'm sure we'll be stumbling onto many more quality of life tools like pstack(1), truss(1), and pbind(1).
+These are perfect examples of Solaris responding to requests from users: there was no easy way to solve these problems, and that was causing our users pain, so we fixed it. After the BOF at OSCON, a Solaris user had a laundry lists of problems and requests, and was skeptical about our interest in fixing them, but I convinced him that we do care, but we need to hear about them. So let's hear about your gripes and wish lists for Solaris. Many of the usability features (the p-tools for example) came out of our own use of Solaris in kernel development -- once [OpenSolaris](/2004/07/30/linux-solaris-and-open-source/) lets everyone be a Solaris kernel developer, I'm sure we'll be stumbling onto many more quality of life tools like pstack(1), truss(1), and pbind(1).

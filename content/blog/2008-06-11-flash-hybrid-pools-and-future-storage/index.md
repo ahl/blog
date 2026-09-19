@@ -24,4 +24,4 @@ Jonathan's post sketches out some of the basic ideas on how we're going to be in
 >
 > By combining the use of flash as an intent-log to reduce write latency with flash as a cache to reduce read latency, we can create a system that performs far better and consumes less power than other system of similar cost. It's now possible to construct systems with a precise mix of write-optimized flash, flash for caching, DRAM, and cheap disks designed specifically to achieve the right balance of cost and performance for any given workload with data automatically handled by the appropriate level of the hierarchy. ... Most generally, this new flash tier can be thought of as a radical form of hierarchical storage management (HSM) without the need for explicit management.
 
-**Updated July, 1:** I've posted the link to the article in my [subsequent blog post](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm).
+**Updated July, 1:** I've posted the link to the article in my [subsequent blog post](/2008/07/01/hybrid-storage-pools-in-cacm/).

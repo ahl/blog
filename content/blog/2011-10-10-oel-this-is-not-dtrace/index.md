@@ -10,7 +10,7 @@ tags:
 permalink: /2011/10/10/oel-this-is-not-dtrace/
 ---
 
-After writing about [Oracle's port of DTrace to OEL](http://dtrace.org/blogs/ahl/2011/10/05/dtrace-for-linux-2/), I wanted to take it for a spin. Following the [directions that Wim Coekaerts spelled out](http://blogs.oracle.com/wim/entry/trying_out_dtrace), I installed and configured a VM to run OEL with Oracle's nascent DTrace port. Setting up the system was relatively painless.
+After writing about [Oracle's port of DTrace to OEL](/2011/10/05/dtrace-for-linux-2/), I wanted to take it for a spin. Following the [directions that Wim Coekaerts spelled out](http://blogs.oracle.com/wim/entry/trying_out_dtrace), I installed and configured a VM to run OEL with Oracle's nascent DTrace port. Setting up the system was relatively painless.
 
 Here's my first DTrace invocation on OEL:
 

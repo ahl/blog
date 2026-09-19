@@ -14,11 +14,11 @@ tags:
 permalink: /2016/06/19/apfs-part4/
 ---
 
-_This series of posts covers APFS, Apple's new filesystem announced at WWDC 2016. See the [first post]( http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1) for the table of contents._
+_This series of posts covers APFS, Apple's new filesystem announced at WWDC 2016. See the [first post]( /2016/06/19/apfs-part1) for the table of contents._
 
 ## Performance
 
-APFS claims to be optimized for flash. Flash memory (NAND) is the stuff in your speedy SSD. Apple changed the computing industry when it put flash into the iPod and iPhone, volumes for which fundamentally changed the economics of flash. This consumer change impacted the enterprise (as it often does), giving rise to [hybrid](http://dtrace.org/blogs/ahl/2008/11/10/hybrid-storage-pools-in-the-7410/) and [all-flash arrays](https://techcrunch.com/2015/11/19/how-pure-storage-took-a-different-approach-to-storage/). [Ten years ago flash cost as much as DRAM](http://www.storagesearch.com/ssd-ram-flash%20pricing.html); now it’s challenging the economics of hard disks.
+APFS claims to be optimized for flash. Flash memory (NAND) is the stuff in your speedy SSD. Apple changed the computing industry when it put flash into the iPod and iPhone, volumes for which fundamentally changed the economics of flash. This consumer change impacted the enterprise (as it often does), giving rise to [hybrid](/2008/11/10/hybrid-storage-pools-in-the-7410/) and [all-flash arrays](https://techcrunch.com/2015/11/19/how-pure-storage-took-a-different-approach-to-storage/). [Ten years ago flash cost as much as DRAM](http://www.storagesearch.com/ssd-ram-flash%20pricing.html); now it’s challenging the economics of hard disks.
 
 SSDs mimic the block interface of conventional hard drives, but the underlying technology is completely different. In particular while magnetic media can read or write sectors arbitrarily, flash erases large chunks (blocks) and reads and writes smaller chunks (pages). The management is done by what’s called the flash translation layer (FTL), software that makes blocks and pages appear more like a hard drive. An FTL is very similar to a file system, creating a virtual mapping (a translation) between block addresses and locations within the media. Apple controls the full stack including the SSD, FTL, and file system; they could have built something differentiated, [optimizing this components to work together](http://queue.acm.org/detail.cfm?id=2463636). What APFS does, however, is simply write in patterns known to be more easily handled by NAND. It’s a file system with flash-aware characteristics rather than one written explicitly for the native flash interfaces, more or less what you'd expect in 2016.
 
@@ -28,4 +28,4 @@ APFS also focuses on latency; Apple’s number one goal is to avoid the beachbal
 
 
 
-_Next in this series: [Data Integrity](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part5/)_
+_Next in this series: [Data Integrity](/2016/06/19/apfs-part5/)_

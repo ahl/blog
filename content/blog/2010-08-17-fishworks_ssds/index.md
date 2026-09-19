@@ -14,7 +14,7 @@ tags:
 permalink: /2010/08/17/fishworks_ssds/
 ---
 
-[![](images/ssd_history.jpg "ssd_history")](http://ahl.dtrace.org/wp-content/uploads/2010/08/ssd_history.jpg) This year's flash memory summit got me thinking about our use of SSDs over the years at Fishworks. The picture of our left is a visual history of SSD evals in rough chronological order from the oldest at the bottom to the newest at the top (including some that have yet to see the light of day).
+![](images/ssd_history.jpg "ssd_history") This year's flash memory summit got me thinking about our use of SSDs over the years at Fishworks. The picture of our left is a visual history of SSD evals in rough chronological order from the oldest at the bottom to the newest at the top (including some that have yet to see the light of day).
 
 ### Early Days
 
@@ -34,4 +34,4 @@ It was again STEC who stepped up to provide our Readzilla, a 100GB 2.5" SATA SSD
 
 ### Next Generation
 
-Logzilla and Readzilla are important features of the [Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm). For the next generation expect the 7000 series to move away from SLC NAND flash. It was great for the first generation, but other technologies provide better $/IOPS for Logzilla and better $/GB for Readzilla (while maintaining low latency). For Logzilla we think that NV-DRAM is a better solution (I reviewed one such solution [here](http://dtrace.org/blogs/ahl/ddrdrive)), and for Readzilla MLC flash has sufficient performance at much lower cost and ZFS will be able to ensure the longevity.
+Logzilla and Readzilla are important features of the [Hybrid Storage Pool](/2008/07/01/hybrid-storage-pools-in-cacm/). For the next generation expect the 7000 series to move away from SLC NAND flash. It was great for the first generation, but other technologies provide better $/IOPS for Logzilla and better $/GB for Readzilla (while maintaining low latency). For Logzilla we think that NV-DRAM is a better solution (I reviewed one such solution [here](/2010/07/19/ddrdrive/)), and for Readzilla MLC flash has sufficient performance at much lower cost and ZFS will be able to ensure the longevity.

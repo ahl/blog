@@ -6,7 +6,7 @@ categories:
 permalink: /2013/09/13/delphix-plus-three-years/
 ---
 
-[![](images/child-measuring-height.jpg "child-measuring-height")](http://ahl.dtrace.org/wp-content/uploads/2013/09/child-measuring-height.jpg)Today marks my third anniversary of joining Delphix. Joining a startup, I knew there would be lots to learn -- indeed there’s been a lesson nearly once-a-day. Here are my top three lessons from my first three years at a startup. Even if the points themselves should have been obvious to me, the degree of their impact certainly wasn't.
+![](images/child-measuring-height.jpg "child-measuring-height")Today marks my third anniversary of joining Delphix. Joining a startup, I knew there would be lots to learn -- indeed there’s been a lesson nearly once-a-day. Here are my top three lessons from my first three years at a startup. Even if the points themselves should have been obvious to me, the degree of their impact certainly wasn't.
 
 ## 3\. Tar-Babies are everywhere
 

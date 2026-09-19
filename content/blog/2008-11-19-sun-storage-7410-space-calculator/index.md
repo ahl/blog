@@ -69,7 +69,7 @@ raidz1          True       4       4           284               213
 
 ```
 
-The size calculator also allows you to model a system with Logzilla devices, write-optimized flash devices that form a key part of the [Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm). After you specify the number of JBODs in the configuration, you can include a list of how many Logzillas are in each JBOD. For example, the following invocation models twelve JBODs with four Logzillas in the first 2 JBODs:
+The size calculator also allows you to model a system with Logzilla devices, write-optimized flash devices that form a key part of the [Hybrid Storage Pool](/2008/07/01/hybrid-storage-pools-in-cacm/). After you specify the number of JBODs in the configuration, you can include a list of how many Logzillas are in each JBOD. For example, the following invocation models twelve JBODs with four Logzillas in the first 2 JBODs:
 
 ```console
 $ ./sizecalc.py catfish ***** 12 4 4

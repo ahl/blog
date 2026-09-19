@@ -6,7 +6,7 @@ categories:
 permalink: /2004/07/20/number-17-of-20-java-stack-traces/
 ---
 
-[go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)
+[go to the Solaris 10 top 11-20 list for more](/2004/07/12/the-solaris-10-top-11-20/)
 
 Here's a little secret about software development: different groups usually aren't that good at working with one another. That's probably not such a shocker for most of you, but the effects can be seen everywhere, and that's why tight integration can be such a distinguishing feature for a collection of software.
 
@@ -36,6 +36,6 @@ It seems simple, but there's a lot of machinery behind this simple view, _and_ t
 
 ### pstack(1) for java
 
-While we had the java guys in the room, we couldn't pass up the opportunity to collaborate on getting stacks working in another observability tool: [pstack(1)](http://docs.sun.com/db/doc/817-0689/6mgfkpd1d?a=view). The pstack(1) utility can print out the stack traces of all the threads in a live process or a [core file](http://dtrace.org/blogs/ahl/number_13_of_20_core). We implemented it slightly differently than DTrace's ustack() action, but pstack(1) now works on java processes and java core files.
+While we had the java guys in the room, we couldn't pass up the opportunity to collaborate on getting stacks working in another observability tool: [pstack(1)](http://docs.sun.com/db/doc/817-0689/6mgfkpd1d?a=view). The pstack(1) utility can print out the stack traces of all the threads in a live process or a [core file](/2004/07/15/number-13-of-20-core-file-improvements/). We implemented it slightly differently than DTrace's ustack() action, but pstack(1) now works on java processes and java core files.
 
 Collaboration is a great thing, and I hope you find the fruits of collaborative effort useful. These are just the first steps -- we have much more planned for integrating Solaris and DTrace with java.

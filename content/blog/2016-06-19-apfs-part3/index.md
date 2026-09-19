@@ -9,7 +9,7 @@ tags:
 permalink: /2016/06/19/apfs-part3/
 ---
 
-_This series of posts covers APFS, Apple's new filesystem announced at WWDC 2016. See the [first post]( http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1) for the table of contents._
+_This series of posts covers APFS, Apple's new filesystem announced at WWDC 2016. See the [first post]( /2016/06/19/apfs-part1) for the table of contents._
 
 ## Space Efficiency
 
@@ -41,4 +41,4 @@ Side note: Finder copy creates space-efficient clones, but cp from the command l
 
 
 
-_Next in this series: [Performance](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part4/)_
+_Next in this series: [Performance](/2016/06/19/apfs-part4/)_

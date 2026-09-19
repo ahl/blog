@@ -6,7 +6,7 @@ categories:
 permalink: /2004/07/17/number-18-of-20-pmap1-improvements/
 ---
 
-[go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)
+[go to the Solaris 10 top 11-20 list for more](/2004/07/12/the-solaris-10-top-11-20/)
 
 ### pmap(1)
 
@@ -64,7 +64,7 @@ FF220000      64K rw--- [ altstack tid=4 ]
 
 ### core file content
 
-Core files have always contained a _partial_ snapshot of a process's memory mappings. Now that you can you manually adjust the content of a core file (see my [previous entry](http://dtrace.org/blogs/ahl/number_13_of_20_core)) some ptools will give you warnings like this:  
+Core files have always contained a _partial_ snapshot of a process's memory mappings. Now that you can you manually adjust the content of a core file (see my [previous entry](/2004/07/15/number-13-of-20-core-file-improvements/)) some ptools will give you warnings like this:  
 `pargs: core 'core' has insufficient content`  
 So what's in that core file? pmap(1) now let's you see that easily; mappings whose data is missing from the core file are marked with a `\*`:
 

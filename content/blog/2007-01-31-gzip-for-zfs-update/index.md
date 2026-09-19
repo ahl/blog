@@ -6,7 +6,7 @@ categories:
 permalink: /2007/01/31/gzip-for-zfs-update/
 ---
 
-The other day I [posted about a prototype](http://dtrace.org/blogs/ahl/a_little_zfs_hack) I had created that adds a **gzip** compression algorithm to ZFS. ZFS already allows administrators to choose to compress filesystems using the [LZJB compression algorithm](http://en.wikipedia.org/wiki/LZJB). This prototype introduced a more effective -- albeit more computationally expensive -- alternative based on [zlib](http://www.zlib.net/).
+The other day I [posted about a prototype](/2007/01/29/a-small-zfs-hack/) I had created that adds a **gzip** compression algorithm to ZFS. ZFS already allows administrators to choose to compress filesystems using the [LZJB compression algorithm](http://en.wikipedia.org/wiki/LZJB). This prototype introduced a more effective -- albeit more computationally expensive -- alternative based on [zlib](http://www.zlib.net/).
 
 As an arbitrary measure, I used tar(1) to create and expand archives of an ON (Solaris kernel) source tree on ZFS filesystems compressed with lzjb and gzip algorithms as well as on an uncompressed ZFS filesystem for reference:
 

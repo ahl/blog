@@ -10,21 +10,21 @@ permalink: /2016/06/19/apfs-part1/
 
 <img src="images/wwdc16-og.jpg" alt="Description" class="float-right">Apple announced a new file system that will make its way into all of its OS variants (macOS, tvOS, iOS, watchOS) in the coming years. Media coverage to this point has been mostly breathless elongations of [Apple’s developer documentation](https://developer.apple.com/library/prerelease/content/documentation/FileManagement/Conceptual/APFS_Guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40016999-CH1-DontLinkElementID_27). With a dearth of detail I decided to attend the [presentation](http://devstreaming.apple.com/videos/wwdc/2016/701q0pnn0ietcautcrv/701/701_introducing_apple_file_system.pdf) and Q&A with the APFS team at WWDC. Dominic Giampaolo and Eric Tamura, two members of the APFS team, [gave an overview to a packed room](https://developer.apple.com/videos/play/wwdc2016/701/); along with other members of the team, they patiently answered questions later in the day. With those data points and some first hand usage I wanted to provide an overview and analysis both as a user of Apple-ecosystem products and as a long-time operating system and file system developer.
 
-I've divided my review into several sections that span a few posts. I'd encourage you to jump around to topics of interest or skip right to [the conclusion](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part6/#apfs-conclusion) (or to the [tweet summary](https://twitter.com/ahl/status/743923994466758657)). Highest praise goes to [encryption](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part2/#apfs-encryption); ire to [data integrity](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part5/#apfs-data).
+I've divided my review into several sections that span a few posts. I'd encourage you to jump around to topics of interest or skip right to [the conclusion](/2016/06/19/apfs-part6/#apfs-conclusion) (or to the [tweet summary](https://twitter.com/ahl/status/743923994466758657)). Highest praise goes to [encryption](/2016/06/19/apfs-part2/#apfs-encryption); ire to [data integrity](/2016/06/19/apfs-part5/#apfs-data).
 
 - [Basics](#apfs-basics)
 - [Paying Down Debt](#apfs-debt)
-- [Encryption](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part2/#apfs-encryption)
-- [Snapshots and Backup](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part2/#apfs-snapshots)
-- [Management and Space Sharing](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part2/#apfs-management)
-- [Space Efficiency and Clones](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part3/#apfs-clones)
-- [Performance](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part4/#apfs-performance)
-- [Data Integrity](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part5/#apfs-data)
-- [Conclusion](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part6/#apfs-conclusion)
+- [Encryption](/2016/06/19/apfs-part2/#apfs-encryption)
+- [Snapshots and Backup](/2016/06/19/apfs-part2/#apfs-snapshots)
+- [Management and Space Sharing](/2016/06/19/apfs-part2/#apfs-management)
+- [Space Efficiency and Clones](/2016/06/19/apfs-part3/#apfs-clones)
+- [Performance](/2016/06/19/apfs-part4/#apfs-performance)
+- [Data Integrity](/2016/06/19/apfs-part5/#apfs-data)
+- [Conclusion](/2016/06/19/apfs-part6/#apfs-conclusion)
 
 ## Basics
 
-APFS, the Apple File System, was itself started in 2014 with Dominic as its lead engineer. It's a [stand-alone, from-scratch implementation](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1/#comment-55954) (an earlier version of this post noted a dependency on [Core Storage](https://en.wikipedia.org/wiki/Core_Storage), but Dominic set me straight). I asked him about looking for inspiration in other modern file systems such as [BSD’s HAMMER](https://www.dragonflybsd.org/hammer/), [Linux’s btrfs](https://btrfs.wiki.kernel.org/index.php/Main_Page), or [OpenZFS](http://open-zfs.org/wiki/Main_Page) (Solaris, illumos, [FreeBSD](https://www.freebsd.org/doc/handbook/zfs.html), [Mac OS X](https://openzfsonosx.org), [Ubuntu Linux](https://insights.ubuntu.com/2016/02/16/zfs-is-the-fs-for-containers-in-ubuntu-16-04/), etc.), all of which have features similar to what APFS intends to deliver. (And note that Apple built a fairly complete port of ZFS, though Dominic was not apparently part of the group advocating for it.) Dominic explained that while, as a self-described file system guy (he built the file system in BeOS, unfairly relegated to obscurity when Apple opted to purchase NeXTSTEP instead), he was aware of them, but didn’t delve too deeply for fear, he said, of tainting himself.
+APFS, the Apple File System, was itself started in 2014 with Dominic as its lead engineer. It's a [stand-alone, from-scratch implementation](/2016/06/19/apfs-part1/#comment-55954) (an earlier version of this post noted a dependency on [Core Storage](https://en.wikipedia.org/wiki/Core_Storage), but Dominic set me straight). I asked him about looking for inspiration in other modern file systems such as [BSD’s HAMMER](https://www.dragonflybsd.org/hammer/), [Linux’s btrfs](https://btrfs.wiki.kernel.org/index.php/Main_Page), or [OpenZFS](http://open-zfs.org/wiki/Main_Page) (Solaris, illumos, [FreeBSD](https://www.freebsd.org/doc/handbook/zfs.html), [Mac OS X](https://openzfsonosx.org), [Ubuntu Linux](https://insights.ubuntu.com/2016/02/16/zfs-is-the-fs-for-containers-in-ubuntu-16-04/), etc.), all of which have features similar to what APFS intends to deliver. (And note that Apple built a fairly complete port of ZFS, though Dominic was not apparently part of the group advocating for it.) Dominic explained that while, as a self-described file system guy (he built the file system in BeOS, unfairly relegated to obscurity when Apple opted to purchase NeXTSTEP instead), he was aware of them, but didn’t delve too deeply for fear, he said, of tainting himself.
 
 Dominic praised the APFS testing team as being exemplary. This is absolutely critical. A common adage is that it takes a decade to mature a file system. And my experience with ZFS more or less confirms this. Apple will be delivering APFS broadly with 3-4 years of development so will need to accelerate quickly to maturity.
 
@@ -38,4 +38,4 @@ Compression is an obvious gap in the APFS feature list that is common in many fi
 
 
 
-_Next in this series: [Encryption, Snapshots, and Backup](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part2/)_
+_Next in this series: [Encryption, Snapshots, and Backup](/2016/06/19/apfs-part2/)_

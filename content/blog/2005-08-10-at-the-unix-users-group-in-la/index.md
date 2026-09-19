@@ -11,7 +11,7 @@ Sun Office in El Segundo
 222 N. Sepulveda Blvd., 10th Floor  
 El Segundo, CA 90245  
 
-My plan is to demonstrate DTrace (including the recent advancements in [Java](http://dtrace.org/blogs/ahl/dtrace_presentation_at_javaone) and [php](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_php_demonstrated)) and talk a bit about OpenSolaris. If there's anything in particular you'd like to hear about, feel free to leave a comment or just bring your question Monday night. Hope to see you there.
+My plan is to demonstrate DTrace (including the recent advancements in [Java](/2005/06/30/dtrace-presentation-at-javaone/) and [php](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_php_demonstrated)) and talk a bit about OpenSolaris. If there's anything in particular you'd like to hear about, feel free to leave a comment or just bring your question Monday night. Hope to see you there.
 
 * * *
 

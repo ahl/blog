@@ -6,7 +6,7 @@ categories:
 permalink: /2005/09/15/the-mysteries-of-_init/
 ---
 
-I hadn't been fully aware that I felt this way, but I recently had a realization: I love the linker. It's a technology that's amazing in both its simplicity and its complexity. I'm sure my feelings are influenced in no small way by the caliber of the engineers working on it -- [Rod](/rie) and [Mike](/msw) are always eager to explain how the some facet of the linker works or to add something new and whizzy if it can't quite do what I need.
+I hadn't been fully aware that I felt this way, but I recently had a realization: I love the linker. It's a technology that's amazing in both its simplicity and its complexity. I'm sure my feelings are influenced in no small way by the caliber of the engineers working on it -- [Rod](https://web.archive.org/web/*/http://blogs.sun.com/rie) and [Mike](https://web.archive.org/web/*/http://blogs.sun.com/msw) are always eager to explain how the some facet of the linker works or to add something new and whizzy if it can't quite do what I need.
 
 Over the course of developing [user-level statically defined tracing](http://docs.sun.com/app/docs/doc/817-6223/6mlkidlms?a=view) USDT, I've worked (and continue to work) with the linker guys to figure out the best way to slot the two technologies together. Recently, some users of USDT have run into a problem where binaries compiled with USDT probes weren't actually making them available to the system. We eventually tracked it down to incorrect use of the linker. I thought it would be helpful to describe the problem and the solution in case other people bump into something similar.
 

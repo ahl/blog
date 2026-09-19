@@ -8,7 +8,7 @@ tags:
 permalink: /2016/06/19/apfs-part2/
 ---
 
-_This series of posts covers APFS, Apple's new filesystem announced at WWDC 2016. See the [first post]( http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1) for the table of contents._
+_This series of posts covers APFS, Apple's new filesystem announced at WWDC 2016. See the [first post]( /2016/06/19/apfs-part1) for the table of contents._
 
 ## Encryption
 
@@ -40,4 +40,4 @@ Space sharing is more like an operational detail than a game changing feature. Y
 
 
 
-_Next in this series: [Space Efficiency and Clones](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part3/)_
+_Next in this series: [Space Efficiency and Clones](/2016/06/19/apfs-part3/)_
