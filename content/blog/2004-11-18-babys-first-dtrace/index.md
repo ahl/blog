@@ -16,7 +16,7 @@ You've probably used truss(1) or mpstat(1M) or prstat(1) or iostat(1M) or whatev
 
 When you're trying to optimize an application, it helps to know where the app is spending its time. A simple DTrace invocation like this:
 
-```
+```console
 # dtrace -n 'pid$target:::entry{ @[probefunc] = count() }' -p <process-id>
 
 ```

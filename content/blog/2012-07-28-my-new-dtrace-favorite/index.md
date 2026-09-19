@@ -16,7 +16,7 @@ In that vein, my colleague, Eric Schrock, [added the `print()` action to DTrace]
 - Drop into mdb(1) to print out the structure I want to examine
 - Write a D script to emit the members I'm interested in:
 
-```
+```dtrace
 fbt::xdr_bytes:entry
 {
         trace(args[0]->x_base);
@@ -29,7 +29,7 @@ Repeat times a thousand, allow for errors, iterate on chased pointers, and sum u
 - "I want to trace `xdr_bytes()`"
 - Boom:
 
-```
+```dtrace
 fbt::xdr_bytes:entry
 {
         print(args[0]);
@@ -52,7 +52,7 @@ Of course, in addition to tracing any kernel function, DTrace has stable probes 
 
 - write the D script:
 
-```
+```dtrace
 io:::start
 {
         trace(args[1]->dev_name);
@@ -64,7 +64,7 @@ Repeat another thousand, much more annoying times.
 
 Unfortunately, `print()` wasn't as helpful in this case:
 
-```
+```console
 # dtrace -n 'io:::start{ print(*args[1]); }'
 dtrace: invalid probe specifier io:::start{ trace(*args[1]); }: print( ) may not be applied to a dynamic expression
 ```
@@ -73,7 +73,7 @@ Stable probes such as the io:::start probe can use translated arguments, synthet
 
 In a [recent push to illumos](https://github.com/illumos/illumos-gate/commit/e5803b76927480e8f9b67b22201c484ccf4c2bcf), I added this support:
 
-```
+```console
 # dtrace -n 'io:::start{ print(*args[1]); }'
 dtrace: description 'io:::start' matched 6 probes
 CPU ID FUNCTION:NAME
@@ -93,7 +93,7 @@ Between Eric's addition and my own, my most commonly encountered DTrace annoyanc
 
 For the DTrace super-nerds out there, I thought I'd share a bit of the implementation. In order to `trace()` or `print()` an expression, it needs to exist in memory somewhere. Translated types don't exist in memory, rather individual members are translated statically. We can see this in the output of the DTrace DIF (D intermediate form) disassembler:
 
-```
+```console
 # dtrace -n 'io:::start{ trace(args[1]->dev_name); }' -Se
 DIFO 0x75e940 returns string (unknown) by ref (size 256)
 OFF OPCODE INSTRUCTION
@@ -132,14 +132,14 @@ OFF OPCODE INSTRUCTION
 
 In this case, this logic comes from /usr/lib/io.d, and -- in particular -- this translation:
 
-```
+```dtrace
         dev_name = B->b_dip == NULL ? "nfs" :
             stringof(`devnamesp[getmajor(B->b_edev)].dn_name);
 ```
 
 To implement allow `trace()` and `print()` to work on translated types, we now generate code to first use the DTrace build-in alloca() function to get some scratch space, and then generate the translation for each member of the translated type. For example:
 
-```
+```console
 # dtrace -n 'io:::start{ print(*args[1]); }' -Se
 DIFO 0x9466b0 returns D type (struct) by ref (size 780)
 OFF OPCODE INSTRUCTION

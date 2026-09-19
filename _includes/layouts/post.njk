@@ -4,6 +4,19 @@ layout: layouts/base.njk
 {# Only include the syntax highlighter CSS on blog posts, included with the CSS per-page bundle #}
 {%- css %}{% include "node_modules/prismjs/themes/prism-twilight.css" %}{% endcss %}
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+{%- if math %}
+{# Client-side MathJax, only on posts with `math: true` in front matter.
+   Same delimiters the old build-time plugin was configured with. #}
+<script>
+MathJax = {
+	tex: {
+		inlineMath: [['\\(', '\\)']],
+		displayMath: [['\\[', '\\]']]
+	}
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+{%- endif %}
 <h1>{{ title }}</h1>
 
 <ul class="post-metadata">

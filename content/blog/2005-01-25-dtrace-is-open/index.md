@@ -14,7 +14,7 @@ The biggest component of DTrace that I was wholly responsible for was the user-l
 
 Here's the general technique employed by the pid provider: each traced instruciton is first replaced with a trapping instruction. On sparc we use a ta (trap always) and on x86 (by which I mean i386 _and_ amd64) we use an int3 (0xcc) (see the fasttrap\_tracepoint\_install() function in usr/src/uts/sparc/dtrace/fasttrap\_isa.c and usr/src/uts/intel/dtrace/fasttrap\_isa.c). Now any time a user-level thread executes this instruction it will bounce into the fasttrap module (on x86 this requires a little trickery because the int3 instruction is also used by debuggers to set breakpoints) and into the fasttrap\_pid\_probe() function (in both instances of fasttrap\_isa.c). In fasttrap\_pid\_probe(), we lookup the original instruction in fasttrap\_tpoints -- a global hash table of tracepoints -- and call dtrace\_probe() to invoke the DTrace framework. Here's what it looks like on i386 (fasttrap\_isa.c):
 
-```
+```c
 821                         uintptr_t s0, s1, s2, s3, s4, s5;
 822                         uint32_t *stack = (uint32_t *)rp->r_sp;
 823
@@ -75,7 +75,7 @@ While you're looking at the displaced execution code, I'd appreciate it if you'd
 
 With a little help from the in-kernel disassembler, we detect if the instruction is %rip-relative:
 
-```
+```c
 469         if (p->p_model == DATAMODEL_LP64 && tp->ftt_type == FASTTRAP_T_COMMON) {
 470                 /*
 471                  * If the process is 64-bit and the instruction type is still

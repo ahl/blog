@@ -10,7 +10,7 @@ permalink: /2004/07/13/number-12-of-20-file-names-in-pfiles1/
 
 [Eric Schrock](http://blogs.sun.com/eschrock) has tagged in to talk about [file names in pfiles(1)](http://blogs.sun.com/roller/page/eschrock/20040712#nuts_and_bolts_of_pfiles). This is something we've wanted for forever; here's a teaser:
 
-```
+```console
 bash-2.05# pfiles 100354
 100354: /usr/lib/nfs/mountd
 Current rlimit: 256 file descriptors

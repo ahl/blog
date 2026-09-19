@@ -10,41 +10,41 @@ The other day, there was an [interesting post](http://opensolaris.org/jive/threa
 
 The code isn't exactly gorgeous, but it gets the job done. It's a good example of **probe-local** variables (also somewhat misleadingly called **clause-local** variables), and demonstrates how you can use them to communicate values between clauses associated with a given probe during a given firing. You can try it out by running `dtrace -c <your-command> -s <this-script>`.
 
-```
+```dtrace
 BEGIN
 {
-this->pidp = `pidhash[$target & (`pid_hashsz - 1)];
-this->pidname = "-error-";
+        this->pidp = `pidhash[$target & (`pid_hashsz - 1)];
+        this->pidname = "-error-";
 }
 /* Repeat this clause to accommodate longer hash chains. */
 BEGIN
 /this->pidp->pid_id != $target && this->pidp->pid_link != 0/
 {
-this->pidp = this->pidp->pid_link;
+        this->pidp = this->pidp->pid_link;
 }
 BEGIN
 /this->pidp->pid_id != $target && this->pidp->pid_link == 0/
 {
-this->pidname = "-no such process-";
+        this->pidname = "-no such process-";
 }
 BEGIN
 /this->pidp->pid_id != $target && this->pidp->pid_link != 0/
 {
-this->pidname = "-hash chain too long-";
+        this->pidname = "-hash chain too long-";
 }
 BEGIN
 /this->pidp->pid_id == $target/
 {
-/* Workaround for bug 6465277 */
-this->slot = (*(uint32_t *)this->pidp) >> 8;
-/* AHA! We finally have the proc_t. */
-this->procp = `procdir[this->slot].pe_proc;
-/* For this example, we'll grab the process name to print. */
-this->pidname = this->procp->p_user.u_comm;
+        /* Workaround for bug 6465277 */
+        this->slot = (*(uint32_t *)this->pidp) >> 8;
+        /* AHA! We finally have the proc_t. */
+        this->procp = `procdir[this->slot].pe_proc;
+        /* For this example, we'll grab the process name to print. */
+        this->pidname = this->procp->p_user.u_comm;
 }
 BEGIN
 {
-printf("%d %s", $target, this->pidname);
+        printf("%d %s", $target, this->pidname);
 }
 
 ```

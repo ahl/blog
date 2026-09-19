@@ -16,9 +16,9 @@ A colleague scoffed the other day, “I mean, how often do you actually use DTra
 
 First I wanted to make sure I had the name of the Illustrator process right:
 
-```
-$ sudo dtrace -n ‘syscall:::entry{ @[execname] = count(); }’
-dtrace: description ‘syscall:::entry’ matched 500 probes
+```console
+$ sudo dtrace -n 'syscall:::entry{ @[execname] = count(); }'
+dtrace: description 'syscall:::entry' matched 500 probes
 ^C
 pboard 1
 watchdogd 2
@@ -32,7 +32,7 @@ Adobe Illustrato 36674
 
 Glad I checked: “Adobe Illustrato”. Now we can be pretty sure that Illustrator is failing on `setrlimit(2)` and blowing up as result. Let’s confirm that it is in fact returning -1:
 
-```
+```console
 $ sudo dtrace -n 'syscall::setrlimit:return/execname == "Adobe Illustrato"/{ printf("%d %d", arg1, errno); }'
 dtrace: description 'syscall::setrlimit:return' matched 1 probe
 CPU     ID                    FUNCTION:NAME
@@ -41,7 +41,7 @@ CPU     ID                    FUNCTION:NAME
 
 There it is. And `setrlimit(2)` is failing with `errno` 1 which is `EPERM` (value too high for non-root user). I already tuned up the files limit pretty high. Let’s confirm that it is in fact setting the files limit and check the value to which it’s being set. To write this script I looked at the documentation for `setrlimit(2)` ([hooray for man pages!](https://truss.works/blog/2016/12/9/man-splained)) to determine that the position of the resource parameter (`arg0`) and the type of the value parameter (`struct rlimit`). I needed the DTrace `copyin()` subroutine to grab the structure from the process’s address space:
 
-```
+```console
 $ sudo dtrace -n 'syscall::setrlimit:entry/execname == "Adobe Illustrato"/{ this->r = *(struct rlimit *)copyin(arg1, sizeof (struct rlimit)); printf("%x %x %x", arg0, this->r.rlim_cur, this->r.rlim_max);  }'
 dtrace: description 'syscall::setrlimit:entry' matched 1 probe
 CPU     ID                    FUNCTION:NAME
@@ -52,7 +52,7 @@ Looking through `/usr/include/sys/resource.h` we can see that 1008 corresponds
 
 The quickest solution was to use DTrace again to whack a smaller number into that `struct rlimit`. Easy:
 
-```
+```console
 $ sudo dtrace -w -n 'syscall::setrlimit:entry/execname == "Adobe Illustrato"/{ this->i = (rlim_t *)alloca(sizeof (rlim_t)); *this->i = 10000; copyout(this->i, arg1 + sizeof (rlim_t), sizeof (rlim_t)); }'
 dtrace: description 'syscall::setrlimit:entry' matched 1 probe
 dtrace: could not enable tracing: Permission denied
@@ -62,7 +62,7 @@ Oh right. Thank you [SIP](https://en.wikipedia.org/wiki/System_Integrity_Protec
 
 First I used DTrace to find the code that was calling `setrlimit(2)`: using some knowledge of the x86 ISA/ABI:
 
-```
+```console
 $ sudo dtrace -n 'syscall::setrlimit:return/execname == "Adobe Illustrato" && arg1 == -1/{ printf("%x", *(uintptr_t *)copyin(uregs[R_RSP], sizeof (uintptr_t)) - 5) }'
 dtrace: description 'syscall::setrlimit:return' matched 1 probe
 CPU     ID                    FUNCTION:NAME
@@ -72,7 +72,7 @@ CPU     ID                    FUNCTION:NAME
 
 I ran it a few times to confirm the address of the `call` instruction and to make sure the location wasn’t [being randomized](https://en.wikipedia.org/wiki/Address_space_layout_randomization#OS_X). If I wasn’t in a rush I might have patched the binary, but Apple’s Mach-O Object format always confuses me. Instead I used `lldb` to replace the call with a store of 0 to `%eax` (to evince a successful return value) and some `nops` as padding (hex values I remember due to personal deficiencies):
 
-```
+```console
 (lldb) break set -n _init
 Breakpoint 1: 47 locations.
 (lldb) run

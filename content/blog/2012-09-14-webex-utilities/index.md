@@ -15,13 +15,13 @@ I wish that none of our customers encountered problems with our product, but the
 
 Webex makes it fairly easy to copy text from the remote system and paste it locally: just select the text, and that implicitly copies it to the clipboard. I do this very very often as I write DTrace scripts to collect data, and then want to record both the script and the output. To that end, the Mac OS X pbpaste(1) utility is unbelievably helpful; pbpaste emits the contents of the clipboard. For example, I'll select text in the webex and use pbpaste like this:
 
-```
+```console
 $ pbpaste | tee -a data.log
 ```
 
 Doing that, I can both verify that I selected the right data, and append it to the log of all data collected. Sometimes, though, the remote data is annoying to copy because I need to scroll up -- the mouse latency over webex can make this an exasperating experience. In those cases where the text I want to transfer is longer than a page, I do the following on the remote system:
 
-```
+```console
 $ cat output | gzip -9c | uuencode /dev/stdin
 begin 644 /dev/stdin
 M'XL(`..C4E`"`]5:W7_;-A!_#Y#_@>@P),&0A,<O5=X2=&LWH`_M]K`^%9TK
@@ -31,13 +31,13 @@ M2THBU+8\24[3C^UO'TG%L2D1,B6[0ZJG0+[[Z7CWN^,=PRQ-BZ?+?#:-%G<P
 
 I then select the text, and back on my mac do this to dump out the data:
 
-```
+```console
 $ pbpaste | uudecode -o /dev/stdout | gzip -cd
 ```
 
 By compressing and uuencoding the data, even large chunks of output easily fit on one screen. Here are the results on a large-ish chunk of data I copied from a customer system:
 
-```
+```console
 $ cat customer.data.txt | wc -l
  234
 $ cat customer.data.txt | gzip -9c | uuencode /dev/stdin | wc -l

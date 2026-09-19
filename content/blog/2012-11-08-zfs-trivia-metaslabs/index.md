@@ -16,7 +16,7 @@ Lately, I've been rooting around in the bowels of [ZFS](http://en.wikipedia.org/
 
 For allocation purposes, ZFS carves vdevs (disks) into a number of "metaslabs" -- simply smaller, more manageable chunks of the whole. How many metaslabs? Around 200:
 
-```
+```c
 void
 vdev_metaslab_set_size(vdev_t *vd)
 {

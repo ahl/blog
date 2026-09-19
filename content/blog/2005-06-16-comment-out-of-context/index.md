@@ -18,7 +18,7 @@ The [OpenSolaris](http://opensolaris.org) launch has been pretty fun -- I've alr
 
 I wrote that code in October of 2002. For those of you keeping score at home, that's almost a year before DTrace integrated into Solaris 10 and more than two years before Solaris 10 hit the streets. Here's the [larger context](http://cvs.opensolaris.org/source/xref/usr/src/uts/sparc/dtrace/fasttrap_isa.c#923) of that comment:
 
-```text
+```plaintext
 923 	/*
 924 	 * This bit me in the ass a couple of times, so lets toss this
 925 	 * in as a cursory sanity check.

@@ -15,7 +15,7 @@ I noticed the following usenet post the other day:
 >  
 > readprofile -r ; sleep 240 ; readprofile -n -m /boot/System.map-\`uname -r\` | sort -rn -k 1,1 | head -22  
 >  
-> <snip>  
+> \<snip>  
 >  
 > I am trying to determine where the system time is going and don't have  
 > much zen to begin with. Any assistance would be appreciated ?  

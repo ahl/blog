@@ -20,14 +20,14 @@ DTrace uses xcalls synchronize data used by all CPUs by ensuring that all CPUs h
 
 [`dtrace_state_stop()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/common/dtrace/dtrace.c#dtrace_state_stop)
 
-```
-10739           /*
-10740            * We'll set the activity to DTRACE_ACTIVITY_DRAINING, and issue a sync
-10741            * to be sure that every CPU has seen it.  See below for the details
-10742            * on why this is done.
-10743            */
-10744           state->dts_activity = DTRACE_ACTIVITY_DRAINING;
-10745           dtrace_sync();
+```c
+10739           /*
+10740            * We'll set the activity to DTRACE_ACTIVITY_DRAINING, and issue a sync
+10741            * to be sure that every CPU has seen it.  See below for the details
+10742            * on why this is done.
+10743            */
+10744           state->dts_activity = DTRACE_ACTIVITY_DRAINING;
+10745           dtrace_sync();
 
 ```
 
@@ -39,24 +39,24 @@ If you follow the sequence of functions called by [`dtrace_sync()`](http://cvs.o
 
 [`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#432)
 
-```
-411    /*
- 412     * Common code to call a specified function on a set of processors.
- 413     * sync specifies what kind of waiting is done.
- 414     *      -1 - no waiting, don't release remotes
- 415     *      0 - no waiting, release remotes immediately
- 416     *      1 - run service locally w/o waiting for remotes.
- 417     *      2 - wait for remotes before running locally
- 418     */
- 419    static void
- 420    xc_common(
- 421            xc_func_t func,
- 422            xc_arg_t arg1,
- 423            xc_arg_t arg2,
- 424            xc_arg_t arg3,
- 425            int pri,
- 426            cpuset_t set,
- 427            int sync)
+```c
+411    /*
+ 412     * Common code to call a specified function on a set of processors.
+ 413     * sync specifies what kind of waiting is done.
+ 414     *      -1 - no waiting, don't release remotes
+ 415     *      0 - no waiting, release remotes immediately
+ 416     *      1 - run service locally w/o waiting for remotes.
+ 417     *      2 - wait for remotes before running locally
+ 418     */
+ 419    static void
+ 420    xc_common(
+ 421            xc_func_t func,
+ 422            xc_arg_t arg1,
+ 423            xc_arg_t arg2,
+ 424            xc_arg_t arg3,
+ 425            int pri,
+ 426            cpuset_t set,
+ 427            int sync)
 
 ```
 
@@ -66,30 +66,30 @@ Let's start picking apart `xc_common()`:
 
 [`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#467)
 
-```
-446            /*
- 447             * Request service on all remote processors.
- 448             */
- 449            for (cix = 0; cix < NCPU; cix++) {
- 450                    if ((cpup = cpu[cix]) == NULL ||
- 451                        (cpup->cpu_flags & CPU_READY) == 0) {
- 452                            /*
- 453                             * In case CPU wasn't ready, but becomes ready later,
- 454                             * take the CPU out of the set now.
- 455                             */
- 456                            CPUSET_DEL(set, cix);
- 457                    } else if (cix != lcx && CPU_IN_SET(set, cix)) {
- 458                            CPU_STATS_ADDQ(CPU, sys, xcalls, 1);
- 459                            cpup->cpu_m.xc_ack[pri] = 0;
- 460                            cpup->cpu_m.xc_wait[pri] = sync;
- 461                            if (sync > 0)
- 462                                    cpup->cpu_m.xc_state[pri] = XC_SYNC_OP;
- 463                            else
- 464                                    cpup->cpu_m.xc_state[pri] = XC_CALL_OP;
- 465                            cpup->cpu_m.xc_pend[pri] = 1;
- 466                            send_dirint(cix, xc_xlat_xcptoipl[pri]);
- 467                    }
- 468            }
+```c
+446            /*
+ 447             * Request service on all remote processors.
+ 448             */
+ 449            for (cix = 0; cix < NCPU; cix++) {
+ 450                    if ((cpup = cpu[cix]) == NULL ||
+ 451                        (cpup->cpu_flags & CPU_READY) == 0) {
+ 452                            /*
+ 453                             * In case CPU wasn't ready, but becomes ready later,
+ 454                             * take the CPU out of the set now.
+ 455                             */
+ 456                            CPUSET_DEL(set, cix);
+ 457                    } else if (cix != lcx && CPU_IN_SET(set, cix)) {
+ 458                            CPU_STATS_ADDQ(CPU, sys, xcalls, 1);
+ 459                            cpup->cpu_m.xc_ack[pri] = 0;
+ 460                            cpup->cpu_m.xc_wait[pri] = sync;
+ 461                            if (sync > 0)
+ 462                                    cpup->cpu_m.xc_state[pri] = XC_SYNC_OP;
+ 463                            else
+ 464                                    cpup->cpu_m.xc_state[pri] = XC_CALL_OP;
+ 465                            cpup->cpu_m.xc_pend[pri] = 1;
+ 466                            send_dirint(cix, xc_xlat_xcptoipl[pri]);
+ 467                    }
+ 468            }
 
 ```
 
@@ -99,20 +99,20 @@ Next we wait for the remote CPUs to acknowledge that they've executed the reques
 
 [`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#500)
 
-```
-479            /*
- 480             * Wait here until all remote calls complete.
- 481             */
- 482            for (cix = 0; cix < NCPU; cix++) {
- 483                    if (lcx != cix && CPU_IN_SET(set, cix)) {
- 484                            cpup = cpu[cix];
- 485                            while (cpup->cpu_m.xc_ack[pri] == 0) {
- 486                                    ht_pause();
- 487                                    return_instr();
- 488                            }
- 489                            cpup->cpu_m.xc_ack[pri] = 0;
- 490                    }
- 491            }
+```c
+479            /*
+ 480             * Wait here until all remote calls complete.
+ 481             */
+ 482            for (cix = 0; cix < NCPU; cix++) {
+ 483                    if (lcx != cix && CPU_IN_SET(set, cix)) {
+ 484                            cpup = cpu[cix];
+ 485                            while (cpup->cpu_m.xc_ack[pri] == 0) {
+ 486                                    ht_pause();
+ 487                                    return_instr();
+ 488                            }
+ 489                            cpup->cpu_m.xc_ack[pri] = 0;
+ 490                    }
+ 491            }
 
 ```
 
@@ -122,7 +122,7 @@ Now let's look at the other side of this conversation: what happens on a remote 
 
 [`xc_serv()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#159)
 
-```
+```c
 138    	/*
 139    	 * Acknowledge that we have completed the x-call operation.
 140    	 */
@@ -137,7 +137,7 @@ Since in this case we're dealing with a synchronous xcall, the remote CPU then n
 
 [`xc_serv()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#167)
 
-```
+```c
 146    	/*
 147    	 * for (op == XC_SYNC_OP)
 148    	 * Wait for the initiator of the x-call to indicate
@@ -159,19 +159,19 @@ And here's the code on the initiating side that releases all the remote CPUs by 
 
 [`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#523)
 
-```
- 502            /*
- 503             * Release any waiting CPUs
- 504             */
- 505            for (cix = 0; cix < NCPU; cix++) {
- 506                    if (lcx != cix && CPU_IN_SET(set, cix)) {
- 507                            cpup = cpu[cix];
- 508                            if (cpup != NULL && (cpup->cpu_flags & CPU_READY)) {
- 509                                    cpup->cpu_m.xc_wait[pri] = 0;
- 510                                    cpup->cpu_m.xc_state[pri] = XC_DONE;
- 511                            }
- 512                    }
- 513            }
+```c
+ 502            /*
+ 503             * Release any waiting CPUs
+ 504             */
+ 505            for (cix = 0; cix < NCPU; cix++) {
+ 506                    if (lcx != cix && CPU_IN_SET(set, cix)) {
+ 507                            cpup = cpu[cix];
+ 508                            if (cpup != NULL && (cpup->cpu_flags & CPU_READY)) {
+ 509                                    cpup->cpu_m.xc_wait[pri] = 0;
+ 510                                    cpup->cpu_m.xc_state[pri] = XC_DONE;
+ 511                            }
+ 512                    }
+ 513            }
 
 ```
 
@@ -220,27 +220,27 @@ Since at that time we were even closer to shipping Solaris 10, I chose the fix I
 
 [`xc_common()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#536)
 
-```
- 515            /*
- 516             * Wait for all CPUs to acknowledge completion before we continue.
- 517             * Without this check it's possible (on a VM or hyper-threaded CPUs
- 518             * or in the presence of Service Management Interrupts which can all
- 519             * cause delays) for the remote processor to still be waiting by
- 520             * the time xc_common() is next invoked with the sync flag set
- 521             * resulting in a deadlock.
- 522             */
- 523            for (cix = 0; cix < NCPU; cix++) {
- 524                    if (lcx != cix && CPU_IN_SET(set, cix)) {
- 525                            cpup = cpu[cix];
- 526                            if (cpup != NULL && (cpup->cpu_flags & CPU_READY)) {
- 527                                    while (cpup->cpu_m.xc_ack[pri] == 0) {
- 528                                            ht_pause();
- 529                                            return_instr();
- 530                                    }
- 531                                    cpup->cpu_m.xc_ack[pri] = 0;
- 532                            }
- 533                    }
- 534            }
+```c
+ 515            /*
+ 516             * Wait for all CPUs to acknowledge completion before we continue.
+ 517             * Without this check it's possible (on a VM or hyper-threaded CPUs
+ 518             * or in the presence of Service Management Interrupts which can all
+ 519             * cause delays) for the remote processor to still be waiting by
+ 520             * the time xc_common() is next invoked with the sync flag set
+ 521             * resulting in a deadlock.
+ 522             */
+ 523            for (cix = 0; cix < NCPU; cix++) {
+ 524                    if (lcx != cix && CPU_IN_SET(set, cix)) {
+ 525                            cpup = cpu[cix];
+ 526                            if (cpup != NULL && (cpup->cpu_flags & CPU_READY)) {
+ 527                                    while (cpup->cpu_m.xc_ack[pri] == 0) {
+ 528                                            ht_pause();
+ 529                                            return_instr();
+ 530                                    }
+ 531                                    cpup->cpu_m.xc_ack[pri] = 0;
+ 532                            }
+ 533                    }
+ 534            }
 
 ```
 
@@ -248,12 +248,12 @@ In that comment, I tried to summarize in 6 lines what has just taken me several 
 
 [`xc_serv()`](http://cvs.opensolaris.org/source/xref/usr/src/uts/i86pc/os/x_call.c#191)
 
-```
- 170            /*
- 171             * Acknowledge that we have received the directive to continue.
- 172             */
- 173            ASSERT(cpup->cpu_m.xc_ack[pri] == 0);
- 174            cpup->cpu_m.xc_ack[pri] = 1;
+```c
+ 170            /*
+ 171             * Acknowledge that we have received the directive to continue.
+ 172             */
+ 173            ASSERT(cpup->cpu_m.xc_ack[pri] == 0);
+ 174            cpup->cpu_m.xc_ack[pri] = 1;
 
 ```
 

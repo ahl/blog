@@ -16,7 +16,7 @@ Turning on compression in zfs (`zfs compression=on <dataset>`) enables the so ca
 
 I thought it might be interesting to add a **gzip** compression algorithm based on [zlib](http://www.zlib.net/). I was able to hack this up pretty quicky because the Solaris kernel already contains a complete copy of zlib (albeit scattered around a little) for [decompressing](http://cvs.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/uts/common/zmod/zmod.c#42) [CTF data](http://cvs.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/uts/common/sys/ctf.h#39) for [DTrace](http://www.opensolaris.org/os/community/dtrace/), and apparently for some sort of [compressed PPP streams module](http://cvs.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/uts/common/io/ppp/spppcomp/zlib.c) (or whatever... I don't care). Here's what the ZFS/zlib mash-up looks like (for the curious, this is with the default compression level -- 6 on a scale from 1 to 9):
 
-```
+```console
 # zfs create pool/gzip
 # zfs set compression=gzip pool/gzip
 # cp -r /pool/lzjb/* /pool/gzip
@@ -29,7 +29,7 @@ pool/lzjb   128M  33.2G   128M  /pool/lzjb
 
 That's with a 1.2G crash dump (pretty much the most compressible file imaginable). Here are the compression ratios with a pile of ELF binaries (/usr/bin and /usr/lib):
 
-```
+```console
 # zfs get compressratio
 NAME       PROPERTY       VALUE      SOURCE
 pool/gzip  compressratio  3.27x      -

@@ -57,7 +57,7 @@ The cursor tool lets you measure the time between features:
 
 I measured a few by hand, but it was going to be tedious to look at each signal that way. I needed the data in a form I could examine programmatically. PulseView has a bunch of output formats; the one I landed on (by trying them all) is “Value Change Data” whose output looks like this:
 
-```text
+```plaintext
 $date Thu Dec 19 23:17:09 2019 $end
 $version libsigrok 0.6.0-git-ef62ab6 $end
 $comment

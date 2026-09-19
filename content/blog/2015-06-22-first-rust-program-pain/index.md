@@ -169,7 +169,7 @@ error: aborting due to previous error
 
 ```
 
-Okay; that was apparently very wrong. The BufReader::lines() iterator gives us Result<String>s which we need to unwrap(). No problem.
+Okay; that was apparently very wrong. The BufReader::lines() iterator gives us Result\<String>s which we need to unwrap(). No problem.
 
 ```rust
  18         for line in b.lines() {

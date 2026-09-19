@@ -18,7 +18,7 @@ One of the most powerful features of DTrace is its ability to correlate low leve
 
 Java, however, was still a mystery. Stacks in C and C++ are fairly easy to record, but in java, some methods are interpretted and just-in-time (JIT) compilation means that other methods can move around in the java virtual machine's (JVM) address space. DTrace needed help from the JVM. Working with the java guys, we built a facility where the JVM actually contains a little bit of D (DTrace's C-like language) machinery that knows how to interpret java stacks. We enhanced the ustack() action to take an optional second argument for the number of bytes to record (we've also recently added the jstack() action; see the [DTrace Solaris Express Schedule](http://blogs.sun.com/roller/page/ahl/dtracesched) for when it will be available) so when we use the ustack() action in the kernel on a thread in the JVM, that embedded machinery takes over and fills in those bytes with the symbolic interpretation for those methods. Either [Bryan](http://blogs.sun.com/bmc) or I will give a more complete (and comprehensible) description in the future, but an example should speak volumes:
 
-```
+```console
 # dtrace -n profile-100'/execname == "java"/{ @[ustack(50, 512)] = count() }'
 ...
 java/security/AccessController.doPrivileged

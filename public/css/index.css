@@ -36,6 +36,13 @@
 
 		--background-color: #151a2b;
 	}
+
+	/* Many older diagrams are transparent PNGs drawn in black; give them a
+	   light backing so they stay legible on the dark background. Opaque
+	   photos are unaffected. */
+	main img {
+		background-color: #fff;
+	}
 }
 
 
