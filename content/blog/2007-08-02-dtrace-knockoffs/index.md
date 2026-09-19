@@ -14,13 +14,18 @@ permalink: /2007/08/02/dtrace-knockoffs/
 
 **Update 8/6/2007:** Those of you interested in this entry may also want to check out [my next entry](http://dtrace.org/blogs/ahl/what_if_machine_dtrace_port) on the legality of a hypothetical port of DTrace to Linux.
 
-![](images/dtrace_for_linux.png) Tools We Wish We Had -- OSCON 7/26/2007
+<figure>
+  <img src="images/dtrace_for_linux.png" alt="">
+  <figcaption>Tools We Wish We Had -- OSCON 7/26/2007</figcaption>
+</figure>
 
 Last week at [OSCON](http://conferences.oreillynet.com/os2007/) someone set up a whiteboard with the heading "Tools We Wish We Had". People added entries (wiki-style); this one in particular caught my eye:
 
 dtrace for Linux or something similar
 
-(LIKE SYSTEMTAP?) - jdub (NO, LIKE dtrace) - VLAD (like systemtap, but not crap)
+(LIKE SYSTEMTAP?) - jdub\
+(NO, LIKE dtrace) - VLAD\
+(like systemtap, but not crap)
 
 ### DTrace
 
@@ -41,7 +46,7 @@ Instead of taking the time to understand DTrace, and instead of using it and sco
 
 Amusingly, in an apparent attempt to salvage their self-respect, the SystemTap team later renounced their inspiration. Despite frequent mentions of DTrace in their [early meetings and email](http://sourceware.org/ml/systemtap/2005-q2/msg00180.html), it turns out, [DTrace didn't actually inspire them much at all](http://sourceware.org/ml/systemtap-cvs/2006-q4/msg00068.html):
 
-```
+```plaintext
 CVSROOT:	/cvs/systemtap
 Module name:	src
 Changes by:	kenistoj@sourceware.org	2006-11-02 23:03:09
@@ -52,13 +57,13 @@ Removed refs to dtrace, to which we were giving undue credit in terms of
 "inspiration."
 ```
 
-![](images/systemtap_profiling_21.png) you're not my real dad! **<slam>**
+![](images/systemtap_profiling_21.png) you're not my real dad! **\<slam>**
 
 ### Bad Artists Copy...
 
 So uninspired was the SystemTap team by DTrace, that they don't even advocate its use according to [a presentation on profiling applications](http://sourceware.org/systemtap/wiki/LCA2007) ("Tools that we avoid - dtrace \[sic\]"). In that same presentation there's an example of a SystemTap-based tool called udpstat.stp:
 
-```
+```console
 $ udpstat.stp
 UDP_out  UDP_outErr  UDP_in  UDP_inErr  UDP_noPort
 0           0       0          0           0
@@ -70,7 +75,7 @@ UDP_out  UDP_outErr  UDP_in  UDP_inErr  UDP_noPort
 
 ... whose output was likely "inspired" by udpstat.d -- part of the DTraceToolkit by [Brendan Gregg](http://www.brendangregg.com/):
 
-```
+```console
 # udpstat.d
 UDP_out  UDP_outErr   UDP_in  UDP_inErr  UDP_noPort
 0           0        0          0           1

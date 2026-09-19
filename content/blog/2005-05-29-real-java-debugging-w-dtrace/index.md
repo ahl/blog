@@ -10,7 +10,7 @@ When I was in [college](http://www.brown.edu) one of the rights of passage in th
 
 After downloading the game and the requisite libraries ([jogl](https://jogl.dev.java.net/), OGL, etc.) I tried running it and got this:
 
-```
+```console
 java.net.UnknownHostException: epizooty: epizooty
 at java.net.InetAddress.getLocalHost(InetAddress.java:1308)
 at hogs.net.client.RemoteEngine.(RemoteEngine.java:79)
@@ -26,31 +26,31 @@ Using the `dvm` provider was, initially, a bit of a pain (through no fault of it
 
 Using some knowledge of how DTrace user-level statically defined tracing (USDT) providers load, I wrote `stop.d` that waits until the `dvm` provider loads and stops the process. After the process is stopped, another invocation of DTrace can then use the `dvm` provider.
 
-```
+```dtrace
 #!/usr/sbin/dtrace -s
 #pragma D option destructive
 syscall::close:entry
 /pid == $target &&
-basename(curthread->t_procp->p_user.u_finfo.fi_list[arg0].uf_file->f_vnode->v_path) == "dtrace@0:helper"/
+    basename(curthread->t_procp->p_user.u_finfo.fi_list[arg0].uf_file->f_vnode->v_path) == "dtrace@0:helper"/
 {
-self->interested = 1;
+        self->interested = 1;
 }
 syscall::close:entry
 /self->interested/
 {
-cnt++;
+        cnt++;
 }
 syscall::close:entry
 /self->interested && cnt == 2/
 {
-stop();
-printf("stopped %d\n", pid);
-exit(0);
+        stop();
+        printf("stopped %d\n", pid);
+        exit(0);
 }
 syscall::close:return
 /self->interested/
 {
-self->interested = 0;
+        self->interested = 0;
 }
 
 ```
@@ -59,7 +59,7 @@ DTrace USDT provider and helpers open a special helper psuedo device to register
 
 Once I had the game stopped at the right spot, I run amid the noise this snippet looked interesting:
 
-```
+```console
 0  34481       _method_entry:method-entry -> java/net/InetAddress$1.lookupAllHostAddr()
 0  34481       _method_entry:method-entry -> java/net/UnknownHostException.()
 
@@ -67,42 +67,42 @@ Once I had the game stopped at the right spot, I run amid the noise this snippet
 
 So this `localAllHostAddr()` method was throwing the exception that was causing me so much heartache. I wanted to understand the actual interaction between this method and lower level address resolution. It turned out that the native library calls were in a shared object that the JVM was lazily loading so I needed to stop the process after the native library had been loaded but before the method had completed. I wrote the following as a sort of conditional breakpoint:
 
-```
+```dtrace
 #!/usr/sbin/dtrace -s
 #pragma D option destructive
 dvm$target:::method-entry
 /copyinstr(arg1) == "getLocalHost"/
 {
-self->state = 1;
+        self->state = 1;
 }
 dvm$target:::method-entry
 /copyinstr(arg1) == "lookupAllHostAddr" && self->state == 1/
 {
-self->state = 2;
-stop();
-exit(0);
+        self->state = 2;
+        stop();
+        exit(0);
 }
 dvm$target:::method-return
 /copyinstr(arg1) == "lookupAllHostAddr" && self->state == 2/
 {
-self->state = 1;
+        self->state = 1;
 }
 dvm$target:::method-return
 /copyinstr(arg1) == "getLocalHost" && self->state == 1/
 {
-self->state = 0;
+        self->state = 0;
 }
 
 ```
 
 Sifting through some more data, I figured out the name of the native function that was being used to implement `lookupAllHostAddr()` and wrote this script to follow the program flow from there:
 
-```
+```dtrace
 #!/usr/sbin/dtrace -s
 #pragma D option flowindent
 pid$target::Java_java_net_Inet4AddressImpl_lookupAllHostAddr:entry
 {
-self->interested = 1;
+        self->interested = 1;
 }
 pid$target:::entry
 /self->interested/
@@ -111,17 +111,17 @@ pid$target:::entry
 pid$target:::return
 /self->interested/
 {
-printf("+%x %x (%d)", arg0, arg1, errno);
+        printf("+%x %x (%d)", arg0, arg1, errno);
 }
 pid$target::gethostbyname_r:entry
 /self->interested/
 {
-printf("hostname = %s", copyinstr(arg0));
+        printf("hostname = %s", copyinstr(arg0));
 }
 pid$target::Java_java_net_Inet4AddressImpl_lookupAllHostAddr:return
 /self->interested/
 {
-self->interested = 0;
+        self->interested = 0;
 }
 
 ```
