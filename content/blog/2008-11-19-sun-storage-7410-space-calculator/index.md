@@ -88,7 +88,7 @@ raidz1          True       4       4           276               207
 
 A very common area of confusion has been how to size Sun Storage 7410 systems, and the relationship between the physical storage and the delivered capacity. I hope that this little tool will help to answer those questions. A side benefit should be still more interest in the [virtual version of the appliance](http://www.sun.com/storage/disk_systems/unified_storage/resources.jsp) — a subject I've been meaning to post about so stay tuned.
 
-**Update December 14, 2008:** A couple of folks requested that the script allow for modeling half-JBOD allocations because the 7410 allows you to split JBODs between heads in a cluster. To accommodate this, I've added a `\-h` option that takes as its parameter the number of half JBODs. For example:
+**Update December 14, 2008:** A couple of folks requested that the script allow for modeling half-JBOD allocations because the 7410 allows you to split JBODs between heads in a cluster. To accommodate this, I've added a `-h` option that takes as its parameter the number of half JBODs. For example:
 
 ```console
 $ ./sizecalc.py -h 12 192.168.18.134 ***** 0
