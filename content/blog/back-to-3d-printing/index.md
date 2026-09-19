@@ -1,6 +1,7 @@
 ---
 title: "3D Printing Is Finally Fun"
 date: "2026-06-19"
+image: images/new_stuff.jpg
 permalink: /2026/06/19/3d-printing-is-fun/
 ---
 
