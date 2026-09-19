@@ -14,4 +14,4 @@ I'll be talking about the work we've done at Sun on [the Hybrid Storage Pool](/2
 
 In semi-related news, along with [Eric](http://blogs.sun.com/eschrock) and [Mike](http://blogs.sun.com/mws) I'll be speaking at the [OpenSolaris Storage Summit](http://wikis.sun.com/display/OpenSolaris/OpenSolaris+Storage+Summit+200902) in San Francisco this coming Monday the 23rd.
 
-**Update March 7, 2009:** I've subsequently posted the slides I used for the [WISH 2009](http://dtrace.org/blogs/ahl/hsp_wish_2009) and [OpenSolaris Storage Summit 2009](/2009/02/23/hsp-talk-at-the-opensolaris-storage-summit/) talks.
+**Update March 7, 2009:** I've subsequently posted the slides I used for the [WISH 2009](/2009/03/07/presentation-hybrid-storage-pools-and-ssds/) and [OpenSolaris Storage Summit 2009](/2009/02/23/hsp-talk-at-the-opensolaris-storage-summit/) talks.

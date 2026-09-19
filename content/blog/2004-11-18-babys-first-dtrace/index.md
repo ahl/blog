@@ -25,6 +25,6 @@ can give you a coarse idea of where you're spending time. When you do this, a lo
 
 ### look for lock contention
 
-In multi-threaded apps, lock contention can be **huge** performance killer. Run the new [plockstat(1)](http://dtrace.org/blogs/ahl/plockstat) command to see if your app suffers from lock contention. If it does, you'll see long spin and contention times. These are pretty easy problems to solve, but if you can't track down the source of the problem, plockstat -- of course -- lets you dig deeper by using the plockstat provider.
+In multi-threaded apps, lock contention can be **huge** performance killer. Run the new [plockstat(1)](/2004/08/31/a-new-view-into-software/) command to see if your app suffers from lock contention. If it does, you'll see long spin and contention times. These are pretty easy problems to solve, but if you can't track down the source of the problem, plockstat -- of course -- lets you dig deeper by using the plockstat provider.
 
 Those are a few places I've started from in the past, but, of course, every application is different. DTrace isn't meant to supplant your knowledge about your app and the system at large, rather it should complement it and let you do more with what you already know.

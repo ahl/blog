@@ -17,7 +17,7 @@ The mission of ZFS was to simplify storage and to construct an enterprise level 
 
 ### RAID levels
 
-Last year I wrote about the [need for triple-parity RAID](http://dtrace.org/blogs/ahl/acm_triple_parity_raid), and in that article I summarized the various RAID levels as enumerated by Gibson, Katz, and Patterson, along with Peter Chen, Edward Lee, and myself:
+Last year I wrote about the [need for triple-parity RAID](/2009/12/21/acm_triple_parity_raid/), and in that article I summarized the various RAID levels as enumerated by Gibson, Katz, and Patterson, along with Peter Chen, Edward Lee, and myself:
 
 - **RAID-0** Data is striped across devices for maximal write performance. It is an outlier among the other RAID levels as it provides no actual data protection.
 - **RAID-1** Disks are organized into mirrored pairs and data is duplicated on both halves of the mirror. This is typically the highest-performing RAID level, but at the expense of lower usable capacity.
