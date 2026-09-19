@@ -12,7 +12,7 @@ permalink: /2004/07/17/number-18-of-20-pmap1-improvements/
 
 For the uninitiated, [pmap(1)](http://docs.sun.com/db/doc/817-0689/6mgfkpd0f?a=view) is a tool that lets you observe the mappings in a process. Here's some typical output:
 
-```
+```console
 311981: /usr/bin/sh
 08046000       8K rw--- [ stack ]
 08050000      80K r-x-- /sbin/sh
@@ -36,7 +36,7 @@ You can use this to understand various adresses you might see from a debugger, o
 
 When a process creates a new thread, that thread needs a stack. By default, that stack comes from an anonymous mapping. Before Solaris 10, those mappings just appeared as `\[ anon \]` -- undifferentiated from other anonymous mappings; now we label them as thread stacks:
 
-```
+```console
 311992: ./mtpause.x86 2
 08046000       8K rwx-- [ stack ]
 08050000       4K r-x-- /home/ahl/src/tests/mtpause/mtpause.x86
@@ -52,7 +52,7 @@ That can be pretty useful if you're trying to figure out what some address means
 
 Another kind of stack is the alternate signal stack. Alternate signal stacks let threads handle signals like SIGSEGV which might arise due to a stack overflow of the main stack (leaving no room on that stack for the signal handler). You can establish an alternate signal stack using the [sigaltstack(2)](http://docs.sun.com/db/doc/817-0691/6mgfmmdt5?a=view) interface. If you allocate the stack by creating an anonymous mapping using [mmap(2)](http://docs.sun.com/db/doc/817-0691/6mgfmmdqg?a=view) pmap(1) can now identify the per-thread alternate signal stacks:
 
-```
+```console
 ...
 FEBFA000       8K rwx-R    [ stack tid=8 ]
 FEFFA000       8K rwx-R    [ stack tid=4 ]
@@ -68,7 +68,7 @@ Core files have always contained a _partial_ snapshot of a process's memory mapp
 `pargs: core 'core' has insufficient content`  
 So what's in that core file? pmap(1) now let's you see that easily; mappings whose data is missing from the core file are marked with a `\*`:
 
-```
+```console
 $ coreadm -P heap+stack+data+anon
 $ cat
 ^\Quit - core dumped

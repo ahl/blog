@@ -14,7 +14,31 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{ title or metadata.title }}</title>
 		<meta name="description" content="{{ description or metadata.description }}">
-		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+
+		{#- Open Graph / Twitter cards.
+		    Per-post front matter: `description` (else an excerpt is
+		    computed) and `image` (path relative to the post directory;
+		    `coverImage` also honored). Site-wide fallback image:
+		    metadata.openGraphImage. #}
+		{%- set isPost = "posts" in (tags or []) %}
+		{%- set ogImageSrc = image or coverImage or metadata.openGraphImage %}
+		{%- set ogDescription = description or (content | ogExcerpt if isPost) or metadata.description %}
+		<meta property="og:site_name" content="{{ metadata.title }}">
+		<meta property="og:type" content="{{ "article" if isPost else "website" }}">
+		<meta property="og:title" content="{{ title or metadata.title }}">
+		<meta property="og:url" content="{{ page.url | htmlBaseUrl(metadata.url) }}">
+		<meta property="og:description" content="{{ ogDescription }}">
+		{%- if isPost %}
+		<meta property="article:published_time" content="{{ page.date | htmlDateString }}">
+		{%- endif %}
+		{%- if ogImageSrc %}
+		{%- set ogImageUrl = ogImageSrc | ogImage(metadata.url) %}
+		{%- if ogImageUrl %}
+		<meta property="og:image" content="{{ ogImageUrl }}">
+		{%- endif %}
+		{%- endif %}
+		<meta name="twitter:card" content="{{ "summary_large_image" if ogImageSrc else "summary" }}">
 
 		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
 		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}

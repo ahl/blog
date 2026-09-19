@@ -8,7 +8,7 @@ permalink: /2004/07/23/dtrace-coming-attractions/
 
 I haven't been as prolific a blog writer as I like for the last few days because I've been working morning, noon, and night on some pretty cool new stuff for DTrace. Here's a teaser, I promise I'll give you more later when I have it all working:
 
-```
+```console
 bash-2.05b# dtrace -l -n plockstat100694:::
 ID     PROVIDER            MODULE                        FUNCTION NAME
 37394 plockstat694         libc.so.1                mutex_lock_queue mutex-block

@@ -16,14 +16,14 @@ A few months ago I took [DTrace on OEL](http://dtrace.org/blogs/ahl/2011/10/05/d
 
 Back in October there were 574 functional probes (and 13 more that didn't work). Here's the quantitative state of DTrace for OEL today:
 
-```
+```console
 [root@screven drivers]# dtrace -l | wc -l
 618
 ```
 
 Okay. Steady improvement. By way of unfair comparison, here's what it looks like on my [Mac OS X](http://dtrace.org/blogs/brendan/2011/10/10/top-10-dtrace-scripts-for-mac-os-x/) laptop:
 
-```
+```console
 qadi /Users/ahl # dtrace -l | wc -l
   578044
 ```
@@ -34,20 +34,20 @@ Back in October, I tried enabling all system call probes (i.e. all functional pr
 
 Previously, profile provider probes weren't working. The profile probes have been removed -- you can't do arbitrary resolution timer-based profiling -- but the simple, tick probes are there:
 
-```
+```console
 [root@screven drivers]# dtrace -l -n profile:::
-ID   PROVIDER            MODULE                          FUNCTION NAME
-612    profile                                                     tick-1
-613    profile                                                     tick-10
-614    profile                                                     tick-100
-615    profile                                                     tick-500
-616    profile                                                     tick-1000
-617    profile                                                     tick-5000
+ID   PROVIDER            MODULE                          FUNCTION NAME
+612    profile                                                     tick-1
+613    profile                                                     tick-10
+614    profile                                                     tick-100
+615    profile                                                     tick-500
+616    profile                                                     tick-1000
+617    profile                                                     tick-5000
 ```
 
 ... and seem to work:
 
-```
+```console
 [root@screven ~]# dtrace -n 'tick-1{ printf("%Y", walltimestamp); }'
 dtrace: description 'tick-1' matched 1 probe
 CPU     ID                    FUNCTION:NAME
@@ -58,7 +58,7 @@ CPU     ID                    FUNCTION:NAME
 
 They've also added some inscrutable SDT ([statically defined tracing](https://wikis.oracle.com/display/DTrace/sdt+Provider)) probes:
 
-```
+```console
 [root@screven ~]# dtrace -l -n sdt:::
    ID   PROVIDER            MODULE                          FUNCTION NAME
   597        sdt           vmlinux                    __handle_sysrq -handle_sysrq
@@ -71,7 +71,7 @@ They've also added some inscrutable SDT ([statically defined tracing](https://wi
 
 More usefully, the beta includes a partially implemented proc provider; the proc provider traces high level process activity ([check the docs](https://wikis.oracle.com/display/DTrace/proc+Provider)).
 
-```
+```console
 [root@screven ~]# dtrace -l -n proc:::
    ID   PROVIDER            MODULE                          FUNCTION NAME
   598       proc           vmlinux                  do_execve_common exec-success
@@ -87,7 +87,7 @@ More usefully, the beta includes a partially implemented proc provider; the proc
 
 For reference, here's what it looks like on DelphixOS, an illumos derivative (which of course includes DTrace):
 
-```
+```console
 root@argos:~# dtrace -l -n proc:::
    ID   PROVIDER            MODULE                          FUNCTION NAME
 10589       proc              unix                   lwp_rtt_initial lwp-start
@@ -109,7 +109,7 @@ root@argos:~# dtrace -l -n proc:::
 
 Each DTrace probe has arguments that convey information about the activity that caused the probe to fire. For example, with the kernel function boundary tracing (fbt) provider (not yet implemented in OEL), the arguments for the function entry probe correspond to the arguments passed to the function. With static providers such as the proc provider, the parameters include useful information... but I can never seem to remember the types and order. Fortunately, DTrace lets you add in the -v option to get more information about a probe. Unfortunately, this hasn't been hooked up in Oracle's port (just an bug, I'm sure):
 
-```
+```console
 [root@screven ~]# dtrace -lv -n proc:::signal-send
    ID   PROVIDER            MODULE                          FUNCTION NAME
   606       proc           vmlinux                     __send_signal signal-send
@@ -161,7 +161,7 @@ Each DTrace probe has arguments that convey information about the activity that 
 
 Here's what it looks like on DelphixOS:
 
-```
+```console
 root@argos:~# dtrace -lv -n proc:::signal-send
    ID   PROVIDER            MODULE                          FUNCTION NAME
 10764       proc           genunix                         sigtoproc signal-send
@@ -184,7 +184,7 @@ root@argos:~# dtrace -lv -n proc:::signal-send
 
 Even without the type system being hooked up, you can definitely do some useful work with this beta. For example, I can use the proc provider to look at what commands are executing on my system:
 
-```
+```console
 [root@screven ~]# dtrace -n proc:::exec'{ trace(stringof(arg0)); }'
 dtrace: description 'proc:::exec' matched 1 probe
 CPU     ID                    FUNCTION:NAME
@@ -196,7 +196,7 @@ CPU     ID                    FUNCTION:NAME
 
 On his blog, Wim Coekaerts showed some examples of use of the proc provider that included this common idiom:
 
-```
+```dtrace
 proc:::create
 {
         this->pid = *((int *)arg0 + 171);
@@ -205,7 +205,7 @@ proc:::create
 
 It's hard to know where that 171 constant came from or how a user would figure that out. I assume that this is because OEL doesn't yet have proper types and it's a hardcoded offset into some structure. Here's what that would look like on completed DTrace implementations:
 
-```
+```dtrace
 proc:::create
 {
         this->pid = args[0]->pr_pid;

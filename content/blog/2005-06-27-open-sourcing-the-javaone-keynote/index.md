@@ -14,15 +14,16 @@ The first script just gathered a frequency count for each method invoked -- noth
 
 ```dtrace
 #!/usr/sbin/dtrace -s
+
 dvm$1:::method-entry
 {
         @[copyinstr(arg0), copyinstr(arg1)] = count();
 }
+
 END
 {
         printa("%-10@u %s.%s()\n", @);
 }
-
 ```
 
 ```console
@@ -53,102 +54,120 @@ The second demo was a little more exciting: this guy followed a thread of contro
 
 ```dtrace
 #!/usr/sbin/dtrace -s
+
 /*
-* This script was used for the DTrace demo during the JavaOne keynote.
-*
-* VT100 escape sequences are used to produce multi-colored output from
-* dtrace(1M). Pink is Java code, red is library code, blue is system calls,
-* and green is kernel function calls.
-*/
+ * This script was used for the DTrace demo during the JavaOne keynote.
+ *
+ * VT100 escape sequences are used to produce multi-colored output from
+ * dtrace(1M). Pink is Java code, red is library code, blue is system calls,
+ * and green is kernel function calls.
+ */
+
 #pragma D option quiet
+
 dvm$1:::method-entry
 /copyinstr(arg0) == "sun/java2d/pipe/AlphaColorPipe" &&
-copyinstr(arg1) == "renderPathTile"/
+ copyinstr(arg1) == "renderPathTile"/
 {
         self->interested = 1;
         self->depth = 8;
 }
+
 dvm$1:::method-entry
 /self->interested/
 {
-        printf("33[01;35m%*.*s -> %s.%s33[0m\n",
+        printf("\033[01;35m%*.*s -> %s.%s\033[0m\n",
             self->depth, self->depth, "",
             copyinstr(arg0), copyinstr(arg1));
         self->depth += 2;
 }
+
 dvm$1:::method-return
 /self->interested/
 {
         self->depth -= 2;
-        printf("33[01;35m%*.*s depth, self->depth, "",
+        printf("\033[01;35m%*.*s <- %s.%s\033[0m\n",
+            self->depth, self->depth, "",
             copyinstr(arg0), copyinstr(arg1));
 }
+
 dvm$1:::method-return
 /self->interested &&
-copyinstr(arg0) == "sun/java2d/pipe/AlphaColorPipe" &&
-copyinstr(arg1) == "renderPathTile"/
+ copyinstr(arg0) == "sun/java2d/pipe/AlphaColorPipe" &&
+ copyinstr(arg1) == "renderPathTile"/
 {
         self->interested = 0;
         self->depth = 0;
         exit(0);
 }
+
 pid$1:::entry
 /self->interested && probemod != "libdvmti.so"/
 {
-        printf("33[01;31m%*.*s -> %s`%s33[0m\n",
+        printf("\033[01;31m%*.*s -> %s`%s\033[0m\n",
             self->depth, self->depth, "",
             probemod, probefunc);
         self->depth += 2;
 }
+
 pid$1:::return
 /self->interested && probemod != "libdvmti.so"/
 {
         self->depth -= 2;
-        printf("33[01;31m%*.*s depth, self->depth, "",
+        printf("\033[01;31m%*.*s <- %s`%s\033[0m\n",
+            self->depth, self->depth, "",
             probemod, probefunc);
 }
+
 syscall:::entry
 /self->interested/
 {
-        printf("33[01;34m%*.*s => %s33[0m\n",
-            self->depth, self->depth, "", probefunc);
+        printf("\033[01;34m%*.*s => %s\033[0m\n",
+            self->depth, self->depth, "",
+            probefunc);
         self->depth += 2;
 }
+
 syscall:::return
 /self->interested/
 {
         self->depth -= 2;
-        printf("33[01;34m%*.*s depth, self->depth, "",
+        printf("\033[01;34m%*.*s <= %s\033[0m\n",
+            self->depth, self->depth, "",
             probefunc);
 }
+
 fbt:::entry
 /self->interested/
 {
-        printf("33[32m%*.*s -> %s33[0m\n",
-        self->depth, self->depth, "",
+        printf("\033[32m%*.*s -> %s\033[0m\n",
+            self->depth, self->depth, "",
             probefunc);
         self->depth += 2;
 }
+
 fbt:::return
 /self->interested/
 {
         self->depth -= 2;
-        printf("33[32m%*.*s depth, self->depth, "", probefunc);
+        printf("\033[32m%*.*s <- %s\033[0m\n",
+            self->depth, self->depth, "",
+            probefunc);
 }
 ```
 
 ```console
 # dtrace -s follow.d `pgrep java`  
-     -> sun/java2d/pipe/AlphaColorPipe.renderPathTile
-       -> copyout  
-       <- kcopy
-       -> sun/java2d/SunGraphics2D.getSurfaceData
+     -> sun/java2d/pipe/AlphaColorPipe.renderPathTile
+       -> copyout  
+       <- kcopy
+       -> sun/java2d/SunGraphics2D.getSurfaceData
 ...  
-           <- libc.so.1`_lwp_cond_signal  
-         <- libjvm.so`__1cNObjectMonitorEexit6MpnGThread__v_  
-       <- libjvm.so`__1cSObjectSynchronizerIjni_exit6FpnHoopDesc_pnGThread__v_  
-     <- libjvm.so`jni_MonitorExit  
-   <- libawt.so`Java_sun_java2d_loops_MaskFill_MaskFill
+           <- libc.so.1`_lwp_cond_signal  
+         <- libjvm.so`__1cNObjectMonitorEexit6MpnGThread__v_  
+       <- libjvm.so`__1cSObjectSynchronizerIjni_exit6FpnHoopDesc_pnGThread__v_  
+     <- libjvm.so`jni_MonitorExit  
+   <- libawt.so`Java_sun_java2d_loops_MaskFill_MaskFill
 <- sun/java2d/pipe/AlphaColorPipe.renderPathTile
 ```
 

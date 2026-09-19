@@ -13,7 +13,7 @@ permalink: /2010/07/19/ddrdrive/
 
 A key component of the ZFS [Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm) is Logzilla, a very fast device to accelerate synchronous writes. This component hides the write latency of disks to enable the use of economical, high-capacity drives. [In the Sun Storage 7000 series](http://dtrace.org/blogs/ahl/fishworks_launch), we use some very fast SAS and SATA SSDs from [STEC](http://www.stec-inc.com/) as our Logzilla &mdash the devices are great and STEC continues to be a terrific partner. The most important attribute of a good Logzilla device is that it have very low latency for sequential, uncached writes. The STEC part gives us about 100μs latency for a 4KB write — much much lower than most SSDs. Using SAS-attached SSDs rather than the more traditional PCI-attached, non-volatile DRAM enables a much simpler and more reliable clustering solution since the intent-log devices are accessible to both nodes in the cluster, but SAS is much slower than PCIe...
 
-[![](images/ddrdrive_image.png "ddrdrive_image")](http://ahl.dtrace.org/wp-content/uploads/2010/07/ddrdrive_image.png)
+![](images/ddrdrive_image.png "ddrdrive_image")
 
 ### DDRdrive X1
 
@@ -23,6 +23,9 @@ Christopher George, CTO of [DDRdrive](http://www.ddrdrive.com/) was kind enough 
 
 I put the DDRdrive X1 in our fastest prototype system to see how it performed. A 4K write takes about 51μs — better than our SAS Logzilla — but the SSD outperformed the X1 at transfer sizes over 32KB. The performance results on the X1 are already quite impressive, and since I ran those tests the firmware and driver have undergone several revisions to improve performance even more.
 
-### As a Logzilla[![](images/ddrdrive_data-300x205.png "ddrdrive_data")](http://ahl.dtrace.org/wp-content/uploads/2010/07/ddrdrive_data.png)
+### As a Logzilla
+
+<img src="images/ddrdrive_data.png" title="ddrdrive_data" alt="" class="float-right">
+
 
 While the 7000 series won't be employing the X1, uses of ZFS that don't involve clustering and for which external backup power is an option, the X1 is a great and economical Logzilla accelerator. Many users of ZFS have already started hunting for accelerators, and have tested out a wide array of SSDs. The X1 is a far more targeted solution, and is a compelling option. And if write performance has been a limiting factor in deploying ZFS, the X1 is a good reason to give ZFS another look.

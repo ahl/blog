@@ -24,7 +24,7 @@ The scalability and performance are impressive, but not unique to libumem; where
 
 You can use `libumem` to find double-frees, use-after-free, and many other problems, but my favorite is memory leaks. Memory leaks can really be a pain especially in large systems; libumem makes leaks easy to detect, and easy to diagnose. Here's a simple example:
 
-```
+```console
 $ LD_PRELOAD=libumem.so
 $ export LD_PRELOAD
 $ UMEM_DEBUG=default

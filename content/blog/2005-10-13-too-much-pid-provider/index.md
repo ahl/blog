@@ -10,7 +10,7 @@ Perhaps it's a bit Machiavellian, but I just love code that in some way tricks a
 
 The problem arose because the traced process tried to execute an x86 instruction like this:
 
-```
+```plaintext
 call    *0x10(%gs)
 
 ```
@@ -21,7 +21,7 @@ To correct this, I needed to add some additional logic to parse the instruction 
 
 Below is the code I added to [usr/src/uts/intel/dtrace/fasttrap\_isa.c](http://cvs.opensolaris.org/source/xref/usr/src/uts/intel/dtrace/fasttrap_isa.c) to handle this case. You can find the context [here](http://cvs.opensolaris.org/source/xref/usr/src/uts/intel/dtrace/fasttrap_isa.c#1092).
 
-```
+```c
 1145                         if (tp->ftt_code == 1) {
 1146
 1147                                 /*

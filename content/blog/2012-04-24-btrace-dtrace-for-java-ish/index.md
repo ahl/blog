@@ -12,7 +12,7 @@ permalink: /2012/04/24/btrace-dtrace-for-java-ish/
 
 DTrace [first peered into Java](http://dtrace.org/blogs/ahl/2005/04/18/dtracing-java/) in early 2005 thanks to an early prototype by Jarod Jenson that led eventually to the inclusion of USDT probes in the [HotSpot JVM](http://en.wikipedia.org/wiki/HotSpot). If you want to see where, say, the java.net.SocketOutputStream.write() method is called, you can simply run this DTrace script:
 
-```
+```dtrace
 hotspot$target:::method-entry
 /copyinstr(arg1, arg2) == "java/net/SocketOutputStream" &&
  copyinstr(arg3, arg4) == "write"/
@@ -25,20 +25,20 @@ And that will work as long as you rememember to start your JVM with the -XX:+Ext
 
 Inspired by [dtrace.conf](http://dtrace.org/blogs/ahl/2012/04/09/dtrace-conf12-wrap-up/) a few weeks ago, I wanted to sketch out what the real Java provider would look like:
 
-```
+```dtrace
 java$target:java.net.SocketOutputStream:write:entry
 {
-        jstack(50,8000);
+        jstack(50,8000);
 }
 ```
 
 And check it out:
 
-```
+```console
 # jdtrace.pl -p $(pgrep java) -n 'java$target:java.net.SocketOutputStream::entry{ jstack(50,8000); }'
 dtrace: script '/tmp/jdtrace.19092/jdtrace.d' matched 0 probes
-CPU     ID                    FUNCTION:NAME
-0  64991 Java_com_sun_btrace_BTraceRuntime_dtraceProbe0:event
+CPU     ID                    FUNCTION:NAME
+0  64991 Java_com_sun_btrace_BTraceRuntime_dtraceProbe0:event
 libbtrace.so`Java_com_sun_btrace_BTraceRuntime_dtraceProbe0+0xbb
 com/sun/btrace/BTraceRuntime.dtraceProbe0(Ljava/lang/String;Ljava/lang/String;II)I
 com/sun/btrace/BTraceRuntime.dtraceProbe(Ljava/lang/String;Ljava/lang/String;II)I
@@ -78,7 +78,7 @@ Obviously there's something fishy going on. First, we're using perl -- the shibb
 
 Like DTrace, BTrace lets you specify the points of instrumentation in your Java program as well as the actions to take. Here's what our generated source file looks like.
 
-```
+```java
 import com.sun.btrace.annotations.*;
 import static com.sun.btrace.BTraceUtils.*;
 @BTrace
@@ -98,7 +98,7 @@ Note that we specify where to trace (this can be a regular expression), and then
 
 Here's what the D script looks like:
 
-```
+```dtrace
 btrace$target:::event
 {
         this->__jd_arg = copyinstr(arg0);
@@ -124,7 +124,7 @@ This isn't the real Java provider, but is it close enough? Unfortunately not. Th
 
 BTrace is an interesting tool for examining Java programs, but one obvious obstacle is that the programs are pretty cumbersome to write. With BTrace, we should be able to write a simple one-liner to see where we are when the java.net.SocketOutputStream.write() method is called, but instead we have to write a fairly cumbersome program:
 
-```
+```java
 import com.sun.btrace.annotations.*;
 import static com.sun.btrace.BTraceUtils.*;
 @BTrace
@@ -138,7 +138,7 @@ public class TraceWrite {
 
 DTrace-inspired syntax would let users iterate much more quickly:
 
-```
+```console
 $ dbtrace -p $(pgrep -n java) -n 'java.net.SocketOutputStream:write:entry{ jstack(); }'
 java.net.SocketOutputStream.write(SocketOutputStream.java)
 sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:202)
@@ -158,13 +158,13 @@ java.lang.Thread.run(Thread.java:662)
 
 With BTrace, you can trace nearly arbitrary information about a program's state, but instead of doing something like this:
 
-```
+```console
 dbtrace -p $(pgrep -n java) -n 'java.net.SocketOutputStream:write:entry{ printFields(this.impl); }'
 ```
 
 You have to do this:
 
-```
+```java
 import com.sun.btrace.annotations.*;
 import com.sun.btrace.AnyType;
 import static com.sun.btrace.BTraceUtils.Reflective.*;
@@ -178,7 +178,7 @@ public class TraceWrite {
 }
 ```
 
-```
+```console
 $ ./bin/btrace $(pgrep -n java) TraceWrite.java
 {server=null, port=1080, external_address=null, useV4=false, cmdsock=null, cmdIn=null, cmdOut=null, applicationSetProxy=false, timeout=0, trafficClass=0, shut_rd=false, shut_wr=false, socketInputStream=java.net.SocketInputStream@9993a1, fdUseCount=0, fdLock=java.lang.Object@ab5443, closePending=false, CONNECTION_NOT_RESET=0, CONNECTION_RESET_PENDING=1, CONNECTION_RESET=2, resetState=0, resetLock=java.lang.Object@292936, fd1=null, anyLocalBoundAddr=null, lastfd=-1, stream=false, socket=Socket[addr=/127.0.0.1,port=38832,localport=8765], serverSocket=null, fd=java.io.FileDescriptor@50abcc, address=/127.0.0.1, port=38832, localport=8765, }
 ```

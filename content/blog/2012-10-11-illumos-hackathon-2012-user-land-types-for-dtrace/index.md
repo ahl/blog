@@ -16,19 +16,19 @@ At the illumos hackathon last week, [Robert Mustacchi](http://dtrace.org/blogs/r
 
 What we implemented was a new 'user' keyword to denote that a type is a user-land structure. For example, let's say we had the address of a 4-byte integer; today we'd access its value using copyin():
 
-```
+```dtrace
 this->i = *(int *)copyin(this->addr, sizeof (int));
 ```
 
 With our prototype, this gets simpler and more intuitive:
 
-```
+```dtrace
 this->i = *(user int *)addr;
 ```
 
 The impact is even more apparent when it comes to pointer chasing through structures. Today if we need to get to the third element of a linked list, the D code would look like this:
 
-```
+```dtrace
 this->p = (node_t *)copyin(this->addr, sizeof (node_t));
 this->p = (node_t *)copyin((uintptr_t)this->p->next, sizeof (node_t));
 this->p = (node_t *)copyin((uintptr_t)this->p->next, sizeof (node_t));
@@ -37,7 +37,7 @@ trace(this->p->value);
 
 Again, it's much simpler with the user keyword:
 
-```
+```dtrace
 this->p = (user node_t *)this->addr;
 trace(this->p->next->next->value);
 ```

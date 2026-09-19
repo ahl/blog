@@ -54,7 +54,7 @@ As of build 42 of [OpenSolaris](http://opensolaris.org), RAID-Z comes in a doubl
 
 To make a double-parity RAID-Z vdev, specify `raidz2` to [zpool(1M)](http://docs.sun.com/app/docs/doc/819-2240/6n4htdnpp?a=view):
 
-```
+```console
 # zpool create pool raidz2 c1t0d0 c1t0d1 c1t0d2 c1t0d3 c1t0d4
 ```
 

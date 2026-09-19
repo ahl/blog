@@ -10,7 +10,7 @@ We built DTrace to solve problems; at the start, the problems we understood best
 
 Oracle has been evolving their port of DTrace to OEL, prioritizing the stable points of instrumentation most relevant for the widest group of users. While DTrace started with providers that unlocked tens of thousands of points of instrumentation, the Oracle port enables a small number of comprehensible probes. [Since I last tried out their port](http://dtrace.org/blogs/ahl/2012/02/23/dtrace-oel-update/) they’ve fixed some bugs, and added support for stable I/O and process probes, as well as user-land static probes.
 
-```
+```console
 [root@screven ~]# uname -a
 Linux screven 3.8.13-16.el6uek.x86_64 #1 SMP Fri Sep 20 11:54:42 PDT 2013 x86_64 x86_64 x86_64 GNU/Linux
 [root@screven ~]# cat test.d

@@ -10,38 +10,38 @@ As has been [thoroughly](http://www.mactech.com/articles/mactech/Vol.23/23.11/Ex
 
 A common trick with [DTrace](http://opensolaris.org/os/community/dtrace/) is to use a `tick` probe to report data periodically. For example, the following script reports the ten most frequently accessed files every 10 seconds:
 
-```
+```dtrace
 io:::start
 {
-@[args[2]->fi_pathname] = count();
+        @[args[2]->fi_pathname] = count();
 }
 tick-10s
 {
-trunc(@, 10);
-printa(@);
-trunc(@, 0);
+        trunc(@, 10);
+        printa(@);
+        trunc(@, 0);
 }
 
 ```
 
 This was running fine, but it seemed as though sometimes (particularly with certain apps in the background) it would occasionally skip one of the ten second iterations. Odd. So I wrote the following script to see what was going on:
 
-```
+```dtrace
 profile-1000
 {
-@ = count();
+        @ = count();
 }
 tick-1s
 {
-printa(@);
-clear(@);
+        printa(@);
+        clear(@);
 }
 
 ```
 
 What this will do is fire a probe at 1000hz on all (logical) CPUs. Running this on a [dual-core machine](http://en.wikipedia.org/wiki/MacBook_Pro) we'd expect to see it print out `2000` each time. Instead I saw this:
 
-```
+```console
 0  22369                         :tick-1s
 1803
 0  22369                         :tick-1s
@@ -63,7 +63,7 @@ What this will do is fire a probe at 1000hz on all (logical) CPUs. Running this 
 
 Kind of bizarre. The missing `tick-1s` probes explain the values _over_ 2000, but weirder were the values so far _under_ 2000. To explore a bit more I performed another DTrace experiment to see what applications were running when the profile probe fired:
 
-```
+```console
 # dtrace -n profile-997'{ @[execname] = count(); }'
 dtrace: description 'profile-997' matched 1 probe
 ^C
@@ -97,7 +97,7 @@ kernel_task                                                    4247
 While there's nothing suspicious about the output in itself, it was strange because I was listening to music at the time. With [iTunes](http://www.apple.com/itunes/). **Where was iTunes?**  
 I ran the first experiment again and caused iTunes to do more work which yielded these results:
 
-```
+```console
 0  22369                         :tick-1s
 3856
 0  22369                         :tick-1s
@@ -111,7 +111,7 @@ I ran the first experiment again and caused iTunes to do more work which yielded
 
 So what was iTunes doing? To answer that I again turned to DTrace and used the following enabling to see what functions were being called most frequently by iTunes (whose process ID was 332):
 
-```
+```console
 # dtrace -n 'pid332:::entry{ @[probefunc] = count(); }'
 dtrace: description 'pid332:::entry' matched 264630 probes
 
@@ -122,7 +122,7 @@ Which started me thinking... did they? Surely not. They wouldn't disable DTrace 
 
 But that's exactly what Apple's done with their DTrace implementation. The notion of true systemic tracing was a bit too egalitarian for their classist sensibilities so they added this glob of lard into `dtrace_probe()` -- the heart of DTrace:
 
-```
+```c
 #if defined(__APPLE__)
 /*
 * If the thread on which this probe has fired belongs to a process marked P_LNOATTACH

@@ -16,7 +16,7 @@ One of the biggest impediments to using USDT was its (entirely understandable) e
 
 provider.d
 
-```
+```dtrace
 provider database {
 probe query__start(char *);
 probe query__done(char *);
@@ -26,7 +26,7 @@ probe query__done(char *);
 
 src.c or src.cxx
 
-```
+```c
 ...
 #include "provider.h"
 ...
@@ -44,7 +44,7 @@ DATABASE_QUERY_DONE(result);
 
 Here's how you compile it:
 
-```
+```console
 $ dtrace -h -s provider.d
 $ gcc -c src.c
 $ dtrace -G -s provider.d src.o
@@ -62,7 +62,7 @@ To address this problem, [Bryan](http://blogs.sun.com/bmc) and I came up with th
 
 For comparison, Rich Lowe's prototype Ruby provider basically looked like this:
 
-```
+```c
 rb_call(...
 {
 ...
@@ -78,7 +78,7 @@ Where `rb_class2name()` and `rb_id2name` perform quite expensive operations.
 
 With is-enabled probes, Bryan was able to [greatly reduce the overhead](http://blogs.sun.com/roller/page/bmc?entry=dtrace_on_rails) of the Ruby provider to essentially zero:
 
-```
+```c
 rb_call(...
 {
 ...

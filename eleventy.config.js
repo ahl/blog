@@ -5,8 +5,9 @@ import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 import pluginFilters from "./_config/filters.js";
+import pluginOpenGraph from "./_config/opengraph.js";
+import "./_config/prism-languages.js";
 
-import mathjaxPlugin from "eleventy-plugin-mathjax";
 import embedYouTube from "eleventy-plugin-youtube-embed";
 import path from "path";
 
@@ -98,6 +99,7 @@ export default async function (eleventyConfig) {
 
 	// Filters
 	eleventyConfig.addPlugin(pluginFilters);
+	eleventyConfig.addPlugin(pluginOpenGraph);
 
 	eleventyConfig.addPlugin(IdAttributePlugin, {
 		// by default we use Eleventy’s built-in `slugify` filter:
@@ -121,18 +123,11 @@ export default async function (eleventyConfig) {
 	// ahl additions
 	// --
 
-	// Only use use these to denote formulas:
-	eleventyConfig.addPlugin(mathjaxPlugin, {
-		tex: {
-			inlineMath: [
-				['\\(', '\\)']
-			],
-			displayMath: [
-				['\\[', '\\]']
-			],
-		}
-
-	});
+	// Math is rendered client-side by MathJax, loaded only on pages with
+	// `math: true` in their front matter (see layouts/post.njk). The old
+	// eleventy-plugin-mathjax re-serialized every page through MathJax's
+	// liteDOM, which stripped the doctype (quirks mode!) and corrupted
+	// code blocks containing angle brackets.
 
 	eleventyConfig.addPlugin(embedYouTube);
 

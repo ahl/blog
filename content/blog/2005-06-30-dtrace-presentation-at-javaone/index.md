@@ -16,7 +16,7 @@ To get started with the dvm provider on your [Solaris 10](http://www.sun.com/sof
 
 I wasn't able to capture the command history as was requested, but [Bryan](http://blogs.sun.com/bmc) wrote up a [nice post](http://blogs.sun.com/roller/page/bmc?entry=demo_ing_dtrace) which can be used for the first part of the talk, and here are some of the java-specific commands from today.
 
-```
+```console
 # dtrace -n dvm`pgrep java`:::method-entry'{ @[copyinstr(arg0), copyinstr(arg1)] = count() }'
 # dtrace -n dvm`pgrep java`:::object-alloc'{ @[jstack(20, 8000)] = count() }'
 # dtrace -n dvm`pgrep java`:::object-alloc'/copyinstr(arg0) == "java/awt/Rectangle"/{}'

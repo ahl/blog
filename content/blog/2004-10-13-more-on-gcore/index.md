@@ -12,7 +12,7 @@ You use gcore to take a core dump of a live running process without actually cau
 
 I mentioned that big processes can take a while to gcore -- not surprising because we have to dump that whole image out to disk. One of the cool uses of variable core file content is the ability to take faster core dumps by only dumping the sections you care about. Let's say there's some big ISM segment or a big shared memory segment: exclude it and gcore will go faster:
 
-```
+```console
 hedge /home/ahl -> gcore -c default-ism 256755
 gcore: core.256755 dumped
 
@@ -20,7 +20,7 @@ gcore: core.256755 dumped
 
 Pretty handy, but the coolest I've been making of gcore lately is by mixing it with DTrace and the new(ish) `system()` action. This script snapshots my process once every ten seconds and names the files according to the time they were produced:
 
-```
+```console
 # cat gcore.d
 #pragma D option destructive
 #pragma D option quiet

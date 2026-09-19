@@ -14,10 +14,10 @@ permalink: /2012/12/13/zfs-fundamentals-transaction-groups/
 
 I've [continued](http://dtrace.org/blogs/ahl/2012/11/08/zfs-trivia-metaslabs/) to explore ZFS as I try to understand performance pathologies, and improve performance. A particular point of interest has been the ZFS write throttle, the mechanism ZFS uses to avoid filling all of system memory with modified data. I'm eager to write about the strides we're making in that regard at Delphix, but it's hard to appreciate without an understanding of how ZFS batches data. Unfortunately that explanation is literally nowhere to be found. Back in 2001 I had not yet started working on DTrace, and was talking to Matt and Jeff, the authors of ZFS, about joining them. They had only been at it for a few months; I was fortunate to be in a conference with them as the ideas around transaction groups formulated. Transaction groups are how ZFS batches up chunks of data to be written to disk ("groups" of "transactions"). Jeff stood at the whiteboard and drew the progression of states for transaction groups, from open, accepting new transactions, to quiescing, allowing transactions to complete, to syncing, writing data out to disk. As far as I can tell, that was both the first time that picture had been drawn and the last. If you search for information on ZFS transaction groups you'll find mention of those states... and not much else. The header comment in [usr/src/uts/common/fs/zfs/txg.c](http://src.illumos.org/source/xref/illumos-gate/usr/src/uts/common/fs/zfs/txg.c?r=ce636f8b38e8c9ff484e880d9abb27251a882860) isn't particularly helpful:
 
-```
+```c
 /*
- * Pool-wide transaction groups.
- */
+ * Pool-wide transaction groups.
+ */
 ```
 
 I set out to write a proper description of ZFS transaction groups. I'm posting it here first, and I'll be offering it as a submission to illumos. Many thanks to [Matt Ahrens](https://twitter.com/mahrens1), [George Wilson](https://twitter.com/zfsdude), and [Max Bruning](https://twitter.com/mrbruning) for their feedback.

@@ -15,7 +15,7 @@ permalink: /2010/08/12/bye_bye_bmc/
 
 I've been expecting this automated mail for a while now, but it was disheartening nonetheless:
 
-```
+```plaintext
 List:       dtrace-discuss
 Member:     bryan.cantrill@eng.sun.com
 Action:     Subscription disabled.

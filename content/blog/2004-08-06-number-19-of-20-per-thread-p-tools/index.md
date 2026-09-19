@@ -18,7 +18,7 @@ Other p-tools apply to the threads in a process. The [pstack(1)](http://docs.sun
 
 Developers and administrators often use pstack(1) to see what a process is doing and if it's making progress. You'll often turn to pstack(1) after [prstat(1)](http://docs.sun.com/db/doc/816-5166/6mbb1kqal?a=view) or top(1) shows a process consuming a bunch of CPU time -- what's that guy up to. Complex processes can many many threads; fortunately prstat(1)'s -L flag will split out each thread in a process as its own row so you can quickly see that thread 5, say, is the one that's hammering the processor. Now rather than sifting through all 100 threads to find thread 5, you can just to this:
 
-```
+```console
 $ pstack 107/5
 100225: /usr/sbin/nscd
 ----------------- lwp# 5 / thread# 5  --------------------
@@ -31,7 +31,7 @@ c2a02ed0 _lwp_start (c2949000, 0, 0, c25edff8, c2a02ed0, c2949000)
 
 Alternatively, you can specify a range of threads (`5-7` or `11-`), and combinations of ranges (`5-7,11-`). Giving us something like this:
 
-```
+```console
 $ pstack 107/5-7,11-
 100225: /usr/sbin/nscd
 ----------------- lwp# 5 / thread# 5  --------------------
@@ -62,7 +62,7 @@ c2a02ed0 _lwp_start (c20d0800, 0, 0, c1fcdff8, c2a02ed0, c20d0800)
 
 The thread specification syntax also works for core files if you're just trying to drill down on, say, the thread that caused the fatal problem:
 
-```
+```console
 $ pstack core/2
 core 'core/2' of 100225:        /usr/sbin/nscd
 ----------------- lwp# 2 / thread# 2  --------------------
@@ -76,7 +76,7 @@ c2a0491c _door_return () + bc
 
 The [truss(1)](http://docs.sun.com/db/doc/816-5165/6mbb0m9q3?a=view) utility is the mother of all p-tools. It lets you trace a process's system calls, faults, and signals as well as user-land function calls. In addition to consuming pretty much every lower- and upper-case command line option, truss(1) now also supports the thread specification syntax. Now you can follow just the threads that are doing something interesting:
 
-```
+```console
 truss -p 107/5
 openat(-3041965, ".", O_RDONLY|O_NDELAY|O_LARGEFILE) = 3
 fcntl(3, F_SETFD, 0x00000001)                   = 0
@@ -91,7 +91,7 @@ brk(0x080721C8)                                 = 0
 
 The [pbind(1)](http://docs.sun.com/db/doc/816-5166/6mbb1kq9l?a=view) utility isn't an observability tool, rather this p-tool binds a process to a particular CPU so that it will only run on that CPU (except in some unusual circumstances; see the [man page](http://docs.sun.com/db/doc/816-5166/6mbb1kq9l?a=view) for details). For multi-threaded processes, the process is clearly not the right granularity for this kind of activity -- you want to be able to bind this thread to that CPU, and those threads to some other CPU. In Solaris 10, that's a snap:
 
-```
+```console
 $ pbind -b 1 107/2
 lwp id 107/2: was not bound, now 1
 $ pbind -b 0 107/2-5

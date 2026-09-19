@@ -104,6 +104,17 @@ To build the filesystem I picked a [FUSE binding for Go](https://github.com/hanw
 
 Working with Noms requires a slightly different mindset than other data stores. Recall in particular that Noms data is immutable. Adding a new entry into a Map creates a new Map. Setting a member of a Struct creates a new Struct. Changing nested structures such as the one defined by our schema requires unzipping it, and then zipping it back together. Here’s a Go snippet that demonstrates that methodology for creating a new directory:
 
+```go
+func (fs *nomsFS) mkdir(dir types.Struct, pathComponents []string) types.Struct {
+        if len(pathComponents) > 0 {
+                name := pathComponents[0]
+                return dir.Set(name, fs.mkdir(dir.Get(name).(types.Struct), pathComponents[1:]))
+        } else {
+                return types.NewStructWithType(directoryType, types.ValueSlice{types.NewMap()})
+        }
+}
+```
+
 ## Demo
 
 Showing it off has all the normal glory of a systems demo! Check out the [documentation](https://github.com/attic-labs/noms/blob/master/samples/go/nomsfs/README.md) for requirements.

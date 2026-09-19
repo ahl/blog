@@ -14,7 +14,7 @@ First a little bit on initialization. In a C compiler, you can specify an initia
 
 As a concrete example (and the example relevant to this specific manifestation of the problem), take a look at this code in [usr/src/lib/libdtrace/common/drti.c](http://cvs.opensolaris.org/source/xref/usr/src/lib/libdtrace/common/drti.c#88):
 
-```
+```c
 88 #pragma init(dtrace_dof_init)
 89 static void
 90 dtrace_dof_init(void)
@@ -28,7 +28,7 @@ The linker doesn't really do anything special with .init ELF sections -- it just
 
 Here's the clever part, when a compiler invokes the linker, it provides two special object files: crti.o at the beginning, and crtn.o at the end. You can find those binaries on your system in /usr/lib/ or in /usr/sfw/lib/gcc/... for the gcc version. Those binaries are where the clever part happens; crti.o's .init section contains effectively an open brace and crtn.o contains the close brace (the function prologue and epilogue respectively):
 
-```
+```console
 $ dis -t .init /usr/lib/crti.o
 section .init
 _init()

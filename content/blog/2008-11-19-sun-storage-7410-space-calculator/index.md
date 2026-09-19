@@ -16,7 +16,7 @@ You can download the `sizecalc.py` [here](http://dtrace.org/resources/ahl/sizeca
 
 Running the script by itself produces a usage help message:
 
-```
+```console
 $ ./sizecalc.py
 usage: ./sizecalc.py [ -h <half jbod count> ] <appliance name or address>
 <root password> <jbod count>
@@ -25,7 +25,7 @@ usage: ./sizecalc.py [ -h <half jbod count> ] <appliance name or address>
 
 Remember that you need a Sun Storage 7000 appliance (even a virtual one) to execute the capacity calculation. In this case, I'll specify a physical appliance running in our lab, and I'll start with a single JBOD (note that I've redacted the root password, but of course you'll need to type in the actual root password for your appliance):
 
-```
+```console
 $ ./sizecalc.py catfish ***** 1
 type            NSPF   width  spares   data drives     capacity (TB)
 raidz2         False      11       2            22                18
@@ -38,7 +38,7 @@ raidz1         False       4       4            20                15
 
 Note that with only one JBOD no configurations support NSPF (No Single Point of Failure) since that one JBOD is always a single point of failure. If we go up to three JBODs, we'll see that we have a few more options:
 
-```
+```console
 $ ./sizecalc.py catfish ***** 3
 type            NSPF   width  spares   data drives     capacity (TB)
 raidz2         False      13       7            65                55
@@ -54,7 +54,7 @@ raidz1         False       4       4            68                51
 
 In this case we have to give up a bunch of capacity in order to attain NSPF. Now let's look at the largest configuration we support today with twelve JBODs:
 
-```
+```console
 $ ./sizecalc.py catfish ***** 12
 type            NSPF   width  spares   data drives     capacity (TB)
 raidz2         False      14       8           280               240
@@ -71,7 +71,7 @@ raidz1          True       4       4           284               213
 
 The size calculator also allows you to model a system with Logzilla devices, write-optimized flash devices that form a key part of the [Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm). After you specify the number of JBODs in the configuration, you can include a list of how many Logzillas are in each JBOD. For example, the following invocation models twelve JBODs with four Logzillas in the first 2 JBODs:
 
-```
+```console
 $ ./sizecalc.py catfish ***** 12 4 4
 type            NSPF   width  spares   data drives     capacity (TB)
 raidz2         False      13       7           273               231
@@ -90,7 +90,7 @@ A very common area of confusion has been how to size Sun Storage 7410 systems, a
 
 **Update December 14, 2008:** A couple of folks requested that the script allow for modeling half-JBOD allocations because the 7410 allows you to split JBODs between heads in a cluster. To accommodate this, I've added a `\-h` option that takes as its parameter the number of half JBODs. For example:
 
-```
+```console
 $ ./sizecalc.py -h 12 192.168.18.134 ***** 0
 type            NSPF   width  spares   data drives     capacity (TB)
 raidz2         False      14       4           140               120
@@ -107,7 +107,7 @@ raidz1          True       4       4           140               105
 
 **Update February 4, 2009:** [Ryan Matthews](http://blogs.sun.com/rdm) and I [collaborated](http://blogs.sun.com/rdm/entry/enhancing_the_size_calculator) on a new version of the size calculator that now lists the raw space available in TB (decimal as quoted by drive manufacturers for example) as well as the usable space in [TiB](http://en.wikipedia.org/wiki/Tebibyte) (binary as reported by many system tools). The latter also takes account of the sliver (1/64th) reserved by ZFS:
 
-```
+```console
 $ ./sizecalc.py 192.168.18.134 ***** 12
 type          NSPF  width spares  data drives       raw (TB)   usable (TiB)
 raidz2       False     14      8          280         240.00         214.87
@@ -124,7 +124,7 @@ raidz1        True      4      4          284         213.00         190.70
 
 **Update June 17, 2009:** [Ryan Matthews](http://blogs.sun.com/rdm) with help from [has again](http://blogs.sun.com/eschrock) [revised the size calculator](http://blogs.sun.com/rdm/entry/2009_q2_update_for_size) to model both adding expansion JBODs and to account for the [now expandable Sun Storage 7210](http://blogs.sun.com/eschrock/entry/sun_storage_7210_expansion). Take a look at [Ryan's post](http://blogs.sun.com/rdm/entry/2009_q2_update_for_size) for usage information. Here's an example of the output:
 
-```
+```console
 $ ./sizecalc.py 172.16.131.131 *** 1 h1 add 1 h add 1
 Sun Storage 7000 Size Calculator Version 2009.Q2
 type          NSPF  width spares  data drives       raw (TB)   usable (TiB)
@@ -138,7 +138,7 @@ stripe       False      0      0           47          47.00          42.08
 
 **Update September 16, 2009:** [Ryan Matthews](http://blogs.sun.com/rdm) updated the size calculator for the 2009.Q3 release. The update includes the new triple-parity RAID wide stripe and three-way mirror profiles:
 
-```
+```console
 $ ./sizecalc.py boga *** 4
 Sun Storage 7000 Size Calculator Version 2009.Q3
 type          NSPF  width spares  data drives       raw (TB)   usable (TiB)

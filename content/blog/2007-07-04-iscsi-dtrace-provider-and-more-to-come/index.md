@@ -31,7 +31,7 @@ In that vein, I recently integrated a provider for our [iSCSI target](http://ope
 
 The argument structures are defined as follows:
 
-```
+```dtrace
 typedef struct conninfo {
 string ci_local;        /* local host address */
 string ci_remote;       /* remote host address */
@@ -58,32 +58,32 @@ uint8_t *ic_cdb;        /* CDB data */
 
 Note that the arguments go from most generic (the connection for the application protocol) to most specific. As an aside, we'd like future protocol providers to make use of the `conninfo_t` so that one could write a simple script to see a table of frequent consumers for all protocols:
 
-```
+```dtrace
 iscsi*:::,
 http*:::,
 cifs:::
 {
-@[args[0]->ci_remote] = count();
+        @[args[0]->ci_remote] = count();
 }
 
 ```
 
 With the iSCSI provider you can quickly see which LUNs are most active:
 
-```
+```dtrace
 iscsi*:::scsi-command
 {
-@[args[1]->ii_target] = count();
+        @[args[1]->ii_target] = count();
 }
 
 ```
 
 or the volume of data transmitted:
 
-```
+```dtrace
 iscsi*:::data-send
 {
-@ = sum(args[1]->ii_datalen);
+        @ = sum(args[1]->ii_datalen);
 }
 
 ```

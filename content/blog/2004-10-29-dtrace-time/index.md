@@ -14,14 +14,14 @@ The app basically processes transactions: message comes in, the app does some wo
 
 One of the first things we looked at was what functions the app calls the most. Nothing fancy; just a DTrace one-liner:
 
-```
+```console
 # dtrace -n pid123:::entry'{ @[probefunc] = count(); }'
 
 ```
 
 Most of it made sense, but one thing we noticed was that sprintf(3C) was getting called a ton, so the question was "what are those sprintfs doing?" Another one-liner had the answer:
 
-```
+```console
 # dtrace -n pid123::sprintf:entry'{ @[copyinstr(arg0)] = count(); }'
 
 ```
@@ -30,7 +30,7 @@ There were about four different format strings being used, two of them farily co
 
 I had just assumed that lltostr(3C) would perform better -- it's a specialized function that doesn't involve all the (extensive and messy) machinery of sprintf(3C). I wrote a little microbenchmark that just converted the number 1000000 to a string with both functions a million times and ran it on an x86 machine; the results were surprising:
 
-```
+```console
 $ ./test
 sprintf(3C) took 272512920ns
 lltostr(3C) took 523507925ns
@@ -39,7 +39,7 @@ lltostr(3C) took 523507925ns
 
 What? I checked my test, made sure I was compiling everything properly, had called the function once before I started timing (to avoid any first-call overhead from the dynamic linker), but the results were dead repeatable: lltostr(3C) was about half as fast. I looked at the implementation and while I can't post it here (yet -- I can't wait for OpenSolaris), suffice it to say that it did the obvious thing. The strange thing was that sprintf(3C) had basically the same alogorithm. Just for kicks, I decided to build it amd64 native and run it on the same opteron box; here were the results:
 
-```
+```console
 sprintf(3C) took 140706282ns
 lltostr(3C) took 38804963ns
 
@@ -47,7 +47,7 @@ lltostr(3C) took 38804963ns
 
 Ah much better (I love opteron). It turns out the problem was that we were doing 64-bit math in 32-bit mode -- hence _ell-ell_\-to-str -- and that is slooooooow. Luckily the app we were looking at was compiled 64-bit native so it wouldn't have had this problem, but there are still plenty of 32-bit apps out there that shouldn't have to pay the 64-bit math tax in this case. I made a new version of lltostr(3C) that checks the top 32-bits of the 64-bit input value and does 32-bit math if those bits are clear. Here's how that performed (on 32-bit x86):
 
-```
+```console
 sprintf(3C) took 251953795ns
 lltostr(3C) took 459720586ns
 new lltostr took  32907444ns

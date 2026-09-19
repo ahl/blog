@@ -14,26 +14,26 @@ After writing about [Oracle's port of DTrace to OEL](http://dtrace.org/blogs/ahl
 
 Here's my first DTrace invocation on OEL:
 
-```
+```console
 [root@screven ~]# uname -a
 Linux screven 2.6.32-201.0.4.el6uek.x86_64 #1 SMP Tue Oct 4 16:47:00 EDT 2011 x86_64 x86_64 x86_64 GNU/Linux
 [root@screven ~]# dtrace -n 'BEGIN{ trace("howdy from linux"); }'
 dtrace: description 'BEGIN' matched 1 probe
-CPU     ID                    FUNCTION:NAME
-0      1                           :BEGIN   howdy from linux
+CPU     ID                    FUNCTION:NAME
+0      1                           :BEGIN   howdy from linux
 ^C
 ```
 
 Then I wanted to see what was on the system:
 
-```
+```console
 [root@screven ~]# dtrace -l | wc -l
 574
 ```
 
 Are you kidding me? For comparison, my Mac has 154,918 probe available and our illumos-derived [Delphix](http://www.delphix.com) OS has 77,320 (Mac OS X has many probes pre-created for each process). It looks like this beta only has the syscall provider, but digging around I can see that Wim didn't mention that the profile provider is also there:
 
-```
+```console
 [root@screven ~]# modprobe profile
 [root@screven ~]# dtrace -l | wc -l
 587
@@ -41,7 +41,7 @@ Are you kidding me? For comparison, my Mac has 154,918 probe available and our 
 
 Sweet.
 
-```
+```console
 [root@screven ~]# dtrace -n profile:::profile-997
 dtrace: failed to enable 'profile:::profile-997': Failed to enable probe
 ```
@@ -50,26 +50,26 @@ Not that sweet.
 
 At least I can run my favorite DTrace script:
 
-```
+```console
 [root@screven ~]# dtrace -n syscall:::entry'{ @[execname] = count(); }'
 dtrace: description 'syscall:::entry' matched 285 probes
 ^C
-pickup                                                            9
-abrtd                                                            11
-qmgr                                                             17
-rsyslogd                                                         25
-rs:main Q:Reg                                                    35
-master                                                           52
-tty                                                              60
-dircolors                                                        80
-hostname                                                         92
-tput                                                             92
-id                                                              198
-unix_chkpwd                                                     550
-auditd                                                          599
-dtrace                                                          760
-bash                                                           1515
-sshd                                                           8327
+pickup                                                            9
+abrtd                                                            11
+qmgr                                                             17
+rsyslogd                                                         25
+rs:main Q:Reg                                                    35
+master                                                           52
+tty                                                              60
+dircolors                                                        80
+hostname                                                         92
+tput                                                             92
+id                                                              198
+unix_chkpwd                                                     550
+auditd                                                          599
+dtrace                                                          760
+bash                                                           1515
+sshd                                                           8327
 ```
 
 I wanted to trace activity when I connected to the system using ssh... but **ssh logins fail with all probes enabled**. To repeat: ssh logins fail with DTrace probes enabled. I'd try to debug it, but I'm too dejected.

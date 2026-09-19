@@ -1,4 +1,19 @@
+// Extra Prism languages for the syntax highlighter. Anything the
+// highlighter can't resolve is emitted RAW AND UNESCAPED by
+// eleventy-plugin-syntaxhighlight, so every language used in a code fence
+// must resolve here or in Prism itself.
 import Prism from 'prismjs';
+import PrismComponents from 'prismjs/components/index.js';
+
+// ```console blocks are shell sessions ($-prefixed commands + output).
+PrismComponents.silent = true;
+PrismComponents('shell-session');
+Prism.languages.console = Prism.languages['shell-session'];
+
+// Preformatted non-code text (mail excerpts, quoted comments). An empty
+// grammar means no tokens, but unlike the built-in `text` passthrough the
+// content still gets HTML-escaped by Prism.highlight().
+Prism.languages.plaintext = {};
 
 Prism.languages.dtrace = {
     'comment': {
