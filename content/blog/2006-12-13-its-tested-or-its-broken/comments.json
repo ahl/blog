@@ -1,0 +1,22 @@
+{
+  "post": "/2006/12/13/its-tested-or-its-broken/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1564,
+      "author": "Chris J. Kiick",
+      "date": "2006-12-13T08:58:13Z",
+      "kind": "comment",
+      "html": "<p>How about adding one more rule for testing:<br>\n<b>Every bug should have a test case</b>.<br>\nThis closes the loop between QE/QA, maintainers and developers.  Every time a bug is closed, there ought to be an addition to the test cases that specifically tests that particular bug fix.</p>\n"
+    },
+    {
+      "id": 1565,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2006-12-13T09:52:46Z",
+      "kind": "comment",
+      "html": "<p>Hey Chris,<br>\nI should have been more explicit, but that's exactly what I had in mind with that second point: every time we putback a fix, we also putback one or more tests to verify it. As you've identified, this closes the loop and protects against regressions.</p>\n"
+    }
+  ]
+}

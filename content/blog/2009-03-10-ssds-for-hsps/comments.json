@@ -1,0 +1,77 @@
+{
+  "post": "/2009/03/10/ssds-for-hsps/",
+  "count": 9,
+  "comments": [
+    {
+      "id": 1270,
+      "author": "mrb",
+      "date": "2009-03-11T02:10:58Z",
+      "kind": "comment",
+      "html": "<p>I am very happy to hear about the Open Flash Module effort. Is there any more information available somewhere ? I googled around but found nada. What will the hw interface look like: AHCI controller, custom interface exposing the SSD internals, etc ?</p>\n"
+    },
+    {
+      "id": 1271,
+      "author": "Robert Milkowski",
+      "url": "http://milek.blogspot.com",
+      "date": "2009-03-11T02:35:18Z",
+      "kind": "comment",
+      "html": "<p>I understand that SSDs in 7000 series are not Intel SSDs. I wonder what was the reason behind using different SSDs in \"normal\" servers compared to 7000?</p>\n"
+    },
+    {
+      "id": 1272,
+      "author": "James Dickens",
+      "url": "http://uadmin.blogspot.com",
+      "date": "2009-03-11T09:42:29Z",
+      "kind": "comment",
+      "html": "<p>where can I get a controller perhaps pci-e 1x to plug this into my Sun Ultra 20 or  other server to ram up my speed and demo ZFS + SSD's without having to bring in a 7000 series box.</p>\n"
+    },
+    {
+      "id": 1273,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-03-11T11:30:07Z",
+      "kind": "comment",
+      "html": "<p>@mrb I don't have any additional information about the Open Flash Module, but I'll ask around and try to find some resources.<br>\n@Robert That's right: the SSDs we use for the Logzilla (ZIL) and Readzilla (L2ARC) in the Sun Storage 7000 series are a bit different. Those SSDs are particularly well suited to our use cases. The Logzilla is considerably faster than the Intel part, and the Readzilla is considerably larger. The Intel X25-E is a great balance which is why we're supporting it in a variety of platforms.<br>\n@James I'm afraid I can't help you there.</p>\n"
+    },
+    {
+      "id": 1274,
+      "author": "Felix",
+      "date": "2009-03-12T01:58:07Z",
+      "kind": "comment",
+      "html": "<p>This is a really cool announcement. We build RAM-based search engine technology and need really fast and reliable storage for processing. A platform that offers built-in flash and large RAM capacity is perfect. Will it be possible to get early access through any of the SUN developer programs? Thanks a lot!</p>\n"
+    },
+    {
+      "id": 1275,
+      "author": "Stephan Bergfeld",
+      "date": "2009-03-12T02:36:34Z",
+      "kind": "comment",
+      "html": "<p>So you recommend the intel-ssd using for zil with large amount of data<br>\n(around 20TB) and heavy write traffic (J4400, T5120) ?</p>\n"
+    },
+    {
+      "id": 1276,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-03-12T08:56:47Z",
+      "kind": "comment",
+      "html": "<p>@Felix I don't know how we'll be releasing those modules, but talk to your contacts in the Sun developer program to see if they can get you access.<br>\n@Stephan Absolutely. The Intel X25-E SSD should accelerate your performance pretty significantly if you have a write IOPS intensive workload. Bear in mind that it won't help much for a streaming or asynchronous write workload because those are bandwidth problems best solved by a bunch of disks.</p>\n"
+    },
+    {
+      "id": 1277,
+      "author": "Anil",
+      "date": "2009-03-12T21:20:46Z",
+      "kind": "comment",
+      "html": "<p>Does it make sense to use these servers with the new 32gb SSDs as SWAP devices rather than L2ARC caches? What kind of performance improvement would that provide? (ARC over SWAP)<br>\nThanks, great stuff!</p>\n"
+    },
+    {
+      "id": 1278,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-03-12T22:40:03Z",
+      "kind": "comment",
+      "html": "<p>@Anil Great idea, but unfortunately I have no data on the improvements you'd see there. Give it a shot and let us know.</p>\n"
+    }
+  ]
+}

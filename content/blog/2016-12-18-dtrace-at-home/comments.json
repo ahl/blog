@@ -1,0 +1,21 @@
+{
+  "post": "/2016/12/18/dtrace-at-home/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 57075,
+      "author": "Jean-Daniel",
+      "date": "2016-12-18T09:18:35Z",
+      "kind": "comment",
+      "html": "<p>What I really love in the OS X implementation is how easy it is to write your own custom probes. I had once to write a real-time video system and put many probes all over the system and they prove to be invaluable to be able to debug it.</p>\n<p>I also relied on the many 'snoop' utilities Apple included in the OS, but thanks to SIP, they are fare less useful nowadays.</p>\n"
+    },
+    {
+      "id": 57076,
+      "author": "Michael Tsai - Blog - DTrace at Home",
+      "url": "http://mjtsai.com/blog/2016/12/20/dtrace-at-home/",
+      "date": "2016-12-20T15:38:02Z",
+      "kind": "pingback",
+      "html": "<p>[...] Adam Leventhal: I’m not the first person to hit this. The problem seems to have existed since CS6 was released in 2016. None of the solutions was working for me, and — inspired by Sara Mauskopf’s excellent post — I was rapidly running out of the time bounds for the project. Enough; I’d just DTrace it.[…]Looking through /usr/include/sys/resource.h we can see that 1008 corresponds to the number of files (RLIMIT_NOFILE | _RLIMIT_POSIX_FLAG). Illustrator is trying to set that value to 0x7fffffffffffffff or 2⁶³-1. Apparently too big; I filed any latent curiosity for another day.[…]First I used DTrace to find the code that was calling setrlimit(2): using some knowledge of the x86 ISA/ABI[…][…]Instead I used lldb to replace the call with a store of 0 to %eax (to evince a successful return value) and some nops as padding[…]Adobe Illustrator Assembly Language DTrace LLDB Mac macOS 10.12 Sierra System Integrity Protection [...]</p>\n"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "post": "/2005/04/18/dtracing-java/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1668,
+      "author": "Anonymous",
+      "date": "2005-04-18T18:15:02Z",
+      "kind": "comment",
+      "html": "<p>It'd be nice if it could also output the time spent in each function and java method...</p>\n"
+    },
+    {
+      "id": 1669,
+      "author": "MrBenchmark",
+      "url": "http://blogs.sun.com/MrBenchmark",
+      "date": "2005-04-18T20:46:50Z",
+      "kind": "comment",
+      "html": "<p>This calls to malloc (libc) are fairly interesting and would benefit being timed to weight them on the overall GC. I assume an output for the 1.5.0 jvm. correct ?</p>\n"
+    },
+    {
+      "id": 1670,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-04-19T00:12:10Z",
+      "kind": "comment",
+      "html": "<p>Capt. 69.238.229.71,</p>\n<p>Indeed getting the time spent in each method or function would be useful -- and with DTrace it's trivial. All you have to do is record a timestamp (or vtimestamp) at each method or function entry, save it in a thread-local associative arrary, and print out the difference on the way out. In fact, this is a &lt;em&gt;very&lt;/em&gt; common use of DTrace. Forgive me if it sounds trite, but I'll leave this as an exercise for the reader.</p>\n<p>Mr. Benchmark,</p>\n<p>Again, printing out timing information is easy because these java probes are first class citizens in the DTrace framework -- you can do all the usual DTrace-ish things with them. This example was with 1.5, and the agents should also work with 1.4.2 (and possibly earlier versions, but you're very much on your own there).</p>\n<p>Adam</p>\n"
+    },
+    {
+      "id": 1671,
+      "author": "Dan Price",
+      "url": "http://blogs.sun.com/dp",
+      "date": "2005-04-19T00:52:01Z",
+      "kind": "comment",
+      "html": "<p>My god, it's full of stars...<br>\nNice work, guys.</p>\n"
+    }
+  ]
+}

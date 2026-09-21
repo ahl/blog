@@ -1,0 +1,105 @@
+{
+  "post": "/2005/10/17/opensolaris-and-subversion/",
+  "count": 13,
+  "comments": [
+    {
+      "id": 1632,
+      "author": "Cyril Plisko",
+      "url": "http://mountall.blogspot.com",
+      "date": "2005-10-18T10:46:51Z",
+      "kind": "comment",
+      "html": "<p>Adam, indeed, Subversion may or may not be \"the complete solution\", but I am not agree with your view of the problem.</p>\n<p>First of all the fact that Subversion has central repo doesn't make it unacceptable for distributed development. As a matter of fact people do it around the globe. And it is not different than TeamWare in that respect - it takes connectivity to the parent workspace if you want to get updates from there. Same goes to the Subversion.<br>\nAs for the loosing connection to the main server - you can work without any access to the server. In fact I'm usually coding when on plane (using svn)<br>\nwithout any problem (and without any Internet connection :). Even in case of some severe disaster with the master repo server the repo can be recreated on some other server in a matter of minutes. And working copies can be switched to it quickly.</p>\n<p>Do not get me wrong - if some other SCM will be found to fit the OpenSolaris needs better than SVN that's fine. I just do not think that the problems you've mentioned are those that make it unsuitable for OpenSolaris.</p>\n"
+    },
+    {
+      "id": 1633,
+      "author": "mike",
+      "date": "2005-10-18T14:43:52Z",
+      "kind": "comment",
+      "html": "<p>You wrote:<br>\n&gt; comments are made per-integration rather than per-file</p>\n<p>sorry, but i don't see why this is a bad thing. if you commit a change, and that change touches several files, i don't see why the comment would need to be per file, rather than per change.</p>\n<p>the only reason i could see is if your change is actually an accumulation of changes that you commit in one step. but in this case the problem is not the lacking per-file comment, but the granularity of your commits.</p>\n<p>or am i missing something obvious?</p>\n"
+    },
+    {
+      "id": 1634,
+      "author": "Wing Choi",
+      "date": "2005-10-18T15:37:42Z",
+      "kind": "comment",
+      "html": "<p>Is the availability problem one that needs to be solved at that service/application level?  This is a service that can be replicated at a lower level IMHO - i.e. replicated fs across some sort of clustered machines at different locations, with N-1 standby machines to be brought online when you lose heart beat on the main server.  Granted if you are looking at anything beyond that such as load distribution then you will certainly have to start looking at it from the application level; akin to the web-service model but with write syncs across from multiple machines.  Is that you are thinking?</p>\n"
+    },
+    {
+      "id": 1635,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-10-18T16:00:10Z",
+      "kind": "comment",
+      "html": "<p>Thanks for the insightful comments; I'll try to address them as well as I can:</p>\n<p>Cyril,<br>\nPerhaps I glossed over this issue a bit. In Teamware -- the distributed revision control system currently used for much of Solaris -- a project team can create a branch which is stored in a different location than the main repository and then putback to that project gate. Likewise, I often will create a branch for my larger project I'm working on by myself so that I can more easily experiment -- in that case I'd need to plug my laptop into the network every time I wanted to update my personal branch. This restriction, I think, is a solution that doesn't scale in the way expect OpenSolaris to need to scale and, in fact, the way Solaris development scales today.</p>\n<p>Mike,<br>\nLet's say you are fixing two bugs, A and B which require changes in files x, y, and z. A impacts x and y; B impacts y and z. When I look at the history for each of those files I want to see the bugs that were fixed in those files (A for x) not all the bugs that were fixed during that integration as that could potentially lead to confusion about where the actual bug in question was fixed. I suppose you could try to enforce that people only fix one bug at a time (which Brian suggested), but I don't think the revision control system should impose workflow policy (which the opposite).</p>\n<p>Wing,<br>\nAs you suggest a layered approach over Subersion might yeild the results we need, and I believe that svk is exactly that (I'll report back after the talk).</p>\n"
+    },
+    {
+      "id": 1636,
+      "author": "Zach",
+      "date": "2005-10-18T20:16:10Z",
+      "kind": "comment",
+      "html": "<p>Good points all around, but I would also suggest taking a look at Perforce. They support Solaris (on SPARC &amp; x86) and even more amazing, is that their licensing page offers free licenses for open source projects. With Open Solaris falling under CDDL, this would seem to be a winner. (I am not employed by Perforce, just trying to spread the Solaris on x86 love.) http://perforce.com ... i think.</p>\n"
+    },
+    {
+      "id": 1637,
+      "author": "ux-admin",
+      "date": "2005-10-19T02:17:52Z",
+      "kind": "comment",
+      "html": "<blockquote><br>\n<i>There are a couple other issues we'd need to solve (e.g. comments are made per-integration rather than per-file), ...</i><br>\n</blockquote><br>\nActually, you can annotate every file you've changed individually.\n<p><b>EXAMPLES</b><br>\n`svn commit`, annotates all the files that have been changed at once.</p>\n<p>`svn ci &lt;file&gt;` will annotate <i>file</i>, then check it in. Other files that have changed can be annotated the same way, one by one.<br>\nWhat I'm trying to say here is: you don't have a problem with commenting on individial files when checking them in. With Subversion, it's just a matter of how you check them in.</p>\n"
+    },
+    {
+      "id": 1638,
+      "author": "Anonymous",
+      "date": "2005-10-19T02:20:24Z",
+      "kind": "comment",
+      "html": "<p>Ooops that should've been `svn ci file`.  HTML tags hosed me.</p>\n"
+    },
+    {
+      "id": 1639,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-10-19T08:13:01Z",
+      "kind": "comment",
+      "html": "<p>ux-admin,<br>\nThanks for the tip. Does &lt;tt&gt;svn ci &lt;file&gt;&lt;/tt&gt; actually check the given file into the repository? If you do that for all your files are there any garuantees of atomicity (i.e. can someone integrate a chance while I'm in the middle of checking in my files)?</p>\n"
+    },
+    {
+      "id": 1640,
+      "author": "Wing Choi",
+      "date": "2005-10-19T13:45:16Z",
+      "kind": "comment",
+      "html": "<p>On Subversion:<br>\nI've used it off and on - cvs is still by far the most popular (in general populace as well as for myself) despite some of its minor clumsiness, but my biggest gripe with it is that its a collection of python modules duct-taped together with its dependency on Apache-mods and WebDAV stuff.  It's a lot of different things just to get together a revision control system.<br>\nOn changesets:<br>\nyou just can't beat them at integration time.  When you are putting together everything and you can still recall exactly which changesets went into which bug, or which changesets to leave out or leave in.  Here you are dealing with your software product at the higher aggregate level rather than having to deal with which files were changed by what.  Sometimes a lot of details get left out if you miss a file here or there.  File revisions *are* important and should be treated as such, but at integration time, you are working with changes and fixes: i.e. what changes and fixes need to go in to the release - and not just simply what files were changed.  I think at this point, it's a version control system on top of the revision control that it provides at the individual file level.<br>\nTake it from another way, instead of the programmer, RE/gatekeeper, release master trying to keep track of the nitty-gritty of what files were changed - doesn't the computer already know this?  Why don't we use the higher level aggregate data and let the computer sort out the lower level details?  We tell it what we want in the release, it tells us  \"Well, that translates into revision 16 of file A, revision 19 of file B, etc...\" and off we go...</p>\n"
+    },
+    {
+      "id": 1641,
+      "author": "Mike",
+      "date": "2005-10-19T13:50:50Z",
+      "kind": "comment",
+      "html": "<p>You wrote:<br>\n&gt; but I don't think the revision control system should impose workflow policy (which the opposite)</p>\n<p>i think that it's more a clash of culture, than a workflow issue. from trying to keep up with (Open)Solaris information, it's clear that internally the granularity of your work is quite coarse. As it's so difficult to get stuff through the gate in time, you go off on a tangent and only commit back every now and then.<br>\npersonally i think that the approach is flawed, i think that (whatever tool is being used), the commits should be as small (and self-contained) as possible.<br>\nas to your example: if you fix A and B in seperate commits, you'd have exactly the behaviour that you're looking for: 'svn log x' would show change A, 'svn log y' would show changes A and B.<br>\ni do get the impression that inside sun teamware and the workflows for solaris are so deeply symbiotic that it'd be impossible to seperate them. which means that a change on one side will also require changes to the other side.<br>\npersonally i don't care if you use svn or another tool, but i do get the feeling that suns approach to solving this problem is so teamware-tainted, that all tools  that are not teamware will fall short of the mark.<br>\n-mike</p>\n"
+    },
+    {
+      "id": 1642,
+      "author": "ux-admin",
+      "date": "2005-10-19T14:16:20Z",
+      "kind": "comment",
+      "html": "<blockquote><br>\nDoes svn ci  actually check the given file into the repository? If you do that for all your files are there any garuantees of atomicity (i.e. can someone integrate a chance while I'm in the middle of checking in my files)?<br>\n</blockquote><br>\nTo quote an excerpt from the Subversion book by O'Reilly:\n<p><i><br>\nA collection of modifications either goes into the repository completely, or not at all. This allows developers to construct and commit changes as logical chunks, and prevents problems that can occur when only a portion of a set of changes is successfully sent to the repository.<br>\n</i>[pg 3., Collins-Sussman; Fitzpatrick; Pilato]<br>\nSo to more fully answer your question, yes, I believe so, based on the above text and on the fact that Subversion actually uses either a Berkeley DB or an FS DB as a back end.</p>\n<p>Even if two or more people were to somehow check in the same piece of code using \"ci\", Subversion would automatically merge all sources into one file, as long as they didn't overlap; otherwise, a conflict would be reported. Conflicts must be resolved manually since only a person can decide which changes to leave in the file, and which to reject.</p>\n<p>As for \"commit\", those are guaranteed to be atomic, so if you're checking in entire trees, those will definitely be atomic commits.</p>\n"
+    },
+    {
+      "id": 1643,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-10-19T14:21:20Z",
+      "kind": "comment",
+      "html": "<p>Mike,<br>\nYou're right that the granularity of work can tend to be coarse, but I think your conclusion that this is due to an overly burdensome process is, well, less right. It has become increasingly evident that the OpenSolaris model of production quality all the time is something of an aberration in the open source world. A result of this model is that testing needs to be rather more intensive which leads to less frequent commits so that we can amortize our testing efforts over larger chunks of code.</p>\n<p>I can, and freqently do, find, file, test, fix and integrate a bug in a day or an afternoon, so there's no necessity to accumulate large wads. It's just that that methodology isn't always the most efficient. I agree that commit should be as small and self-contained as makes sense, but keep in mind that the Solaris community didn't start with OpenSolaris: it's been evolving for years. During that time, the community has developed its own mechanisms; the ones that work persist and the ones that don't are discarded. OpenSolaris has and will continue to alter who the community is and what processes function for that community, but we'll evolve those processes rather than discarding the outright.</p>\n<p>Thanks for clearing up the confusion about the output from svn log. Either I must not have understood what the Subversion guys were telling me or their facts were a bit off.</p>\n<p>Regarding your comments on teamware: you're right that we'll be comparing any system to teamware simply because teamware works and has worked for a very long time. Look, I know my mom's pumpkin pie might not be the best by <i>everyone's</i> standards, but everyone else's pie tastes like crap to me. Despite being the tool that I know and love, I <a href=\"http://dtrace.org/blogs/ahl/opensolaris_and_svk\" rel=\"nofollow ugc noopener noreferrer\">readily admit</a> that teamware falls short of the mark in terms of what we need for OpenSolaris, and while it may be difficult to switch to something else, I think we'll do what's in the best interest of the community at large.</p>\n"
+    },
+    {
+      "id": 1644,
+      "author": "Paul Jakma",
+      "url": "http://blogs.sun.com/paulj",
+      "date": "2005-10-19T17:08:15Z",
+      "kind": "comment",
+      "html": "<p>Hi Adam,</p>\n<p>There are other open-source SCMs out there, specifically ones which are distributed and hence might suit Sun better:</p>\n<p>1. <a href=\"http://www.selenic.com/mercurial/wiki/index.cgi\" rel=\"nofollow ugc noopener noreferrer\">Mercurial</a> (aka Hg)</p>\n<p>Used by <a href=\"http://www.xensource.com\" rel=\"nofollow ugc noopener noreferrer\">Xen</a>.</p>\n<p>2. <a href=\"http://git.or.cz/\" rel=\"nofollow ugc noopener noreferrer\">git</a>, the SCM written initially by Linus Torvalds when Larry McVoy pulled the Bitkeeper licence. Used quite extensively by several Linux developers (inc Linus obviously). Could be fun to use the same SCM as Linux ;).</p>\n<p>3. Arch and Bazaar</p>\n<p>Arch is used in some fashion by Xorg. However it's extremely arcane UI-wise. Bazaar aims to fix the UI, by trying to rationalise it a bit. No idea how far they've gotten.</p>\n<p>4. Bazaar-Ng, the Bazaar developers started Bazaar-Ng as a way to come up with a consistent UI for Bazaar by starting again from scratch (rather than trying to \"slim down\" Arch). Seems to have taken on a life of it's own.</p>\n<p>Personally, I think we should look closely at Mercurial and git.</p>\n"
+    }
+  ]
+}

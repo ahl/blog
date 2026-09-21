@@ -1,0 +1,56 @@
+{
+  "post": "/2016/06/19/apfs-part2/",
+  "count": 6,
+  "comments": [
+    {
+      "id": 55962,
+      "author": "Shaun ONeil",
+      "date": "2016-06-20T14:26:53Z",
+      "kind": "comment",
+      "html": "<p>Re: the last paragraph, I've been able to create space-sharing volumes in the current (first dev-preview) wwdc build; http://pastebin.com/stK46yTQ</p>\n"
+    },
+    {
+      "id": 55972,
+      "author": "Brent Royal-Gordon",
+      "url": "http://architechies.com/",
+      "date": "2016-06-20T19:13:15Z",
+      "kind": "comment",
+      "html": "<p>&gt; Apple contrasts this with the static allocation of disk space to support multiple HFS+ instances, which seems both specious and an uncommon use case.</p>\n<p>Every Mac comes from the factory with two volumes: Macintosh HD and the recovery OS. It would not be a bad thing if they could share free space, or even share storage for identical files. That could remove most of the recovery volume's overhead.</p>\n"
+    },
+    {
+      "id": 56011,
+      "parent": 55962,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-21T04:23:04Z",
+      "kind": "comment",
+      "html": "<p>Interesting. What build are you running?</p>\n"
+    },
+    {
+      "id": 56039,
+      "parent": 56011,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-21T16:13:17Z",
+      "kind": "comment",
+      "html": "<p>I was able to get it working; seemed to be a problem with the 1TB image I was using. The 10TB image worked fine. Error messages, as usual, come last.</p>\n"
+    },
+    {
+      "id": 56051,
+      "parent": 55972,
+      "author": "Graham Perrin",
+      "url": "http://perrin.redirectme.net/",
+      "date": "2016-06-21T21:18:05Z",
+      "kind": "comment",
+      "html": "<p>Interesting. So in theory, Recovery OS could be (in ZFS terminology) a held, tagged snapshot; a non-encrypted boot environment that does not require a separate file system within the pool, erm, container.</p>\n"
+    },
+    {
+      "id": 56182,
+      "author": "Michael Tsai - Blog - Apple File System (APFS)",
+      "url": "http://mjtsai.com/blog/2016/06/17/apple-file-system-apfs/",
+      "date": "2016-06-27T14:59:59Z",
+      "kind": "pingback",
+      "html": "<p>[...] Encryption, Snapshots, and Backup: ZFS includes snapshots and serialization mechanisms that make it efficient to backup file systems or transfer file systems to a remote location. Will APFS work like that? Probably not[…] [...]</p>\n"
+    }
+  ]
+}

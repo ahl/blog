@@ -1,0 +1,46 @@
+{
+  "source_file": "adamleventhal039sblog.wordpress.2020-12-01.xml",
+  "source_sha256": "c01335070ce4d1794cd7b80439fdc0e29711d95c8133874c2ea4843d1256379b",
+  "redacted_sha256": "88658fa01568eb18283f9eb5a172894428f31bea84bb3c9febcb8fef0fb51675",
+  "elements_redacted": {
+    "wp:author_email": 2,
+    "wp:comment_author_IP": 1077,
+    "wp:comment_author_email": 1077
+  },
+  "source_facts": {
+    "comment_elements_total": 1077,
+    "comments_on_published_posts": 1068,
+    "comments_on_draft_posts": 5,
+    "comments_on_non_post_items": 4,
+    "emails_non_empty": 750,
+    "emails_distinct_casefolded": 450,
+    "ips_non_empty": 476,
+    "ips_distinct": 323
+  },
+  "author_identity": {
+    "rule": "comment_user_id == 3 OR comment_author in [\"ahl\", \"Adam Leventhal\"]",
+    "matched_total": 225,
+    "matched_by_user_id": 78,
+    "matched_by_name_only": 147,
+    "triples": [
+      {
+        "user_id": "0",
+        "author": "Adam Leventhal",
+        "email_redacted": "",
+        "count": 112
+      },
+      {
+        "user_id": "0",
+        "author": "Adam Leventhal",
+        "email_redacted": "a..@s..",
+        "count": 35
+      },
+      {
+        "user_id": "3",
+        "author": "ahl",
+        "email_redacted": "a..@g..",
+        "count": 78
+      }
+    ]
+  }
+}

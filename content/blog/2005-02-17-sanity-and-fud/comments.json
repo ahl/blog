@@ -1,0 +1,67 @@
+{
+  "post": "/2005/02/17/sanity-and-fud/",
+  "count": 8,
+  "comments": [
+    {
+      "id": 1683,
+      "author": "Anonymous",
+      "date": "2005-02-17T18:19:06Z",
+      "kind": "comment",
+      "html": "<p>One thing I've noticed is that the rabid Sun bashing has died down quite a bit.  There was an initial reaction against the CDDL, but it seems people either got over their emotional surge or learned that the CDDL isn't as bad as the doomsayers say it is.  Now, the majority of anti-Sun comments consistently are from a select few individuals, which I find encouraging, and their arguments look more and more like loony conspiracy theories over time.<br>\nOne thing Sun should do is publicize Simon Phipps' comments more.  His recent blog entry about the importance of the OpenSolaris patent grant was very informative.  Perhaps a couple of Sun's lawyers should get blogs, to better communicate the legal foundations of the CDDL.</p>\n"
+    },
+    {
+      "id": 1684,
+      "author": "Alex Valentine",
+      "url": "http://alexvalentine.org",
+      "date": "2005-02-17T20:55:30Z",
+      "kind": "comment",
+      "html": "<p>The simple fact is that there are way too many open source licenses. On the project I work on, we had to spend quite bit of time analyzing licensing for  all the <a href=\"http://lionshare.its.psu.edu/cgi-bin/twiki/view/Developers/LibraryAcknowledgements\" rel=\"nofollow ugc noopener noreferrer\">libraries used,</a> before getting clearance from our legal department to do a source release. There seem to be thousands of BSD variants being used today.<br>\nWhile a lot of the FUD concerning the CDDL is unwarranted, the big issue is that the CDDL is incompatible with the GPL. The GPL just happens to be the license of choice for most open source projects and the Linux kernel. So the majority of open source projects in use today can not benefit from the release of code under the CDDL.</p>\n"
+    },
+    {
+      "id": 1685,
+      "author": "Mike",
+      "date": "2005-02-17T21:46:54Z",
+      "kind": "comment",
+      "html": "<p>What makes Solaris a 'performance leader'?<br>\nAre there any benchmarks? I seriously doubt that Linux is slower-it made a HUGE progress in last 3 or 4 years.</p>\n"
+    },
+    {
+      "id": 1686,
+      "author": "Anonymous",
+      "date": "2005-02-17T22:00:45Z",
+      "kind": "comment",
+      "html": "<p>\"So the majority of open source projects in use today can not benefit from the release of code under the CDDL.\"<br>\nJust like the BSD systems can't use code under the GPL.  I find it interesting that some people complain that OpenSolaris will have a one-way flow of information, yet those same people see no fault in themselves and their projects.  Vanity begets sophistry, it seems.</p>\n"
+    },
+    {
+      "id": 1687,
+      "author": "PatrickG",
+      "date": "2005-02-17T23:10:03Z",
+      "kind": "comment",
+      "html": "<p>Mike asks about benchmarks.  I can point out that in my real-world use of the same multithreaded app on Solaris, OpenBSD, and Linux (2.4 and 2.6 kernels), not only does the Solaris version run as fast or faster, but it is more reliable as well.  It also uses less RAM on the same hardware, which I attribute to possibly a better VM implementation on Solaris.</p>\n"
+    },
+    {
+      "id": 1688,
+      "author": "Chris Rijk",
+      "date": "2005-02-18T02:46:19Z",
+      "kind": "comment",
+      "html": "<p>It's interesting reading some of the comments from Red Hat people. Like, how they're going after Sun's installed base (even say trying to kill Sun) but don't seem to think that they compete with Windows. So, by their own reasoning, once they kill Sun, that'll be the end of their growth trend.</p>\n"
+    },
+    {
+      "id": 1689,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-02-18T15:19:43Z",
+      "kind": "comment",
+      "html": "<p>Alex, I don't deal with code from a bunch of different sources, and I didn't consider the too-many-licenses argument from that point of view. It seems like a pain in the ass; is it possible that we're in a period of expansion as various licenses are tweaked to address their short-comings?</p>\n<p>Regarding CDDL's incompatability with GPL, while I don't speak for Sun, it seems to me there are reasons we couldn't use the GPL from a legal perspective (discounting the tactics of being incompatible with Linux's license). There's some code in Solaris to which we don't own the rights. The idea with OpenSolaris is that Solaris will be our distribution which combines the CDDL OpenSolaris code with encumbered code. The GPL explicitly forbids this. While not using the GPL arguably limits what you can do with OpenSolaris, the CDDL -- I think -- let's you do much more with it like use it in the embedded space.</p>\n"
+    },
+    {
+      "id": 1690,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-02-18T15:26:23Z",
+      "kind": "comment",
+      "html": "<p>Patrick, that's a great data point about Solaris performance, and, Mike, I know that Linux has been getting faster but so have we. And just try Solaris out on amd64 before you get so huffy. When I go to customer sites, we're better than linux on some apps and worse on others. The thing that sets us apart is that when we are slower, we have ways of finding out what's going with DTrace so we can actually make up the difference. It's very rare that we start and _finish_ the day slower than linux on a given benchmark. It some times happens that the wins we get for the app with DTrace carry over to linux, but that begs the question, how would you have found the win on linux? When it comes to performance, DTrace is a huge edge, and I'm sure the various linux vendors wish they had an answer for it.</p>\n"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "post": "/2008/10/04/apple-updates-dtrace-again/",
+  "count": 10,
+  "comments": [
+    {
+      "id": 1323,
+      "author": "UX-admin",
+      "date": "2008-10-04T14:49:14Z",
+      "kind": "comment",
+      "html": "<p>Well, well... pthread_mutex_unlock:entry, and spin_lock:entry, is it?<br>\n*SIGH* buying an Apple product was one of the biggest computing mistakes I ever made...  And even if does happen again, the first thing I will be doing is wiping Apple Computer OS X and installing Solaris on there.<br>\nOh, and if you changed all the blue in Aqua to Pink, you could see that the fascist OS X is really a Barbie toy, but not much more than that.</p>\n"
+    },
+    {
+      "id": 1324,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-10-04T15:06:28Z",
+      "kind": "comment",
+      "html": "<p>@UX-admin That last bit of output was a bit misleading: I elided thousands of lines of similar text. I'm not sure I agree with your conclusions about Apple, but I certainly understand where you're coming from.</p>\n"
+    },
+    {
+      "id": 1325,
+      "author": "EdwardOCallaghan",
+      "url": "http://ultravioletos.blogspot.com/",
+      "date": "2008-10-04T15:36:35Z",
+      "kind": "comment",
+      "html": "<p>Hi,<br>\nGreat blog !<br>\nThey just need to make ZFS damm usable, It can't be _that_ hard to port ZFS to be workable by now considering there resources. FreeBSD is almost there and just needs to make things a little more stable for production use.<br>\nBest Regards,<br>\nEdward O'Callaghan.</p>\n"
+    },
+    {
+      "id": 1326,
+      "author": "kma",
+      "url": "http://x86vmm.blogspot.com",
+      "date": "2008-10-04T23:19:49Z",
+      "kind": "comment",
+      "html": "<p>Hmm. If syscall::: is kosher, I imagine you can intercept communication with the sound server. On linux you'd be looking for the payload of writes to /dev/dsp; maybe for mac is it's some mach'ed out port rpc thingy, but the principle is the same.</p>\n"
+    },
+    {
+      "id": 1327,
+      "author": "UX-admin",
+      "date": "2008-10-05T08:31:52Z",
+      "kind": "comment",
+      "html": "<p>AHL you don't necessarily have to agree with me (;-)<br>\nI simply found out, the hard way, that the stuff *I* needed for my day-to-day computing activities was NOT in OS X, but instead in something called \"OS X server\", at which point it's way cheaper and simper for me to go back to, and stick with Solaris. (Surprise!, surprise!)<br>\nBut be that as it may, if I were cracking this thing, I would hook myself on to \"libSystem.B.dylib\", as that seems to me the place to start digging.<br>\n(I thought we lived in a world where cracking software was obsolete. Thanks a whole bunch uncle Steve for proving me wrong!)</p>\n"
+    },
+    {
+      "id": 1328,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-10-05T10:18:26Z",
+      "kind": "comment",
+      "html": "<p>@kma Unsurprisingly, you're thinking too hard. It appears that an error is generated every time a pid provider probe is hit, but this doesn't make processes as untraceable as I think was intended.</p>\n"
+    },
+    {
+      "id": 1329,
+      "author": "Nigel Smith",
+      "url": "http://nwsmith.blogspot.com/",
+      "date": "2008-10-06T09:23:06Z",
+      "kind": "comment",
+      "html": "<p>What about those 'Probe ID' values?<br>\n\"The probe ID is the system-wide unique identifier for the probe as listed in the output of dtrace -l.\"<br>\n..so I would guess that may be a bit of an open door?</p>\n"
+    },
+    {
+      "id": 1330,
+      "author": "Peter Galvin",
+      "url": "http://www.galvin.info",
+      "date": "2008-10-06T10:38:21Z",
+      "kind": "comment",
+      "html": "<p>Hmm, since the pid provider mostly just lets you know when a subroutine is entered and exited, and the errors being spewed by the pid provider above give you the same info...<br>\nSeems like a little scripting could reduce the error messages into working information about the what routines are being called. Probably harder or impossible to get useful info like how much time was spent in each routine, but still could be some good stuff.</p>\n"
+    },
+    {
+      "id": 1331,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-10-06T11:11:47Z",
+      "kind": "comment",
+      "html": "<p>@Nigel, Peter You're both spot on. In fact it should be quite possible to determine how much time was spent in various functions. Anyone care to distill that idea to D? It's a bit tricky.</p>\n"
+    },
+    {
+      "id": 1332,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-10-13T23:53:16Z",
+      "kind": "comment",
+      "html": "<p>For those of you still paying attention: I updated this post to include the details of how to extract data from an obfuscated process.</p>\n"
+    }
+  ]
+}

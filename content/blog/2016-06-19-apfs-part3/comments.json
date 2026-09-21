@@ -1,0 +1,188 @@
+{
+  "post": "/2016/06/19/apfs-part3/",
+  "count": 24,
+  "comments": [
+    {
+      "id": 55947,
+      "author": "Brandon",
+      "date": "2016-06-20T10:28:48Z",
+      "kind": "comment",
+      "html": "<p>One use case of multiple local copies could be a lame sort of redundancy. Multiple copies of the file in case something goes wrong. I've done this as a sort of ritual.</p>\n<p>CoW kind of blows that out of the water then.</p>\n"
+    },
+    {
+      "id": 55975,
+      "author": "Harald Striepe",
+      "date": "2016-06-20T19:46:43Z",
+      "kind": "comment",
+      "html": "<p>Cloning will be very handy for VMs. It would be clearer and likely less risky than the built in VMware feature of this.</p>\n<p>You write cp does not clone, does ditto?</p>\n"
+    },
+    {
+      "id": 55984,
+      "author": "Marc Haisenko",
+      "url": "http://darkdust.net",
+      "date": "2016-06-20T20:36:26Z",
+      "kind": "comment",
+      "html": "<p>Cloning will also be very handy for bundle-based (directory-based) file types. When saving a new document revision, the resources in the document like images may need to be copied. Cloning will help here. An app I'm maintaining in my company falls into this category, it needs to copy several (sometimes large) images on save and will likely benefit from cloning with slightly faster save times.</p>\n"
+    },
+    {
+      "id": 55985,
+      "author": "D Hutchinson",
+      "date": "2016-06-20T21:05:45Z",
+      "kind": "comment",
+      "html": "<p>I'm thinking the file copy behavior you mentioned - no data is actually copied unless changes are made - is simply done because it is essentially free on a copy-on-write filesystem.</p>\n<p>Beyond that, though, is FS replication across a network. Currently, if you change the metadata on a file, and backup over a network, often times the file will be re-copied. Or, if you're using something like rsync, the server will generate a checksum (Requiring reading the data, which is a lot of work for a lot of files or for large files), the client generates a checksum (Same amount of work), and the checksums are compared before the data is sent over the network.</p>\n<p>ZFS, however, tracks changes at the block level, so no matter how the metadata is changed, if the file is unchanged, it doesn't need to be copied over the network, and it doesn't even need to be read to make a comparison, since changes are already tracked at the FS level.</p>\n<p>This comes with copy-on-write, and I'd expect to see this show up on the first Time Capsule that uses APFS, and would be surprised if it wasn't there. After all, the underlying tech is mostly already there.</p>\n"
+    },
+    {
+      "id": 55989,
+      "author": "Aaron Meurer",
+      "date": "2016-06-20T23:28:23Z",
+      "kind": "comment",
+      "html": "<p>Cloning fixes an important problem with hard links. The issue with hard links is that some applications will write \"into\" hard links, effectively changing both \"copies\" of the file, and other applications will \"break\" the link (copy on write).  You can see this even with text editors. Try making a simple file with a hard link and editing it with stock vim and with stock emacs. Vim writes into the hard link, and emacs breaks it.</p>\n<p>So you really have to be in complete control of every application that uses each hard linked file for it to be effective. The most common instance of this is read-only files. For instance, hard links are often employed for making duplicate instances of shared libraries with different names, like libwhatever.dylib and libwhatever.1.2.3.dylib. Shared libraries are binary executables, and thus generally read only. They are also obviously used for backups, which are also read only.</p>\n<p>Clones are like hard links, except they explicitly *always* break (emacs behavior). Traditional hard links are great for the \"never break\" behavior (except many applications do their own copy-on-write since filesystems don't support it natively).</p>\n<p>The personal use-case for hard links is multiple install prefixes via a package manager (conda environments). These generally work, since install prefixes are generally read only, but this isn't enforced via permissions, and it does happen that one prefix can corrupt another if something writes into it. It would be awesome to have the same space sharing + extremely fast coping capabilities of hard links, with the ability to completely avoid cross corruption.</p>\n<p>It's also worth pointing out that hard links typically share the same metadata (such as file permissions). APFS clones assumedly would be less strict about this (e.g., allow two clones of the same data have different file permissions).</p>\n"
+    },
+    {
+      "id": 55995,
+      "author": "Christopher Smith",
+      "date": "2016-06-21T01:10:06Z",
+      "kind": "comment",
+      "html": "<p>Yeah, cloning looks to me exactly like \"hard links with simpler semantics\". It's super useful for all kinds of transactional updates to the filesystem without risking data loss, like when installing software. You write everything into a temp space, and after that is ready, you just atomically copy it all in to the final destination. This is traditionally done using \"mv\", but you run in to various bits of odd trouble with that. Being able to do it with a copy will, I suspect, make things a bit simpler.</p>\n"
+    },
+    {
+      "id": 55997,
+      "author": "Michael Martz",
+      "date": "2016-06-21T01:29:55Z",
+      "kind": "comment",
+      "html": "<p>Apple may not even need to rework this much to get per-file time machine. They could just create a new \"special\" folder that uses clones internally for versioning but still look to the user like a file.</p>\n"
+    },
+    {
+      "id": 55998,
+      "author": "Stephan",
+      "url": "http://heap.ch/",
+      "date": "2016-06-21T01:51:17Z",
+      "kind": "comment",
+      "html": "<p>Dropbox supports symlinks…</p>\n"
+    },
+    {
+      "id": 56007,
+      "author": "J Osborne",
+      "date": "2016-06-21T03:33:22Z",
+      "kind": "comment",
+      "html": "<p>If you look at \"productivity\" apps that use packages (the directories that pretend to be files) they frequently have some sort of main file (XML or a plist) that may or may not encode the plain text, but images, sound clips, movies and things like that all live in their own files.</p>\n<p>Doing a save on that will typically write the xml file anew, but leave unchanged image files and the like alone.</p>\n<p>So it is extremely likely that saving a Pages file via a clone will involve making the clone, writing the smallish XML file, and leaving a bunch of JPGs and PNGs \"as is\", then removing the old clone (or keeping it around for version control).</p>\n<p>Apparently some (most?) of this is done automatically for you if you use NSDocument, but I'm more of an iOS &amp; CoreData user, so I'm not sure how magically transparent the really is.</p>\n"
+    },
+    {
+      "id": 56008,
+      "parent": 55975,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-21T04:18:36Z",
+      "kind": "comment",
+      "html": "<p>Agreed: good for vms. ditto doesn't use clone in the build I'm running.</p>\n"
+    },
+    {
+      "id": 56009,
+      "parent": 55984,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-21T04:19:16Z",
+      "kind": "comment",
+      "html": "<p>But is that still basically poor-man's revision control?</p>\n"
+    },
+    {
+      "id": 56010,
+      "parent": 55998,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-21T04:20:51Z",
+      "kind": "comment",
+      "html": "<p>Well that's nifty; scratch one more use case for APFS reflinks.</p>\n"
+    },
+    {
+      "id": 56030,
+      "author": "J03",
+      "date": "2016-06-21T12:36:07Z",
+      "kind": "comment",
+      "html": "<p>Is it the case that some of the APFS features have greater applicability on devices over the desktop consideration?</p>\n"
+    },
+    {
+      "id": 56033,
+      "author": "Jake",
+      "date": "2016-06-21T13:40:05Z",
+      "kind": "comment",
+      "html": "<p>If you download an install image, will cloning eliminate the the time to recopy the files that have already been downloaded to the same volume?  The Install should be almost instantaneous after download...</p>\n"
+    },
+    {
+      "id": 56036,
+      "parent": 56033,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-21T15:57:44Z",
+      "kind": "comment",
+      "html": "<p>Could be but I'd doubt it. If the installer is on a dmg then that's a different file system / volume so doing an efficient copy would require extensive (probably prohibitively) magic.</p>\n"
+    },
+    {
+      "id": 56038,
+      "author": "Adam Leventhal's blog » APFS in Detail: Encryption, Snapshots, and Backup",
+      "url": "http://dtrace.org/blogs/ahl/2016/06/19/apfs-part2/",
+      "date": "2016-06-21T16:08:27Z",
+      "kind": "pingback",
+      "html": "<p>[...] in this series: Space Efficiency and Clones           Posted on June 19, 2016 at 7:34 pm by ahl · Permalink  [...]</p>\n"
+    },
+    {
+      "id": 56077,
+      "author": "Chuck",
+      "date": "2016-06-22T14:06:06Z",
+      "kind": "comment",
+      "html": "<p>Pardon my newbieness with file systems, but wouldn't cloning help on the user end with doing something like copying pictures into Photos?  As it stands now, if I copy a picture from the Desktop into Photos, it copies the photo into the Photos file (directory), which is then taking up twice the memory.  Wouldn't cloning allow Photos to just instantly copy that data without completely rewriting it, so it would save time and storage, or am I understanding cloning incorrectly?</p>\n"
+    },
+    {
+      "id": 56096,
+      "author": "Anon",
+      "date": "2016-06-23T05:32:00Z",
+      "kind": "comment",
+      "html": "<p>Re constant time cloning (btrfs reflink like) - perhaps it could be used to do poor man's after the fact dedupe for identical files?</p>\n"
+    },
+    {
+      "id": 56113,
+      "author": "GaranceD",
+      "date": "2016-06-24T03:34:06Z",
+      "kind": "comment",
+      "html": "<p>I think that Finder doing the automatic low-level duplication and COW semantics will be more useful than you expect.  Even if you think of it as just a \"poor man's revision control system\", think of how much easier it will be for the average user than it is to use (say) 'git'.</p>\n<p>I share the concern that this low-level duplication means that after you \"duplicate\" a file/directory, you still have only one instance of the data for that file on the disk.</p>\n<p>I assume that the low-level duplication is done by Apple's programs &amp; utilities, such as the Finder.  Given that there isn't any after-the-fact de-duplication going on, then I assume a generic utility such as 'rsync' would in fact create a second copy of the data (for those people who do want that duplicate copy).</p>\n"
+    },
+    {
+      "id": 56114,
+      "author": "GaranceD",
+      "date": "2016-06-24T03:41:44Z",
+      "kind": "comment",
+      "html": "<p>I also very much wish that the filesystem included checksums on all the data.</p>\n<p>I had one *extremely* frustrating case where I put some disks in a Drobo, which meant that data written to the drobo was written to two physical disks.  It turned out that the disks I bought had silent I/O errors.  Data would be written to the disk without any indication of error, and you could read it back without any indication of error, but the data you read back was not the same as what you had written.</p>\n<p>This problem was with the disks, not the drobo.  But the fact that the disks were in the drobo made it harder to figure out WTF was going on.  I'd write data to the disk, and then when I'd read data the drobo would respond with the data from whichever copy was most convenient (according to the algorithms in the drobo).  This meant that I would write data, and then when I'd read it I would *sometimes* get the correct data back, and sometimes get incorrect data back.</p>\n<p>I ended up removing the disks from the drobo, and the same problem of silent I/O errors happened even when the disks were installed internal to a Mac Pro.</p>\n<p>It took me over a month of working on it almost every day before I was certain I understood what was going on.  Checksums at the file-system level would have saved me a whole lot of time and frustration!</p>\n"
+    },
+    {
+      "id": 56115,
+      "author": "GaranceD",
+      "date": "2016-06-24T03:47:52Z",
+      "kind": "comment",
+      "html": "<p>Added note:  On my previous comment, this issue happen when I bought two brand new hard disks and put them in a brand new drobo.  My previous comment makes it sound like they were just some random disks that I had lying around.  :)</p>\n<p>So I had just spent what (for me) was a considerable amount of money *precisely* because I wanted to be sure I could trust the integrity of the data, and I ended up with something significantly worse than the 5-year-old disk that I intended to replace.  I wouldn't have even know about the problem if it wasn't for the fact that I started out by filling the disks with random data, kept sha1-digests of the data as I wrote it, and then read back all that data &amp; compared sha1-digests.</p>\n"
+    },
+    {
+      "id": 56150,
+      "author": "룸사롱",
+      "url": "http://gangnamroom.net",
+      "date": "2016-06-26T13:53:23Z",
+      "kind": "comment",
+      "html": "<p>One thing I'd like to touch upon is that fat burning plan fast can be performed by the correct diet and exercise. People's size not simply affects the look, but also the general quality of life. Self-esteem, despression symptoms, health risks, in addition to physical skills are affected in extra weight. It is possible to just make everything right but still gain. Should this happen, a medical problem may be the offender. While an excessive amount food but not enough exercising are usually accountable, common health conditions and widely used prescriptions can easily greatly enhance size. Kudos for your post here.</p>\n"
+    },
+    {
+      "id": 56235,
+      "author": "Dora l'Exploratric",
+      "url": "https://www.youtube.com/watch?v=dtquOjmcnlw",
+      "date": "2016-06-28T20:38:06Z",
+      "kind": "comment",
+      "html": "<p>Deniz Yıldızı 445. Bölüm Tek Parça</p>\n"
+    },
+    {
+      "id": 56277,
+      "author": "Michael Tsai - Blog - Apple File System (APFS)",
+      "url": "http://mjtsai.com/blog/2016/06/17/apple-file-system-apfs/",
+      "date": "2016-07-03T14:29:35Z",
+      "kind": "pingback",
+      "html": "<p>[...] Space Efficiency and Clones: Clones open the door for potential confusion. While copying a file may take up no space, so too deleting a file may free no space. Imagine trying to free space on your system, and needing to hunt down the last clone of a large file to actually get your space back. [...]</p>\n"
+    }
+  ]
+}

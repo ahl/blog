@@ -1,0 +1,323 @@
+{
+  "post": "/2016/06/19/apfs-part5/",
+  "count": 41,
+  "comments": [
+    {
+      "id": 55934,
+      "author": "Disappointed",
+      "date": "2016-06-20T01:47:28Z",
+      "kind": "comment",
+      "html": "<p>The big question for Apple: if \"Apple devices basically don't return bogus data\", then why bother with checksums for metadata?  Isn't that just wasteful complexity?  Why can we trust one case but not the other?</p>\n<p>Besides, now that the only way to expand my Mac's storage capacity is to buy an external third-party hard disk, I don't see how it's relevant what only Apple devices do.  On my Mac, I store lots of data on non-Apple hardware.</p>\n<p>I have a case for my iPhone because it has to deal with environments that are dirtier than an Apple Store, and I want checksums for my data because it has to deal with environments that are less reliable than a brand new Mac with a stock SSD.</p>\n"
+    },
+    {
+      "id": 55949,
+      "author": "UNIX admin",
+      "date": "2016-06-20T11:06:42Z",
+      "kind": "comment",
+      "html": "<p>I guess that at Apple, either each storage device will ship encased in a Faraday cage, or the posse there hasn't yet heard of Solar flares and other forms of electromagnetic radiation which regularly penetrate our already weakened atmosphere.</p>\n<p>I myself have had ZFS detect and automatically heal bit rot of a single bit in the storage pool, on a machine using expensive, enterprise grade SCSI drives. For the record, the system was underground, and the radiation went through a layer of both concrete and earth.</p>\n<p>I also wonder what will happen when the users attach cheap consumer grade drives to their devices?</p>\n<p>Luckily, there is a port of OpenZFS for OS X; I know what I have to do, but pity the duplication of effort, and all because Apple wouldn't integrate OpenZFS into OS X.</p>\n"
+    },
+    {
+      "id": 55953,
+      "author": "scineram",
+      "date": "2016-06-20T12:51:04Z",
+      "kind": "comment",
+      "html": "<p>Actually, the ZFS checksum is 32 bytes, ususally 4 64 bit fletcher4 words. And if that is not strong enough for you, there is the quite strong yet still very fast Edon-R now.</p>\n"
+    },
+    {
+      "id": 55957,
+      "parent": 55953,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-20T14:04:57Z",
+      "kind": "comment",
+      "html": "<p>Yeah... not sure how I managed to get that wrong...</p>\n"
+    },
+    {
+      "id": 55976,
+      "author": "Aaron Meurer",
+      "date": "2016-06-20T19:55:15Z",
+      "kind": "comment",
+      "html": "<p>Couldn't user data checksumming be done independently of the filesystem?</p>\n"
+    },
+    {
+      "id": 55977,
+      "author": "Harald Striepe",
+      "date": "2016-06-20T19:55:57Z",
+      "kind": "comment",
+      "html": "<p>Checksums are worthy an appeal or two to Apple to convinces them. Their price is quite small.<br>\nThe best way to deal with it might be as part of compression.</p>\n"
+    },
+    {
+      "id": 55978,
+      "author": "Jeff W",
+      "date": "2016-06-20T20:03:08Z",
+      "kind": "comment",
+      "html": "<p>The lack of file checksums &amp; some form of self-healing is very disappointing. I have had bit-rot on HFS+ and ZFS - and I've experienced on my MacBook Pro's SSD. Apple is wrong if claiming this isn't - or can't be - a potential problem for users. Apple products and their users are not magically immune to this phenomenon. Any self-respecting modern file system should address this. Like many others, I use many external HD's for data. It would be nice to have some sort of data integrity on these provided by the FS too. If not, I guess there is still ZFS.</p>\n"
+    },
+    {
+      "id": 55979,
+      "author": "Kebabbert",
+      "date": "2016-06-20T20:05:42Z",
+      "kind": "comment",
+      "html": "<p>@Aaron Meuerer,<br>\nData checksumming is done independently of the filesystem. Hard disks have CRC error correcting codes that detect errors. In the specs of a SAS or FC Enterprise disk, you will typically see \"1 uncorrectable error in 10^16 bits read\". Thus, these CRC codes are not always able to detect all errors. For instance, ECC RAM can detect and correct any 1 bit errors. But they can only detect 2 bit errors, but not correct them. There are probably other bit errors configurations that are not detectable nor correctable. Thus, ECC RAM does not protect 100% against bit corruption. Neither do CRC codes on disks. This short coming is because disks and ECC ram use simple error correcting algorithm. ZFS use a very advanced checksum to detect and correct all errors. For instance, you can tell ZFS to use SHA-256 to detect errors.</p>\n"
+    },
+    {
+      "id": 55981,
+      "author": "Jim HashBackup",
+      "url": "http://www.hashbackup.com",
+      "date": "2016-06-20T20:15:04Z",
+      "kind": "comment",
+      "html": "<p>Before adding a checksum to filesystem data, Apple should ship every system with ECC memory.</p>\n<p>If you read correctly from disk, a bit gets flipped in the memory buffer, you compute a checksum, then write correctly to disk, the checksum won't detect the error because it was computed after the memory bit flip.</p>\n<p>Adding ECC memory will likely eliminate most cases of undetected \"bit rot\", which IMO, are actually memory parity errors that are written to disk.  If a bit gets flipped on a disk, it's EXTREMELY unlikely that it will pass the disk hardware ECC tests.</p>\n"
+    },
+    {
+      "id": 55983,
+      "author": "Glassed Silver",
+      "date": "2016-06-20T20:22:25Z",
+      "kind": "comment",
+      "html": "<p>Are you implying that the engineers at Apple are basically in a cloud of ignorance to a problem that's a hot topic amongst anyone who has spent a decent amount of time on data integrity even as a theoretical subject?</p>\n<p>Maybe the reality distortion field is so strong that it works inwards now, because I have a hard time believing that highly-paid engineers would otherwise think that bit rot not to be a problem on ANY kind of storage medium.</p>\n<p>I really hope that bit was mostly PR, however it is quite interesting to see that checksumming apparently hasn't been worked on.<br>\nThen again, they did state that they do leave parts of the filesystem flexible as to allow for features getting added later on, I assume well after release, so that a new iteration of features still provides an underlying FS that can be used on older devices.</p>\n<p>I really do hope they integrate checksumming for all data.</p>\n"
+    },
+    {
+      "id": 56012,
+      "parent": 55981,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-21T04:25:59Z",
+      "kind": "comment",
+      "html": "<p>Very good point, and it's extremely unlikely that that will happen given the added costs. Perhaps consumers get the data integrity that they pay for and that likely won't include ECC DRAM so shouldn't include checksums.</p>\n"
+    },
+    {
+      "id": 56013,
+      "parent": 55983,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-21T04:28:09Z",
+      "kind": "comment",
+      "html": "<p>Apple really does have a great qual and probably ships the best components you can buy. As a software guy who built a hardware product, I started out no understanding the failure modes of hardware. I'd wager the team will come around and APFS will include checksums.</p>\n"
+    },
+    {
+      "id": 56015,
+      "parent": 55976,
+      "author": "Disappointed",
+      "date": "2016-06-21T05:32:08Z",
+      "kind": "comment",
+      "html": "<p>As long as you have some mechanism by which to read and write bytes on disk, even unreliably, any feature can theoretically be done at a higher level.  It's just a lot less convenient, to the point where nobody will actually use it.</p>\n<p>For example, you could write a data checksum feature in your photo app.  But if Apple doesn't want to put data checksums in the filesystem, what are the odds their Photos.app team is going to implement it in their app?</p>\n<p>This is kind of like multiprocessing in the OS 9 days.  We had dual CPUs, and it was technically possible to use them both, but it just wasn't practical for the 99.99% of programmers who weren't working on Photoshop.</p>\n"
+    },
+    {
+      "id": 56016,
+      "author": "Magnus",
+      "date": "2016-06-21T05:45:17Z",
+      "kind": "comment",
+      "html": "<p>It is unclear to me why data integrity for user data is the responsibility of the file system. Apple seems to argue that it is the job of the hardware, and one could also argue that it is the job of the user-level software. It also seems strange to me that the file system level would be a magical place that can do no wrong, while the disk-level software is seen as suspect. Who says that a detected error is the fault of the underlying layer and not the layer that detected the error?</p>\n<p>What is remarkable though, is if they are doing PRNG xor-based encryption (seems likely, for example counter mode) and not using a MAC, since then they are open to selective data manipulation even though it is encrypted. If they are using MACs, then data integrity is solved by that.</p>\n"
+    },
+    {
+      "id": 56020,
+      "parent": 56013,
+      "author": "153957",
+      "date": "2016-06-21T07:29:47Z",
+      "kind": "comment",
+      "html": "<p>You do not always know which components are actually good when they are fairly new. Apple has had bad storage components in their machines, e.g. https://www.apple.com/support/imac-harddrive-3tb/</p>\n"
+    },
+    {
+      "id": 56021,
+      "author": "UNIX admin",
+      "date": "2016-06-21T07:59:56Z",
+      "kind": "comment",
+      "html": "<p>&gt; It is unclear to me why data integrity for user data is the responsibility of the file system.</p>\n<p>You must not have studied under Keith Wesolowski, then (;-))</p>\n<p>Very few hardware components are designed to be radiation resistant, and those are usually only designed for applications in space; not even enterprise grade hardware is normally designed to operate correctly in face of radiation, as designing and building such hardware is both expensive and hard.</p>\n<p>Contemporary hardware relies on firmware, which is often (if not always) buggy, and most of it is opaque.</p>\n<p>If one can then design software which can be mathematically proven to protect data, given above facts, one should design such software (ZFS), and one did.</p>\n<p>At the end of the day, we all want and have the right to expect that our computers operate correctly; therefore, if the problem can not be practically mitigated with hardware, but can be with software (filesystem), then it should be.</p>\n"
+    },
+    {
+      "id": 56023,
+      "author": "odysseus",
+      "date": "2016-06-21T08:26:23Z",
+      "kind": "comment",
+      "html": "<p>John Gruber suggests that for portable devices, checksums represent a problem for energy consumption.</p>\n<p>True?</p>\n"
+    },
+    {
+      "id": 56031,
+      "parent": 56021,
+      "author": "Magnus",
+      "date": "2016-06-21T12:52:40Z",
+      "kind": "comment",
+      "html": "<p>&gt; Very few hardware components are designed to be radiation resistant, and those are usually only designed for applications in space; not even enterprise grade hardware is normally designed to operate correctly in face of radiation, as designing and building such hardware is both expensive and hard.</p>\n<p>There is nothing that says that file system code runs on hardware that is more fault resistant than the disk-level code.</p>\n<p>We all agree that the disks don't return errors all the time, right? But for some reason, when a file system detects an error, it cannot be that the file system makes a rare mistake, it has to be the disk?</p>\n<p>There is nothing wrong with doing integrity checking in the file system, but it strikes me as wrong to suppose that just because it is done in kernel-level code it is automatically more fault-tolerant and bug-free than anything else.</p>\n<p>Conclusion: APFS should use MACs, if it doesn't already. Also, disks should be as fault-free as possible, and applications should be prepared to handle errors.</p>\n"
+    },
+    {
+      "id": 56032,
+      "parent": 56023,
+      "author": "Magnus",
+      "date": "2016-06-21T13:01:37Z",
+      "kind": "comment",
+      "html": "<p>I would guess that any inefficiencies would come from having to read and process the whole block that the checksum is calculated over. Xor-based (like counter mode) encryption can be applied to arbitrarily small blocks and in parallel.</p>\n"
+    },
+    {
+      "id": 56035,
+      "parent": 56023,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-21T15:54:36Z",
+      "kind": "comment",
+      "html": "<p>Simple checksums are pretty inexpensive to generate and validate. Once a block is in cache, simple integer operations are nearly free.</p>\n"
+    },
+    {
+      "id": 56040,
+      "author": "UNIX admin",
+      "date": "2016-06-21T17:55:36Z",
+      "kind": "comment",
+      "html": "<p>&gt; But for some reason, when a file system detects an error, it cannot be that the file system makes a rare mistake, it has to be the disk?</p>\n<p>Mathematical check sums are pretty trivial to implement, verify, and reason about; in contrast, contemporary firmware is not only complex, but opaque as well.</p>\n<p>When there is a bug in a filesystem (ZFS in particular now), it can be debugged and fixed an order of magnitude easier than you will be able to debug and fix firmware in your storage area network controller, or in the electronics on the disk drive, or SSD for that matter.</p>\n<p>If the failures and protection are easier to prove, debug, and understand by making the filesystem responsible for data integrity, then common sense tells me that is the layer which should be responsible for protecting data.</p>\n<p>Of course, if you are of the belief that firmware is the correct place for data protection, by all means, don't use ZFS and I wish you all the best going back and forth with the storage vendors, or reverse engineering the electronics and the firmware yourself. By all means, have at it!</p>\n"
+    },
+    {
+      "id": 56044,
+      "parent": 56040,
+      "author": "Magnus",
+      "date": "2016-06-21T20:26:06Z",
+      "kind": "comment",
+      "html": "<p>You have obviously only read the part you are quoting, since I explicitly state that \"There is nothing wrong with doing integrity checking in the file system\" in the next sentence.</p>\n"
+    },
+    {
+      "id": 56050,
+      "parent": 56016,
+      "author": "Tim",
+      "date": "2016-06-21T21:14:48Z",
+      "kind": "comment",
+      "html": "<p>\"It is unclear to me why data integrity for user data is the responsibility of the file system.\"</p>\n<p>Whose responsibility do you think it is, then?</p>\n<p>\"Apple seems to argue that it is the job of the hardware,\"</p>\n<p>Well, they're in the business of selling hardware.  Unfortunately, most Apple users will end up putting data on a non-Apple disk at some point.  And from what the ZFS people have found, even Apple disks are not immune to bit-rot.</p>\n<p>\"and one could also argue that it is the job of the user-level software.\"</p>\n<p>I don't want to live in a world where my data integrity is the responsibility of each application, or my job as a developer is to continuously re-implement filesystem features that Apple didn't want to.  Does my text editor need to invent a new text format now, so that it can guarantee data integrity of text files?  Are we going to make a new version of Git?  What about data integrity of the applications themselves?</p>\n<p>\"It also seems strange to me that the file system level would be a magical place that can do no wrong, while the disk-level software is seen as suspect.\"</p>\n<p>Doesn't seem strange to me at all.  I upgraded my operating system last week.  When's the last time you upgraded the firmware in your hard disk?  Yeah, me neither.</p>\n<p>\"Who says that a detected error is the fault of the underlying layer and not the layer that detected the error?\"</p>\n<p>Empirical evidence, for one.  I can run my CPU all month and not get a wrong answer.  That's not true of my hard disk.</p>\n<p>It's a bit like asking why your TCP implementation needs to implement checksums, when Apple-brand ethernet cables are really good, and most of the modern layer-5 protocols support retries, anyway.  We put checksums in TCP because we see a lot of transmission errors in practice, and that's a layer where the data integrity implementation can be shared by almost all applications.</p>\n"
+    },
+    {
+      "id": 56057,
+      "parent": 56050,
+      "author": "Magnus",
+      "date": "2016-06-21T21:52:18Z",
+      "kind": "comment",
+      "html": "<p>&gt; Doesn’t seem strange to me at all. I upgraded my operating system last week. When’s the last time you upgraded the firmware in your hard disk? Yeah, me neither.</p>\n<p>So the file system is so simple that it obviously doesn't do anything wrong, but it needs to be updated to fix bugs?</p>\n<p>I'm NOT arguing against file system level checksums, I'm arguing against the idea that file systems are infallible.</p>\n<p>\"It’s a bit like asking why your TCP implementation needs to implement checksums\"</p>\n<p>Well, if you don't trust your disk drives checksumming, you definitely shouldn't trust TCP's. TCP checksumming is a joke. Ethernet, on the other hand, has pretty good checksumming.</p>\n"
+    },
+    {
+      "id": 56058,
+      "parent": 55981,
+      "author": "Rich Teer",
+      "date": "2016-06-21T23:13:46Z",
+      "kind": "comment",
+      "html": "<p>I totally agree with you with respect to Apple shipping ECC memory with their systems, but in their defence the blame rests with Intel as (it is my understanding that) the iCore processors don't support ECC memory--for that, one must use Xeons.</p>\n<p>But yeah, in an ideal world, Intel would my iCore series processors with ECC support, and Apple would offer that at least as an option (I'd pay extra in a heartbeat for ECC!).</p>\n"
+    },
+    {
+      "id": 56069,
+      "author": "Pavol Vaskovic",
+      "url": "http://pali.sk",
+      "date": "2016-06-22T06:47:18Z",
+      "kind": "comment",
+      "html": "<p>I'm unfamiliar with how encryption and checksums work in detail, but given APFS will be mostly used with encryption, there will be a lot of computation going on for the whole IO stream anyway. Is there a way to integrate data integrity checksums into encryption processing and amortize its cost or are these two feature in conflict?</p>\n"
+    },
+    {
+      "id": 56075,
+      "parent": 56069,
+      "author": "Magnus",
+      "date": "2016-06-22T10:32:32Z",
+      "kind": "comment",
+      "html": "<p>TL;DR: Using checksums is more or less mandatory for cryptographic reasons.</p>\n<p>You can use encryption in fundamentally two different ways: where each byte/word is dependent on the previous, and some sort of \"random access\" mode. When using it in the first way, you normally have to use an \"initialization vector\" to get good security, a start value that is unique for each block. This has to be stored somewhere, making the encrypted block larger than the cleartext block. You also have to read and decrypt the whole block each time you want any data in the block, and vice versa when you want to write.</p>\n<p>If you use the random access way, you normally use the encryption key and a start value to feed a pseudo-random number generator, and then XOR the values from that onto the cleartext. One method is to use an initialization vector that is stored in the same way as above, but we still get the benefit of random access. Another way is to use the offset of the byte as the start value (counter mode). This means that nothing extra has to be stored for each block, but each block still has a unique start value. This makes it practical in file systems.</p>\n<p>All XOR based systems are, however, vulnerable to attacks where the attacker wants to invert bits in your file. Since XOR operations are commutative, inverting a bit in the cryptotext automatically inverts the same bit in the cleartext, without changing anything else. This brings us to the second topic: checksums.</p>\n<p>There are three main types of checksums: non-cryptographic, cryptographic without key (normally called cryptographic hashes), and cryptographic with key (message authentication codes). Non-cryptographic (e.g. CRC) are used to detect errors, but cannot be used to detect malicious tampering. Cryptographic without key (e.g. SHA-256) can detect malicious tampering, but if the attacker can change the checksum, you are still vulnerable, since anyone can generate a new one. These are good when you store the checksum in a safe place. Finally, message authentication codes (MAC) can neither be verified nor generated without access to the key. This makes them ideal for cryptographic data integrity. The only real alternative is cryptographic signatures.</p>\n<p>All these checksums generate additional data per block, however, and have to be calculated over the whole block.</p>\n<p>Take SHA-256 as an example: it is a 32 byte checksum. This means that a small block size of 32 bytes doubles the amount of data stored, while a large block size of 1MB has a small overhead, but forces the file system to read and verify that 1MB each time a byte is needed.</p>\n<p>Regarding cost, counter mode can be implemented in a completely parallel way. Checksums have dependencies, so they cannot be completely computed in parallel, but certain checksumming systems, like Merkle trees, use log(n) time when having enough compute units. The checksums also have to be stored somewhere.</p>\n<p>Note: I have simplified some explanations, do not use this to implement your own cryptography.</p>\n"
+    },
+    {
+      "id": 56076,
+      "author": "Retiarius",
+      "date": "2016-06-22T13:35:33Z",
+      "kind": "comment",
+      "html": "<p>To dispel anecdotal fear of bitrot, and whether it really necessitates ZFS-style checksumming, are there field/case studies of how much it occurs in the real world (of SSDs now)?  Did Sun/Oracle instrument the checksum code to report actual bitrot rates, independent of manufacturer UBER stats at the level of 10E-14 or -15?</p>\n"
+    },
+    {
+      "id": 56080,
+      "parent": 56013,
+      "author": "Glassed Silver",
+      "date": "2016-06-22T19:32:17Z",
+      "kind": "comment",
+      "html": "<p>I own several Apple products myself and whilst their software and GUI department have tanked a considerable amount in recent times I believe their hardware components are - quality-wise - amazing.<br>\nHowever, we're still talking about things made by humans, things that are subject to radiation and all sorts of other possible factors that lessen the meaning of having a great (still consumer-grade) storage device. (and well, even enterprise-grade wouldn't be enough, ZFS doesn't exist for nothing)</p>\n<p>Extending on that, I really do wonder what Apple thinks they may get away with in their own data centers... Let's just hope other people are working on their data center storage requirements.</p>\n"
+    },
+    {
+      "id": 56081,
+      "parent": 56020,
+      "author": "Glassed Silver",
+      "date": "2016-06-22T19:37:19Z",
+      "kind": "comment",
+      "html": "<p>True.<br>\nSame goes for most parts that exceed the complexity of hinges. :P</p>\n<p>I've had two iMacs and both had GPU faults that rendered the machines unusuable.<br>\nBoth AMD cards (or well, one being ATi to be precise)</p>\n<p>The faults came to light a bit after warranty period, both had replacement programs available, I missed the time window on my first iMac by 3 months. Guess it wouldn't have mattered much anyways as I had opened the machine myself before already to replace the faulty HDD... Oh look, another thing that inevitably eventually breaks and unfortunately it doesn't break in a binary manner (works - works not), but it may hit data integrity first by writing poorly before it finally is inoperable.<br>\nGood luck making a last minute backup from files that already got corrupted and restoring them afterwards.</p>\n"
+    },
+    {
+      "id": 56082,
+      "parent": 56044,
+      "author": "UNIX admin",
+      "date": "2016-06-22T19:38:21Z",
+      "kind": "comment",
+      "html": "<p>&gt; There is nothing that says that file system code runs on hardware that is more fault resistant than the disk-level code.</p>\n<p>Sorry, but the above quoted sentence makes no sense to me. I do not understand what you are trying to say with it. Are you saying that the filesystem should be implemented in hardware, and that there is nothing wrong with that? That is how I understand it, and that makes no sense to me.</p>\n"
+    },
+    {
+      "id": 56092,
+      "parent": 56082,
+      "author": "Magnus",
+      "date": "2016-06-23T01:20:28Z",
+      "kind": "comment",
+      "html": "<p>I mean what I wrote. The file system code runs on the \"main CPU\" using the \"main memory\".</p>\n<p>You were implying that radiation resistance was a reason for doing the checks in the main CPU.</p>\n<p>There is nothing that says that the main CPU and memory is more resistant to radiation than the disk CPU and memory.</p>\n"
+    },
+    {
+      "id": 56095,
+      "author": "DTraceの開発者によるAppleの新しいファイルシステム「APFS」のファーストレビュー。 | AAPL Ch.",
+      "url": "http://applech2.com/archives/20160623-apfs-in-detail.html",
+      "date": "2016-06-23T03:03:32Z",
+      "kind": "pingback",
+      "html": "<p>[...] APFS in Detail: Data Integrity [...]</p>\n"
+    },
+    {
+      "id": 56112,
+      "author": "Brian Naylor",
+      "date": "2016-06-24T00:51:30Z",
+      "kind": "comment",
+      "html": "<p>I'm a WAFL engineer and I'm as gobsmacked as you by the details you have outlined in this section.  It is seriously trivial to just checksum everything (and we don't stop there, either.)  Can't understand these choices.</p>\n<p>Hardware -always- fails in ways you didn't anticipate.</p>\n"
+    },
+    {
+      "id": 56147,
+      "author": "APFS in Detail | We Are 4n6",
+      "url": "http://www.weare4n6.com/apfs-in-detail/",
+      "date": "2016-06-26T08:17:53Z",
+      "kind": "pingback",
+      "html": "<p>[...] Data Integrity [...]</p>\n"
+    },
+    {
+      "id": 56177,
+      "author": "superlupo",
+      "date": "2016-06-27T13:22:09Z",
+      "kind": "comment",
+      "html": "<p>&gt; If file systems could be trusted absolutely then the “only” reason for backup would be the idiot operators (i.e. you and me).<br>\nAnd failing hardware.</p>\n"
+    },
+    {
+      "id": 56180,
+      "author": "Enema Loving Fruitarian",
+      "date": "2016-06-27T14:46:07Z",
+      "kind": "comment",
+      "html": "<p>&gt; Apple has some of the most stringent device qualification tests for its vendors</p>\n<p>Source?</p>\n"
+    },
+    {
+      "id": 56181,
+      "parent": 56023,
+      "author": "Enema Loving Fruitarian",
+      "date": "2016-06-27T14:51:50Z",
+      "kind": "comment",
+      "html": "<p>John Gruber is a mentally ill fanboy and will literally invent reasons even though he doesn't have the technical understanding to say that behind it.</p>\n"
+    },
+    {
+      "id": 56183,
+      "author": "Michael Tsai - Blog - Apple File System (APFS)",
+      "url": "http://mjtsai.com/blog/2016/06/17/apple-file-system-apfs/",
+      "date": "2016-06-27T15:00:15Z",
+      "kind": "pingback",
+      "html": "<p>[...] Data Integrity: APFS removes the most common way of a user achieving local data redundancy: copying files. A copied file in APFS actually creates a lightweight clone with no duplicated data. Corruption of the underlying device would mean that both “copies” were damaged whereas with full copies localized data corruption would affect just one. [...]</p>\n"
+    },
+    {
+      "id": 56186,
+      "parent": 56180,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-27T16:39:30Z",
+      "kind": "comment",
+      "html": "<p>Personal communication with current and former Apple employees as well as those at various SSD vendors while I directed flash strategy at Sun and Oracle.</p>\n"
+    },
+    {
+      "id": 56264,
+      "author": "[Sammelthread] ZFS Stammtisch - Seite 274",
+      "url": "http://www.hardwareluxx.de/community/f101/zfs-stammtisch-570052-274.html#post24717946",
+      "date": "2016-07-02T11:51:54Z",
+      "kind": "pingback",
+      "html": "<p>[...] Ebene des Dateisystems wie auf Ebene der RAM oder einzelner Platten), Snapshot und Backup geht.  Adam Leventhal's blog » APFS in Detail: Data Integrity      www.napp-it.org           [...]</p>\n"
+    }
+  ]
+}

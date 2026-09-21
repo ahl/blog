@@ -1,0 +1,43 @@
+{
+  "post": "/2006/08/07/dtrace_on_mac_os_x/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 1574,
+      "author": "sted",
+      "date": "2006-08-08T07:54:09Z",
+      "kind": "comment",
+      "html": "<p>This is really great news!<br>\nI am learning DTrace on our T2000.<br>\nNow I will be able to experiment at home with my MacBook too!<br>\nCongratulations guys!<br>\nSted<br>\nP.S. Next, what about launchd for Solaris?</p>\n"
+    },
+    {
+      "id": 1575,
+      "author": "James McPherson",
+      "date": "2006-08-15T20:34:49Z",
+      "kind": "comment",
+      "html": "<p>Adam, you've cut your hair too short!</p>\n"
+    },
+    {
+      "id": 1576,
+      "author": "Nem",
+      "url": "http://geekmuse.net/",
+      "date": "2006-08-16T10:38:05Z",
+      "kind": "comment",
+      "html": "<p>Just saw a note on DTrace being included in Leopard on Apple's Xcode page.  Congratulations Adam and crew! ;-)</p>\n"
+    },
+    {
+      "id": 1577,
+      "author": "Ben Youngdahl",
+      "date": "2006-08-17T17:22:13Z",
+      "kind": "comment",
+      "html": "<p>Please please, won't Apple and Sun stop the flirting and get married?  For the sake of computing, get a room.</p>\n"
+    },
+    {
+      "id": 1578,
+      "author": "Ricardo Correia",
+      "url": "http://zfs-on-fuse.blogspot.com",
+      "date": "2006-08-22T12:01:38Z",
+      "kind": "comment",
+      "html": "<p>\"Please please, won't Apple and Sun stop the flirting and get married? For the sake of computing, get a room.\"<br>\nLOL! Sorry, that's one of the funniest comments I've seen in a while ;)<br>\nThis is very nice, Sun has been creating amazing technology recently, and I'm glad to see it ported to other operating systems (even ones I don't use).<br>\nNow.. if only it were possible to port DTrace to Linux...... :(</p>\n"
+    }
+  ]
+}

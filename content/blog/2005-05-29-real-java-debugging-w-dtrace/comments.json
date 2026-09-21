@@ -1,0 +1,37 @@
+{
+  "post": "/2005/05/29/real-java-debugging-w-dtrace/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1664,
+      "author": "Dmitri Trembovetski",
+      "date": "2005-05-30T22:21:44Z",
+      "kind": "comment",
+      "html": "<p>Well, I'm not sure about the native libraries, but one can use SunStudio10, it has support for both java-level and native debugging.<br>\nHowever, I myself use a combination of dbx and Netbeans on solaris, and VisualStudio+Netbeans on windows. That is, I'd start an application and attach to it with both java and native debugger.<br>\nIt's especially fun when debugging j2se's full-screen support on windows, then I have the windows host running the application in fullscreen exclusive mode, and Netbeans running on my Solaris box attached to that application to debug the java level, and VisualStudio running on my notebook (the only reason I have to keep windows on that notebook =( ), also attached to the same application for native code debugging.<br>\nThanks,<br>\nDmitri<br>\nJava2D Team</p>\n"
+    },
+    {
+      "id": 1665,
+      "author": "S.G.",
+      "date": "2005-06-01T20:31:27Z",
+      "kind": "comment",
+      "html": "<p>Well, knowing that it was an UnknownHostException, I'd search my naming databases for an entry for the string that is printed in the stack trace.  The exception is very self-explanatory!</p>\n"
+    },
+    {
+      "id": 1666,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-06-02T08:09:20Z",
+      "kind": "comment",
+      "html": "<p>S.G.,</p>\n<p>I hope you're being facetious. It obviously found the name of the host, and other tools (ping(1M), traceroute(1M), etc.) were able to resolve that hostname. The problem was to understand the precise behavior of the Java implementation to understand how it differed from what other tools that query the naming database were doing.</p>\n"
+    },
+    {
+      "id": 1667,
+      "author": "The Alethiometer",
+      "url": "http://blogs.sun.com/roller/page/harpster/20050712#yass_yet_another_sponsored_study",
+      "date": "2005-07-12T09:13:21Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] Although a little crusty, if you call February 2005 crusty, and I do,<br>\nthis study on  Linux 2.6 and Solaris 10   just floated past my desk.  Some of it's right, but<br>\nsome of it's FUD, as expected from a \"sponsored\" study by IBM and Red Hat.  Let me...</p>\n"
+    }
+  ]
+}

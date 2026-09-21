@@ -1,0 +1,37 @@
+{
+  "post": "/2009/02/23/hsp-talk-at-the-opensolaris-storage-summit/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1300,
+      "author": "David Magda",
+      "url": "http://www.magda.ca/",
+      "date": "2009-02-23T15:50:23Z",
+      "kind": "comment",
+      "html": "<p>ReadZillas and LogZillas sound wonderful, but can I get stand-alone Officially Certified Sun Parts for these things for a regular servers?<br>\nIf I have a T5120 hooked up to a SAN, and I want to use a -zilla to speed up my Oracle database, where can I get a sled and part from Sun to slide into one of my available bays? Or do I have to fake things by going third-party?<br>\nZIL and L2ARC devices are handy on the 7000-series storage, but some of use want to use them on other things. Is there an official way to do it?</p>\n"
+    },
+    {
+      "id": 1301,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-02-23T15:54:27Z",
+      "kind": "comment",
+      "html": "<p>@David Sun is working on general purpose parts like the ones you want and will qualify them in a wide range of our servers. I don't have a time frame for that, but it's in process.</p>\n"
+    },
+    {
+      "id": 1302,
+      "author": "Dave Pratt",
+      "date": "2009-02-24T23:23:54Z",
+      "kind": "comment",
+      "html": "<p>Your talk at the storage summit was really interesting and thanks for taking the time afterward to chat about various about the self managed vs os managed flash technologies. Like David Mageda I too am interested in what sort of time frame I can expect on Sun qualified n-zilla devices for use in a beige box solution.</p>\n"
+    },
+    {
+      "id": 1303,
+      "author": "Jorge Garcia",
+      "date": "2009-02-26T15:20:05Z",
+      "kind": "comment",
+      "html": "<p>Since I can't currently get ReadZillas and LogZillas from Sun, are there any 3rd party SSDs that will work in as a test while we wait for the official Sun parts?</p>\n"
+    }
+  ]
+}

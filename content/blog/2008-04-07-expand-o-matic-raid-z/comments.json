@@ -1,0 +1,135 @@
+{
+  "post": "/2008/04/07/expand-o-matic-raid-z/",
+  "count": 16,
+  "comments": [
+    {
+      "id": 1371,
+      "author": "MC",
+      "date": "2008-04-07T23:10:37Z",
+      "kind": "comment",
+      "html": "<p>Some of us have been waiting years to read this post :)</p>\n"
+    },
+    {
+      "id": 1372,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-04-08T00:07:02Z",
+      "kind": "comment",
+      "html": "<p>@MC that's good to hear, but bear in mind, this just means there's one less excuse to make it happen. It's still going to require someone to do the heavy lifting.</p>\n"
+    },
+    {
+      "id": 1373,
+      "author": "Don MacAskill",
+      "url": "http://blogs.smugmug.com/don/",
+      "date": "2008-04-08T07:32:02Z",
+      "kind": "comment",
+      "html": "<p>I can't wait until you're right - for ZFS to have \"obviated the need for hardware RAID controllers\" but I'm afraid we're just not there yet.<br>\nThe big, glaring hole is the lack of a battery-backed write cache.  <br>\nI'm aware of some of the upcoming hardware solutions to this problem, but they're not here yet, and until they are, ZFS isn't a complete solution for an enterprise needing lots of IOPS.  :(</p>\n"
+    },
+    {
+      "id": 1374,
+      "author": "Wes W.",
+      "date": "2008-04-08T08:18:08Z",
+      "kind": "comment",
+      "html": "<p>Does a system UPS circumvent the need for a battery-backed write cache?</p>\n"
+    },
+    {
+      "id": 1375,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-04-08T09:05:38Z",
+      "kind": "comment",
+      "html": "<p>@Don I think you're conflating two issues. RAID controllers often supply a battery-backed, non-volatile cache and this can certainly reduce latency and drive IOPS as synchronous writes will be bounded on the speed of that cache rather than on the speed of the drives. A fairly recent addition to ZFS is support for separate intent log devices. If you configure your pool with a fast, non-volatile intent log, you can easily push IOPS to match what you'd see with a RAID controller. I recently submitted an article to the ACM that discusses the issue of improving latency and IOPS. I'll post here when that's published.<br>\n@Wes Unfortunately not. Power loss is just one possible cause for service interruption. Software failures have similar results and aren't mitigated with a UPS. Sadly.</p>\n"
+    },
+    {
+      "id": 1376,
+      "author": "Nigel Smith",
+      "url": "http://nwsmith.blogspot.com/",
+      "date": "2008-04-08T13:32:56Z",
+      "kind": "comment",
+      "html": "<p>Adam, many thanks for writing up these notes.<br>\nLet's hope someone will pick this up &amp; run with it.<br>\nBTW, you have some bad links in the post:<br>\nYour link 'the basic structure of ZFS', just links<br>\nback to you post.<br>\nAnd Bill Moore's blog is simply <a href=\"http://blogs.sun.com/bill/\" rel=\"nofollow ugc noopener noreferrer\">http://blogs.sun.com/bill/</a><br>\n(A pity he does not post more often.)<br>\nYou link is to Bill Moffitt's blog!</p>\n"
+    },
+    {
+      "id": 1377,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-04-08T13:46:22Z",
+      "kind": "comment",
+      "html": "<p>@Nigel Thanks for catching the problems -- I've fixed those. Next time I see Bill I'll let him know that he's in danger of dipping below one post per year ;-)</p>\n"
+    },
+    {
+      "id": 1378,
+      "author": "Andrei Dorofeev",
+      "date": "2008-04-08T15:03:05Z",
+      "kind": "comment",
+      "html": "<p>Great post! I think shrinking of raid-z pools would be useful also.  That's assuming that there's enough free space in those pools to allow whole data (not parity) disks be removed.</p>\n"
+    },
+    {
+      "id": 1379,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-04-08T23:03:23Z",
+      "kind": "comment",
+      "html": "<p>@Andrei Sure. First we need to be able to remove top level vdevs (that work is ongoing) and shrinking a RAID-Z vdev becomes a degenerate case. The order of operations would be just a bit different from the above: update bookkeeping, scrub to move data off the device, and then remove the device.</p>\n"
+    },
+    {
+      "id": 1380,
+      "author": "Jeff Bonwick",
+      "url": "http://blogs.sun.com/bonwick",
+      "date": "2008-04-10T00:11:11Z",
+      "kind": "comment",
+      "html": "<p>The metaslab fold is clever -- much nicer than adding a zillion frags.  I still prefer time-dependent geometry to using the GRID bits, however, because that way we're storing the minimum possible information.  I want to reserve the GRID bits for properties that *must* be stored per-block, like data-dependent replication models.  (More on that later.)<br>\nThe only real problem is that when adding (say) one disk, you lose the guarantee that even under theoretical worst-case fragmentation, all space is still usable via gang blocks.  However, we can address this by doing a re-layout in the background once we have bp rewrite support.</p>\n"
+    },
+    {
+      "id": 1381,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-04-10T00:24:18Z",
+      "kind": "comment",
+      "html": "<p>@Jeff I figured just posting this would be a better way to elicit a response anyway ;-)<br>\nWhile I agree that bits in the block pointer are a precious resource, someone could certainly prototype this whole thing by using the GRID bits to start and then swapping in time-dependent geometry later on. And I think the fold is clever too -- of course, it's all make possible by the cleverness of space maps.<br>\nThis all presumes the existence of BP rewrite anyway. You're probably adding a disk because your pool is mostly full; in that case even an optimal algorithm wouldn't have enough contiguous free space to do anything useful.</p>\n"
+    },
+    {
+      "id": 1382,
+      "author": "Haudy Kazemi",
+      "date": "2008-04-12T00:38:29Z",
+      "kind": "comment",
+      "html": "<p>Here's an idea that I ran by Neil Perrin a few days ago to grow a raidz2 via use of slices and zpool replace.<br>\nThe thought is to partition/slice 5 drives into 10 slices, then make a raidz2 of those 10 slices (2 slices per drive).  With raidz2, 5 drives, and 2 slices per drive, I believe I'd start out with a redundancy level equivalent of raidz1 over 5 drives.<br>\nTo grow the pool, the next step is to 'zpool replace' the 10 slices with 10 larger slices on 5 larger drives (or even 10 drives).  Replacing the 5 smaller drives one by one with 5 larger drives, with a scrub in between each replacement should maintain raidz1 level redundancy.  To give the pool true raidz2 level redundancy, one would use 10 real drives.<br>\nTo add more of the same size drive, this technique should also work to turn, say, a 5x500gb drive array into a 10x500 gb drive array, by replacing the original 10x250gb slices with 10x500gb drives (i.e. reuse the original 500gb drives and add 5 new 500gb drives, to create a 10x500gb drive raidz2).  I was able to work out the drive replacement order on paper to do this in-place.<br>\nIf this technique works (I've tested the zpool replace part, but not create slices part), this would be one way to grow a raidz2 by replacing the existing drives in the pool, and starting with only 5 drives, it is a plausible case for a small budget user (e.g. home user).  With 5 drives, N-1 remain usable for storage (like in raidz1), while an expanded array to 10 drives turns into a raidz2 level redundancy N-2).  One reason I targeted drives in units of 5, is that internal SATA enclosures that convert 3x5.25\" bays to 5x3.5\" hot-swap bays are available for under $200.  These seem to be nearly ideal for a small home server.<br>\nGranted it is not as flexible as simply adding one drive at a time, but adding/replacing in blocks of 5 may be good enough until the algorithm Adam is proposing (or something similar/equivalent) is actually implemented.  <br>\nBuying 5 drives at one shot isn't unreasonablely expensive even for home users...Best Buy had 320gb Seagate SATAs for $60 last November...5x60 = $300, and recently had 1 TB Seagate SATAs for $200 each.  Frys recently had 750gb Seagate SATAs for $140.  500gb Seagate SATAs have been near $100.</p>\n"
+    },
+    {
+      "id": 1383,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-04-14T10:59:28Z",
+      "kind": "comment",
+      "html": "<p>@Haudy That's certainly an interesting idea, and it seems like it could be used to solve the problem. It does, however, sound like quite an administrative burden, and I'm fairly sure that it would impose a significant performance penalty as ZFS would be treating each drive as 10 distinct devices. But it's hard to complain about the bird in hand...</p>\n"
+    },
+    {
+      "id": 1384,
+      "author": "Andrey Kuzmin",
+      "date": "2008-05-02T13:01:17Z",
+      "kind": "comment",
+      "html": "<p>&gt; I still prefer time-dependent geometry to using <br>\n&gt; the GRID bits, however, because that way we're <br>\n&gt; storing the minimum possible information. <br>\n&gt; Posted by Jeff Bonwick on April 10, 2008 at 12:11 <br>\n&gt; AM PDT # <br>\nMe too, but I'm somewhat concerned with using time - making geometry dependent on wall clock doesn't look very much reliable. Is there anything with guaranteed monotonicity in zfs, transaction id for instance?</p>\n"
+    },
+    {
+      "id": 1385,
+      "author": "Wout Mertens",
+      "date": "2008-05-05T08:38:25Z",
+      "kind": "comment",
+      "html": "<p>I wish that instead of implementing this, a parity scheme would be added to the \"copies=xx\" attribute.<br>\nThe \"copies=xx\" logic is the higher-layer, flexible implementation of a mirror. Adding a parity scheme would gain ZFS a higher-layer, flexible implementation of a RAID-Z pool. So in addition to RAID-Z zpools there would be RAID-Z filesystems.<br>\nSure, there would be a performance hit relative to RAID-Z, but the target audience for this tweak is the home user. They would probably prefer extreme flexibility. The enterprise users would have no changes to their code paths, keeping it lean and mean.<br>\nJust to make sure I'm not misunderstood, I mean that a block in a filesystem with \"copies=8z\" would be split up in 7 data blocks and one parity block (6+2 for \"copies=8z2\"). Those blocks would then be optimally distributed by the block allocator.<br>\nThe advantages?<br>\n- Redundancy/time/space trade-off tweakable per filesystem<br>\n- The block allocator would maintain RAID-Z properties as long as there's enough space on enough vdevs.<br>\n- Growing the RAID-Z filesystem would be as simple as adding or replacing a disk<br>\n- If there's not enough vdevs, allocation can still continue, although the redundancy would be impacted. Disks can't break without data loss but surface defects would still be fixed. The user should be notified that he should add diskspace + scrub.<br>\n- No impact to enterprise users<br>\nDisadvantages:<br>\n- Performance hit of unknown magnitude due to explicit block allocation versus geometry-enforced allocation. <br>\n- Added complexity of splitting up the blocks, I don't even know if that's possible. I assume that the case of 2+1 could be supported with the 3 block pointers, but for more blocks I suppose a sort of redundant linked list would be in order?<br>\nI could have my ZFS internals all mixed up, apologies if so. I just wish ZFS was more like a Drobo in the \"just add disks\" department. Doing the above would make it so, no?</p>\n"
+    },
+    {
+      "id": 1386,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-05-07T14:59:22Z",
+      "kind": "comment",
+      "html": "<p>@Wout Those are some really good ideas. If I can rephrase a bit, the idea would be to add disks to a storage pool without specifying the layout (e.g. RAID-Z, mirror, etc.), and then to choose the replication and fault resiliency at the dataset level. Jeff and I discussed this a bit when we were talking about this expandable RAID-Z stuff -- apparently one of the initial ideas for ZFS was to do something like this. For any dataset you could choose mirroring, RAID-Z, or whatever. One of the problems is that a scheme like this requires the kernel to have extensive knowledge of the fault domains so that a space allocation would be sure to provide the requisite reliability -- the kind of knowledge that an administrator applies when he chooses a particular zpool layout and configuration. For<br>\nexample, if you're making a zpool on a thumper, you want to lay out your RAID-Z2 groups so that the loss of a fan or controller wouldn't cause data loss.<br>\nThis is all possible, and could lead to a much better system. We could probably do this with a new vdev type to which it was possible to communicate fault domains and allocating policies. It's not a small amount of work,<br>\nand, unfortunately, the problem that it solves isn't the biggest problem with ZFS today. I look forward to the day Sun picks up some projects like<br>\nthis or that the greater ZFS community gets involved with some tough coding projects like this.</p>\n"
+    }
+  ]
+}

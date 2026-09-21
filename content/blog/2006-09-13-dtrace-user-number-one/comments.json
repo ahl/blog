@@ -1,0 +1,27 @@
+{
+  "post": "/2006/09/13/dtrace-user-number-one/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1571,
+      "author": "Bharath R",
+      "date": "2006-09-13T23:49:48Z",
+      "kind": "comment",
+      "html": "<p>Promises to be a great read. Too bad the bigadmin folks haven't heard of RSS feeds (see one on that page?)</p>\n"
+    },
+    {
+      "id": 1572,
+      "author": "Loz H",
+      "date": "2006-09-14T01:35:28Z",
+      "kind": "comment",
+      "html": "<p>If he gets a feed could you stick a paragraph in your next post.</p>\n"
+    },
+    {
+      "id": 1573,
+      "author": "David Kopp",
+      "date": "2006-09-22T12:03:34Z",
+      "kind": "comment",
+      "html": "<p>Jarod is the DTrace man. I thought I had an easy iPod at JavaOne 2005. Instead, he found a huge startup performance fix in less than five minutes. Our app startup time went from 20 seconds to 5 seconds.</p>\n<p>Watching Jarod use DTrace is nothing short of incredible.</p>\n"
+    }
+  ]
+}

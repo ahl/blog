@@ -1,0 +1,14 @@
+{
+  "post": "/2011/12/12/the-case-of-the-unmountable-tmpfs/",
+  "count": 1,
+  "comments": [
+    {
+      "id": 2198,
+      "author": "Michael Ernest",
+      "url": "http://radio.javaranch.com",
+      "date": "2011-12-13T17:40:22Z",
+      "kind": "comment",
+      "html": "<p>One of the things DTrace constantly does for me is expose details of implementation a lot of book-learning can't lead you to guess at. It's intriguing, in an admittedly twisted way, to see someone with formal training and years of direct application have a similar experience.</p>\n<p>This discovery is pretty cool, not to mention instructive and entertaining. Thanks!</p>\n"
+    }
+  ]
+}

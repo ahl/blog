@@ -1,0 +1,48 @@
+{
+  "post": "/2005/10/13/too-much-pid-provider/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 1645,
+      "author": "Kostik",
+      "date": "2005-10-14T07:06:57Z",
+      "kind": "comment",
+      "html": "<p>You code does not check the segment limits and access rights.</p>\n"
+    },
+    {
+      "id": 1646,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-10-14T09:09:58Z",
+      "kind": "comment",
+      "html": "<p>Kostik,<br>\nIt doesn't? I thought that it was sufficient to confirm that it was a user selector and check the bounds on the given descriptor table -- is there something else you think I need to do? Thanks.</p>\n"
+    },
+    {
+      "id": 1647,
+      "author": "Keith Adams",
+      "url": "http://x86vmm.blogspot.com",
+      "date": "2005-10-14T13:52:10Z",
+      "kind": "comment",
+      "html": "<p>Adam,</p>\n<p>What Kostik is getting at isn't just bounds-checking within the GDT/LDT; the descriptor itself (i.e., the entry in the g/ldt) goes on to describe what the segment can and cannot be used for: from which CPL, for what purpose (code/data/\"special\"), and which virtual addresses cause a GP exception. None of this stuff is getting checked in the above.</p>\n<p>In the case of the GDT, you might get away with playing a little fast and loose, since, after all, Solaris set up the GDT itself, and perhaps it knows that there's no fancy x86 jiggery-pokey going on. In the case of the LDT, though, it's conceivable that it was set up by the user-level process. The user code might even be expecting sigsegv's according to its use of those segments (e.g., maybe it's an execution environment for old Windows 3.11 code).</p>\n<p>Even in the GDT case, the lack of a CPL check could be a hole. Does the kernel GS in 32-bit Solaris differ from the user GS? If so, a malicious user-level program that's waiting for some silly root user to dtrace its gs:call instruction could fab up a gs selector that refers to a kernel segment (access rights indicate a DPL of 0), but with RPL of 3. This would, in the best case, leak kernel data (the contents of a given offset from the kernel GS) in the ucontext given a SIGSEGV handler. It could  do some more colorful damage if you ever did similar emulation for a load or store (and a lot of x86 opcodes end up being essentially loads and stores, including call).</p>\n<p>I'd also wager a guess that this could would fall down on a far call to a task state segment embedded in the LDT. You probably care much less, though.<br>\n(Not trying to be a jerk to my homey Adam. One love. I'm not brave enough to post real code in my blog, and this descriptor table stuff is the hairiest part of a dizzyingly hairy architecture).</p>\n"
+    },
+    {
+      "id": 1648,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-10-15T04:39:56Z",
+      "kind": "comment",
+      "html": "<p>Keith! Just the man I was hoping would weigh in. Now I see there are several more fields in the segment descriptor that I'm ignoring -- including but not limited to the limit. Perhaps that's what Kostik was getting at.</p>\n<p>I somewhat naively thought that checking the selector's attributes would be sufficient, but -- of course -- that falls well short, and exposes a rather obvious hole (obvious, that is, to the x86 super-nerd). To answer your question, the Solaris kernel does indeed have a different %gs than user-land, and -- as you identify -- all it would take is a nimbly constructed signal handler to extract data from the kernel (that is, if I had put this back, which I haven't yet -- <a href=\"http://dtrace.org/blogs/ahl/comment_out_of_context\" rel=\"nofollow ugc noopener noreferrer\">calm down, ZDNet</a>). You're also right about not caring about far calls and other similar instructions -- the pid provider emulates a tiny subset of the x86 instruction set, and call and jmp are the only two instructions in that subset that can perform generic loads.</p>\n<p>And to address your comment, it's working under an open source license -- not any bravado -- that let's me post code on my blog. How else could I have elicited a code review from you on this harrowing strait of code?</p>\n"
+    },
+    {
+      "id": 1649,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-10-15T13:21:43Z",
+      "kind": "comment",
+      "html": "<p>Upon further consideration, the worst users can do with the current code is to find the location of the thread pointer -- not a huge security hole. The fasttrap_fulword() will not load from kernel space so we're safe there. The other issue, of course, is that this will successfully emulate instruction that should fail -- again, worth fixing but not earth-shattering.</p>\n"
+    }
+  ]
+}

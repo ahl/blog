@@ -29,6 +29,40 @@ MathJax = {
 
 {{ content | safe }}
 
+{# Archived comments from the WordPress era. Data comes from the committed
+   per-post comments.json files via _data/comments.js; there is no comment
+   form, because the site is static and the originals are closed. #}
+{%- set postComments = comments[page.url] %}
+{%- if postComments %}
+{%- macro commentList(items) %}
+<ul class="comment-list">
+	{%- for c in items %}
+	<li class="comment{% if c.is_author %} comment-author{% endif %}" id="comment-{{ c.id }}">
+		<div class="comment-meta">
+			{%- if c.url %}
+			<a class="comment-name" href="{{ c.url }}" rel="nofollow ugc noopener noreferrer">{{ c.author }}</a>
+			{%- else %}
+			<span class="comment-name">{{ c.author }}</span>
+			{%- endif %}
+			{%- if c.is_author %}<span class="comment-badge">author</span>{% endif %}
+			<a class="comment-permalink" href="#comment-{{ c.id }}">
+				<time datetime="{{ c.date }}">{{ c.date | readableDateISO }}</time>
+			</a>
+		</div>
+		<div class="comment-body">{{ c.html | safe }}</div>
+		{%- if c.children | length %}{{ commentList(c.children) }}{% endif %}
+	</li>
+	{%- endfor %}
+</ul>
+{%- endmacro %}
+
+<section class="comments" aria-labelledby="comments-heading">
+	<h2 id="comments-heading">{{ postComments.count }} comment{% if postComments.count != 1 %}s{% endif %}</h2>
+	<p class="comments-note">Archived from the original blog. Commenting is closed.</p>
+	{{ commentList(postComments.tree) }}
+</section>
+{%- endif %}
+
 {%- if collections.posts %}
 {%- set previousPost = collections.posts | getPreviousCollectionItem %}
 {%- set nextPost = collections.posts | getNextCollectionItem %}

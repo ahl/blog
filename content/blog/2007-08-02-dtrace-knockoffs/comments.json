@@ -1,0 +1,404 @@
+{
+  "post": "/2007/08/02/dtrace-knockoffs/",
+  "count": 52,
+  "comments": [
+    {
+      "id": 1484,
+      "author": "Jonathan Schwartz",
+      "date": "2007-08-02T14:39:48Z",
+      "kind": "comment",
+      "html": "<p>And for the record... as Adam states so eloquently, we're thrilled to see ports of DTrace running everywhere. ZFS and DTrace's availability beyond OpenSolaris/Solaris, on Apple's Mac OS (and BSD) prove the point - joining communities is a good thing.</p>\n"
+    },
+    {
+      "id": 1485,
+      "author": "Matthew Garrett",
+      "date": "2007-08-02T16:45:13Z",
+      "kind": "comment",
+      "html": "<p>Strictly what that interview says is that Sun won't enforce any dtrace patents against Linux. There's no explicit permission granted to incorporate the CDDLed code into the GPLv2 Linux kernel, and in the absence of that it would have to be a reimplementation rather than a port.</p>\n"
+    },
+    {
+      "id": 1486,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-02T16:49:02Z",
+      "kind": "comment",
+      "html": "<p>Matthew,<br>\nThe permission is implicit in the CDDL. As long as any modifications to CDDL source files were released, and the license wasn't changed, the terms of the CDDL would be satisfied. This isn't legal advice, but that seems to be the prevailing wisdom.</p>\n"
+    },
+    {
+      "id": 1487,
+      "author": "Matthew Garrett",
+      "date": "2007-08-02T17:21:34Z",
+      "kind": "comment",
+      "html": "<p>But CDDLed code can't be incorporated into a GPLed project (such as the Linux kernel) The GPL requires all code to be available under terms no more restrictive than the GPL, but the CDDL imposes some restrictions that aren't present in the GPL (such as the patent action termination clause). As a consequence, the in-kernel dtrace code can't be ported to Linux. It would need to be reimplemented instead (the alternative would be for every contributor to Linux to agree to a relicensing that would allow CDDLed code to be added, but that's probably not realistic). This isn't a problem for the userspace code - the CDDL is absolutely fine there.<br>\nThis isn't to say that there's anything wrong with the CDDL, just that it's (sadly) incompatible with the GPL. There are many people in the Linux world who would love to have a working dtrace, but it's hardly a small project.</p>\n"
+    },
+    {
+      "id": 1488,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-02T17:29:27Z",
+      "kind": "comment",
+      "html": "<p>Matthew,<br>\nI don't think it's as complicated as that. There's a  small amount of DTrace code that needs to live in the core kernel; the rest resides in collection of loadable kernel modules. You're right that the small bit of kernel integration would need to be reimplemented, but that was going to be necessary anyway to adjust it to the particularities of the different kernel. The kernel modules are distinct entities and would remain under the CDDL.</p>\n"
+    },
+    {
+      "id": 1489,
+      "author": "Matthew Garrett",
+      "date": "2007-08-02T17:34:47Z",
+      "kind": "comment",
+      "html": "<p>The majority of core Linux contributors believe (based on legal advice) that it's impossible to produce a loadable Linux kernel module without it being a derivative of the kernel code to some extent, and therefore having to fall under the GPL due to the GPL's restrictions on derivative works. It's not a situation that's ever been tested in court, and clearly not everyone agrees - however, it's plausible enough that there's basically no chance of code being added to the core kernel for no purpose other than facilitating a set of non-GPLed kernel modules.</p>\n<p>Really, the only way that you could guarantee a port of dtrace to Linux would be for it to be relicensed under a GPLv2 compatible license as well as the CDDL. Otherwise it's likely to have to be a reimplementation.</p>\n"
+    },
+    {
+      "id": 1490,
+      "author": "Alberto Ruiz",
+      "url": "http://aruiz.synaptia.net",
+      "date": "2007-08-02T17:42:01Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nto make that possible, you would need to put all the CDDL code on the userspace, if you do a module, whenever you do the modprobe thing, you are violating the GPL, however I agree that on the CDDL/DTrace code side there is no problem at all.<br>\nI dont know the DTrace implementation details, but I 'd say, that a ZFS/FUSE like approach for dtrace would be impossible, or a huge work (with high performance penalties).<br>\nEither DTrace or Linux license have to change at some point to copy paste the code. (Same for ZFS though).<br>\nOur only hope is GPLv3 here, and both projects relicensing.</p>\n"
+    },
+    {
+      "id": 1491,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-02T17:49:02Z",
+      "kind": "comment",
+      "html": "<p>Matthew and Alberto,<br>\nThis is exactly the licensing FUD to which I was referring. My guess is that it would go away if the will for DTrace were as great as the will for rendering polygons on your screen or storing bits on your disk.</p>\n"
+    },
+    {
+      "id": 1492,
+      "author": "Matthew Garrett",
+      "date": "2007-08-02T18:00:24Z",
+      "kind": "comment",
+      "html": "<p>There are three ways it can be made to go away:<br>\nRelicense Linux. Difficult, given the large number of authors and the lack of copyright assignment. Several major contributors have said that they have no interest in allowing their code to be relicensed, and there's also the more fundamental problem that some of the copyright holders are dead.<br>\nRelicense DTrace under a GPLv2 compatible license. Theoretically easy, given that Sun own the code. Probably philosophically awkward, though the release of large parts of Java under GPLv2 shows that it's not impossible.<br>\nReimplement the problematic (ie, all kernel space) sections of Dtrace. Less work than reimplementing large parts of Linux to allow its license to be changed, but still a significant body of work.</p>\n<p>Those are, sadly, probably the only available options. Option 2 is clearly the one that involves the least rewriting of code, but I appreciate that  there are reasons Sun chose the CDDL in the first place.</p>\n"
+    },
+    {
+      "id": 1493,
+      "author": "Bryan Cantrill",
+      "url": "http://blogs.sun.com/bmc",
+      "date": "2007-08-02T18:11:30Z",
+      "kind": "comment",
+      "html": "<p>Those are \"probably the only available options\"?  Are you a lawyer?  I tend to doubt it given your assertion that all loadable kernel modules are a derived work -- an assertion that I personally doubt, and one that's completely untested at any rate.  (If loadable kernel modules are a derived work, are applications?   Why not?)  The essential bit from the perspective of DTrace:  this isn't a DTrace issue, and as far as DTrace is concerned, it can be ported to Linux.</p>\n"
+    },
+    {
+      "id": 1494,
+      "author": "Matthew Garrett",
+      "date": "2007-08-02T18:38:05Z",
+      "kind": "comment",
+      "html": "<p>Well, yes, there's also the option of convincing a large number of core developers (and their lawyers) that non-GPL kernel modules aren't derivative works - but that's going to take either a court case or a cold day in hell, so it's not especially practical right now. It's a grey area, and devoting a large amount of work to something that might be illegal isn't terribly attractive to most people.</p>\n<p>The stated explanation for why userspace applications aren't a derived work of the Linux kernel is that the copyright file says so, and none of the copyright holders appear unhappy with that. Given how intent is often a factor in deciding license cases, this sort of apparent double standard isn't necessarily an issue  - especially when almost every application is written against a defined standard that's implemented in multiple Unixes, whereas a Linux kernel module has to be very specifically written against a specific version of Linux and then kept up to date with changes that occur in the kernel. There's also the problem that kernel modules are likely to have to end up including large chunks of inline kernel code that's unambiguously GPLed, something that's not true in userspace.</p>\n<p>You're right, though. The CDDL itself doesn't make it impossible to port DTrace to Linux - the union of the GPL and the CDDL make it a problem. Given that Linux has been under the GPLv2 for longer than DTrace has existed, though, it shouldn't come as a surprise to anyone that the Linux community don't feel able to take advantage of the code Sun have supplied. If there's a genuine desire to have the existing DTrace code in the Linux kernel, then releasing it under a different license would make that possible.</p>\n"
+    },
+    {
+      "id": 1495,
+      "author": "Stephen Lau",
+      "url": "http://whacked.net",
+      "date": "2007-08-02T21:49:59Z",
+      "kind": "comment",
+      "html": "<p>Except that relicensing the DTrace code under GPLv2 is impossible because it directly interfaces with the OpenSolaris kernel code.<br>\nAnd the OpenSolaris kernel code can't be relicensed under GPLv2 because it needs to link to code that not only isn't GPLv2, it isn't even open source.  The CDDL is a business-friendly license that allows this linking, and the GPL doesn't.  So it's actually not easy to relicense the OpenSolaris kernel under GPLv2.</p>\n"
+    },
+    {
+      "id": 1496,
+      "author": "Bryan Cantrill",
+      "url": "http://blogs.sun.com/bmc",
+      "date": "2007-08-02T21:55:06Z",
+      "kind": "comment",
+      "html": "<p>The \"genuine desire\" is to see DTrace (and other OpenSolaris components) in as many systems as possible -- both open source <i>and</i> proprietary -- so  simply GPL'ing Solaris is a non-starter:  short of dual-licensing, it forbids the integration of OpenSolaris work in operating systems like FreeBSD or MacOS, to say nothing of proprietary device drivers written by third parties.</p>\n<p>To me, licensing is being used here as an excuse to justify the NIH syndrome of which SystemTap is a particularly glaring symptom.  The essential point is Adam's final sentence:  a DTrace knock-off is unlikely to ever build the kind of cross-platform community that is currently enjoyed by DTrace; if and when the value of that community is understood, it seems likely that the perceived licensing issues will largely melt away.</p>\n"
+    },
+    {
+      "id": 1497,
+      "author": "Brendan Gregg",
+      "url": "http://blogs.sun.com/brendan",
+      "date": "2007-08-02T22:13:46Z",
+      "kind": "comment",
+      "html": "<p>Sun has DTrace. Apple has DTrace. Linux doesn't.<br>\nIt seems that the two opposing paths to a Linux DTrace are:</p>\n<p>Linux port the CDDL code, which may include accepting that kernel modules are no more of a derived work than applications<br>\nSun GPLv2 DTrace, and <i>all future companies follow suit</i> if they produce an innovative kernel technology that Linux users would like</p>\n<p>While it may be some work to convince the Linux core contributors to treat a kernel module no differently from an application (given preconceived ideas, FUD, etc), it sounds much harder to convince <i>all future companies</i> to GPLv2 their kernel code. And when I say harder, I mean insane.<br>\nAlso, what exactly would happen if someone began work porting the CDDL DTrace code to Linux? Would a large number of nameless Linux core contributors (some dead) complain? Given that it would be great for Linux and its users, how many would stand in the way? And who?<br>\nIf actually only a small number of GPLv2 copyright holders were willing to stand in the way of DTrace Linux -- then can their code be <i>ripped out of Linux</i> and rewritten? Or put another way, how many core Linux contributors:</p>\n<p>Given the facts, object to the inclusion of CDDL code<br>\nAre willing to excercise their copyright to stand in the way of DTrace Linux<br>\nHave written something that is more difficult to rewrite than DTrace</p>\n<p>...<br>\nI'm looking ahead - I'd like to see DTrace in Linux and all OSes.</p>\n"
+    },
+    {
+      "id": 1498,
+      "author": "John Levon",
+      "url": "http://blogs.sun.com/levon",
+      "date": "2007-08-03T04:42:34Z",
+      "kind": "comment",
+      "html": "<p>As far as I can see, the licensing problem (for<br>\nwhich I certainly sympathise with both arguments) is<br>\nalmost irrelevant, since Adam's point still stands: they could still have looked carefully at what DTrace does and why, and even produced a compatible implementation, even if they have to re-implement some scary kernel bits.</p>\n"
+    },
+    {
+      "id": 1499,
+      "author": "Matthew Garrett",
+      "date": "2007-08-03T05:01:32Z",
+      "kind": "comment",
+      "html": "<p>Sorry, I should have been clearer. I meant license DTrace under GPLv2 in addition to it's current license - licensing it purely under the GPL clearly wouldn't be an option.</p>\n<p>Anyway. There's been no objection to incorporating code from the BSDs in the past, so I don't think there's any inherent objection to code that wasn't developed for Linux in the first place. But the fact remains that CDDLed code (or code under any other non-GPL compatible license) is infeasible to incorporate into Linux for perceived legal reasons. In the absence of a lawsuit that determines otherwise, that's simply not going to change.</p>\n<p>Code written by developers who adhere to this belief includes the USB stack, driver core, large swathes of ATA support, several network drivers, filesystem code, parts of the SCSI layer, core PCI code and more. You're looking at several million lines of code spread through the entire kernel, and some of it dates back to before we had any sort of sensible revision control system. Identifying the code in question would be enough of a nightmare, never mind rewriting it.</p>\n<p>It's not possible for Linus to unilaterally define how he interprets the GPL and have that stick at this point. Everyone who's contributed to Linux (and that's a large number of people - over 3000 in the past two years alone) would need to agree, and that's basically infeasible.</p>\n<p>I guess my point is that if Sun want DTrace in Linux, dual-licensing it under the GPLv2 and CDDL would be the easiest way of achieving that. Other than the legal costs associated with getting that through the company, there's no technical reason not to - it doesn't hurt its incorporation into proprietary products, *BSD or any other works. Linux has been under the GPL since 1992, so this really shouldn't be a surprising observation for anyone.</p>\n"
+    },
+    {
+      "id": 1500,
+      "author": "Anonymous",
+      "date": "2007-08-03T05:41:17Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nwell, it's not FUD at all, is reallity, and I found that reaction overdefensive.<br>\nI think that we should respect Linux community decisions regarding licensing as long as we want to be respected for our licensing decisions too.<br>\nWe cannot say we'd love to see DTrace/ZFS on Linux as long as we don't make any efforts to make DTrace or ZFS GPL compatible. Saying that it's not happening Linux communitys fault to choose GPL is like ignoring the big elephant in the room.<br>\nGPL was choosen in a moment where nobody gave a buck about opensource, and the BSD model was going through a fragile moment. And the only reason because Sun has opensourced its operating system, is because the success and growth on Linux. Saying \"it's GPL's fault\" is ignoring the fact, that probably it's its license part of its success, and part of the reasone because linux has started making hardware vendors worring about the freedom of the drivers source code.<br>\nMaybe GPL is not perfect, but it works. And it's the most successful opensource operating system's license. Choosing CDDL and expect the Linux community believe us whenever we say we'd love to see DTrace or ZFS on their operating system, is just hard.<br>\nInstead of overdefensive responses, I think that we should start to try to understand their comunity and try to make them understand ours too. And figure out how can we achieve this without pointing fingers.</p>\n"
+    },
+    {
+      "id": 1501,
+      "author": "Bryan Cantrill",
+      "url": "http://blogs.sun.com/bmc",
+      "date": "2007-08-03T05:52:43Z",
+      "kind": "comment",
+      "html": "<p>Matthew,</p>\n<p>The idea that \"there's no technical reason not to\" dual license under the GPLv2 ignores all of the very real technical reasons not to do this.  First among them:  it creates the possibility of a license-based fork.  What's to stop anyone from stripping off the CDDL and then making GPLv2-only modifications to DTrace that then cannot be brought back into OpenSolaris or the BSDs?  For this and other reasons, dual licensing is very unpopular in the OpenSolaris community, and is quite unlikely in at least the short term.</p>\n<p>More generally, it's unfortunate that this is bogged down in yet-another GPL v. CDDL discussion; seeing as we're all technologists, can we get back to discussing technology?</p>\n"
+    },
+    {
+      "id": 1502,
+      "author": "Matthew Garrett",
+      "date": "2007-08-03T06:03:54Z",
+      "kind": "comment",
+      "html": "<p>Discussing technology in a vacuum isn't helpful. Discussing the abstract concept of integrating a work into Linux while ignoring the reality that license issues mean the chances of it happening are approximately zero is about as helpful as discussing the social effects of efficient transmutation - it may be an interesting intellectual exercise, but there's very little relevance to the real world.</p>\n<p>For what it's worth, I think the risks of a fork are pretty negligible. People are generally good at respecting dual-licensed code - forking off a GPL branch would just result in another set of people forking off a CDDLed branch, and I doubt anyone would see reducing the ability to take advantage of other people's code as a good thing.</p>\n"
+    },
+    {
+      "id": 1503,
+      "author": "Bryan Cantrill",
+      "url": "http://blogs.sun.com/bmc",
+      "date": "2007-08-03T07:42:17Z",
+      "kind": "comment",
+      "html": "<p>I'm afraid that your claim that the risks of a license-based fork are \"pretty negligible\" is belied by the intellectually fraudulent actions of the SystemTap folks:  how can we possibly trust those who would stoop so low as to plagiarize our presentations and supporting material?</p>\n<p>Personally, I have been willing to remain largely quiet about SystemTap, despite what I have viewed as intellectual speciousness -- and even as they have engaged in dishonest activity like disavowing the inspiration they found in DTrace.  But when Brendan and Adam discovered that they had plagiarized the DTrace wiki, well, enough's enough:  they have abused our collective trust to the breaking point -- and one consequence of that is that claims like yours now (unfortunately) become impossible to believe.</p>\n"
+    },
+    {
+      "id": 1504,
+      "author": "David Mills",
+      "url": "http://blog.guesny.net",
+      "date": "2007-08-03T11:19:40Z",
+      "kind": "comment",
+      "html": "<p>Just one question about Linux modules:<br>\nIf they are a derived work. How come no one raises a stink with ati, nvidia or even vmware and linuxant all of whome have binary blobs as modules?<br>\nDavid</p>\n"
+    },
+    {
+      "id": 1505,
+      "author": "Natalia Gorbski",
+      "date": "2007-08-03T11:51:18Z",
+      "kind": "comment",
+      "html": "<p>David, many people raise a stink about the illegality of these binary blobs, the companies just don't care and the people who raise the stink really don't have the kind of money needed to take companies like AMD to court over them.<br>\nAdam, pretending that dtrace is anywhere close to standard is silly, the day that dtrace works on everything from Haiku to Windows is the day it is standard.  That would mean relicensing dtrace under the MIT licence.</p>\n"
+    },
+    {
+      "id": 1506,
+      "author": "Sean Middleditch",
+      "date": "2007-08-03T12:01:47Z",
+      "kind": "comment",
+      "html": "<p>\"How come no one raises a stink with ati, nvidia or even vmware and linuxant all of whome have binary blobs as modules?\"<br>\nMany people raise a stink about it, consistently.  Just not Linus.</p>\n"
+    },
+    {
+      "id": 1507,
+      "author": "Chris Ostler",
+      "date": "2007-08-03T12:24:25Z",
+      "kind": "comment",
+      "html": "<p>It seems that a few comments have brought up binary blob kernel modules, without actually discussing how it is done.<br>\nAs I understand, these modules consist of two parts: the first is a shim that will interact with the kernel internals (and thus be the 'derivative work'), which is dual licensed (GPL and proprietary).<br>\nThe second is the binary portion.  This part only interacts with the dual licensed portion, which is allowed by the proprietary license.<br>\nThus, the reasoning is that the shim fulfills legal necessity for 'derivative works', while allowing the use of incompatibly licensed code.  It this separation that make these modules acceptable (at least to some).<br>\nNow, not knowing any implementation details for DTrace, it seems that a Linux port is possible if: 1) any necessary kernel infrastructure is reimplemented in GPL code, and 2) a GPL shim is developed for interaction with the CDDL DTrace code.<br>\nThis would allow the port, and seems it should be as legally acceptable as the mentioned binary blobs.</p>\n"
+    },
+    {
+      "id": 1508,
+      "author": "Lionel Debroux",
+      "date": "2007-08-03T12:48:23Z",
+      "kind": "comment",
+      "html": "<p>@David Mills: many people, starting with a significant number of core Linux kernel developers, don't like binary blobs as modules.<br>\nThough the fact is that these blobs are still compulsory in order to get the most of several important pieces of hardware, starting with ATI and NVidia graphic cards (well, some clean-room reverse-engineering efforts are taking shape, but they're not currently on par with the binary blobs, etc.).</p>\n<p>A very high percentage of Windows users don't give a damn about code licensing. They use proprietary software and drivers, and they're mostly happy with it. What annoys them is the malware, not the licensing. But they want that their stuff works. Having a mostly-open OS with several proprietary (drivers) or patented (multimedia codecs) bits, that works well enough for people, is better than:<br>\n* having a completely-open OS that doesn't work;<br>\n* the fully proprietary Windows, where one has to install open applications, since those are not preinstalled by default (except rare situations).<br>\nWe still need those proprietary bits, at least for now.</p>\n<p>Coming back to the original topic of this discussion, which is DTrace &amp; Systemtap: 192.18.4.200 makes some points here. His post reminds me of http://lwn.net/Articles/237905/ , where Linus says why he doesn't expect Sun to release ZFS (or other interesting Solaris parts) under GPLv2.<br>\nOf course, it's far from simple for Sun to dual-license ZFS, DTrace or other important (Open)Solaris functionality. Bryan Cantrill writes about some problems in his 07.42 PDT comment. And changing some things on the other side is very hard as well.<br>\nBut if nothing changes, it will be a long time before Linux (which is by a significant margin the most widely used open source / free software OS...) can have kernel-mode implementations of interesting stuff like ZFS (and DTrace). Just because of some legal stuff, which is important for freedom, but effectively hinders progress.<br>\nThe combined behaviour of the two sides, and the resulting status quo / fragmentation, favors the obvious proprietary choice of OS, and the ecosystem built on it. Plain and simple.</p>\n<p>One last word: seeing the material in this blog entry, some guys involved in Systemtap sure look dishonest...</p>\n"
+    },
+    {
+      "id": 1509,
+      "author": "Wes Felter",
+      "date": "2007-08-03T14:21:40Z",
+      "kind": "comment",
+      "html": "<p>It's probably worth distinguishing between DTrace as an out-of-tree Linux kernel module and DTrace as a part of the official Linux source repository.</p>\n"
+    },
+    {
+      "id": 1510,
+      "author": "James Dickens",
+      "url": "http://uadmin.blogspot.com",
+      "date": "2007-08-03T18:13:09Z",
+      "kind": "comment",
+      "html": "<p>If the Linux folks (namely IBM and Red hat) were serious about safety and spreading opensource beyond  Linux and there own doorstep. They would ported to DTrace to Linux using the same technology they base systemtap on. Kprobes and Uprobes(though these are still extremely new) to replace probe insertion methods in DTrace. Then they could of used 95% of DTrace's code as is, and they would miles a head of where they are now. This would require porting DTrace to Linux but keeping the majority of it in userland and one kernel module, that would be supported just as nvidia's non-open source driver is today, but of course it would be open. Then perhaps Linux users would have a tool that is safe to use in production.</p>\n"
+    },
+    {
+      "id": 1511,
+      "author": "Anonymous",
+      "date": "2007-08-03T19:30:14Z",
+      "kind": "comment",
+      "html": "<p>&gt; a tool that is safe to use in production<br>\nhttp://blogs.sun.com/security/entry/sun_alert_103021_solaris_10</p>\n"
+    },
+    {
+      "id": 1512,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-03T19:56:47Z",
+      "kind": "comment",
+      "html": "<p>Anonymous,<br>\nTo elaborate on your post a bit, the advisory was that if an administrator had given an ordinary user DTrace privileges (think fine-grained sudo) on a big SPARC box, there was a way that an incorrectly written script could panic the system. It was a bug, and there have been a couple in the past 4 years of DTrace being used on customer systems. My apologies if you tripped over this. For what it's worth, we take it very personally when people hit any kind of DTrace problem in the field, and -- perhaps because of this -- I don't think there's a user who would hesitate to use DTrace on a production system. That's the difference between an knockoff and the genuine article.</p>\n"
+    },
+    {
+      "id": 1513,
+      "author": "anonymous_too",
+      "date": "2007-08-03T20:15:40Z",
+      "kind": "comment",
+      "html": "<p>Me, I love the Linux kernel. Been that way since college. And I love ZFS and DTrace, which I get to play with at work. But you guys are missing the boat at Sun, kids in college or high school aren't playing with Solaris, they're playing with Linux. Is that a GPL thing? Or a Linux thing? Or a Solaris thing? A GPL thing? I don't know, I don't care. Stop bickering about license compatibility and start figuring out a way to combine the communities versus forcing them apart. You all need to get over it, the enemy's not us.</p>\n"
+    },
+    {
+      "id": 1514,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-03T20:22:26Z",
+      "kind": "comment",
+      "html": "<p>anonymous_too,<br>\nWe're in complete agreement about a couple of things: Linux is not the enemy, Sun is suffering because it's not as prevalently used as Linux in schools, and the licensing bickering is inane to an extreme. DTrace for Linux benefits everyone -- let's figure out how to make it happen.</p>\n"
+    },
+    {
+      "id": 1515,
+      "author": "Chris Cox",
+      "date": "2007-08-03T22:01:47Z",
+      "kind": "comment",
+      "html": "<p>Sorry... but the point that is being missed is that Linux is about learning and having fun.  About developing.  You see, fun isn't something that is restricted to prideful engineers at Sun Microsystems.  If so.. then yes.. of course, we would bow at the feet of those that know everything (just read the posts above) and never learn anything.  Sound like any other OS manufacturer?</p>\n<p>Ya'll are some completely clueless it's both sad and funny at the same time.  But... you are having fun with Solaris... and that's a good thing.  In fact, remove all the derogatory anti-Linux remarks by the \"worship-me, worship-me\" Sun engineers above and you merely have boastful pride :)</p>\n<p>This thread just makes you sick.  Anyone trying to model the behavior of the Sun engineers because you think there's something admirable about it... please stop.  Maturity comes by being a servant-leader and NOT by strutting around like a blooming peacock saying... \"Look at me! Look at me!\"</p>\n<p>Sheesh...  if this is what DTrace is... it's better left out of Linux.  Let Linux to continue to develop the \"non-enterprise\" OS that every enterprise in the world uses (morons).</p>\n"
+    },
+    {
+      "id": 1516,
+      "author": "Natalia Gorbski",
+      "date": "2007-08-04T00:24:57Z",
+      "kind": "comment",
+      "html": "<p>Adam, it's really quite simple to get over licensing issues, just stop being more restrictive than the GPL.  It's not complecated.  No, \"figuring it out,\" is needed, it's a simple change that is easy to do, since your company owns the complete set of rights to dtrace.  GPL2+ if you want it to be a Linux thing, MIT, ISC or BSD it if you want it to be everywhere.  Not rocket science here, your code is under a licence which makes it impossible to work with some other code, that's what the CDDL was designed to do, so don't have it under the CDDL and the problem is solved.</p>\n"
+    },
+    {
+      "id": 1517,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-04T02:54:15Z",
+      "kind": "comment",
+      "html": "<p>Chris: Yeah, well, you know, that's just, like, your opinion, man.</p>\n"
+    },
+    {
+      "id": 1518,
+      "author": "renoX",
+      "date": "2007-08-04T15:03:46Z",
+      "kind": "comment",
+      "html": "<p>Well, given that Sun chose *first* a GPL-incompatible license knowing perfectly that many Linux developpers consider that kernel modules must be licensed under a GPL-v2 compatible license (and did so before DTrace existed)..<br>\nAre you really surprised that Linux developers are annoyed by Sun claims that they would like to see DTrace ported on Linux? Quite frustrating when you know that no you cannot reuse the code!<br>\nSo it's quite logical that some developers are making an equivalent tool without really recognising DTrace inspiration.<br>\nSo you're accusation of other dishonesty is quite funny really, it may be true, but in my view Sun *started* by being dishonest, dishonesty often triggers dishonesty, nothing surprising here.<br>\nWhat is strange from my point of view, is that I would find perfectly valid for Sun to say that they came with a GPL-incompatible license for DTrace to keep a competitive advantage against Linux, competition is ok, what I don't find ok is the claims that it's Linux developers fault for not taking DTrace..</p>\n"
+    },
+    {
+      "id": 1519,
+      "author": "Manav",
+      "date": "2007-08-04T16:06:25Z",
+      "kind": "comment",
+      "html": "<p>It was amazing to see how the whole GPL gang is trying to convince everyone to change the DTrace license. Why?<br>\nDid SUN ever ask Linus to change Linux license or whacko stallman to change GPL to be more flexible?<br>\nSorry if Linux kernel developers are anal about including a binary module, then it is their problem. If they think building a loadable kernel module is a derivative work it is their problem.<br>\nDTrace code is open and Linux kernel developers should either figure out to make it work on Linux or shut the hell up. Don't try to force GPL on everything. <br>\nAnd BTW GPL is more restrictive license because you can't even include other code unless it is GPL. It is GPL's restriction, Period.</p>\n"
+    },
+    {
+      "id": 1520,
+      "author": "Alan W. Griffith",
+      "url": "http://alan-griffith.blogspot.com/",
+      "date": "2007-08-04T21:47:31Z",
+      "kind": "comment",
+      "html": "<p>I wish I knew how to do the port of dtrace to linux. I'd post the code and let lawyers fight each other over the scraps.</p>\n"
+    },
+    {
+      "id": 1521,
+      "author": "renoX",
+      "date": "2007-08-05T01:52:49Z",
+      "kind": "comment",
+      "html": "<p>@Manav: Instead of flaming you might consider what is the real meaning of 'open': in the same way that GPL code is not open for BSD guys as they can't use it and keep their project under BSD, CDDL code is not open for developers using GPL.</p>\n<p>So when Sun tell that they want Linux developers to use DTrace but they use an incompatible license, they are dishonest.</p>\n<p>What Linux users say to Sun if you truly want Linux developers to use DTrace, use a GPL compatible license, otherwise don't claim that you genuinely want Linux to use DTrace.</p>\n<p>Nobody is trying to force Sun to do anything, just asking them to be coherent.</p>\n"
+    },
+    {
+      "id": 1522,
+      "author": "BSD user",
+      "date": "2007-08-05T12:20:45Z",
+      "kind": "comment",
+      "html": "<p>I, for one, am very sad to see the dtrace port for FreeBSD die due to a licensing issue in the headers (not really the code proper). Ironically GPL'ing the code would further bury the project.</p>\n"
+    },
+    {
+      "id": 1523,
+      "author": "derek",
+      "date": "2007-08-05T19:29:11Z",
+      "kind": "comment",
+      "html": "<p>I saw the OSCON presentation and own the book (with taunting children) - dtrace is unparalleled  - i have never seen anything like it. to have this available in linux would be truly amazing. Honestly, dtrace is the only real benefit I see in solaris at this point - not cause it isn't a great OS but everything these days is built for linux - commercial and open source software - so i find issue all the time. So being on solaris is a huge penalty - dtrace is the only think that I care about that is not available on linux (sort of interested in zfs - but it is still not as awesome as dtrace - zones btw are really unimpressive - unless you use dtrace to trace stuff from the global zone) Anyway, if sun really wants dtrace to be open and usable on linux - the only way to make it happen is to dual license it under gpl v2 and cddl. I know it might seem silly and it is but this would expedite the process of bring dtrace to the masses.</p>\n"
+    },
+    {
+      "id": 1524,
+      "author": "david mcdaniel",
+      "date": "2007-08-06T10:21:42Z",
+      "kind": "comment",
+      "html": "<p>Well, dual licensing is not the *only* possibility. At the risk of being stoned as a heretic, one alternative would be to release *just the kernel portion* of DTrace into the public domain, with no license encumbrance whatsoever. If the goal is to get DTrace into Linux, then forget the concern about whether the Linux community would try to re-encumber later without contributing back to the original source. Just forget about it. Let them clone and own. So what?</p>\n"
+    },
+    {
+      "id": 1525,
+      "author": "Simon Phipps",
+      "url": "http://www.webmink.net/",
+      "date": "2007-08-06T11:46:44Z",
+      "kind": "comment",
+      "html": "<p><i>BSD User</i>: It's Sun's opinion that there is no license barrier that prevents FreeBSD from incorporating DTrace.<br>\nI realise that there is a FreeBSD community sponsor that wants people to believe otherwise but having thoroughly investigated the matter I am convinced that changing any of the licenses for DTrace, a move that would be highly unpopular in the OpenSolaris community, is completely unnecessary.</p>\n"
+    },
+    {
+      "id": 1526,
+      "author": "David Comay",
+      "url": "http://blogs.sun.com/comay/",
+      "date": "2007-08-06T11:49:04Z",
+      "kind": "comment",
+      "html": "<p>Derek,<br>\nYou certainly can use DTrace from the global zone to examine processes running within other zones.  And since OpenSolaris supports running different OS \"brands\" inside a zone such as Linux, you can even DTrace Linux applications from there.<br>\nNote that many of the providers are also available within the non-global zone itself.  It's unfortunate you didn't explain why you find zones unimpressive but if you're game, you can find us at zones-discuss@opensolaris.org - we're happy to hear what you're trying to do and to see how we can improve zones.</p>\n"
+    },
+    {
+      "id": 1527,
+      "author": "Natalia Gorbski",
+      "date": "2007-08-06T11:51:44Z",
+      "kind": "comment",
+      "html": "<p>Simon, then you know nothing of what you're talking about.  Let's not have another bullcrap statement about how Sun thinks that the CDDL is BSD compatible, much like the GPL, it's not.  Quite the opposite, BSD can go into the CDDL, but not vice versa.  Your licence is just as distasteful to BSD users as the GPL before it.</p>\n"
+    },
+    {
+      "id": 1528,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-06T12:59:11Z",
+      "kind": "comment",
+      "html": "<p>For those of you interested in discussing the legality of a DTrace port to Linux, <a href=\"http://dtrace.org/blogs/ahl/what_if_machine_dtrace_port\" rel=\"nofollow ugc noopener noreferrer\">my next post</a> proposes a hypothetical model under which such a port may be valid.</p>\n"
+    },
+    {
+      "id": 1529,
+      "author": "Simon Phipps",
+      "url": "http://www.webmink.net/",
+      "date": "2007-08-06T17:33:19Z",
+      "kind": "comment",
+      "html": "<p>Natalia: The issue is not the simplistic CDDL vs BSD one that some are touting. We're talking here about the interaction of a CDDL-licensed .h file with FreeBSD source code and the responsibilities that imposes - all other CDDL-licensed code is perfectly distinct from FreeBSD. Since that .h file contains no source code, only prototypes, it is unable to cause the patent-tainting effects some voices in your community posit.<br>\nSince Adam doesn't like license conversations here, feel free to write to me directly if you'd like to discuss this - e-mail  my.name AT sun.com</p>\n"
+    },
+    {
+      "id": 1530,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-06T18:02:55Z",
+      "kind": "comment",
+      "html": "<p>Simon,<br>\nYou're -- of course -- more than welcome to discuss licensing issues here. It justs seems that we're little progress discussing these issues in the abstract. To this specific issue: I'm not sure I agree with your interpretation of the CDDL in that header files don't contain source code -- I'd argue they contain only source code.<br>\nThe important point is that including a header file can't confer restrictions: if that were the case, every program that included &lt;stdio.h&gt; would fall under the umbrella of the CDDL -- and that's clearly not the case.</p>\n"
+    },
+    {
+      "id": 1531,
+      "author": "John Birrell",
+      "url": "http://dtrace.what-creek.com/",
+      "date": "2007-08-06T23:41:51Z",
+      "kind": "comment",
+      "html": "<p>Hmmm, I wonder if I should comment? 8-)<br>\nOn the issue of DTrace vs SystemTrap, just give me DTrace, dammit.<br>\nThe whole license mess is one which I have no solution to. There have been a lot of (private) emails on the subject with lots of people in Sun.<br>\nIt is clear to me that Sun genuinely wants to see it's technologies in other operating systems.<br>\nWe just don't agree on what it takes to achieve that.<br>\nIf I add CDDL code to FreeBSD's generic kernel and ship the binary, I change the license from one that is purely BSD to include CDDL clauses. I am told by the FreeBSD community that isn't acceptable. So I am not allowed to do it.<br>\nI have decided to take a different approach.<br>\nI plan to ship a set of patches that can be applied to a FreeBSD source tree that will get DTrace support in regardless of what the CDDL does or doesn't say. The CDDL only kicks in when you ship a binary. The rest of the time the code is completely free to use.<br>\nThe trick in this is that I want to make the patched kernel compatible with the generic one that is _really_ shipped by FreeBSD. To do that I want to add opaque fields to the few structures (like struct proc) that can be used by a DTrace-aware kernel, but are otherwise ignored by a DTrace-ignorant kernel. I will need to get permission to do this from the FreeBSD developer community.</p>\n"
+    },
+    {
+      "id": 1532,
+      "author": "Simon Phipps",
+      "url": "http://www.webmink.net/",
+      "date": "2007-08-07T08:56:04Z",
+      "kind": "comment",
+      "html": "<p>John:  Good to see you're still positive amidst all this, and very pleased you commented! Your approach sounds good to me. I'm just sad you're having to go to that place and I'd still like to work out how to avoid that.<br>\n&gt; If I add CDDL code to FreeBSD's generic kernel<br>\n&gt; and ship the binary, I change the license from<br>\n&gt; one that is purely BSD to include CDDL clauses.<br>\n&gt; I am told by the FreeBSD community that isn't <br>\n&gt; acceptable. So I am not allowed to do it.<br>\nIt's still my view you're all being mis-advised on the impact of CDDL. The patent-peace the CDDL requires applies only to the patents associated with the source code used. Since you are only using the .h files in the kernel build, and since those contain only function prototypes and not the actual code that implements them, I've still not had anyone explain to me how the risk you've been told about arises.<br>\n&gt; The CDDL only kicks in when you ship a binary. <br>\nAs for shipping binaries, unlike the GPL and other \"class C\" licenses, CDDL does not place restrictions on licensing of binaries (it's just like the BSD in that regard).<br>\nI remain convinced that there's a path forward that does not involve offending the ideologies of either the OpenSolaris or the FreeBSD communities and I'm happy to carry on the discussion.</p>\n"
+    },
+    {
+      "id": 1533,
+      "author": "John Birrell",
+      "url": "http://dtrace.what-creek.com/",
+      "date": "2007-08-08T00:41:44Z",
+      "kind": "comment",
+      "html": "<p>&gt; It's still my view you're all being mis-advised<br>\n&gt; on the impact of CDDL. The patent-peace the CDDL<br>\n&gt; requires applies only to the patents associated<br>\n&gt; with the source code used. Since you are only<br>\n&gt; using the .h files in the kernel build, and<br>\n&gt; since those contain only function prototypes<br>\n&gt; and not the actual code that implements them,<br>\n&gt; I've still not had anyone explain to me how<br>\n&gt; the risk you've been told about arises.<br>\nThe problem I have is that I get various opinions, none of which are from lawyers, and none of which have been tested in court, so I have to ask... who do I believe?<br>\nIf the .h files are so inconsequential (as you imply) then what is wrong with BSD licensing them and making all the pseudo-legal opinions moot?<br>\nIf it takes a legal opinion to suggest where I stand with CDDL code, then I think that's a road to failure. All those of us who aren't Americans continue to be amazed at what the US legal system does. Here in Australia it wouldn't be a problem because law suits have to be reasonable in the eyes of the court. Until the CCDL is tested in a US court and a precedent is set, _ALL_ legal opinions are just that.... opinions.<br>\nI have asked for legal clarity and I continue to do so. Give me open source I can use without needing a lawyer and I will love you (Sun) for an eternity.<br>\nGive me open source tainted by the CDDL and I think I might as well just break the license and let you hound me. That feels like the easier road to take right now.<br>\n(Of course I should mention here that if someone has some dollars to spend, I'd happily port DTrace to Linux. 80% is easy. Just like FreeBSD where 80% is where we're at according to Bryan. The remaining 20% gets harder and harder as you get deeper into the complexity of how DTrace gets visibility of OpenSolaris processes.)</p>\n"
+    },
+    {
+      "id": 1534,
+      "author": "Anonymous",
+      "date": "2007-08-08T08:43:48Z",
+      "kind": "comment",
+      "html": "<p>By the way, does anyone else see a delicious irony in complaining about a few lines in a presentation, and yet adorning this blog post with copyright-violating youtube links?</p>\n"
+    },
+    {
+      "id": 1535,
+      "author": "Bryan Cantrill",
+      "url": "http://blogs.sun.com/bmc",
+      "date": "2007-08-08T09:06:13Z",
+      "kind": "comment",
+      "html": "<p>First, you seem to have confused plagiarism with copyright violations.  The latter is a legal issue; the former (to me, at least) is a moral issue. Secondly, while I am not a lawyer, Adam's use of copyrighted material here may well fall under fair use:  he's essentially just making a slightly more elaborate Simpsons reference -- it seems at least arguable that this would be considered de minimis use.  Even if not considered de minimis, this might be considered fair use under the precedent of Kelly v. Arriba Soft (2003).</p>\n"
+    }
+  ]
+}

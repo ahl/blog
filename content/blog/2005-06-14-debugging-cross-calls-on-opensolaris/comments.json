@@ -1,0 +1,13 @@
+{
+  "post": "/2005/06/14/debugging-cross-calls-on-opensolaris/",
+  "count": 1,
+  "comments": [
+    {
+      "id": 1663,
+      "author": "Ivan Berg",
+      "date": "2005-07-14T10:01:14Z",
+      "kind": "comment",
+      "html": "<p>Good writeup on a nasty debugging problem!<br>\nI was curious about CTF and libdis? I couldn't find may references to to them on the web (some on other Sun blogs)?</p>\n"
+    }
+  ]
+}

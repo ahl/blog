@@ -1,0 +1,59 @@
+{
+  "post": "/2004/07/13/number-11-of-20-libumem/",
+  "count": 7,
+  "comments": [
+    {
+      "id": 1754,
+      "author": "Anonymous",
+      "date": "2004-07-14T00:16:35Z",
+      "kind": "comment",
+      "html": "<p>libumem is OK as far as it goes, but there is a whole class of errors that it can't catch.  Compared to tools like purify, valgrind or the tools included in the Forte compilers it's pretty much a toy.  Sorry.</p>\n"
+    },
+    {
+      "id": 1755,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-07-14T00:58:52Z",
+      "kind": "comment",
+      "html": "<p>The big difference is that you can run libumem in production with acceptable overhead. I haven't played with purify much, but I've been told by several customers that it can be _painfully_ slow and can actually miss real leaks and incorrectly flag non-leaks. Libumem is something you can use in production -- not just in your development environment.</p>\n"
+    },
+    {
+      "id": 1756,
+      "author": "Jarod Jenson",
+      "date": "2004-07-14T01:43:15Z",
+      "kind": "comment",
+      "html": "<p>I love comments like this - \"...there is a whole class of errors that it can't catch.\" Please give an example. I have used libumem on a number of occassions with code that has been \"purified\". It amazes me to find the leaks that were flagged only as possbile leaks (and therefore usually ignored). I have never had Purify identify anything after using libumem on an application - and this is based on numerous engagements.<br>\nAs Adam says, the probe effect of Purify is so high (not to mention you have to run an altered version of your app) that you cannot get quality information. I have seen the performance impact of purify be more than 10X for applications with high allocation rates.<br>\nLibumem is obviously far more than a toy.</p>\n"
+    },
+    {
+      "id": 1757,
+      "author": "Anonymous",
+      "date": "2004-07-14T03:21:56Z",
+      "kind": "comment",
+      "html": "<p>http://www.sgr.nada.kth.se/unix/software/rational/purify/, look at the list in the 'Purify Messages' chapter.</p>\n"
+    },
+    {
+      "id": 1758,
+      "author": "Jonathan Adams",
+      "date": "2004-07-14T12:29:46Z",
+      "kind": "comment",
+      "html": "<p>I'm also going to chime in on this -- purify and valgrind are fine tools, but they are in a very different design space than libumem.  libumem is designed to be a low-overhead, highly scalable allocator with memory debugging features which are usable in a production environment.<br>\nNeither purify nor valgrind (nor the Forte tools, for that matter) have low enough overhead (in time *or* space) to run on a production system, nor were they initially designed with scalability in mind -- as Jarod points out, Purify's overhead can be so ruinous that the system cannot even reach the state where the problems occur.</p>\n"
+    },
+    {
+      "id": 1759,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-07-14T17:19:33Z",
+      "kind": "comment",
+      "html": "<p>Jonathan pointed out that I forgot to mention the paper he and Jeff Bonwick wrote for USENIX 2001. I subsequently added a link; here it is in case you missed it: http://www.usenix.org/event/usenix01/bonwick.html</p>\n"
+    },
+    {
+      "id": 1760,
+      "author": "Philip Beevers",
+      "date": "2004-08-16T07:09:16Z",
+      "kind": "comment",
+      "html": "<p>I can see both sides here; I'd reinforce Jonathan's comment about purify/valgrind being a very different kind of beast.</p>\n<p>Both purify and valgrind are excellent pieces of technology, and they can both catch a wide family of problems. But, as others have noted, the intrusive nature makes running them on a big application a trial of patience - I'd say Jarod's metric of 10x worse performance is a fairly typical figure! Running them in production is out of the question, but for the developer, purify in particular presents what you want to know in a very nice format.</p>\n<p>Perhaps more subtly, the intrusiveness makes both tools very fragile - new compiler or linker or C++ runtime patches from Sun will invariably break purify. And I can't get valgrind working properly with NPTL on RHEL3.</p>\n<p>Having said that, there are some things which a malloc debug library (and I know I'm belittling libumem by calling it that) isn't going to catch, by definition - overruns in buffers which are on the stack, for instance.</p>\n<p>libumem sounds fantastic, particularly if the performance is better than watchmalloc. Slab allocation is also something which can be a big boost in terms of runtime performance and reduced memory usage, especially in a C++ program where you're using lots of small objects. Maybe someone should put together a FAQ showing how to overload new and delete so that a class uses a libumem cache for its allocation?</p>\n<p>Presumably for heap-based buffer overruns, libumem uses watchpoints, just like watchmalloc, so the performance would be about the same?</p>\n"
+    }
+  ]
+}

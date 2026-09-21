@@ -1,0 +1,47 @@
+{
+  "post": "/2007/10/27/dtracefirefoxleopard/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 1464,
+      "author": "Derek Morr",
+      "url": "http://mrdeviant.livejournal.com/",
+      "date": "2007-10-27T13:24:15Z",
+      "kind": "comment",
+      "html": "<p>The hotspot provider is supported in Apple's Java 6 package. Unfortunatly, Java 6 isn't shipping with Leopard. It will be available sometime in the near future (there's a preview in ADC now).</p>\n"
+    },
+    {
+      "id": 1465,
+      "author": "Brendan Gregg",
+      "url": "http://blogs.sun.com/brendan",
+      "date": "2007-10-28T15:01:20Z",
+      "kind": "comment",
+      "html": "<p>Awsome! The JavaScript DTrace probes and the default capabilities of DTrace are providing powerful new ways to observe the behaviour of JavaScript and the browser like never before. It's great news that MacOS X users will be able to enjoy what is the future of performance observability.<br>\nMore details about the JavaScript probes can be found on the OpenSolaris page and the Bugzilla entry: <a href=\"http://www.opensolaris.org/os/project/mozilla-dtrace\" rel=\"nofollow ugc noopener noreferrer\">http://www.opensolaris.org/os/project/mozilla-dtrace</a>  and  <a href=\"https://bugzilla.mozilla.org/show_bug.cgi?id=388564\" rel=\"nofollow ugc noopener noreferrer\">https://bugzilla.mozilla.org/show_bug.cgi?id=388564</a> .</p>\n"
+    },
+    {
+      "id": 1466,
+      "author": "Brian Crowder",
+      "url": "http://blog.mozilla.com/bcrowder",
+      "date": "2007-10-29T10:37:53Z",
+      "kind": "comment",
+      "html": "<p>Adam:  Have you opened a bugzilla bug to track the build changes you made, yet?</p>\n"
+    },
+    {
+      "id": 1467,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-10-29T16:42:27Z",
+      "kind": "comment",
+      "html": "<p>Brian,<br>\nNot yet. I'm hoping Brendan can help me navigate the process...</p>\n"
+    },
+    {
+      "id": 1468,
+      "author": "Myk Melez",
+      "url": "http://melez.com/mykzilla/",
+      "date": "2007-10-30T17:40:10Z",
+      "kind": "comment",
+      "html": "<p>Adam, I've filed a bug:<br>\n<a href=\"https://bugzilla.mozilla.org/show_bug.cgi?id=401806\" rel=\"nofollow ugc noopener noreferrer\">https://bugzilla.mozilla.org/show_bug.cgi?id=401806</a><br>\nSign up for a Bugzilla account here:<br>\n<a href=\"https://bugzilla.mozilla.org/createaccount.cgi\" rel=\"nofollow ugc noopener noreferrer\">https://bugzilla.mozilla.org/createaccount.cgi</a><br>\nThen assign the bug to yourself, attach the patch, and request review from the appropriate owner/peer of the code you are changing (for build changes, this is probably Benjamin Smedberg).<br>\nNote that Ryan Flint has also created a patch, which is available here:<br>\n<a href=\"http://screwedbydesign.com/mozilla/dtracemac.diff\" rel=\"nofollow ugc noopener noreferrer\">http://screwedbydesign.com/mozilla/dtracemac.diff</a></p>\n"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "post": "/2010/08/27/the-future-of-solaris/",
+  "count": 10,
+  "comments": [
+    {
+      "id": 1843,
+      "author": "Anon",
+      "date": "2010-08-27T17:24:49Z",
+      "kind": "comment",
+      "html": "<p>The thing that seems strange is the need for these companies to have such an open base to start with. It seems like they should be able to just build on closed Solaris and possibly have a \"special relationship\" with Oracle to feed in their changes (clearly they've got the engineering talent to need such a set up). If open is better than why isn't FreeBSD ten times better than Windows on a server (although I am saying this as a Linux user not a developer)?</p>\n"
+    },
+    {
+      "id": 1844,
+      "author": "Matt Doar",
+      "url": "http://www.pobox.com/~doar",
+      "date": "2010-08-27T17:42:19Z",
+      "kind": "comment",
+      "html": "<p>&gt; can you fork a dead project?</p>\n<p>Sure, I think it's a form of resurrection. Or perhaps necrophilia.</p>\n"
+    },
+    {
+      "id": 1845,
+      "parent": 1843,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2010-08-27T18:18:54Z",
+      "kind": "comment",
+      "html": "<p>FreeBSD _is_ ten times better than Windows for an appliance. Why don't companies license code from Oracle? Oracle probably doesn't want to do it, and companies wouldn't want to bet their future on Oracle's eternal beneficence.</p>\n"
+    },
+    {
+      "id": 1846,
+      "author": "Pete",
+      "date": "2010-08-28T04:03:33Z",
+      "kind": "comment",
+      "html": "<p>ZFS may have been announced in 2004 but it certainly wasn't released then, and was absent in Solaris 10 GA.  Nevertheless, Solaris 10 had an impressive list of features.</p>\n<p>Best of luck at Delphix!</p>\n"
+    },
+    {
+      "id": 1847,
+      "author": "links for 2010-08-28 « Wild Webmink",
+      "url": "http://webmink.com/2010/08/28/links-for-2010-08-28/",
+      "date": "2010-08-28T12:09:18Z",
+      "kind": "pingback",
+      "html": "<p>[...] The future of Solaris, by Adam Leventhal Interesting and useful exploration of the history of OpenSolaris and Solaris puts Oracle's actions into perspective. It also shows why Illumos is a true open source community with a bright future, as it's the coming together of skilled developers who each have different reasons to need a Illumos and are synchronizing those fragmentary interests in an open and equal community around a shared commons. (tags: Illumos Solaris OpenSolaris Oracle Nexenta Joyent FOSS opensource) [...]</p>\n"
+    },
+    {
+      "id": 1848,
+      "author": "Links 28/8/2010: Diaspora Coming Within Weeks, SFLC Now in India Too | Techrights",
+      "url": "http://techrights.org/2010/08/28/sflc-in-india/",
+      "date": "2010-08-28T21:38:56Z",
+      "kind": "pingback",
+      "html": "<p>[...] The future of Solaris [...]</p>\n"
+    },
+    {
+      "id": 1851,
+      "author": "what is the current status of opensolaris?",
+      "url": "http://www.linuxquestions.org/questions/solaris-opensolaris-20/what-is-the-current-status-of-opensolaris-829278/#post4082238",
+      "date": "2010-08-30T11:30:22Z",
+      "kind": "pingback",
+      "html": "<p>[...] http://dtrace.org/blogs/bmc/2010/08/...f-opensolaris/ http://dtrace.org/blogs/ahl/2010/08/...re-of-solaris/ [...]</p>\n"
+    },
+    {
+      "id": 1854,
+      "author": "The end of OpenSolaris? « Tuna Park",
+      "url": "http://patrickfinch.com/2010/09/01/the-end-of-opensolari-2/",
+      "date": "2010-09-01T08:55:23Z",
+      "kind": "pingback",
+      "html": "<p>[...] Leventhal offers a rather interesting perspective on OpenSolaris, and it’s a perspective I share much – but not all – of.&nbsp; But to [...]</p>\n"
+    },
+    {
+      "id": 1856,
+      "author": "Space Blog from Arca Technologies » 1st Sep :: Weekly Newsletter on Open Source",
+      "url": "http://space.arca.com.sg/2010/09/02/1st-sep-weekly-newsletter-on-open-source/",
+      "date": "2010-09-02T03:07:33Z",
+      "kind": "pingback",
+      "html": "<p>[...] attitude. But as always in these situations, there is light at the end of the tunnel -&nbsp;it’s called Illumos: “The danger for those companies has long been that Oracle would pull the rug out from under [...]</p>\n"
+    },
+    {
+      "id": 1859,
+      "author": "Roger Singh",
+      "url": "http://www.scalar.ca",
+      "date": "2010-09-06T01:43:00Z",
+      "kind": "comment",
+      "html": "<p>Keep it alive!! Best of luck at Delphix and with illumos! Great projects both, and desperately needed in the industry.</p>\n<p>Interesting perspective on Indiana/Nevada debacle.</p>\n"
+    }
+  ]
+}

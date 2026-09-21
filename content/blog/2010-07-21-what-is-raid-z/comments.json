@@ -1,0 +1,68 @@
+{
+  "post": "/2010/07/21/what-is-raid-z/",
+  "count": 8,
+  "comments": [
+    {
+      "id": 1186,
+      "author": "Michael Schuster",
+      "date": "2010-07-22T00:20:21Z",
+      "kind": "comment",
+      "html": "<p>Hi Adam,<br>\nthx for this; I do believe a typo made it into the list, the definition of RAID-5 contains a reference to itself.<br>\ncheers</p>\n"
+    },
+    {
+      "id": 1187,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2010-07-22T01:00:04Z",
+      "kind": "comment",
+      "html": "<p>@Michael: Thanks; that was supposed to read \"RAID-4\", and I've corrected it.</p>\n"
+    },
+    {
+      "id": 1188,
+      "author": "Tom Shaw",
+      "date": "2010-07-22T01:02:13Z",
+      "kind": "comment",
+      "html": "<p>The definition of specialized hardware has changed since RAID-Z was conceived. It seems to me that DRAM-based SSDs are the mass-market equivalent of custom battery-backed NVRAM. So why invent a new RAID variant? Just use standard RAID-5 (or n-parity RAID) plus an SSD intent log.</p>\n"
+    },
+    {
+      "id": 1189,
+      "author": "Bruno",
+      "date": "2010-07-22T07:28:32Z",
+      "kind": "comment",
+      "html": "<p>So basically RAIDZ has, so far, less performance than traditional HW Raid 5/6 implementations, unless if we combine RAIDZ with a hybrid pool?</p>\n"
+    },
+    {
+      "id": 1190,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2010-07-22T08:59:11Z",
+      "kind": "comment",
+      "html": "<p>@Bruno RAID-Z is less capable specifically in the area of random read IOPS than RAID-5 or RAID-6.<br>\n@Tom Shaw It's true that SSDs have become prevalent, but they aren't yet at the same level of performance as traditional NV-DRAM cards. You're right that ZFS could just use RAID-5, but that would lose other benefits of RAID-Z such as resilver time proportional to the amount of data storee. A new RAID variant would have the IOPS of RAID-5, and an even greater dynamism in the stripe layout than RAID-Z; we're thinking carefully about this problem and considering having a fast intent log device as a required part of the system as you suggest.</p>\n"
+    },
+    {
+      "id": 1191,
+      "author": "Tom Shaw",
+      "date": "2010-07-22T18:01:22Z",
+      "kind": "comment",
+      "html": "<p>Thanks Adam. I'm actually very excited that you folks are looking into this area. I've been very hesitant to recommend using RAID-Z because it puts the disks into lockstep and destroys IOPS. I've either recommended mirrored devices or no vdev-redundancy (relying on an existing array to provide RAID-5 \"chunks\").<br>\nI don't see the resilvering behaviour of RAID-Z as an advantage. It's often slower than a RAID-5 sequential rebuild, and it opens up a new class of leaky abstraction bugs (e.g. the interaction between resilvering and snapshots, which in the 7000-series leaked further into replication).<br>\nFinally, from the point of view someone ex-Sun, independent for the past 2 years: in the end, I don't care if your solution requires some special sauce in the form of specialized hardware or license-locked software. Do what it takes to make money and keep customers confident in the future roadmap. That's what will drive adoption.</p>\n"
+    },
+    {
+      "id": 1192,
+      "author": "Benedikt Esser",
+      "date": "2010-08-02T07:59:52Z",
+      "kind": "comment",
+      "html": "<p>You have a lot of nice features, but where are the basics?<br>\nWhere is an UPS-Support? (no power - go down, power recover - start up)<br>\nWhere can i specify one or more Netbios-Alias (typical you need it for server consolidation)<br>\nWhy there is no ISO-Image for reinstall my nice 7110 if system mirror fails?</p>\n"
+    },
+    {
+      "id": 1193,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2010-08-02T10:30:18Z",
+      "kind": "comment",
+      "html": "<p>@Benedikt For questions of support for the 7000 series please contact your service representative. Responding to support requests on unrelated blog posts is not a sustainable model.</p>\n"
+    }
+  ]
+}

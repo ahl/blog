@@ -1,0 +1,37 @@
+{
+  "post": "/2004/07/02/dtrace-as-non-root/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1765,
+      "author": "Anonymous",
+      "date": "2004-07-07T02:02:47Z",
+      "kind": "comment",
+      "html": "<p>Dtrace seems like it will be of major use. I am glad you guys kept security in mind. Will Solaris 10 come with certain \"canned\" dtrace scripts that will be of use to sysadmins 80% of the time? A good example of such a script is the top 10 i/o consumers script on Eric Schrock's blog (http://blogs.sun.com/eschrock). He mentions that you guys are working on a utility (not sure what he meant maybe it is same thing as pre canned scripts). I would prefer easy-to-modify scripts for easy customization better than having just precompiled utility. Many sysadmins are not programmers but they are adept at modifying or customizing scripts for their own use.<br>\nWill there be the possibility for third parties to create GUI front ends that display or log system information using dtrace? It seems like there are many many probes a GUI will make things easier.</p>\n"
+    },
+    {
+      "id": 1766,
+      "author": "smg",
+      "date": "2004-07-07T09:13:30Z",
+      "kind": "comment",
+      "html": "<p>A GUI around dtrace...  I can imagine the list,<br>\n36,000 items in the menu to choose from ;-)</p>\n"
+    },
+    {
+      "id": 1767,
+      "author": "fintanr",
+      "url": "http://blogs.sun.com/fintanr",
+      "date": "2004-07-07T09:41:02Z",
+      "kind": "comment",
+      "html": "<p>Theres a bunch of scripts available on the big admin  site, and links to a bunch more. What kind of scripts are you thinking about?</p>\n"
+    },
+    {
+      "id": 1768,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-07-07T09:42:51Z",
+      "kind": "comment",
+      "html": "<p>The Solaris Dynamic Tracing Guide is full of examples and all those (and probably some more) will be shipped with Solaris (probably in /usr/demo or something). Also, we're working on GUI front ends for DTrace, and, no, it won't look like a pull down menu with a bazillion probes to choose from. We're working on ways of using graphics to both present data in interesting ways and ease navigation from one question to the next. I promise there will be much more on this later.</p>\n"
+    }
+  ]
+}

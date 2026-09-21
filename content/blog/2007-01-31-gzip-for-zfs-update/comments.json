@@ -1,0 +1,60 @@
+{
+  "post": "/2007/01/31/gzip-for-zfs-update/",
+  "count": 7,
+  "comments": [
+    {
+      "id": 1547,
+      "author": "Jeff Bonwick",
+      "url": "http://blogs.sun.com/bonwick",
+      "date": "2007-02-01T03:07:44Z",
+      "kind": "comment",
+      "html": "<p>Thanks for doing this -- way cool.  One thought on the different compression levels: if I recall correctly, the level isn't part of the compressed output, so it's not strictly necessary to burn 9 slots (gzip1...gzip9) in the compression vector array.  Keeping an extra byte per dataset to remember the level would be trivial; the only awkward part is the dnode.  Although we don't currently export it in the admin model, compression is actually settable on a per-file basis, not just per-filesystem, and follows the same inheritance rules that we use for nested datasets.  So the dnode also has a byte for compression flavor, and if we didn't use 9 distinct values, we'd need another byte to encode the level.  We have spare bytes in the dnode, but it seems kind of wasteful.  Then again, so is this comment.  If you want to burn 9 slots, be my guest.  ;-)</p>\n"
+    },
+    {
+      "id": 1548,
+      "author": "alexvdb25",
+      "date": "2007-02-01T04:05:49Z",
+      "kind": "comment",
+      "html": "<p>Thanks Adam for your work and your answers to our questions :-)</p>\n"
+    },
+    {
+      "id": 1549,
+      "author": "Igor",
+      "date": "2007-02-01T06:15:47Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nThat's great feature!<br>\nWhat is time(sec) on left diagram - wall or CPU time? What was the other time?<br>\nWhat hardware it was measured on (CPUs, HD etc)?<br>\nIs your implementation expected to scale with # of CPUs?</p>\n"
+    },
+    {
+      "id": 1550,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-02-01T08:41:26Z",
+      "kind": "comment",
+      "html": "<p>Jeff,</p>\n<p>Thanks for the note. I'll ping you about the trade-offs between using extra compression slots versus using a byte in the dnode.</p>\n<p>Igor,</p>\n<p>The performance test was very ad hoc, but the numbers are the real time on an otherwise idle 2-way 2Ghz Opteron. As for whether it will scale, tar itself is single-threaded <b>and</b> there's the problem of ZFS compression executing only on a single CPU (<a href=\"http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id=6460622\" rel=\"nofollow ugc noopener noreferrer\">6460622</a>). When these issues get sorted out and I'm closer to putting back, I or someone else will gather sore more meaningful data.</p>\n"
+    },
+    {
+      "id": 1551,
+      "author": "Igor",
+      "date": "2007-02-01T13:05:46Z",
+      "kind": "comment",
+      "html": "<p>Thanks for clarifications. It seems there's no good reason to use tar for per. measurements of ZFS.</p>\n"
+    },
+    {
+      "id": 1552,
+      "author": "roland",
+      "date": "2007-02-03T05:37:36Z",
+      "kind": "comment",
+      "html": "<p>hey, this is really damn great stuff!<br>\ni would really like to try zfs with zlib compression, especially doing performance comparison and compression efficiency.<br>\nunfortunately, i`m not that much into solaris but more on linux, so i`m a real newbie when it comes to applying patches to solaris kernel source and compile/install such kernel.<br>\nany hints how to do this ?<br>\nor - should i just sit and wait for some number of days/weeks until this shows up in some update-package/distro release ?<br>\nregards<br>\nroland</p>\n"
+    },
+    {
+      "id": 1553,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-02-09T08:53:01Z",
+      "kind": "comment",
+      "html": "<p>roland,</p>\n<p>I hope to have this putback to Solaris within the next few weeks, and it will be available shortly after that. I didn't really intend anyone but the most adventurous OpenSolaris user to attempt to apply the patch, so unless that describes you sit tight -- gzip for ZFS will be available relatively soon.</p>\n"
+    }
+  ]
+}

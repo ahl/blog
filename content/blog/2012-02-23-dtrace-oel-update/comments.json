@@ -1,0 +1,69 @@
+{
+  "post": "/2012/02/23/dtrace-oel-update/",
+  "count": 8,
+  "comments": [
+    {
+      "id": 2226,
+      "author": "Shmerl",
+      "url": "http://shmerl.blogspot.com",
+      "date": "2012-02-24T03:17:19Z",
+      "kind": "comment",
+      "html": "<p>Source: http://oss.oracle.com/el6/Beta/SRPMS/</p>\n<p>It should be updated later in the git repo according to Elena Zannoni:<br>\nhttps://forums.oracle.com/forums/thread.jspa?threadID=2351031&amp;tstart=0</p>\n"
+    },
+    {
+      "id": 2228,
+      "author": "Paolo",
+      "date": "2012-02-24T20:02:31Z",
+      "kind": "comment",
+      "html": "<p>Isn't 171 the number of ints from arg0 (so the offset is 684)?</p>\n"
+    },
+    {
+      "id": 2229,
+      "parent": 2228,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-02-24T21:38:53Z",
+      "kind": "comment",
+      "html": "<p>Paolo -- yes of course. Thanks for pointing that out; updated.</p>\n"
+    },
+    {
+      "id": 2230,
+      "author": "Paul Fox",
+      "url": "http://crtags.blogspot.com",
+      "date": "2012-02-25T23:01:02Z",
+      "kind": "comment",
+      "html": "<p>I grabbed a copy of the sources and they broke apart dtrace.c into smaller files, which makes observing changes and diffing with Illumos, tricky.</p>\n<p>They are lacking ctf.</p>\n<p>Would be interesting to push their dtrace hard, and see what breaks, e.g. the torture test from my dtrace implementation would be insightful.</p>\n"
+    },
+    {
+      "id": 2231,
+      "parent": 2230,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-02-26T00:22:08Z",
+      "kind": "comment",
+      "html": "<p>BSD went down the road of splitting up dtrace.c... and then they glued it back together once they realized that it effectively created an unintentional fork. As for OEL, there's nothing going on upstream (Oracle Solaris).</p>\n"
+    },
+    {
+      "id": 2233,
+      "parent": 2231,
+      "author": "Paul Fox",
+      "date": "2012-02-27T14:11:24Z",
+      "kind": "comment",
+      "html": "<p>Thanks. Some people are against the \"lots of lines in one file\" approach.</p>\n<p>Theres an interesting set of comments here</p>\n<p>http://lwn.net/Articles/483107/</p>\n<p>more of the \"CDDL vs GPL\".</p>\n"
+    },
+    {
+      "id": 2235,
+      "author": "Kebabbert",
+      "date": "2012-03-08T09:34:45Z",
+      "kind": "comment",
+      "html": "<p>Maybe you should email VMware and offer them help?<br>\nhttp://x86vmm.blogspot.com/2007/09/presenting-vprobes.html</p>\n"
+    },
+    {
+      "id": 2238,
+      "author": "Elvis Presley",
+      "date": "2012-03-21T07:16:26Z",
+      "kind": "comment",
+      "html": "<p>I just tried this out as well.  Was hoping some of the dtrace toolkit dtrace goodies would work (I'm too lazy/dumb/etc to write my own).</p>\n<p>So far.. haven't found a single one that does (I was hoping the io ones would work).  :(</p>\n<p>Correction.. I just found one that does work:</p>\n<p>./rwbypid.d<br>\nTracing... Hit Ctrl-C to end.<br>\n^C<br>\n   PID CMD                       DIR    COUNT<br>\n  2295 bash                        R        0<br>\n  2337 rwbypid.d                   W        2<br>\n  2338 bash                        R        3<br>\n  1610 sshd                        W       16<br>\n  2295 bash                        W       29<br>\n  1610 sshd                        R       30<br>\n  2338 ls                          R       30<br>\n  2338 ls                          W       88<br>\n  2294 sshd                        W      298<br>\n  2294 sshd                        R      768</p>\n"
+    }
+  ]
+}

@@ -2,3 +2,11 @@ _site/
 node_modules/
 .cache
 .review/
+tools/wp-comments/target/
+
+# The WordPress export and its redacted copy. The raw export carries 750
+# commenter email addresses and 476 IP addresses and must never be committed to
+# a public repo; the redacted copy is safe but large, and is regenerable with
+# `cargo run --bin redact`. See tools/wp-comments/README.md.
+*.wordpress.*.xml
+tools/wp-comments/wxr/export.redacted.xml

@@ -1,0 +1,62 @@
+{
+  "post": "/2005/04/04/the-pid-provider-and-10-arguments/",
+  "count": 7,
+  "comments": [
+    {
+      "id": 1672,
+      "author": "fintanr",
+      "url": "http://blogs.sun.com/fintanr",
+      "date": "2005-04-04T20:01:37Z",
+      "kind": "comment",
+      "html": "<p>ouch, thats not nice. Hopefully I'll never need to use this tip :).</p>\n"
+    },
+    {
+      "id": 1673,
+      "author": "MrBenchmark",
+      "url": "http://blogs.sun.com/MrBenchmark",
+      "date": "2005-04-04T21:52:55Z",
+      "kind": "comment",
+      "html": "<p>Why not allowing us to type arg00 to arg99 ?<br>\nIt would help MrBenchmark's tiny memory...</p>\n"
+    },
+    {
+      "id": 1674,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-04-05T11:28:46Z",
+      "kind": "comment",
+      "html": "<p>Senor Benchmark,</p>\n<p>I should have made it clear that I don't think of this as a fix -- more like a stop gap work around. In fact I just opened a bug against DTrace to get this fixed -- it might even be a good bug for someone to get started with on OpenSolaris.</p>\n"
+    },
+    {
+      "id": 1675,
+      "author": "Mr Benchmark",
+      "url": "http://blogs.sun.com/MrBenchmark",
+      "date": "2005-04-05T16:25:57Z",
+      "kind": "comment",
+      "html": "<p>You're the man !<br>\nbenoit</p>\n"
+    },
+    {
+      "id": 1676,
+      "author": "eric",
+      "date": "2005-04-06T22:17:48Z",
+      "kind": "comment",
+      "html": "<p>Does this assume that all paramaters to the function are word-size or smaller, and that they are all integer?<br>\nThe 32-bit x86 ABI makes it easy to get an argument on the stack (at a cost of function call performance).  But don't the more modern ABIs of SPARC / AMD64 do things with floating-point and/or large arguments which mess this up?</p>\n"
+    },
+    {
+      "id": 1677,
+      "author": "Anon",
+      "date": "2005-04-07T14:22:37Z",
+      "kind": "comment",
+      "html": "<p>Somewhat OT:  while doing my first DTrace scripts, I found the examples in /usr/demo to be a great help.  I think it would help Solaris users get more out of DTrace if there were even more demo scripts available, which would make a \"cookbook\" of sorts.  Not big fancy scripts, but tidbits of functionality that give users ideas about attacking more complex problems.<br>\nIt just seems to me that DTrace is so flexible that the bigger the head start for programmers and admins, the more interesting things they can do with it.  It would even be really neat in the long term to see the ptools and the *stat tools expanded with Sun-provided DTrace scripts (i.e., no longer in /usr/demo but in /usr/bin).</p>\n"
+    },
+    {
+      "id": 1678,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-04-08T08:36:06Z",
+      "kind": "comment",
+      "html": "<p>Eric,</p>\n<p>I should have clarified: this is just for integer arguments and for 64-bit arguments on 32-bit architectures you'll need to mash together two of these word-sized arguments. Your comment also made me realize I forgot to include an important AMD64 caveat -- the compiler will sometimes only store 32-bits worth into the 64-bit argument meaning you have to cast it to an int (or uint32_t) or else end up with garbage. I'll update the post accordingly.</p>\n<p>Captain Anon,</p>\n<p>Glad to hear the scripts in the answer book are helpful (we stuck them in /usr/demo/dtrace/ so they'd always be on hand). We are indeed trying to expand that catalogue. We're also thinking about building -- for lack of a better term -- wizards to sort of guide you along the DTrace process. You might run one script, or -- as you suggest -- another monitoring tool which then leads you to a few pre-packaged D scripts which then lead you to other questions. While I don't think we can ever automate the \"DTrace process\", we can certainly help novices navigate the straights.</p>\n<p>Adam</p>\n"
+    }
+  ]
+}

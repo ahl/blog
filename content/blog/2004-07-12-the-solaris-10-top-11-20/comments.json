@@ -1,0 +1,30 @@
+{
+  "post": "/2004/07/12/the-solaris-10-top-11-20/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1761,
+      "author": "Steven Lumos",
+      "date": "2004-07-23T17:44:27Z",
+      "kind": "comment",
+      "html": "<p>So how long until the p-tools are rewritten as D programs?</p>\n"
+    },
+    {
+      "id": 1762,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-07-28T09:31:47Z",
+      "kind": "comment",
+      "html": "<p>I don't think we're going to be rewriting most of the core p-tools as DTrace scripts -- pstack(1), pmap(1), and pflags(1) are really about static state analysis rather than observing dynamic behavior. However, truss(1) is a good candidate for using DTrace as its underlying instrumentation methodology; we're thinking about how to do that...</p>\n"
+    },
+    {
+      "id": 1763,
+      "author": "Maven's Weblog",
+      "url": "http://blog/roller/page/maven/20041111#solaris_10_solaris_10_solaris",
+      "date": "2004-11-11T23:19:56Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] We are almost there now... :)<br>\nThere is so much at stake, a glimpse of it is at:<br>\nAdam Leventhal's Weblog -&gt;<br>\n\"The Solaris 10 top 11-20\" .<br>\nOthers outside Sun are excited too and have more to say about Solaris 10<br>\n\"The Importan...</p>\n"
+    }
+  ]
+}

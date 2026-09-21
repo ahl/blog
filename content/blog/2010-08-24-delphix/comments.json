@@ -1,0 +1,54 @@
+{
+  "post": "/2010/08/24/delphix/",
+  "count": 6,
+  "comments": [
+    {
+      "id": 1833,
+      "author": "Paula Rooney",
+      "url": "http://zdnet",
+      "date": "2010-08-24T17:43:54Z",
+      "kind": "comment",
+      "html": "<p>Adam:<br>\nMany believe OpenSolaris is dead. Why do you say it is not?</p>\n"
+    },
+    {
+      "id": 1834,
+      "parent": 1833,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2010-08-24T17:49:37Z",
+      "kind": "comment",
+      "html": "<p>In a way, OpenSolaris is definitely dead. But Illumos means that the code of OpenSolaris will continue. As I wrote, stay tuned.</p>\n"
+    },
+    {
+      "id": 1835,
+      "author": "Dave McDorman",
+      "date": "2010-08-25T01:59:09Z",
+      "kind": "comment",
+      "html": "<p>Great move... Just expect Oracle to buy them within a few years. Oracle buys all the emerging database software companies.</p>\n<p>I'm hoping they *don't* become \"patent\" trolls for anyone that uses \"OpenSolaris\" code to start new businesses. Unless they have deep pockets it's probably not worth the negative PR. One can only hope.</p>\n"
+    },
+    {
+      "id": 1837,
+      "parent": 1835,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2010-08-25T15:51:01Z",
+      "kind": "comment",
+      "html": "<p>I suppose being bought by Oracle wouldn't be the worst thing... I mean at least it would be familiar. And regarding patents, the CDDL explicitly grants a patent license for those using the code.</p>\n"
+    },
+    {
+      "id": 1838,
+      "author": "RP",
+      "date": "2010-08-26T09:45:51Z",
+      "kind": "comment",
+      "html": "<p>Well good luck for your new interesting assignment .  I hope and wish OpenSolaris stays with the community .</p>\n"
+    },
+    {
+      "id": 1839,
+      "parent": 1837,
+      "author": "Dave McDorman",
+      "date": "2010-08-26T20:15:59Z",
+      "kind": "comment",
+      "html": "<p>It's good to see the CDDL extends protections to companies that leverage OpenSolaris code.</p>\n"
+    }
+  ]
+}

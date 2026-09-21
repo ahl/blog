@@ -1,0 +1,190 @@
+{
+  "post": "/2016/03/07/big-news-for-zfs-on-linux/",
+  "count": 24,
+  "comments": [
+    {
+      "id": 55738,
+      "author": "Shawn Walker-Salas",
+      "date": "2016-03-07T18:43:49Z",
+      "kind": "comment",
+      "html": "<p>I would just like to point out that the Image Packaging System, a key component of Solaris 11 and later is still an open source project licensed under the CDDL, where development and discussion happen in the open:</p>\n<p>https://java.net/projects/ips</p>\n"
+    },
+    {
+      "id": 55739,
+      "author": "Big News For ZFS On Linux | ..:: Frog In The Box ::..",
+      "url": "http://www.froginthebox.com/2016/03/07/big-news-for-zfs-on-linux/",
+      "date": "2016-03-07T19:01:08Z",
+      "kind": "pingback",
+      "html": "<p>[...] News for ZFS on Linux  Comments  Articolo Originale: http://dtrace.org/blogs/ahl/2016/03/07/big-news-for-zfs-on-linux/ Condividi:TweetCondividi su TumblrPocketE-mailStampaMi piace:Mi piace [...]</p>\n"
+    },
+    {
+      "id": 55740,
+      "author": "dan",
+      "date": "2016-03-07T19:10:16Z",
+      "kind": "comment",
+      "html": "<p>Should I do the same with my copy of Oracle database? I could just make as many copies as I can sell and profit!</p>\n<p>Why hasn't anyone thought of this before?</p>\n<p>You sir, are a genius. This could transform the software business as we know it.</p>\n"
+    },
+    {
+      "id": 55741,
+      "parent": 55740,
+      "author": "dan",
+      "date": "2016-03-07T19:13:09Z",
+      "kind": "comment",
+      "html": "<p>And by \"do the same\" I mean ignore the license.</p>\n<p>And yes, I am trolling.</p>\n"
+    },
+    {
+      "id": 55742,
+      "author": "Paige Thompson",
+      "date": "2016-03-07T19:16:42Z",
+      "kind": "comment",
+      "html": "<p>What does ZFS have going for it besides block level crypto and compression? software raid? BTRFS has this except for crypto, not that I want that to change anyway (I barely trust LUKS as it stands.) mdadm has one advantage as it stands which is that on parity raid you can adjust the stripe cash size to use more memory in favor of better performance.</p>\n<p>volume management, snapshots, online defrag, I've used all of this for well over a year with BTRFS, without any notable penalties; why are people using OpenZFS?</p>\n<p>https://www.reddit.com/r/linux/comments/32cu9w/zfs_vs_btrfs/</p>\n<p>\"using it in production\" where would you ever have a legitimate use for this filesystem on a \"production\" server..</p>\n"
+    },
+    {
+      "id": 55743,
+      "author": "Dustin Kirkland",
+      "url": "http://blog.dustinkirkland.com",
+      "date": "2016-03-07T19:17:09Z",
+      "kind": "comment",
+      "html": "<p>It's probably also worth linking to Eben Moglen and the Software Freedom Law Center's analysis (which discusses dtrace, too): https://www.softwarefreedom.org/resources/2016/linux-kernel-cddl.html</p>\n<p>Cheers,<br>\nDustin</p>\n"
+    },
+    {
+      "id": 55744,
+      "parent": 55743,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-03-07T19:21:42Z",
+      "kind": "comment",
+      "html": "<p>Thanks for the link!</p>\n"
+    },
+    {
+      "id": 55745,
+      "author": "Paige Thompson",
+      "date": "2016-03-07T19:22:11Z",
+      "kind": "comment",
+      "html": "<p>also FWIW, I'm using BTRFS on LUKS on SSD .... you'll want to do some reading to make sure you understand how to get trim working correctly but its been around.</p>\n"
+    },
+    {
+      "id": 55746,
+      "author": "darkfader",
+      "date": "2016-03-07T20:11:42Z",
+      "kind": "comment",
+      "html": "<p>Funny how you managed to not refer to btrfs on the \"let's rewrite it, how hard can it be\" section, especially considering Oracle has paid it's development for years and years to ensure an open alternative was on the horizon. even to the point now where they and SUSE offered support for it.<br>\nThat it sucks and isn't remotely something you'd wish your financial data you rest on is one of the wonders of open source.</p>\n<p>To those who think there's only a marginal gap: No. Sorry. If you don't see the difference, learn more about ZFS, consider large scale usage and maintenance and seriously, if you then still don't see it, you haven't learned enough yet.</p>\n"
+    },
+    {
+      "id": 55747,
+      "author": "Tim",
+      "date": "2016-03-07T20:14:30Z",
+      "kind": "comment",
+      "html": "<p>The article contains some implicit contradictions.</p>\n<p>\"It’s hard to dignify this with an explanation, but OpenZFS is the product of 100s of person-years.\"</p>\n<p>yet:</p>\n<p>\"“[some other Linux filesystem] is better!” Could be, but I doubt it.\"</p>\n<p>BTRFS was designed and implemented years after ZFS, using the same basic principles, and attempting to learn from its design mistakes (and as an early ZFS user, I know them well!).  There's nothing that ZFS does that isn't already done by BTRFS, or is on the BTRFS roadmap for the near future.</p>\n<p>In a sense, we've already put in 100s of person-years into rewriting (and improving on) ZFS under the GPL, and it's 90% of the way there.</p>\n<p>The question is no longer \"Can I squint just right and pretend ZFS is GPL-compatible?\" or \"Should we rewrite it all from scratch?\"  There's a new option on the table, which is \"Can we take this thing which is 90% of the way there, and improve it in the ways we need to be on par with ZFS?\"</p>\n"
+    },
+    {
+      "id": 55748,
+      "author": "cmurf",
+      "date": "2016-03-07T20:30:39Z",
+      "kind": "comment",
+      "html": "<p>I have to agree with the Btrfs v ZFS comments. ZFS is certainly more stable, it had a very fast and aggressive start in comparison, and has had more time in the oven. So if you need something stable, for users to pick ZFS on Linux is completely reasonable. For Canonical to dither over the legality, and include ZFS by default rather than improve their Btrfs contributions is very telling.</p>\n<p>RFC patch for experimental encryption was posted a week ago. This initially implements it as per subvolume encryption. The eventual idea is to also support per file encryption using the same ABI/API as f2fs and ext4.</p>\n"
+    },
+    {
+      "id": 55749,
+      "parent": 55748,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-03-07T20:45:29Z",
+      "kind": "comment",
+      "html": "<p>&gt; For Canonical to dither over the legality, and include ZFS by default rather than improve their Btrfs contributions is very telling.</p>\n<p>Spot on.</p>\n"
+    },
+    {
+      "id": 55750,
+      "author": "Adam",
+      "date": "2016-03-07T21:10:23Z",
+      "kind": "comment",
+      "html": "<p>Someone should fix the CSS on this blog.  The BODY is set to a font-size of 62.5%!  That makes all the text on the screen tiny!  The comments section's main text is set to a size of 8.75 *pixels*!  Only by using Firefox's Inspector tool and disabling the font-size settings in the DOM am I able to comfortably read this page.</p>\n<p>Please do us all a favor and google up \"Let users control font size.\"</p>\n"
+    },
+    {
+      "id": 55752,
+      "author": "Adam Leventhal's blog » Big News for ZFS on Linux - Geek Links",
+      "url": "http://geekymug.com/2016/03/07/adam-leventhals-blog-big-news-for-zfs-on-linux/",
+      "date": "2016-03-07T21:15:49Z",
+      "kind": "pingback",
+      "html": "<p>[...] Leventhal’s blog » Big News for ZFS on LinuxRead More: Adam Leventhal’s blog » Big News for ZFS on Linux  [...]</p>\n"
+    },
+    {
+      "id": 55753,
+      "author": "Adam Leventhal’s blog » Big News for ZFS on Linux – Temporary index",
+      "url": "http://headth.com/2016/03/08/adam-leventhals-blog-big-news-for-zfs-on-linux/",
+      "date": "2016-03-07T23:04:05Z",
+      "kind": "pingback",
+      "html": "<p>[...] 記事詳細：http://dtrace.org/blogs/ahl/2016/03/07/big-news-for-zfs-on-linux/   投稿日: 2016年3月8日作成者 wpmaster [...]</p>\n"
+    },
+    {
+      "id": 55754,
+      "parent": 55742,
+      "author": "Nick Price",
+      "date": "2016-03-07T23:14:13Z",
+      "kind": "comment",
+      "html": "<p>You would have a legitimate use for ZFS on a production server where you care about data integrity and redundancy on a platform that's been in use for well over a decade.</p>\n<p>It's nice that you have over a year of experience using BTRFS without any major issues, but it's only been called \"stable\" for three years now, and plenty of people have had plenty of issues with it, along with the other house of cards you need to pile on top of it to gain complete feature parity.</p>\n<p>When current issues on the official site contain the term 'massive data corruption' it's pretty safe to say it's not mature enough to use in production.</p>\n<p>https://btrfs.wiki.kernel.org/index.php/Gotchas</p>\n<p>I feel like for something used in production, I should be able to mount something with a loopback driver without having to look at the docs for my particular filesystem to make sure it won't destroy my data.</p>\n"
+    },
+    {
+      "id": 55755,
+      "parent": 55750,
+      "author": "Nick Price",
+      "date": "2016-03-07T23:20:25Z",
+      "kind": "comment",
+      "html": "<p>Defining font sizes in pixel is not accessible, because the user cannot change the font size from the browser. (For example, users with limited vision may wish to set the font size much larger than the size chosen by a web designer.) Therefore, avoid using pixels for font sizes if you wish to create an inclusive design.</p>\n<p>A popular technique to use throughout the document is to set the the font-size of the body to 62.5% (that is 62.5% of the default of 16px), which equates to 10px, or 0.625em. Now you can set the font-size for any elements using em units, with an easy-to-remember conversion, by dividing the px value by 10. This way 6px = 0.6em, 8px = 0.8em, 12px = 1.2em, 14px = 1.4em, 16px = 1.6em.</p>\n<p>This *is* to allow users to control font-size - instead of arbitrarily specifying pixel sizes, using em, the fonts are now directly relative to the default font size set in the user's browser/OS.</p>\n<p>https://developer.mozilla.org/en-US/docs/Web/CSS/font-size</p>\n"
+    },
+    {
+      "id": 55756,
+      "author": "Frew Schmidt",
+      "url": "https://blog.afoolishmanifesto.com",
+      "date": "2016-03-08T00:54:58Z",
+      "kind": "comment",
+      "html": "<p>Here's another link that considers the license combination in a more refreshing and charitable light than the SFC did.  I found it fairly well put together: http://blog.hansenpartnership.com/are-gplv2-and-cddl-incompatible/</p>\n"
+    },
+    {
+      "id": 55760,
+      "author": "Nan Xiao",
+      "url": "http://nanxiao.me/en/",
+      "date": "2016-03-08T13:18:37Z",
+      "kind": "comment",
+      "html": "<p>\"large companies and startups continue to be terrified, confused, and irrational when is comes to open source.\" should be \"... when it comes to ...\".</p>\n"
+    },
+    {
+      "id": 55762,
+      "parent": 55760,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-03-08T20:24:54Z",
+      "kind": "comment",
+      "html": "<p>Thanks; fixed.</p>\n"
+    },
+    {
+      "id": 55777,
+      "author": "Desmond Faulker",
+      "url": "http://youl.ink/9O5W",
+      "date": "2016-03-12T03:48:34Z",
+      "kind": "comment",
+      "html": "<p>AFAIK btrfs is not ready yet. It should take some time for it to get reliable and feature complete enough for professional use.</p>\n"
+    },
+    {
+      "id": 55780,
+      "author": "jelabarre59",
+      "date": "2016-03-17T13:15:22Z",
+      "kind": "comment",
+      "html": "<p>But I think there are two issues at play here.  One involves *distributing* ZFS, the other involves *using* it.  I would think you should be able to download, then compile or directly install OpenZFS on your own system, and then run it.  Certainly, it may affect your support contract if you are relying on one, and it may render your kernel \"tainted\" (depending on how it hooks in), but how you mix and match open-source code on your _own_ system shouldn't matter.<br>\n  <br>\nDistribution/linking of differently-licenced code is where you hit issues.  Suitability of purpose discussions just aren't relevant to the issue (other than deciding how much effort it's worth to resolve the dispute).</p>\n"
+    },
+    {
+      "id": 55800,
+      "author": "Rich Teer",
+      "date": "2016-04-07T18:23:22Z",
+      "kind": "comment",
+      "html": "<p>As a long-time ZFS (and ex-Solaris) fan, this is indeed great news. I wonder if Red Hat could be persuaded to do the same thing?</p>\n"
+    },
+    {
+      "id": 55829,
+      "author": "Daniel Letai",
+      "date": "2016-04-16T16:04:46Z",
+      "kind": "comment",
+      "html": "<p>It's almost as much telling that RedHat, after years of promoting BTRFS, decided to move to XFS instead. What do RedHat and Canonical know that the entire BTRFS fandom do not?</p>\n"
+    }
+  ]
+}

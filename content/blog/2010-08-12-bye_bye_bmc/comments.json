@@ -1,0 +1,38 @@
+{
+  "post": "/2010/08/12/bye_bye_bmc/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1184,
+      "author": "Robin Harris",
+      "url": "http://storagemojo.com/",
+      "date": "2010-08-12T18:11:14Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nYou and Mike are now, officially, the \"other smart guys\" behind Dtrace.  <br>\nCheers,<br>\nRobin</p>\n"
+    },
+    {
+      "id": 1185,
+      "author": "MIchael Ernest",
+      "url": "http://radio.javaranch.com/michael",
+      "date": "2010-08-12T18:52:52Z",
+      "kind": "comment",
+      "html": "<p>That's a pretty good grip for throwing a slider, but the elbow is too low and the wrist is all wrong. Plus Cantrill looks like he weighs 80 pounds in that photo. Maybe you can be the Stud Behind DTrace and Mike can be....well, whatever he can lay claim to. :-D</p>\n"
+    },
+    {
+      "id": 1822,
+      "author": "Derek",
+      "date": "2010-08-21T03:05:39Z",
+      "kind": "comment",
+      "html": "<p>So what's the story behind the onion bet? Boredom? Waiting for a kernel compile/reboot cycle to finish?</p>\n"
+    },
+    {
+      "id": 1829,
+      "parent": 1822,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2010-08-23T06:06:07Z",
+      "kind": "comment",
+      "html": "<p>Surprisingly not much of a story other than I had the onion and Bryan knew his price...</p>\n"
+    }
+  ]
+}

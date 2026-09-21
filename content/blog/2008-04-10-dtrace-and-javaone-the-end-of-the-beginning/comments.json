@@ -1,0 +1,20 @@
+{
+  "post": "/2008/04/10/dtrace-and-javaone-the-end-of-the-beginning/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1369,
+      "author": "Anonymous",
+      "date": "2008-04-10T10:50:00Z",
+      "kind": "comment",
+      "html": "<p>So would you say that 2008 was the DTrace JavaOne money shot?</p>\n"
+    },
+    {
+      "id": 1370,
+      "author": "Jon Haslam",
+      "date": "2008-04-28T14:37:58Z",
+      "kind": "comment",
+      "html": "<p>The tradition carries on this year - we're presenting on both Thursday and Friday. I'll definitely make sure that I tell security to keep a good eye out for you though ;-) .</p>\n"
+    }
+  ]
+}

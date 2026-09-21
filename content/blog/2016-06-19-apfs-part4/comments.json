@@ -1,0 +1,90 @@
+{
+  "post": "/2016/06/19/apfs-part4/",
+  "count": 11,
+  "comments": [
+    {
+      "id": 55948,
+      "author": "UNIX admin",
+      "date": "2016-06-20T10:43:38Z",
+      "kind": "comment",
+      "html": "<p>What is the state of TRIM support in OpenZFS?</p>\n"
+    },
+    {
+      "id": 55950,
+      "parent": 55948,
+      "author": "scineram",
+      "date": "2016-06-20T12:09:19Z",
+      "kind": "comment",
+      "html": "<p>FreeBSD has a hackish implementation. The proper thing will be spread around from Nexenta hopefully soon.</p>\n"
+    },
+    {
+      "id": 55952,
+      "author": "Tom Limoncelli",
+      "url": "http://everythingsysadmin.com",
+      "date": "2016-06-20T12:26:57Z",
+      "kind": "comment",
+      "html": "<p>I think this is a great article but you blew it with the TRIM discussion.</p>\n<p>APFS was designed specifically for SSDs and your treating TRIM as this niche feature that doesn't matter. A statement like \"I doubt that TRIM will bring any discernible benefit for APFS users beyond the placebo effect of feature parity.\" is going to spread misinformation that will be difficult to unspread.</p>\n<p>First, you are saying it is only useful when a volume isn't full, and since your volumes are always full the feature is useless.</p>\n<p>Let's unpack that:</p>\n<p>1.  TRIM is only useful when there is a lot of free space.  No, TRIM is even more critical when space is low.  A hard drive can reuse a block any time. An SSD must erase it first, which takes a long time.  An SSD erases blocks in the background so that the next time a write is required there is a pre-erased block ready to be used.  Even if you have a single block free, writes will be faster if TRIM has informed the SSD what it can pre-erase.</p>\n<p>2.  Most people run volumes that are full.  Not true at all.  I doubt you can cite a paper that confirms that.</p>\n<p>I think you should fix the TRIM section.</p>\n<p>You give TRIM multiple paragraphs and say it isn't important (which it is), but then you only give 1 paragraph to QoS, and totally miss how important it is.  Because writing to an SSD is so slow, being able to specify that (for example) metadata updates are higher priority than other updates, APFS will probably gain a huge amount of reliability. This may compensate for many other problems.</p>\n"
+    },
+    {
+      "id": 55958,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-20T14:11:28Z",
+      "kind": "comment",
+      "html": "<p>You're probably right that I was too disdainful of TRIM, but I'm not convinced that typically users will see much benefit. You're right that I can't cite a paper that confirms that most people run their volumes full; I bet Apple has those data. Have you seen a study on the benefits of TRIM when, say, &lt;5% of space is free?</p>\n<p>What else would I say about QoS? I think it's pretty straightforward, *and* I pretty much lavished praise on APFS there...</p>\n"
+    },
+    {
+      "id": 56001,
+      "author": "nick s",
+      "date": "2016-06-21T02:34:00Z",
+      "kind": "comment",
+      "html": "<p>In terms of performance, modern copy-on-write filesystems with what you might call ZFS-ish feature sets tend to be more RAM-hungry than older ones. Given that Apple has a reputation for under-speccing its hardware in terms of RAM, and most of its hardware can't be upgraded, I wonder how that's going to affect the performance on lower-tier systems?</p>\n<p>Perhaps that's the rationale behind the missing features so far such as checksumming? Or perhaps HFS+ is RAM-hungry in its own way?</p>\n"
+    },
+    {
+      "id": 56054,
+      "author": "Lanell",
+      "url": "http://www.leatherbabe.eu/profile.php?uid=40766",
+      "date": "2016-06-21T21:28:26Z",
+      "kind": "comment",
+      "html": "<p>Incredible....this is a important webpage.|</p>\n"
+    },
+    {
+      "id": 56079,
+      "author": "cmurf",
+      "date": "2016-06-22T18:43:00Z",
+      "kind": "comment",
+      "html": "<p>TRIM's benefit is orthogonal to free space. What matters is the availability of already erased, ready to be written, pages at the time the file system has something to write (or even overwrite, since everything on an SSD is effectively CoW). The SSD has only two ways of knowing if a page is not being used by the file system: passively by inferring it when the fs asks for an \"in-use\" LBA to be overwritten, and directly when the fs uses TRIM. In the first case it gets this information at the time of a write so either there's an already erased page free to CoW to, or there's no erased pages and it has to do garbage collection and erase some pages (in erase block increments) before it can commit the write, and this is slow.</p>\n<p>There is a clear advantage of the SSD having a stateful view of in-use pages similar to that of the fs. If I copy a bunch of files to the SSD to fill it up to 99%, then delete 50% of them, the SSD thinks it's full and will not erase those pages. The only way it knows they're deleted is if I overwrite those LBAs with files or the fs issues TRIM.</p>\n<p>The problem with constantly issuing TRIM on non-queued TRIM supporting SSD's is they'll hiccup. The entire command queue has to be cleared before it can be used, and many SSDs hang during the ensuing garbage collect. Good ones delay garbage collection to avoid this side-effect. The work around for this is to not use TRIM as a mount time option (discard) where it results in TRIM everytime a file is deleted, but rather on a schedule such as once a week. This is also consistent with NVMe where it's better to use delayed and scheduled TRIM than doing so concomitant with file deletions.</p>\n<p>Anyway, TRIM is important. But as a mount time option it's totally overblown and has caused more problems than it solves.</p>\n"
+    },
+    {
+      "id": 56102,
+      "author": "Vinski",
+      "date": "2016-06-23T09:37:55Z",
+      "kind": "comment",
+      "html": "<p>TRIM is important. Without it write operations will eventually slow down considerably when SSD does not have any \"fresh\" blocks left, and it has to free the block first at write.</p>\n<p>Also, TRIM could be considered a security feature, since it makes sure that pages are physically erased when the file is deleted.</p>\n"
+    },
+    {
+      "id": 56106,
+      "author": "proxy",
+      "url": "http://bramkaproxy.net.pl",
+      "date": "2016-06-23T13:35:18Z",
+      "kind": "comment",
+      "html": "<p>Thanks for sharing excellent informations. Your web-site is very cool. I’m impressed by the details that you have on this web site. It reveals how nicely you perceive this subject. Bookmarked this web page, will come back for extra articles. You, my pal, ROCK! I found simply the information I already searched everywhere and just could not come across. What a perfect site.</p>\n"
+    },
+    {
+      "id": 56117,
+      "author": "ฮอลิเดย์ พาเลซ",
+      "url": "http://www.pwvda.com",
+      "date": "2016-06-24T06:15:12Z",
+      "kind": "comment",
+      "html": "<p>APFS claims to be optimized for flash. Flash memory (NAND) is the stuff in your speedy SSD. Apple changed the computing industry when it put flash</p>\n"
+    },
+    {
+      "id": 56279,
+      "author": "Michael Tsai - Blog - Apple File System (APFS)",
+      "url": "http://mjtsai.com/blog/2016/06/17/apple-file-system-apfs/",
+      "date": "2016-07-03T18:16:25Z",
+      "kind": "pingback",
+      "html": "<p>[...] Performance: Apple controls the full stack including the SSD, FTL, and file system; they could have built something differentiated, optimizing this components to work together. What APFS does, however, is simply write in patterns known to be more easily handled by NAND. [...]</p>\n"
+    }
+  ]
+}

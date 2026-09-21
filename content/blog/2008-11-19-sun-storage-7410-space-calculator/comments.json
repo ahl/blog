@@ -1,0 +1,29 @@
+{
+  "post": "/2008/11/19/sun-storage-7410-space-calculator/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1312,
+      "author": "UX-admin",
+      "date": "2008-11-19T23:30:17Z",
+      "kind": "comment",
+      "html": "<p>Adam, what's the sudden attack of Python-mania @Sun all about? Are you guys trying to cater to generation Y?<br>\nWhy didn't you guys just teach them C, AWK, m4, sed, cpp, and ld instead?</p>\n"
+    },
+    {
+      "id": 1313,
+      "author": "UX-admin",
+      "date": "2008-11-19T23:44:34Z",
+      "kind": "comment",
+      "html": "<p>Oh, and lex and yacc, too!<br>\nWhen I see bug reports like these:<br>\n\"6431132 legacy yacc code cannot be maintained or understood\"<br>\n<a href=\"http://bugs.opensolaris.org/view_bug.do?bug_id=6431132\" rel=\"nofollow ugc noopener noreferrer\">http://bugs.opensolaris.org/view_bug.do?bug_id=6431132</a><br>\nmy heart just about freezes.  Why is this valuable knowledge getting lost?</p>\n"
+    },
+    {
+      "id": 1314,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-11-20T12:07:46Z",
+      "kind": "comment",
+      "html": "<p>@UX-admin I can't really speak to the python-mania; I had never written a line of python before this (which is probably apparent). I chose python because it seemed well-suited for the XML-RPC interaction with the server on the appliance.<br>\n6431132 is, indeed, alarming.</p>\n"
+    }
+  ]
+}

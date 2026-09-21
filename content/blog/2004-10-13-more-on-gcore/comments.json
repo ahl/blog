@@ -1,0 +1,55 @@
+{
+  "post": "/2004/10/13/more-on-gcore/",
+  "count": 6,
+  "comments": [
+    {
+      "id": 1711,
+      "author": "Rodrick Brown",
+      "url": "http://www.rodrickbrown.com",
+      "date": "2004-10-13T22:46:00Z",
+      "kind": "comment",
+      "html": "<p>Dtrace not needed really :)<br>\n#!/usr/bin/bash<br>\nN=$1<br>\nPID=$2<br>\nif  [ -z $N ] || [ -z $PID ]; then<br>\necho \"usage: $0 (interval) (pid)\"<br>\nexit 0;<br>\nfi<br>\nEPOCH=`truss -t time date 2&gt;&amp;1 | awk '/^time/ {print $3; exit}'`<br>\nwhile [ $n -gt 0 ];<br>\ndo<br>\n/usr/bin/pstop $pid<br>\n/usr/bin/gcore -o core.$EPOCH $pid<br>\n/usr/bin/prun $pid<br>\nlet n=$n-1<br>\ndone</p>\n"
+    },
+    {
+      "id": 1712,
+      "author": "ahl",
+      "url": "http://dtrace.org/blogs/ahl/more_on_gcore",
+      "is_author": true,
+      "date": "2004-10-13T22:51:31Z",
+      "kind": "comment",
+      "html": "<p>Rodrick,<br>\nTrue, that we don't need DTrace -- this was an example of how you can mix DTrace and gcore. The idea is that you can grab a core when you see any series of events. One other thing to note is that the %t format character can be used with the -o option to gcore(1) -- while your use of truss(1) is exciting, there's a simpler way.</p>\n"
+    },
+    {
+      "id": 1713,
+      "author": "Rodrick Brown",
+      "url": "http://www.rodrickbrown.com",
+      "date": "2004-10-13T23:11:40Z",
+      "kind": "comment",
+      "html": "<p>Yes good point Adam now I think about it this will be very good for situations where you could have a probe in dtrace trigger an event that could call gcore to further trouble shoot an issue with mdb :)<br>\nVery cool in deed.<br>\nOne thing<br>\n#pragma D option destructive scares me lol :)</p>\n"
+    },
+    {
+      "id": 1714,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-10-14T02:46:19Z",
+      "kind": "comment",
+      "html": "<p>Rodrick,<br>\nI basically think you can't be too afraid of destructive actions. Consider the following D script:</p>\n<p>syscall:::entry<br>\n{<br>\nstop();<br>\n}</p>\n<p>Ouch... and it's real tough to recover from a system where every process is stopped...<br>\nDestructive actions are &lt;em&gt;incredibly&lt;/em&gt; useful, but wield them with care.</p>\n"
+    },
+    {
+      "id": 1715,
+      "author": "Fintan Ryan",
+      "url": "http://blogs.sun.com/fintanr",
+      "date": "2004-10-14T03:24:15Z",
+      "kind": "comment",
+      "html": "<p>Very cool, I have a bunch of situations where this will be handy.</p>\n"
+    },
+    {
+      "id": 1716,
+      "author": "E",
+      "date": "2004-11-25T00:23:37Z",
+      "kind": "comment",
+      "html": "<p>whoever adam leventhal is I ran across his web page on accident and he is hot.</p>\n"
+    }
+  ]
+}

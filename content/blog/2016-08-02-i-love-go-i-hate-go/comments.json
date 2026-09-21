@@ -1,0 +1,189 @@
+{
+  "post": "/2016/08/02/i-love-go-i-hate-go/",
+  "count": 23,
+  "comments": [
+    {
+      "id": 56570,
+      "author": "Arnaud Berthomier",
+      "date": "2016-08-02T06:10:29Z",
+      "kind": "comment",
+      "html": "<p>Hi! Have you tried the Delve debugger? https://github.com/derekparker/delve</p>\n"
+    },
+    {
+      "id": 56571,
+      "author": "UNIX admin",
+      "date": "2016-08-02T06:46:49Z",
+      "kind": "comment",
+      "html": "<p>\"Weak opinions are what turn languages into unreadable mishmashes of overlapping mechanism. My favorite example of this is Perl.\"</p>\n<p>That's why I love writing software in AWK: small, runs like a bandit, and if that time where I need that extra burst of speed ever comes, there is always libawka, to turn it into ANSI C and compile it with an optimzing compiler.</p>\n<p>The thing I like best about AWK: there is one and only one way to do something. As far as language constructs and syntax is concerned, AWK is so small and so clearly defined, that it's the antithesis of Perl.</p>\n"
+    },
+    {
+      "id": 56572,
+      "parent": 56570,
+      "author": "Chad Kunde",
+      "date": "2016-08-02T07:43:22Z",
+      "kind": "comment",
+      "html": "<p>I'd add Uber's go-torch https://github.com/uber/go-torch to the recommendations.  Great for understanding the stack without needing to overflow or dump traces into mind-numbing logs.</p>\n"
+    },
+    {
+      "id": 56573,
+      "parent": 56571,
+      "author": "I",
+      "date": "2016-08-02T08:33:42Z",
+      "kind": "comment",
+      "html": "<p>Love this comment :)</p>\n"
+    },
+    {
+      "id": 56575,
+      "author": "mark",
+      "date": "2016-08-02T10:10:52Z",
+      "kind": "comment",
+      "html": "<p>Perl 6 learned from Ruby apparently because Ruby always was as flexible as one could be. While being syntactically prettier than perl.</p>\n<p>Your statement about perl is unfair though:</p>\n<p>“Weak opinions are what turn languages into unreadable mishmashes of overlapping mechanism. My favorite example of this is Perl.”</p>\n<p>A lot of this follows from \"There is more than one way to solve any given problem at hand.\"</p>\n<p>This means more complexity, true. The alternative is to try and go the python way \"one size fits everyone\". And even the python guys fail at providing only one way - the best example is biopython. They have a section in their official tutorial that there are sometimes more than one way to solve something, so even the python guys acknowledge it:</p>\n<p>http://biopython.org/DIST/docs/tutorial/Tutorial.html#htoc2</p>\n<p>\"2.1  General overview of what Biopython provides\"</p>\n<p>\"[...]  One thing to note about Biopython is that it often provides multiple ways of “doing the same thing.” Things have improved in recent releases, but this can still be frustrating as in Python there should ideally be one right way to do something.  [...] \"</p>\n"
+    },
+    {
+      "id": 56579,
+      "author": "Anonymous",
+      "date": "2016-08-02T15:25:58Z",
+      "kind": "comment",
+      "html": "<p>A competent debugger/tracer can use stack unwinding to generate backtraces, rather than force wasting of a register on the task.  Maybe GO/LLVM don't produce that proper unwind data, but dtrace also deserves blame for not consuming it.</p>\n"
+    },
+    {
+      "id": 56580,
+      "author": "gver",
+      "url": "https://dlang.org",
+      "date": "2016-08-02T15:35:36Z",
+      "kind": "comment",
+      "html": "<p>Have you tried D already (e. g.  dlang.org)? <br>\nI underwent a similar journey as you and finally found D to be  the least shitty language out there ;-)</p>\n"
+    },
+    {
+      "id": 56581,
+      "author": "Jon Forrest",
+      "date": "2016-08-02T16:30:45Z",
+      "kind": "comment",
+      "html": "<p>Minor typos:</p>\n<p>\"They had no a style guide\" -&gt; \"They had no style guide\"</p>\n<p>\"The simple tool that Go employs to liberates developers \" -&gt; \"The simple tool that Go employs to liberate developers \"</p>\n<p>\"Factions forms;\" -&gt; \"Factions form;\"</p>\n<p>\"its great that their pop audiences \" -&gt; \"it's great that their pop audiences \"</p>\n<p>\" So folks us one (or more) of some workable libraries\" -&gt; ???</p>\n<p>\"rendering the stacks unobservable to debugger\" -&gt; \"rendering the stacks unobservable to a debugger\"</p>\n"
+    },
+    {
+      "id": 56582,
+      "author": "Samy Bahra",
+      "url": "http://backtrace.io/",
+      "date": "2016-08-02T17:08:37Z",
+      "kind": "comment",
+      "html": "<p>We've also made some investments here, and would unwind correctly: http://backtrace.io/blog/blog/2016/07/21/go-support/</p>\n"
+    },
+    {
+      "id": 56583,
+      "parent": 56571,
+      "author": "Yosbel",
+      "url": "http://yosbelms.github.io/cor",
+      "date": "2016-08-02T18:05:11Z",
+      "kind": "comment",
+      "html": "<p>Thats what I really enjoy using Go. I love the concepts you mentioned above, small, clearly defined as well as apinionated. Currently trying to bring those concepts to the Web I'm involved in the development of https://github.com/yosbelms/cor which is similar to Go including CSP, but runs in the browsers</p>\n"
+    },
+    {
+      "id": 56585,
+      "parent": 56570,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-08-02T19:58:20Z",
+      "kind": "comment",
+      "html": "<p>No and thanks! Looking forward to trying it out.</p>\n"
+    },
+    {
+      "id": 56586,
+      "parent": 56571,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-08-02T19:59:01Z",
+      "kind": "comment",
+      "html": "<p>I love awk too, but we're dating ourselves ;-)</p>\n<p>If you look at DTrace syntax you'll see clear awk inspiration.</p>\n"
+    },
+    {
+      "id": 56587,
+      "parent": 56579,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-08-02T20:00:25Z",
+      "kind": "comment",
+      "html": "<p>Sort of... if you explore how DTrace works you'll see how tricky that would be. DTrace relies on being able to take a stack from arbitrary context, so, for example, you can't do file io to dig out DWARF or the like.</p>\n"
+    },
+    {
+      "id": 56588,
+      "parent": 56581,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-08-02T20:02:28Z",
+      "kind": "comment",
+      "html": "<p>Thank you so much! Everyone needs an editor.</p>\n"
+    },
+    {
+      "id": 56589,
+      "parent": 56582,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-08-02T20:02:59Z",
+      "kind": "comment",
+      "html": "<p>Super interesting; thanks for the link!</p>\n"
+    },
+    {
+      "id": 56594,
+      "parent": 56580,
+      "author": "jadbox",
+      "date": "2016-08-02T22:22:24Z",
+      "kind": "comment",
+      "html": "<p>D is really fantastic... I'm looking forward to the GC and performnce improvements coming. However, I can't make an argument yet to using it at work until basic ecosystem libraries like aws-sdk arrives.</p>\n"
+    },
+    {
+      "id": 56595,
+      "parent": 56594,
+      "author": "jadbox",
+      "date": "2016-08-02T22:23:35Z",
+      "kind": "comment",
+      "html": "<p>Rust is also looking great, although more complex than Go with its lifetime types. Same thing applies, we need more community library support before mainstream adoption.</p>\n"
+    },
+    {
+      "id": 56596,
+      "author": "Yi",
+      "date": "2016-08-03T05:12:05Z",
+      "kind": "comment",
+      "html": "<p>Try learn to use log to debug, log anything you wanna see.</p>\n"
+    },
+    {
+      "id": 56597,
+      "author": "Yi",
+      "date": "2016-08-03T05:13:39Z",
+      "kind": "comment",
+      "html": "<p>I hate assertions, easily find the abuse of using it. Never see a value of writing an assert other than check it directly.</p>\n"
+    },
+    {
+      "id": 56599,
+      "parent": 56586,
+      "author": "UNIX admin",
+      "date": "2016-08-03T06:20:16Z",
+      "kind": "comment",
+      "html": "<p>I did, and I do, and it's the greatest thing since sliced bread. I was able to immediately grok DTrace because you decided to use AWK-like constructs.</p>\n<p>And we should not feel bad about \"dating ourselves\": people get involved in the technology details and tend to very quickly forget that we use computers to process data quickly and efficiently, and to automate work. So if a language like AWK gets the data processing, or some process automation done, and done well, then the core purpose of using computers has been addressed.</p>\n<p>Don't feel bad about it - teach.</p>\n<p>I have zero remorse for using \"old\" technology, especially if that \"old\" technology is lightyears ahead of what we have today in terms of simplicity, resource usage, and speed.</p>\n<p>After all, it is not our fault that today's contemporary computer people did not know about things like AWK, but I for one am doing something about it, I teach it to my apprentices. In my view, if something is good and useful, it is timeless.</p>\n"
+    },
+    {
+      "id": 56630,
+      "author": "historia de electrodomesticos en madrid",
+      "url": "http://vitoagbx.livejournal.com",
+      "date": "2016-08-05T17:50:49Z",
+      "kind": "comment",
+      "html": "<p>Nuestra asistencia técnica es un servicio a domicilio, con lo que el cliente solo ha de preocuparse de recibir al técnicos el día programado. No lo olvide le ofrecemos una asistencia inmediata sin aumentos en la tarifa por ser urgente. Disponemos del servicio tecnico más eficaz y económico de reparacion de frigorificos y frigorificos industriales en la Comunidad de Madrid. Nuestros tecnicos ofrecen un servicio de repuestos, cambios de piezas y reparaciones de frigorificos de cualquier marca. Servicio tecnico a domicilio sin cobrar desplazamiento, ofreciendo un presupuesto totalmente ajustable y gratuito. Resolvemos cualquier tipo de avería y lo hacemos en menos de 24 horas con nuestro servicio tecnico.</p>\n"
+    },
+    {
+      "id": 56669,
+      "author": "Adam Leventhal's blog » A Filesystem on Noms",
+      "url": "http://dtrace.org/blogs/ahl/2016/08/09/nomsfs/",
+      "date": "2016-08-09T15:54:45Z",
+      "kind": "pingback",
+      "html": "<p>[...] To build the filesystem I picked a FUSE binding for Go, dug into the Noms APIs, and wrestled my way through some Go heartache. [...]</p>\n"
+    },
+    {
+      "id": 56811,
+      "author": "India Oommen",
+      "url": "http://youmob.com/mob.aspx?profile=oldransom8410&mob=http://iiswear.de",
+      "date": "2016-09-01T18:05:27Z",
+      "kind": "comment",
+      "html": "<p>http://olivia9williamson2.deviantart.com/status/4463040</p>\n"
+    }
+  ]
+}

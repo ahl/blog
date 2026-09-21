@@ -1,0 +1,47 @@
+{
+  "post": "/2008/05/05/dtrace-conf-post-post-mortem/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 1364,
+      "author": "John Levon",
+      "url": "http://blogs.sun.com/levon",
+      "date": "2008-05-05T08:33:02Z",
+      "kind": "comment",
+      "html": "<p>Yeah, best conference tees ever.</p>\n"
+    },
+    {
+      "id": 1365,
+      "author": "Keith Adams",
+      "url": "http://x86vmm.blogspot.com",
+      "date": "2008-05-05T09:48:11Z",
+      "kind": "comment",
+      "html": "<p>\"The most interesting discussion resulted from Keith's presentation of vprobes -- a DTrace... um... inspired facility in VMware.\"<br>\nGlad you enjoyed the talk! And to be clear, there's no elliptical \"um\" about it: DTrace did, indeed, inspire VProbes, and without DTrace's precedent, VProbes would probably be very different. I hope I didn't come off otherwise.<br>\nOn a more important note: I forgot my t-shirt at the conference :(. Whose car might I wash to get one? Men's small or medium would do ...</p>\n"
+    },
+    {
+      "id": 1366,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-05-05T11:09:50Z",
+      "kind": "comment",
+      "html": "<p>@Keith I was trying to suggest another descriptor, but stopped short. As to your t-shirt, I've got your back, but it might be a bit roomy -- only larges were left. Let me know where you want it sent.</p>\n"
+    },
+    {
+      "id": 1367,
+      "author": "John Birrell",
+      "url": "http://www.freebsd.org/",
+      "date": "2008-05-05T21:17:51Z",
+      "kind": "comment",
+      "html": "<p>I am currently in Sunnyvale, CA doing endless rounds of interviews.<br>\nNext week I'll be in Ottawa for the <a href=\"http://bsdcan.org/\" rel=\"nofollow ugc noopener noreferrer\">http://bsdcan.org/</a> conference where I'll be presenting a paper on the DTrace port to FreeBSD. The conference includes other flavours of BSD, so hopefully the others will show some interest.<br>\nI've arranged to meet with Colin Burgess to discuss the porting project and how we might proceed with that.</p>\n"
+    },
+    {
+      "id": 1368,
+      "author": "John Birrell",
+      "url": "http://www.freebsd.org/",
+      "date": "2008-05-05T21:23:29Z",
+      "kind": "comment",
+      "html": "<p>I forgot to mention that there is also a Google Summer of Code project approved to port the DTrace Toolkit to FreeBSD.<br>\nThe clean-room implementation of CTF parsing missed the cut-off though, unfortunately.</p>\n"
+    }
+  ]
+}

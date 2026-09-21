@@ -6,6 +6,12 @@ export default function(eleventyConfig) {
 		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
 	});
 
+	// Archived comment timestamps arrive as ISO-8601 strings rather than JS
+	// Date objects, so they need their own entry point into Luxon.
+	eleventyConfig.addFilter("readableDateISO", (iso, format) => {
+		return DateTime.fromISO(iso, { zone: "utc" }).toFormat(format || "dd LLLL yyyy");
+	});
+
 	eleventyConfig.addFilter("htmlDateString", (dateObj) => {
 		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
 		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat('yyyy-LL-dd');

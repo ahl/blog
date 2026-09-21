@@ -1,0 +1,29 @@
+{
+  "post": "/2004/08/19/inside-solaris-express/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1720,
+      "author": "Rongsheng Fang",
+      "date": "2004-08-23T09:23:48Z",
+      "kind": "comment",
+      "html": "<p>As of 12:20 EST, 23rd Aug, SX <b>8/04</b> is not downloadable yet from <a href=\"http://www.sun.com/solarisexpress\" rel=\"nofollow ugc noopener noreferrer\">Solaris Express</a>. After I logged in and went to the actuall download page, only <b>7/04</b> was avaliable. Maybe <b>8/04</b> has not been uploaded yet?<br>\nRongsheng</p>\n"
+    },
+    {
+      "id": 1721,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-08-23T12:09:51Z",
+      "kind": "comment",
+      "html": "<p>Looks like I jumped the gun a bit -- 8/04 got delayed for a few days, but it should be up very soon.</p>\n"
+    },
+    {
+      "id": 1722,
+      "author": "tarpon bill",
+      "date": "2004-08-26T06:26:28Z",
+      "kind": "comment",
+      "html": "<p>Simply put, Solaris isn't for SMB. Why?</p>\n<p>No graphical installer.<br>\nNo graphical admin tools.</p>\n<p>Yes, I just downloaded the latest and installed it on a Dell 400SC to see what's up</p>\n<p>Compare Solaris to Red Hat or SUSE and Solaris feels primitive. It may work better, but Sun continually misses the mark. There are hundreds of thousands of SMB consultants and systems types who won't touch Solaris because it's too difficult to install and learn how to administer.</p>\n<p>When Solaris is based on YAST, then Sun will be ready for the market. Until then, Solaris is another niche product.</p>\n<p>It really is a windows world, you either compete with windows or go away. Linux has learned that, Sun hasn't.</p>\n"
+    }
+  ]
+}

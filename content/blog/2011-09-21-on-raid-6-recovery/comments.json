@@ -1,0 +1,13 @@
+{
+  "post": "/2011/09/21/on-raid-6-recovery/",
+  "count": 1,
+  "comments": [
+    {
+      "id": 2106,
+      "author": "Richard Elling",
+      "date": "2011-09-23T00:42:44Z",
+      "kind": "comment",
+      "html": "<p>The word size is important. At the 512-byte word size of a typical disk sector, RAID techniques work well. But we have more flexibility as the word size gets smaller. Ultimately, the entire corrective action can occur in hardware, as we do regularly with SECDED ECC memory. Doing this in silicon offers other opportunities for diversity. Moore's law suggests that we could be very highly reliable persistent memory systems at low cost, diminishing the need for RAID in the long term.</p>\n"
+    }
+  ]
+}

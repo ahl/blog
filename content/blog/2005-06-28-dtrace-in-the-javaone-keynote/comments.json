@@ -1,0 +1,35 @@
+{
+  "post": "/2005/06/28/dtrace-in-the-javaone-keynote/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1655,
+      "author": "Bernd",
+      "date": "2005-06-29T00:20:27Z",
+      "kind": "comment",
+      "html": "<p>Don't want to be nitpicking, but wasn't Laocoon Greek? Damned by the gods for warning the Troians (of the horse).</p>\n"
+    },
+    {
+      "id": 1656,
+      "author": "Anonymous",
+      "date": "2005-06-29T09:57:46Z",
+      "kind": "comment",
+      "html": "<p>Adam, this is your mother.  Get your hair cut.</p>\n"
+    },
+    {
+      "id": 1657,
+      "author": "Claire Giordano",
+      "url": "http://blogs.sun.com/cmh",
+      "date": "2005-06-30T23:26:48Z",
+      "kind": "comment",
+      "html": "<p>I think the lack of hair cut is ok.  Makes you look like you've been programming a lot.  :-)<br>\nGreat job getting the word out about DTrace at JavaOne this year<br>\nClaireG</p>\n"
+    },
+    {
+      "id": 1658,
+      "author": "stefan",
+      "date": "2005-07-01T06:39:51Z",
+      "kind": "comment",
+      "html": "<p>Cool.</p>\n<p>Im on Solaris 10 x86 and I have built realplayer 8 as adviced on www.tools.de/solaris. However when I'm trying to see the Keynote the realplayer ends with: General error, An error occurred.\" and that's it.</p>\n<p>It would be useful in future to have maybe the stream as Ogg Vorbis or Media so Helix would be able to handle that. (Maybe soon we will see Helix for Solaris x86)</p>\n<p>Any idea what player can I use in Solaris x86 to see the Keynote ?</p>\n<p>thanks,</p>\n<p>Stefan</p>\n"
+    }
+  ]
+}

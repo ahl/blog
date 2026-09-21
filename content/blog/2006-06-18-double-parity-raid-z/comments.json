@@ -1,0 +1,64 @@
+{
+  "post": "/2006/06/18/double-parity-raid-z/",
+  "count": 7,
+  "comments": [
+    {
+      "id": 1579,
+      "author": "Marc",
+      "date": "2006-06-19T01:36:47Z",
+      "kind": "comment",
+      "html": "<p>There was a very interesting blog recently about when to (and not to) use raidz. Does it apply to raidz2 without modification, or is there some unintuitive reason why small random reads would not suffer the same penalty here?<br>\nThank you for this interesting blog entry.</p>\n"
+    },
+    {
+      "id": 1580,
+      "author": "zmx",
+      "url": "http://frogbsd.wordpress.com/",
+      "date": "2006-06-19T02:41:44Z",
+      "kind": "comment",
+      "html": "<p>In Dave's blog, he mentiond that NetApp's RAID-5 and RAID-6 is forward and backward compatiable. Does ZFS  have this feature too?</p>\n"
+    },
+    {
+      "id": 1581,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2006-06-19T14:33:25Z",
+      "kind": "comment",
+      "html": "<p>Marc,</p>\n<p>I think you're referring to <a href=\"/roch\" rel=\"nofollow ugc noopener noreferrer\">Roch</a>'s<br>\n<a href=\"/roch?entry=when_to_and_not_to\" rel=\"nofollow ugc noopener noreferrer\">recent post</a>.<br>\nRoch's analysis is strictly for random reads (and largely ignores the<br>\ncommon case of sequential reads); since parity blocks aren't<br>\nnormally read (a fact I think Roch didn't fully consider) the usage<br>\ncalculations will be the same modulo the disk space consumed for<br>\nextra parity.</p>\n<p>zmx,</p>\n<p>A way to rephrase your question would be: can one convert between<br>\nraidz1 and raidz2 vdevs? The answer is no. While that capability would<br>\nbe nice, it's a natural consequence of the way RAID-Z avoids the<br>\n\"RAID-5 write hole\". Recall that RAID-Z always makes full-stripe<br>\nwrites; it does this by varying the size of the stripe. If, for example,<br>\nyou have a 7+1 RAID-Z configuration a write of 3 sectors of data will<br>\nresult in a stripe of width 4. Two such writes could coexist on the same<br>\nlogical row of 8 sectors across the 8 disks in the RAID-Z vdev. With<br>\ntraditional RAID-5 you can toss in an additional disk, generate parity, and<br>\ncall it RAID-6, but with RAID-Z an individual row might contain several<br>\nparity blocks so a similar gimmick isn't possible. For what it's worth ZFS<br>\nhas facilities for migrating filesystems between pools if you want to<br>\nchange the underlying fault tolerance.</p>\n"
+    },
+    {
+      "id": 1582,
+      "author": "Robert Milkowski",
+      "url": "http://milek.blogspot.com",
+      "date": "2006-06-19T16:17:26Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nBut still in case of small random reads two raidz1 in one group will be faster then one big raidz2 pool, right? (in terms of IOPS).</p>\n"
+    },
+    {
+      "id": 1583,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2006-06-19T17:11:02Z",
+      "kind": "comment",
+      "html": "<p>Robert,</p>\n<p>Yes, for example RAID-Z 8+2 would be more comparable -- in terms of Roch's analysis -- to RAID-Z 8+1 than to 2 x 4+1.</p>\n"
+    },
+    {
+      "id": 1584,
+      "author": "zmx",
+      "url": "http://frogbsd.wordpress.com",
+      "date": "2006-06-20T01:42:40Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nHow to migrating filesystems between pools? The ZFS Administration Guide only mention \"Migrating Storage Pools\" (between machine)</p>\n"
+    },
+    {
+      "id": 1585,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2006-06-20T11:01:45Z",
+      "kind": "comment",
+      "html": "<p>zmx,</p>\n<p>You can use 'zfs send' and 'zfs receive'. See the <a href=\"http://docs.sun.com/app/docs/doc/819-2240/6n4htdnpk?a=view\" rel=\"nofollow ugc noopener noreferrer\">zfs(1M) </a> man page for details.</p>\n"
+    }
+  ]
+}

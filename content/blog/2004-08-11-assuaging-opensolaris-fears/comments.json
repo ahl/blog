@@ -1,0 +1,103 @@
+{
+  "post": "/2004/08/11/assuaging-opensolaris-fears/",
+  "count": 12,
+  "comments": [
+    {
+      "id": 1723,
+      "author": "Azeem Jiva",
+      "url": "http://blogs.sun.com/C2VMGuy",
+      "date": "2004-08-11T12:38:23Z",
+      "kind": "comment",
+      "html": "<p>I agree, OpenSolaris will help Sun, I just think its a bit too late.  Had we done this say in 1998 when Linux was still young, we probably would have stopped Linux from ever growing.  Granted 1998 was the year when Sun started to do well, VERY well.  Ahh well :)</p>\n"
+    },
+    {
+      "id": 1724,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-08-11T15:12:39Z",
+      "kind": "comment",
+      "html": "<p>As much as I readily admit that Linux and Solaris are competing for the same customers, I actually think Linux has been a good thing for Solaris and for computing. Linux has certainly driven us to improve Solaris and to innovate where might not of otherwise. And I don't think it's too late. Why would people want to get involved with Solaris 9 or 8 or 7? Solaris 10 is the most compelling operating system Sun has ever released; it's the perfect platform on which to build a new open source community.</p>\n"
+    },
+    {
+      "id": 1725,
+      "author": "Philip Brown",
+      "url": "http://www.bolthole.com/solaris/drivers",
+      "date": "2004-08-11T18:24:31Z",
+      "kind": "comment",
+      "html": "<p><i><br>\nWhen a Sun customer pays for Solaris, they're paying for someone over here to answer the phone when they call and for me and others in Solaris kernel development to do the things they need.<br>\n</i></p>\n<p>A few years ago, i would have agreed with you. However, now (because of the cutbacks?) I am not that happy with sun support. More accurately, I am UNhappy with the level of support I am getting. And this is through a \"premium support\" contract.</p>\n<p><i><br>\nOn a more person note, I'm also excited about OpenSolaris because it means if I were ever to leave Sun, I could still work on DTrace, mdb, nohup, and the other parts of Solaris that I consider my own.<br>\n</i></p>\n<p>Umm... I think that just underscores the point in my original article. Some engineers seem to want this because it makes the ENGINEER happy, not neccessarily because it is \"good for sun\".</p>\n<p><i><br>\nOpenSolaris can only help Sun.<br>\n</i></p>\n<p>Not so. Just as linux/GPL driver people cannot stop others from taking the idea and information from a GPL driver, and making a non-GPL one; you cannot stop a GPL driver-writer from taking ideas and information from an \"OpenSolaris(tm)\" driver/whatnot, and making a GPL version. That results in loss of competative advantage, which would not have happened if there was no \"OpenSolaris\".</p>\n<p>On the \"helping solaris\" side, there seems to be an assumption, \"If you OpenSource it, They Will Come\". This is rather naiive. The hardcore open source driver writers are already writing open source drivers, for the One True Open OS(haha), GNU/linux. They will NOT duplicate their efforts to rewrite all their drivers for solaris. They will look at OpenSolaris for tips and tricks, and then merely incorporate anything interesting, into their own pre-existing GPL'd drivers for linux.<br>\n[Yes I know about *BSD, but it's the linux writers that are the threat]</p>\n<p>To get more development that is solaris-specific, you have to reach people that are already interested in using and coding for solaris. Just making solaris \"open source\" will not do that. You need to have more documentation and examples, to get the type of reliable, clean code we'd want for solaris. (plus lots of marketing, 'cool toys', and other come-ons). This is completely orthagonal to going \"open source\".</p>\n<p>Someone I think has glommed onto the idea that \"Open Source\" == \"Marketing tool\". Unfortunately, that only works well for the small, underdog companies. Sun will always be seen as part of the \"Evil Corporate Ones\", reguardless of the fact that sun has made huge contributions to the open source community. (I personally know multiple people who really should know better, but still have this attitude against Sun).</p>\n<p>It's kinda like a 40 year old trying to \"look cool\" to college students, by wearing T-shirts and  dangling an iPod. Sorry, but it's Not Going To Happen. (They may play you for a bit 'cause you pay for stuff, but you'll never be just another college student)</p>\n"
+    },
+    {
+      "id": 1726,
+      "author": "Eric Schrock",
+      "url": "http://blogs.sun.com/eschrock",
+      "date": "2004-08-12T01:18:22Z",
+      "kind": "comment",
+      "html": "<p>First off, whether or not you're happy with Sun support, the vast majority of revenue from Solaris is <i>not</i> from unit sales.  I can't quote internal numbers, but just try to imagine how many companies out there buy Solaris without any kind of support contract.<br>\nSecond, one of the main points of Adam's post is that even if OpenSolaris goes GPL (which is not a sure bet either way at the moment), the parts of Solaris that give us competitive advantage (DTrace, Zones, SMF, FMA, and others) are actually <i>very difficult</i> to port to a different OS (a filesystem like ZFS being an exception).  We could really care less if someone notices that we have an interesting trick to making our e1000g driver run faster, and ends up sticking it in a Linux driver.  Cool \"tips and tricks\" hardly amount to a competitive advantage.<br>\nThird, there is an assumption that we are out to \"steal\" Linux developers, to somehow unseat Linux as the king of open source operating systems.  This is just wrong, along with the assumption that \"open source\" == \"marketing tool\".  <b>We are here to create a Solaris community</b>.  And frankly, all the cool demos and documentation in the world isn't going to build a community the same way direct interaction with kernel developers, project development, bug tracking, and source code will.  We might end up with a dozen or so dedicated driver writers, but that hardly counts as a community.  People are far more motivated to fix their annoying bug in &lt;tt&gt;tar&lt;/tt&gt; than to write a new wireless driver.  Besides, a large part of community involvement comes from transparency of development, regardless of whether or not anyone contributes source code.  <i>There is more to a community than driver development</i>.<br>\nFinally, you are not the first to say we're just trying to \"look cool\" by using this as a PR stunt.  There will always be people out there that hate Sun.  That's why there's more than one operating system out there.  Maybe OpenSolaris isn't for you.  But we have personally talked to many people who are excited about OpenSolaris.  And there are many more people excited about Solaris 10 who may become involved even if they are not active developers.  Will it ever rival the community built around Linux?  Maybe, maybe not (Linux certainly has a good head start).  Does it have to in order to be successful?  No.</p>\n"
+    },
+    {
+      "id": 1727,
+      "author": "Philip Brown",
+      "url": "http://www.bolthole.com/solaris/drivers",
+      "date": "2004-08-12T11:06:12Z",
+      "kind": "comment",
+      "html": "<p><i><br>\nWill it ever rival the community built around Linux? Maybe, maybe not.[]Does it have to in order to be successful? No.<br>\n</i></p>\n<p>Does it have to be the same size as the linux community? No. Does it have to offer something UNIQUE, that linux does not have? <b>YES</b>.</p>\n<p>Opening up everything, would lead to that going away.</p>\n<p>yes, it would take a lot of work to linux to catch up. But the \"linux community\" has shown that it has all the inclination, talent, and manpower to do such catchup in the past.</p>\n<p>To enable \"community interest\" in developing solaris internals, while not allowing other OSes to play piggyback, what should be done is something like the old \"Foundation Source\" thing, but this time, do it RIGHT.<br>\nThere were quite a few people who signed up for that, then got in, and found that sun had silently lobotomized it, in the sense that there was no way to give back or share code between authorized developers.</p>\n"
+    },
+    {
+      "id": 1728,
+      "author": "Octave Orgeron",
+      "date": "2004-08-12T15:35:46Z",
+      "kind": "comment",
+      "html": "<p>OpenSolaris can have a positive affect for Sun and its customers. But protecting the IP in that source code should be Sun's number 1 concern. The Linux community would be thrilled to see how Sun does things under the hood, so they can fix or improve their own kernel. This could be very bad for Sun and place its customers into a state of panic \"Do I run Solaris, OpenSolaris, or Linux with a hint of OpenSolaris?\". Sun should be focused on making a community where developers register and agree legally(in writting) to not transplant such technology to other products(think windows) or free OS's(think Linux/BSD). While this is a little restrictive, it would protect the source code and the developers who are interested in OpenSolaris. I could be wrong, but I think that going too far with opening up the source code will back fire on Sun and cause splintering. OpenOffice is a good example of something that's fairly well organized, but could be improved upon for OpenSolaris. Either way, this won't be easy.<br>\nOctave</p>\n"
+    },
+    {
+      "id": 1729,
+      "author": "Keith Wesolowski",
+      "url": "http://blogs.sun.com/wesolows",
+      "date": "2004-08-13T15:48:34Z",
+      "kind": "comment",
+      "html": "<p><i>yes, it would take a lot of work to linux to catch up. But the \"linux community\" has shown that it has all the inclination, talent, and manpower to do such catchup in the past.</i></p>\n<p>There is more than manpower involved in \"catching up\" if indeed that's what it is.  There's the technical difficulty of it all, there are the organizational issues (read: a lot of what we're talking about is observability tools of the exact type Linus has purposely refused many times), and most of all there has to be a will to replicate a specific feature set for the purpose of competing with Solaris.</p>\n<p>While all of these could conceivably be overcome by the Linux developers, I don't believe it will happen, at least not soon.  There is very little interest in the broader \"linux community\" for these features.  FMA doesn't improve your quake frame rate, and DTrace won't make GNOME look prettier to wow Grandma away from the hated Windows.  Aside from a couple of companies trying to play in the server space, all the talent and manpower is focused on beating Microsoft at its own game.  And most of the brighter folks would rather work on their own ideas than struggle to port someone else's code.  After all, BSD incorporates features Linux doesn't, and the code has always been available (under a compatible license, no less!) yet I don't see a huge effort to port every new BSD feature to Linux.</p>\n<p>I expect we'll see a similar outcome with OpenSolaris even if the license is GPL-compatible, which is far from certain at this point.  We would do well to focus more on getting people interested in using and developing Solaris than on whether someone might incorporate into other operating systems parts of our feature set.  Even if Linux implements the same features as Solaris, Solaris will have them first and will probably have the better implementation for quite some time because porting complex features is hard.  Under those circumstances, what motivation do our customers have to choose Linux?  What motivation have developers who are not already committed to one OS or the other?</p>\n"
+    },
+    {
+      "id": 1730,
+      "author": "justin",
+      "url": "http://linuxnotes.blogspot.com",
+      "date": "2004-08-15T13:15:08Z",
+      "kind": "comment",
+      "html": "<p>sounds crazy maybe, but instead of having \"open solaris\" verus \"gnu/linux\" , why not merge them?<br>\nyup - it sounds crazy... but at least , if it can be done, you avoid the duplication of effort. and you get the linux advocates on board too.<br>\nsounds nuts , i know - but it's just something that popped into my head when reading the above...</p>\n"
+    },
+    {
+      "id": 1731,
+      "author": "Philip Brown",
+      "url": "http://www.bolthole.com/solaris/drivers/",
+      "date": "2004-08-16T17:39:13Z",
+      "kind": "comment",
+      "html": "<p><i><br>\nAside from a couple of companies trying to play in the server space, all the talent and manpower is focused on beating Microsoft at its own game.<br>\n</i></p>\n<p>yes, all the talent and manpower... except for those people being paid to do linux development by small companies like RedHat, IBM, and ironically, Sun Microsystems.</p>\n<p><i><br>\nWe would do well to focus more on getting people interested in using and developing Solaris<br>\n</i></p>\n<p>Now this I can agree with. I just dont agree that \"Lets OpenSource Solaris!\" is the right way to do it.</p>\n"
+    },
+    {
+      "id": 1732,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-08-17T14:39:13Z",
+      "kind": "comment",
+      "html": "<blockquote><i>sounds crazy maybe, but instead of having \"open solaris\" verus \"gnu/linux\" , why not merge them?</i></blockquote><br>\nOne of things that defines Solaris is its compatibility with previous versions of Solaris. There are reasons to use Linux over Solaris and Solaris over Linux; OpenSolaris will change some of those lines, but it won't remove them. Rather than a gentle merge, I think it would be more like a head-on collision.\n"
+    },
+    {
+      "id": 1733,
+      "author": "kajaman",
+      "date": "2004-08-22T15:24:56Z",
+      "kind": "comment",
+      "html": "<p>Oh, the other thing is that in the future, Solaris (even though it is better than Linux) will loose. This is a good product and Sun must keep it alive. Linuxes, *BSD's are getting better every day and their price is... there is no price! I'm shure that one day, Sun will notice that their clients don't want to buy Solaris any more, and without strong community of developers from out side of the company, the project is going to die.</p>\n"
+    },
+    {
+      "id": 1734,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-10-05T21:40:54Z",
+      "kind": "comment",
+      "html": "<p>kajaman,</p>\n<p>I'd like to point out that we're &lt;em&gt;giving&lt;/em&gt; Solaris away --  it's tough to get cheaper than that. If you're not into free as in beer, we're also going to make Open Solaris (free as in speach).</p>\n"
+    }
+  ]
+}

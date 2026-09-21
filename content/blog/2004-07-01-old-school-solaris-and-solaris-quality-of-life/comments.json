@@ -1,0 +1,86 @@
+{
+  "post": "/2004/07/01/old-school-solaris-and-solaris-quality-of-life/",
+  "count": 10,
+  "comments": [
+    {
+      "id": 1769,
+      "author": "sysadmin field notes",
+      "url": "http://www.evilrob.org/journal/archives/000078.html",
+      "date": "2004-07-02T00:32:04Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] Some of the new sun blogs aren't fantastic, but a few from the kernel/solaris guys sure are. Check out this tip about nohup in Solaris 9. That's absolutely awesome; countless times I've kicked off a build (or a java server...</p>\n"
+    },
+    {
+      "id": 1770,
+      "author": "Derek",
+      "date": "2004-07-05T14:24:00Z",
+      "kind": "comment",
+      "html": "<p>This isn't a kernel issue or even a Solaris issue IMHO, but it sure affects my quality of life.  I compile software from scratch quite often for myself and for clients, and the ./configure process seems to take eons compared to much less powerful x86 hardware running, say, FreeBSD.  ... Though my older x86 boxes have slower disks, less memory and much less processing power than my Sun machines, the ./configure process is about twice as fast.  DTrace indicates that sed is perhaps the biggest bottleneck here, but Solaris' included sed seems to be faster than all the rest.  Where is the bottleneck here?</p>\n"
+    },
+    {
+      "id": 1771,
+      "author": "David Lange",
+      "date": "2004-07-07T11:36:43Z",
+      "kind": "comment",
+      "html": "<p>Dear Adam,<br>\nCould you describe how you achieve this functionality. For example, how do you grab the standard I/O of a running process. I'd love to see the code, but a description would suffice.</p>\n"
+    },
+    {
+      "id": 1772,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-07-07T18:55:09Z",
+      "kind": "comment",
+      "html": "<p>Derek, I've also noticed that ./configure can be much slower on Solaris (both SPARC and x86) than on other operating systems. There have been a _ton_ of performance improvements in Solaris 10 (available now through Solaris Express), and that's helped me a bit, but there may be more slop we can clean up. I'll try to spend some time investigating, but any investigation you do on your own would be extremely helpful. This is exactly the type of community interaction we in engineering are so excited about as we ramp up for Open Solaris. Not to try to put the burden on you, but if you _are_ interested, head over to the DTrace discussion forum if you want some ideas on where to go next with your investigation.</p>\n"
+    },
+    {
+      "id": 1773,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-07-07T18:59:31Z",
+      "kind": "comment",
+      "html": "<p>David, I'm glad to hear at least one person's interested in how I did this. That sounds like good material for a weblog entry...</p>\n"
+    },
+    {
+      "id": 1774,
+      "author": "Derek",
+      "date": "2004-07-08T01:47:30Z",
+      "kind": "comment",
+      "html": "<p>Hi Adam... no burden at all!  I'm really excited I can interact with anything at all inside of Sun--I just hope it's not really a burden in the face of your other duties.  I've run Solaris 10 on my relatively old hardware (2x300MHz Ultra 2 and a 333MHz Ultra 5) and didn't notice much of a speedup.  I used a DTrace process watcher to determine that sed is definitely a large bottleneck.  One other thing of note.. if I use the Blastwave- or SunFreeware-compiled versions of sed and autoconf, etc., things slow down by a factor of ~30% or more.  So, the Sun compilers are still ahead of their game, it seems. :)  I'll play with DTrace a bit more to see if I can find any other clues.  (Boy, I can't wait until I can stick paragraph breaks in here.)  Thanks for your time, Adam!</p>\n"
+    },
+    {
+      "id": 1775,
+      "author": "Bruce Hamilton",
+      "url": "http://bhami.com/",
+      "date": "2004-07-14T07:08:09Z",
+      "kind": "comment",
+      "html": "<p>Your wrote, \"If there's something in Solaris that pisses you off or is better elsewhere, let us know.\"<br>\nThe thing that most immediately comes to mind is, on HP-UX and Linux, boot time console messages have some order to them. You can actually see which rc script is running, and it gives a \"busy/wait\" status then finally either \"[OK]\" or \"[failed]\", one per line.<br>\nFurther, there is no place I can go to that is guaranteed to let me review all the boot messages, unless I happen to be on a system with RSC that explicitly preserves them.<br>\nBut in Solaris, you get a haphazard collection of junk dumped on the console, at the whim of each script. Many scripts don't print any messages at all.<br>\np.s. Why does this comment page say \"HTML Syntax: Disabled\" with no button to enable it? Now all my paragraphs are run together :-(</p>\n"
+    },
+    {
+      "id": 1776,
+      "author": "David Lange",
+      "date": "2004-08-04T14:48:02Z",
+      "kind": "comment",
+      "html": "<p>Adam, thanks for the description you had on the inside nohup -p, but the one part that has me stumped is the agent LWP. After, a careful RFTM of the /proc manpage I'm wondering what code line is associated with the agent LWP. Simply, I can understand how to invoke the agent LWP, but what code would this be calling or how is it made accessible to the process?</p>\n"
+    },
+    {
+      "id": 1777,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-08-10T19:33:25Z",
+      "kind": "comment",
+      "html": "<p>Bruce, check out Stephen Hahn's <a href=\"http://blogs.sun.com/roller/page/sch/20040722#bug_flushing\" rel=\"nofollow ugc noopener noreferrer\">post</a> about the service management facility. It's much more than an rc script replacement -- check it out.</p>\n"
+    },
+    {
+      "id": 1778,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-08-10T19:38:12Z",
+      "kind": "comment",
+      "html": "<p>David, you're right that the proc(4) man page is a little daunting. I see that you already discovered Eric Schrock's <a href=\"http://blogs.sun.com/roller/page/eschrock/20040627#the_secret_agent_lwp\" rel=\"nofollow ugc noopener noreferrer\">discussion</a> of the agent LWP. As Eric mentioned, we're working on making libproc -- our convenience layer around /proc -- available in the future.</p>\n<p>The hint at the answer is that you need to set the program counter register to be the location of the code you want to execute. We mostly just use the agent to execute system call. Eric and I will try to put together some examples of how to use the agent without.</p>\n"
+    }
+  ]
+}

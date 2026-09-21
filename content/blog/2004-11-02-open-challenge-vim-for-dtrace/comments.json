@@ -1,0 +1,22 @@
+{
+  "post": "/2004/11/02/open-challenge-vim-for-dtrace/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1701,
+      "author": "Danek Duvall",
+      "date": "2004-11-02T14:13:56Z",
+      "kind": "comment",
+      "html": "<p>Here's a start I made about a year ago:<br>\n</p><blockquote><a href=\"http://www.comfychair.org/~duvall/d.vim\" rel=\"nofollow ugc noopener noreferrer\">http://www.comfychair.org/~duvall/d.vim</a><br>\n</blockquote><br>\nJust put it in &lt;code&gt;~/.vim/syntax&lt;/code&gt;, and add<br>\n<blockquote><br>\naugroup filetypedetect<br>\nautocmd BufNewFile,BufRead *.d setf d<br>\naugroup END<br>\n</blockquote><br>\nto &lt;code&gt;~/.vim/filetype.vim&lt;/code&gt;.  It's not self-installing code, but that's probably more than you really need.  No commenting, but that doesn't belong in the syntax file anyway.  :)<p></p>\n"
+    },
+    {
+      "id": 1702,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-11-14T17:44:09Z",
+      "kind": "comment",
+      "html": "<p>hmm... when I said \"easy\" I wasn't kidding. I couldn't get your stuff to work. I'm happy to try to get it working, but that may disqualify you from your non-existant prize...</p>\n"
+    }
+  ]
+}

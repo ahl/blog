@@ -1,0 +1,22 @@
+{
+  "post": "/2006/05/12/dtrace-at-javaone-2006/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1609,
+      "author": "Bharath.R",
+      "date": "2006-05-12T22:57:18Z",
+      "kind": "comment",
+      "html": "<p>Is there a place where I could find the slides for last year's Dtrace-for-Java presentation, Adam?</p>\n"
+    },
+    {
+      "id": 1610,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2006-05-12T23:36:13Z",
+      "kind": "comment",
+      "html": "<p>Actually, it was that first 'a session' link, but here it is again: <a href=\"http://dtrace.org/blogs/ahl/dtrace_presentation_at_javaone\" rel=\"nofollow ugc noopener noreferrer\">http://dtrace.org/blogs/ahl/dtrace_presentation_at_javaone</a></p>\n"
+    }
+  ]
+}

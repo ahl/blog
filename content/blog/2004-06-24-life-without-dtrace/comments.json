@@ -1,0 +1,29 @@
+{
+  "post": "/2004/06/24/life-without-dtrace/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1782,
+      "author": "Ben Humphreys",
+      "date": "2004-06-24T03:00:21Z",
+      "kind": "comment",
+      "html": "<p>I work for the backline kernel support group at Sun, where we have had a taste good of DTrace but still obviously have to deal with customers systems running Solaris 9 and prior.<br>\nI can tell you one of the most common phrases you hear in our group these days is..... \"if only they were running Solaris Express\".</p>\n"
+    },
+    {
+      "id": 1783,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-06-24T10:26:53Z",
+      "kind": "comment",
+      "html": "<p>Seriously! When we in kernel development are looking at a problem in Solaris 9 or earlier, our first step is to try to reproduce it on Solaris 10 -- and we've been doing this now for more than a year on prototypes of DTrace. It's like when I go to a hotel room and try to use the remote to fast-forward through commercials...</p>\n"
+    },
+    {
+      "id": 1784,
+      "author": "Keith Adams",
+      "date": "2004-06-24T11:10:29Z",
+      "kind": "comment",
+      "html": "<p>DTrace is off the hizzle. Having played with it for just a week or so, I never want to have to work in an environment without it again.<br>\nSadly, Solaris is not, and may never be, my primary development environment. Sun has customers running Linux, no? How hard would it be for you guys to hire some Danish masters student and pay him in Slashdot moderation points to do a Linux port? Obviously the probes would be different, but a lot of the stable abstractions you discuss could be the same. It's conceivable that you could use the same D scripts to make apples to apples comparisons of Linux and Solaris behavior.<br>\nOf course, the patch against the kernel would have to be GPL, unless you could structure it all as a module. Pretty please...</p>\n"
+    }
+  ]
+}

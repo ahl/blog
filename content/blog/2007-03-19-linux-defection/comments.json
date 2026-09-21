@@ -1,0 +1,31 @@
+{
+  "post": "/2007/03/19/linux-defection/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1544,
+      "author": "Nicholas Schmidt",
+      "url": "http://geekyschmidt.com",
+      "date": "2007-03-19T12:24:07Z",
+      "kind": "comment",
+      "html": "<p>Defection sounds a little over the top if you ask me. To me this sounds more like Sun defecting from the closed nature of the company, maybe this signals the GPL3 cut-over soon enough. I will say this as someone who uses OpenSolaris, hopefully Mr. Murdock can get a decent package management tool running in Solaris.</p>\n"
+    },
+    {
+      "id": 1545,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-03-19T13:29:10Z",
+      "kind": "comment",
+      "html": "<p>Nicholas,</p>\n<p>At the very least, I think we can agree that OpenSolaris capitalizes on the same appeal that Linux holds for users and -- in this case for example -- has the edge. I'm reminded of Marc Andreessen's recent quip: \"Solaris is a better Linux than Linux.\"</p>\n<p>... and I couldn't agree more with your sentiment about package management.</p>\n<p>Adam</p>\n"
+    },
+    {
+      "id": 1546,
+      "author": "James McPherson",
+      "url": "http://www.jmcp.homeunix.com/blog",
+      "date": "2007-03-19T14:41:00Z",
+      "kind": "comment",
+      "html": "<p><i>...the GPL3 cut-over...</i> ??? There is no such thing - at least, if there are plans for it then nobody within Sun has made them public, and speculation about GPLv3 doesn't help anybody.</p>\n"
+    }
+  ]
+}

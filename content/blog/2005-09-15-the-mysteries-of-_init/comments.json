@@ -1,0 +1,23 @@
+{
+  "post": "/2005/09/15/the-mysteries-of-_init/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1650,
+      "author": "Andrew",
+      "url": "http://www.opensolaris.org/viewProfile.jspa?id=8347",
+      "date": "2005-10-04T15:52:02Z",
+      "kind": "comment",
+      "html": "<p>Recently I had a problem with compiling a program created with a Program Builder tool included with CDE in Solaris 10. Don't remember exactly the name of the tool, as I am not at that Solaris computer right now. This tool allows to build an Open Windows based user interface. Allegedly it should compile the code automatically. But the &lt;code&gt;cc&lt;/code&gt; compiler reports that some language specific thing is not istalled. I examined the code of the &lt;code&gt;cc&lt;/code&gt; compiler script, and found out that it complains about the absence of some BSD compatibility tools. Again I don't remember things well.<br>\n<i>It is strange that something is missing, because I did a full installation. However, I am aware that after the installation of Solaris 10, I had to additionally install some things, like the KDE desktop (very buggy thing). So a complete installation turns out not to be exactly complete. It just writes some packages onto disk without installing. And you would have a hard time of finding out what remains lurking and not installed still.</i><br>\nSo, I tried the &lt;code&gt;gcc&lt;/code&gt;. It builds the &lt;code&gt;*.o&lt;/code&gt; files. Then I link it with &lt;code&gt;ld&lt;/code&gt;. Bu when I try to launch my program, the OS responds: &lt;code&gt;cannot execute&lt;/code&gt;.<br>\nPerhaps I hit the same &lt;code&gt;missing init&lt;/code&gt; problem, as you describe.<br>\nI have read your article. But it is not clear what exactly I should do with those &lt;code&gt;crti.o&lt;/code&gt; and &lt;code&gt;crtn.o&lt;/code&gt; files. Supply them to the linker &lt;code&gt;ld&lt;/code&gt; in any specific order, in just any order, or anything else?<br>\nCould you provide an example of a command line? Let's assume I have several &lt;code&gt;*.o&lt;/code&gt; files with my code. What should I do next?</p>\n"
+    },
+    {
+      "id": 1651,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-10-13T21:15:45Z",
+      "kind": "comment",
+      "html": "<p>Hey Andrew,<br>\nIf you're linking manually with &lt;tt&gt;ld&lt;/tt&gt; you may very well be encountering this problem. Normally, the compiler will pass &lt;tt&gt;crti.o&lt;/tt&gt; and &lt;tt&gt;crtn.o&lt;/tt&gt; to the linker in the proper order and that order is this: &lt;tt&gt;crti.o&lt;/tt&gt; *.o &lt;tt&gt;crtn.o&lt;/tt&gt;. As I describe above, those two object files act as the open and close brackets for the .init section. Hope that helps.</p>\n"
+    }
+  ]
+}
