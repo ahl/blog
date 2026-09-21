@@ -170,4 +170,4 @@ OFF OPCODE INSTRUCTION
 
 ### More to come
 
-Usability was a big topic at [dtrace.conf](http://dtrace.org/blogs/ahl/2012/04/09/dtrace-conf12-wrap-up/) a few months ago. Expect to see more contributions along this theme.
+Usability was a big topic at [dtrace.conf](/2012/04/09/dtrace-conf12-wrap-up/) a few months ago. Expect to see more contributions along this theme.

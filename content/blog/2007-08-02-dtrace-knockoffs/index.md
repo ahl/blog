@@ -12,7 +12,7 @@ tags:
 permalink: /2007/08/02/dtrace-knockoffs/
 ---
 
-**Update 8/6/2007:** Those of you interested in this entry may also want to check out [my next entry](http://dtrace.org/blogs/ahl/what_if_machine_dtrace_port) on the legality of a hypothetical port of DTrace to Linux.
+**Update 8/6/2007:** Those of you interested in this entry may also want to check out [my next entry](/2007/08/06/what-if-machine-dtrace-port/) on the legality of a hypothetical port of DTrace to Linux.
 
 <figure>
   <img src="images/dtrace_for_linux.png" alt="">
@@ -106,7 +106,7 @@ DTrace is already available in the developer builds of Mac OS X 10.5, and there'
 
 ### Time For Standards
 
-At the end of my talk last week someone asked if there was a port of DTrace to Linux (not entirely surprising since OSCON has a big Linux user contingent). I told him to ask the Linux bigwigs (several of them were also at the conference); after all, we didn't do the port to Mac OS X, and we didn't do the port to FreeBSD. We did extend our help to [those developers](http://dtrace.org/blogs/ahl/dtrace_on_mac_os_x), and they, in turn, helped DTrace by growing the community and through direct contributions[\[2\]](#mcilree).
+At the end of my talk last week someone asked if there was a port of DTrace to Linux (not entirely surprising since OSCON has a big Linux user contingent). I told him to ask the Linux bigwigs (several of them were also at the conference); after all, we didn't do the port to Mac OS X, and we didn't do the port to FreeBSD. We did extend our help to [those developers](/2006/08/07/dtrace_on_mac_os_x/), and they, in turn, helped DTrace by growing the community and through direct contributions[\[2\]](#mcilree).
 
 We love to see DTrace on other operating systems, and we're happy to help.
 

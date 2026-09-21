@@ -80,7 +80,7 @@ CPU FUNCTION
 ...
 ```
 
-Not a complicated D script, but a reallly powerful use for developers that simplifies what would formerly have been an incredibly arduous task. I've mentioned this [before](http://dtrace.org/blogs/ahl/warm_up_the_propaganda_machine), but it certainly bears repeating. Another cool use for developers is evaluating algorithms in running programs. DTrace is great for making sure your hash functions have the distribution you expect:
+Not a complicated D script, but a reallly powerful use for developers that simplifies what would formerly have been an incredibly arduous task. I've mentioned this [before](/2004/06/17/warm-up-the-propaganda-machine/), but it certainly bears repeating. Another cool use for developers is evaluating algorithms in running programs. DTrace is great for making sure your hash functions have the distribution you expect:
 
 ```console
 bash-2.05# dtrace -n pid`pgrep testapp`::hash_func:return'{ @ = lquantize(arg1, 0,  50); }'

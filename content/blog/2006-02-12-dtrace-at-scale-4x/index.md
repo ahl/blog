@@ -10,7 +10,7 @@ I gave a talk today at [SCALE 4X](http://www.socallinuxexpo.org/) describing how
 
 [![](images/scale-2006.jpg)](http://dtrace.org/resources/ahl/scale-2006.pdf)
 
-For more, check out [my blog post](http://dtrace.org/blogs/ahl/dtrace_for_linux) on the subject.
+For more, check out [my blog post](/2005/12/13/dtrace-for-linux/) on the subject.
 
 * * *
 

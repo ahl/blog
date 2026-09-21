@@ -10,7 +10,7 @@ tags:
 permalink: /2012/02/23/dtrace-oel-update/
 ---
 
-A few months ago I took [DTrace on OEL](http://dtrace.org/blogs/ahl/2011/10/05/dtrace-for-linux-2/) for a spin after Oracle announced it. The [results were ugly](http://dtrace.org/blogs/ahl/2011/10/10/oel-this-is-not-dtrace/); as one of the authors of DTrace, I admit to being shocked by shoddiness of the effort. Yesterday, [Oracle dropped an updated beta](https://blogs.oracle.com/wim/entry/dtrace_update_to_0_2) so I wanted to see how far they've come in the 4+ months since that initial false start.
+A few months ago I took [DTrace on OEL](/2011/10/05/dtrace-for-linux-2/) for a spin after Oracle announced it. The [results were ugly](/2011/10/10/oel-this-is-not-dtrace/); as one of the authors of DTrace, I admit to being shocked by shoddiness of the effort. Yesterday, [Oracle dropped an updated beta](https://blogs.oracle.com/wim/entry/dtrace_update_to_0_2) so I wanted to see how far they've come in the 4+ months since that initial false start.
 
 ### Whither the probes?
 
@@ -214,4 +214,4 @@ proc:::create
 
 ### Progress
 
-There's a long way to go, but it looks like the folks at Oracle are making progress. It will be interesting to see the source code that goes along with this updated beta -- as of this writing, [the git repository has not been updated](http://oss.oracle.com/git/?p=linux-2.6-dtrace-modules-beta.git;a=log). Personally, I'm eager to see what user-land tracing looks like in the form of the [pid provider](http://dtrace.org/blogs/ahl/2005/03/01/pid-provider-exposed/) and [USDT](http://dtrace.org/blogs/dap/2011/12/13/usdt-providers-redux/). In the tradition of other ports such as [Apple's](http://dtrace.org/blogs/ahl/2006/08/07/dtrace_on_mac_os_x/) and [FreeBSD's](http://www.bsdcan.org/2008/schedule/events/66.en.html), I'd invite the Oracle team to present their work at the upcoming DTrace conference, [dtrace.conf](http://wiki.smartos.org/display/DOC/dtrace.conf).
+There's a long way to go, but it looks like the folks at Oracle are making progress. It will be interesting to see the source code that goes along with this updated beta -- as of this writing, [the git repository has not been updated](http://oss.oracle.com/git/?p=linux-2.6-dtrace-modules-beta.git;a=log). Personally, I'm eager to see what user-land tracing looks like in the form of the [pid provider](/2005/03/01/pid-provider-exposed/) and [USDT](http://dtrace.org/blogs/dap/2011/12/13/usdt-providers-redux/). In the tradition of other ports such as [Apple's](/2006/08/07/dtrace_on_mac_os_x/) and [FreeBSD's](http://www.bsdcan.org/2008/schedule/events/66.en.html), I'd invite the Oracle team to present their work at the upcoming DTrace conference, [dtrace.conf](http://wiki.smartos.org/display/DOC/dtrace.conf).

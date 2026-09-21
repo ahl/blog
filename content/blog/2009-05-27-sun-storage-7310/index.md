@@ -16,4 +16,4 @@ The 7310 is an entry-level clusterable, scalable storage server, but the perform
 
 ![](images/7310_header.png)
 
-Added to the low-end 7110, the dense, expandable 7210, the high-end clusterable, expandable 7410, the 7310 fills an important role in the 7000 series product line: an entry-level clusterable, expandable system, with impressive performance, and an attractive price. If the specs and performance have piqued your interest, try out the user interface on the 7000 series with the [Sun Storage 7000 simulator](http://dtrace.org/blogs/ahl/ss_7000_simulator_update_plus).
+Added to the low-end 7110, the dense, expandable 7210, the high-end clusterable, expandable 7410, the 7310 fills an important role in the 7000 series product line: an entry-level clusterable, expandable system, with impressive performance, and an attractive price. If the specs and performance have piqued your interest, try out the user interface on the 7000 series with the [Sun Storage 7000 simulator](/2009/05/04/ss-7000-simulator-update-plus-virtualbox/).

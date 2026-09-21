@@ -6,7 +6,7 @@ categories:
 permalink: /2004/07/13/number-11-of-20-libumem/
 ---
 
-[go to the Solaris 10 top 11-20 list for more](http://dtrace.org/blogs/ahl/the_solaris_10_top_11)
+[go to the Solaris 10 top 11-20 list for more](/2004/07/12/the-solaris-10-top-11-20/)
 
 ### libumem
 

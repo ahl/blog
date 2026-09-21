@@ -17,7 +17,7 @@ The mission of ZFS was to simplify storage and to construct an enterprise level 
 
 ### RAID levels
 
-Last year I wrote about the [need for triple-parity RAID](http://dtrace.org/blogs/ahl/acm_triple_parity_raid), and in that article I summarized the various RAID levels as enumerated by Gibson, Katz, and Patterson, along with Peter Chen, Edward Lee, and myself:
+Last year I wrote about the [need for triple-parity RAID](/2009/12/21/acm_triple_parity_raid/), and in that article I summarized the various RAID levels as enumerated by Gibson, Katz, and Patterson, along with Peter Chen, Edward Lee, and myself:
 
 - **RAID-0** Data is striped across devices for maximal write performance. It is an outlier among the other RAID levels as it provides no actual data protection.
 - **RAID-1** Disks are organized into mirrored pairs and data is duplicated on both halves of the mirror. This is typically the highest-performing RAID level, but at the expense of lower usable capacity.
@@ -30,6 +30,6 @@ Last year I wrote about the [need for triple-parity RAID](http://dtrace.org/blog
 
 ### RAID-Z: RAID-5 or RAID-3?
 
-Initially, ZFS supported just one parity disk (raidz1), and later added [two (raidz2)](http://dtrace.org/blogs/ahl/double_parity_raid_z) and then [three (raidz3)](http://dtrace.org/blogs/ahl/triple_parity_raid_z) parity disks. But raidz1 is not RAID-5, and raidz2 is not RAID-6. RAID-Z avoids the RAID-5 write hole by distributing logical blocks among disks whereas RAID-5 aggregates unrelated blocks into fixed-width stripes protected by a parity block. This actually means that RAID-Z is far more similar to RAID-3 where blocks are carved up and distributed among the disks; whereas RAID-5 puts a single block on a single disk, RAID-Z and RAID-3 must access all disks to read a single block thus reducing the effective IOPS.
+Initially, ZFS supported just one parity disk (raidz1), and later added [two (raidz2)](/2006/06/18/double-parity-raid-z/) and then [three (raidz3)](/2009/07/21/triple-parity-raid-z/) parity disks. But raidz1 is not RAID-5, and raidz2 is not RAID-6. RAID-Z avoids the RAID-5 write hole by distributing logical blocks among disks whereas RAID-5 aggregates unrelated blocks into fixed-width stripes protected by a parity block. This actually means that RAID-Z is far more similar to RAID-3 where blocks are carved up and distributed among the disks; whereas RAID-5 puts a single block on a single disk, RAID-Z and RAID-3 must access all disks to read a single block thus reducing the effective IOPS.
 
-RAID-Z takes a significant step forward by enabling software RAID, but at the cost of backtracking on the evolutionary hierarchy of RAID. Now with advances like flash pools and [the Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm), the IOPS from a single disk may be of less importance. But a RAID variant that shuns specialized hardware like RAID-Z and yet is economical with disk IOPS like RAID-5 would be a significant advancement for ZFS.
+RAID-Z takes a significant step forward by enabling software RAID, but at the cost of backtracking on the evolutionary hierarchy of RAID. Now with advances like flash pools and [the Hybrid Storage Pool](/2008/07/01/hybrid-storage-pools-in-cacm/), the IOPS from a single disk may be of less importance. But a RAID variant that shuns specialized hardware like RAID-Z and yet is economical with disk IOPS like RAID-5 would be a significant advancement for ZFS.

@@ -14,13 +14,13 @@ tags:
 permalink: /2010/08/17/fishworks_ssds/
 ---
 
-[![](images/ssd_history.jpg "ssd_history")](http://ahl.dtrace.org/wp-content/uploads/2010/08/ssd_history.jpg) This year's flash memory summit got me thinking about our use of SSDs over the years at Fishworks. The picture of our left is a visual history of SSD evals in rough chronological order from the oldest at the bottom to the newest at the top (including some that have yet to see the light of day).
+![](images/ssd_history.jpg "ssd_history") This year's flash memory summit got me thinking about our use of SSDs over the years at Fishworks. The picture of our left is a visual history of SSD evals in rough chronological order from the oldest at the bottom to the newest at the top (including some that have yet to see the light of day).
 
 ### Early Days
 
 When we started Fishworks, we were inspired by the possibilities presented by [ZFS](http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome) and [Thumper](http://www.sun.com/images/k3/k3_sunfirex4500_4.jpg). Those components would be key building blocks in the enterprise storage solution that became the 7000 series. An immediate deficiency we needed to address was how to deliver competitive performance using 7,200 RPM disks. Folks like NetApp and EMC use PCI-attached NV-DRAM as a write accelerator. We evaluated something similar, but found the solution lacking because it had limited scalability (the biggest NV-DRAM cards at the time were 4GB), consumed our limited PCIe slots, and required a high-speed connection between nodes in a cluster (e.g. IB, further eating into our PCIe slot budget).
 
-The idea we had was to use flash. None of us had any experience with flash beyond cell phones and USB sticks, but we had the vague notion that flash was fast and getting cheaper. By luck, flash SSDs were just about to be where we needed them. In late 2006 I started evaluating SSDs on behalf of the group, looking for what we would eventually call [Logzilla](http://dtrace.org/blogs/ahl/fishworks_launch). At that time, SSDs were getting affordable, but were designed primarily for environments such as military use where ruggedness was critical. The performance of those early SSDs was typically awful.
+The idea we had was to use flash. None of us had any experience with flash beyond cell phones and USB sticks, but we had the vague notion that flash was fast and getting cheaper. By luck, flash SSDs were just about to be where we needed them. In late 2006 I started evaluating SSDs on behalf of the group, looking for what we would eventually call [Logzilla](/2008/11/10/hybrid-storage-pools-in-the-7410/). At that time, SSDs were getting affordable, but were designed primarily for environments such as military use where ruggedness was critical. The performance of those early SSDs was typically awful.
 
 ### Logzilla
 
@@ -34,4 +34,4 @@ It was again STEC who stepped up to provide our Readzilla, a 100GB 2.5" SATA SSD
 
 ### Next Generation
 
-Logzilla and Readzilla are important features of the [Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm). For the next generation expect the 7000 series to move away from SLC NAND flash. It was great for the first generation, but other technologies provide better $/IOPS for Logzilla and better $/GB for Readzilla (while maintaining low latency). For Logzilla we think that NV-DRAM is a better solution (I reviewed one such solution [here](http://dtrace.org/blogs/ahl/ddrdrive)), and for Readzilla MLC flash has sufficient performance at much lower cost and ZFS will be able to ensure the longevity.
+Logzilla and Readzilla are important features of the [Hybrid Storage Pool](/2008/07/01/hybrid-storage-pools-in-cacm/). For the next generation expect the 7000 series to move away from SLC NAND flash. It was great for the first generation, but other technologies provide better $/IOPS for Logzilla and better $/GB for Readzilla (while maintaining low latency). For Logzilla we think that NV-DRAM is a better solution (I reviewed one such solution [here](/2010/07/19/ddrdrive/)), and for Readzilla MLC flash has sufficient performance at much lower cost and ZFS will be able to ensure the longevity.

@@ -10,7 +10,7 @@ tags:
 permalink: /2016/06/19/apfs-part5/
 ---
 
-_This series of posts covers APFS, Apple's new filesystem announced at WWDC 2016. See the [first post]( http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1) for the table of contents._
+_This series of posts covers APFS, Apple's new filesystem announced at WWDC 2016. See the [first post]( /2016/06/19/apfs-part1) for the table of contents._
 
 ## Data Integrity
 
@@ -48,4 +48,4 @@ As data ages you might occasionally want to check for bit rot. Likely `fsck_apfs
 
 
 
-_Next in this series: [Conclusions](http://dtrace.org/blogs/ahl/2016/06/19/apfs-part6/)_
+_Next in this series: [Conclusions](/2016/06/19/apfs-part6/)_

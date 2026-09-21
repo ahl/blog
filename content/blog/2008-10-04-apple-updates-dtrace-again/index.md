@@ -6,7 +6,7 @@ categories:
 permalink: /2008/10/04/apple-updates-dtrace-again/
 ---
 
-Back in January, I [ranted](http://dtrace.org/blogs/ahl/mac_os_x_and_the) about Apple's ham-handed breakage in their DTrace port. After some injured feelings and teary embraces, Apple [cleaned things up a bit](http://dtrace.org/blogs/ahl/apple_updates_dtrace), but some nagging issues remained as I wrote:
+Back in January, I [ranted](/2008/01/18/mac-os-x-and-the-missing-probes/) about Apple's ham-handed breakage in their DTrace port. After some injured feelings and teary embraces, Apple [cleaned things up a bit](/2008/06/07/apple-updates-dtrace/), but some nagging issues remained as I wrote:
 
 > For the Apple folks: I'd argue that revealing the name of otherwise untraceable processes is no more transparent than what Activity Monitor provides — could I have that please?
 

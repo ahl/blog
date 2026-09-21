@@ -6,7 +6,7 @@ categories:
 permalink: /2004/07/09/inside-nohup-p/
 ---
 
-I always thought it was cool, but I was surprised by the amount of [interest](http://www.evilrob.org/journal/archives/000078.html) expressed for my [recent post](http://dtrace.org/blogs/ahl/old_school_solaris_and_solaris) on `nohup -p`. There was even a comment asking how `nohup` manages the trick of redirecting the output of a running process. I'll describe in some detail now `nohup -p` works.
+I always thought it was cool, but I was surprised by the amount of [interest](http://www.evilrob.org/journal/archives/000078.html) expressed for my [recent post](/2004/07/01/old-school-solaris-and-solaris-quality-of-life/) on `nohup -p`. There was even a comment asking how `nohup` manages the trick of redirecting the output of a running process. I'll describe in some detail now `nohup -p` works.
 
 First, a little background material: [Eric Schrock](http://blogs.sun.com/eschrock) recently had a [nice post](http://blogs.sun.com/roller/page/eschrock/20040625#the_power_of_proc) about the history of the `/proc` file system; `nohup` makes use of Solaris's `/proc` and the agent LWP in particular which Eric also [described in detail](http://blogs.sun.com/roller/page/eschrock/20040627#the_secret_agent_lwp). All of the `/proc` and agent LWP tricks I describe are documented in the [proc(4) man page](http://docs.sun.com/db/doc/816-5174/6mbb98ui4?a=view).
 

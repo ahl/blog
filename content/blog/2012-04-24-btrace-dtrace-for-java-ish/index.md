@@ -10,7 +10,7 @@ tags:
 permalink: /2012/04/24/btrace-dtrace-for-java-ish/
 ---
 
-DTrace [first peered into Java](http://dtrace.org/blogs/ahl/2005/04/18/dtracing-java/) in early 2005 thanks to an early prototype by Jarod Jenson that led eventually to the inclusion of USDT probes in the [HotSpot JVM](http://en.wikipedia.org/wiki/HotSpot). If you want to see where, say, the java.net.SocketOutputStream.write() method is called, you can simply run this DTrace script:
+DTrace [first peered into Java](/2005/04/18/dtracing-java/) in early 2005 thanks to an early prototype by Jarod Jenson that led eventually to the inclusion of USDT probes in the [HotSpot JVM](http://en.wikipedia.org/wiki/HotSpot). If you want to see where, say, the java.net.SocketOutputStream.write() method is called, you can simply run this DTrace script:
 
 ```dtrace
 hotspot$target:::method-entry
@@ -23,7 +23,7 @@ hotspot$target:::method-entry
 
 And that will work as long as you rememember to start your JVM with the -XX:+ExtendedDTraceProbes option or you use the jinfo utility to enable it after the fact. And as long as you don't mind a crippling performance penalty (hint: you probably do).
 
-Inspired by [dtrace.conf](http://dtrace.org/blogs/ahl/2012/04/09/dtrace-conf12-wrap-up/) a few weeks ago, I wanted to sketch out what the real Java provider would look like:
+Inspired by [dtrace.conf](/2012/04/09/dtrace-conf12-wrap-up/) a few weeks ago, I wanted to sketch out what the real Java provider would look like:
 
 ```dtrace
 java$target:java.net.SocketOutputStream:write:entry

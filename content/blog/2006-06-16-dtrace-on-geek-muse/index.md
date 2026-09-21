@@ -18,4 +18,4 @@ At one point they also identified the need to make sure users can't use DTrace t
 
 * * *
 
-Technorati Tags: [DTrace](http://technorati.com/tag/DTrace) [Geek Muse](http://technorati.com/tag/Geek Muse)
+Technorati Tags: [DTrace](http://technorati.com/tag/DTrace) [Geek Muse](http://technorati.com/tag/Geek%20Muse)

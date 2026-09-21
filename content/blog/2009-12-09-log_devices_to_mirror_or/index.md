@@ -6,7 +6,7 @@ categories:
 permalink: /2009/12/09/log_devices_to_mirror_or/
 ---
 
-The [Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm) integrates flash into the storage hierarchy in two specific ways: as a massive read cache and as fast log devices. For read cache devices, Readzillas, there's no need for redundant configurations; it's a clean cache so the data necessarily also resides on disk. For log devices, Logzillas, redundancy is essential, but how that translates to their configuration can be complicated. How to decide whether to stripe or mirror?
+The [Hybrid Storage Pool](/2008/07/01/hybrid-storage-pools-in-cacm/) integrates flash into the storage hierarchy in two specific ways: as a massive read cache and as fast log devices. For read cache devices, Readzillas, there's no need for redundant configurations; it's a clean cache so the data necessarily also resides on disk. For log devices, Logzillas, redundancy is essential, but how that translates to their configuration can be complicated. How to decide whether to stripe or mirror?
 
 ### ZFS intent log devices
 

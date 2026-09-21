@@ -100,7 +100,7 @@ The “next” field refers to immediately containing struct, LinkedList. In our
 
 ## Writing It
 
-To build the filesystem I picked a [FUSE binding for Go](https://github.com/hanwen/go-fuse), dug into the Noms APIs, and [wrestled my way through some Go heartache](http://dtrace.org/blogs/ahl/2016/08/02/i-love-go-i-hate-go/).
+To build the filesystem I picked a [FUSE binding for Go](https://github.com/hanwen/go-fuse), dug into the Noms APIs, and [wrestled my way through some Go heartache](/2016/08/02/i-love-go-i-hate-go/).
 
 Working with Noms requires a slightly different mindset than other data stores. Recall in particular that Noms data is immutable. Adding a new entry into a Map creates a new Map. Setting a member of a Struct creates a new Struct. Changing nested structures such as the one defined by our schema requires unzipping it, and then zipping it back together. Here’s a Go snippet that demonstrates that methodology for creating a new directory:
 

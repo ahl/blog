@@ -12,7 +12,7 @@ tags:
   - "zfs"
 permalink: /2014/08/31/openzfs-tuning/
 ---
-<img src="images/Magnetic-Fun-and-Facts-300x207.jpg" alt="" class="float-right"> In previous posts I discussed [the problems with the legacy ZFS write throttle](http://dtrace.org/blogs/ahl/2013/12/27/zfs-fundamentals-the-write-throttle/) that cause degraded performance and wildly variable latencies. I then presented the [new OpenZFS write throttle and I/O scheduler](http://dtrace.org/blogs/ahl/2014/02/10/the-openzfs-write-throttle/) that Matt Ahrens and I designed. In addition to solving several problems in ZFS, the new approach was designed to be easy to reason about, measure, and adjust. In this post I’ll cover performance analysis and tuning — using DTrace of course. These details are intended for those using OpenZFS and trying to optimize performance — if you have only a casual interest in ZFS consider yourself warned!
+<img src="images/Magnetic-Fun-and-Facts-300x207.jpg" alt="" class="float-right"> In previous posts I discussed [the problems with the legacy ZFS write throttle](/2013/12/27/zfs-fundamentals-the-write-throttle/) that cause degraded performance and wildly variable latencies. I then presented the [new OpenZFS write throttle and I/O scheduler](/2014/02/10/the-openzfs-write-throttle/) that Matt Ahrens and I designed. In addition to solving several problems in ZFS, the new approach was designed to be easy to reason about, measure, and adjust. In this post I’ll cover performance analysis and tuning — using DTrace of course. These details are intended for those using OpenZFS and trying to optimize performance — if you have only a casual interest in ZFS consider yourself warned!
 
 ## Buffering dirty data
 
@@ -58,7 +58,7 @@ CPU ID FUNCTION:NAME
 
 The write throttle kicks in once the amount of dirty data exceeds `zfs_delay_min_dirty_percent` of the limit (60% by default). If the amount of dirty data fluctuates above and below that threshold, it might be possible to avoid throttling by increasing the size of the buffer. If the metric stays low, you may reduce zfs\_dirty\_data\_max. Weigh this tuning against other uses of memory on the system (a larger value means that there’s less memory for applications or the OpenZFS ARC for example).
 
-A larger buffer also means that flushing a transaction group will take longer. This is relevant for certain OpenZFS administrative operations (sync tasks) that occur when a transaction group is committed to stable storage such as creating or cloning a new dataset. If the interactive latency of these commands is important, consider how long it would take to flush zfs\_dirty\_data\_max bytes to disk. You can measure the time to sync transaction groups ([recall, there are up to three active at any given time](http://dtrace.org/blogs/ahl/2012/12/13/zfs-fundamentals-transaction-groups/)) like this:
+A larger buffer also means that flushing a transaction group will take longer. This is relevant for certain OpenZFS administrative operations (sync tasks) that occur when a transaction group is committed to stable storage such as creating or cloning a new dataset. If the interactive latency of these commands is important, consider how long it would take to flush zfs\_dirty\_data\_max bytes to disk. You can measure the time to sync transaction groups ([recall, there are up to three active at any given time](/2012/12/13/zfs-fundamentals-transaction-groups/)) like this:
 
 ```dtrace
 txg-syncing
@@ -87,7 +87,7 @@ CPU ID FUNCTION:NAME
 1 8729 txg_sync_thread:txg-synced sync took 5.14 seconds
 ```
 
-Note that the value of zfs\_dirty\_data\_max is relevant when sizing a separate intent log device (SLOG). zfs\_dirty\_data\_max puts a hard limit on the amount of data in memory that has yet been written to the main pool; at most, that much data is active on the SLOG at any given time. This is why small, fast devices such as the [DDRDrive](http://www.ddrdrive.com/) make for [great log devices](http://dtrace.org/blogs/ahl/2010/07/19/ddrdrive/). As an aside, consider the [ostensible upgrade](https://blogs.oracle.com/7000tips/entry/new_logzilla_announced_today) that Oracle brought to the ZFS Storage Appliance a few years ago replacing the 18GB “Logzilla” with a 73GB upgrade.
+Note that the value of zfs\_dirty\_data\_max is relevant when sizing a separate intent log device (SLOG). zfs\_dirty\_data\_max puts a hard limit on the amount of data in memory that has yet been written to the main pool; at most, that much data is active on the SLOG at any given time. This is why small, fast devices such as the [DDRDrive](http://www.ddrdrive.com/) make for [great log devices](/2010/07/19/ddrdrive/). As an aside, consider the [ostensible upgrade](https://blogs.oracle.com/7000tips/entry/new_logzilla_announced_today) that Oracle brought to the ZFS Storage Appliance a few years ago replacing the 18GB “Logzilla” with a 73GB upgrade.
 
 ## I/O scheduler
 

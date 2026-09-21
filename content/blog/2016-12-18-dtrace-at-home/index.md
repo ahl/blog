@@ -8,11 +8,11 @@ permalink: /2016/12/18/dtrace-at-home/
 
 I had been procrastinating making the family holiday card. It was a combination of having a lot on my plate and dreading the formulation of our annual note recapping the year; there were some great moments, but I’m glad I don’t have to do 2016 again. It was just before midnight and either I’d make the card that night or leave an empty space on our friends’ refrigerators. Adobe Illustrator had other ideas:
 
-[![Unable to set maximum number of files to be opened.](images/Screen-Shot-2016-12-17-at-7.03.00-PM.png)](http://ahl.dtrace.org/wp-content/uploads/2016/12/Screen-Shot-2016-12-17-at-7.03.00-PM.png)
+![Unable to set maximum number of files to be opened.](images/Screen-Shot-2016-12-17-at-7.03.00-PM.png)
 
 I’m not the first person to hit this. The problem seems to have existed since CS6 was released in 2016. None of the solutions was working for me, and — inspired by Sara Mauskopf’s [excellent post](https://medium.com/startup-grind/how-to-start-a-company-with-no-free-time-b70fbe7b918a#.uujdblxc6) — I was rapidly running out of the time bounds for the project. Enough; I’d just DTrace it.
 
-A colleague scoffed the other day, “I mean, how often do you actually use DTrace?” In his mind DTrace was for big systems, critical system, when dollars and lives were at stake. My reply: I use DTrace every day. I can’t imagine developing software without DTrace, and I use it when my laptop (not infrequently) does something inexplicable (I’m forever grateful to the [Apple team](http://dtrace.org/blogs/ahl/2006/08/07/dtrace_on_mac_os_x/) that ported it to Mac OS X).
+A colleague scoffed the other day, “I mean, how often do you actually use DTrace?” In his mind DTrace was for big systems, critical system, when dollars and lives were at stake. My reply: I use DTrace every day. I can’t imagine developing software without DTrace, and I use it when my laptop (not infrequently) does something inexplicable (I’m forever grateful to the [Apple team](/2006/08/07/dtrace_on_mac_os_x/) that ported it to Mac OS X).
 
 First I wanted to make sure I had the name of the Illustrator process right:
 

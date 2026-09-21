@@ -6,7 +6,7 @@ categories:
 permalink: /2014/12/24/delphix-week-of-giving/
 ---
 
-[![](images/delphix_wog.jpg "delphix_wog")](http://ahl.dtrace.org/wp-content/uploads/2014/12/delphix_wog.jpg)In the frenzied, insular world of a Silicon Valley startup it can be easy to lose perspective on the broader community in which we live and work. Among the great [hackathon projects](http://blog.delphix.com/eschrock/2013/enterprise-software-hackathons/) to come from our bi-annual engineering event was the idea of "Angel Sharks", a group of volunteers at Delphix who provide opportunities for volunteering and community giving. Earlier this year, this group organized [volunteer events](https://twitter.com/ahl/status/500524627550945281) around the launch of new Delphix releases.
+![](images/delphix_wog.jpg "delphix_wog")In the frenzied, insular world of a Silicon Valley startup it can be easy to lose perspective on the broader community in which we live and work. Among the great [hackathon projects](http://blog.delphix.com/eschrock/2013/enterprise-software-hackathons/) to come from our bi-annual engineering event was the idea of "Angel Sharks", a group of volunteers at Delphix who provide opportunities for volunteering and community giving. Earlier this year, this group organized [volunteer events](https://twitter.com/ahl/status/500524627550945281) around the launch of new Delphix releases.
 
 We just completed our first "Week of Giving". While many at Delphix already donate their time and money, the Angel Sharks organized giving and corporate matching. Our theme for 2014 was hunger; we focused on the [SF-Marin Food Bank](http://www.sfmfoodbank.org) as our featured organization.
 

@@ -19,7 +19,7 @@ This is actually pretty cool: be a college student, do something cool on [OpenSo
 
 #### Write something new (using cools stuff in Solaris)
 
-- I'd love to see more dynamic languages with native DTrace support. We've already got support for [Java](http://dtrace.org/blogs/ahl/dtracing_java), [php](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_php), [Ruby](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_ruby), and [Perl](http://blogs.sun.com/roller/page/alanbur?entry=dtrace_and_perl) in some form; make it better or add support for some other language you know and love (TCL, python, scheme, LISP, ML, etc.).
+- I'd love to see more dynamic languages with native DTrace support. We've already got support for [Java](/2005/04/18/dtracing-java/), [php](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_php), [Ruby](http://blogs.sun.com/roller/page/bmc?entry=dtrace_and_ruby), and [Perl](http://blogs.sun.com/roller/page/alanbur?entry=dtrace_and_perl) in some form; make it better or add support for some other language you know and love (TCL, python, scheme, LISP, ML, etc.).
 - Build another kind of analysis tool on top of DTrace. We're working on a Java binding which is going to make this easier.
 - Write a device driver for your favorite crazy device (which I assume is your new iPod nano or something; you're such a [hipster Apple fanboy](http://blogs.sun.com/roller/page/jonathan?entry=an_invitation)).
 - Build a tool to simulate a distributed environment on Zones and use DTrace to monitor the communication. WARNING: your distributed systems professor will be your new best friend.

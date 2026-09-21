@@ -69,7 +69,7 @@ raidz1          True       4       4           284               213
 
 ```
 
-The size calculator also allows you to model a system with Logzilla devices, write-optimized flash devices that form a key part of the [Hybrid Storage Pool](http://dtrace.org/blogs/ahl/hybrid_storage_pools_in_cacm). After you specify the number of JBODs in the configuration, you can include a list of how many Logzillas are in each JBOD. For example, the following invocation models twelve JBODs with four Logzillas in the first 2 JBODs:
+The size calculator also allows you to model a system with Logzilla devices, write-optimized flash devices that form a key part of the [Hybrid Storage Pool](/2008/07/01/hybrid-storage-pools-in-cacm/). After you specify the number of JBODs in the configuration, you can include a list of how many Logzillas are in each JBOD. For example, the following invocation models twelve JBODs with four Logzillas in the first 2 JBODs:
 
 ```console
 $ ./sizecalc.py catfish ***** 12 4 4
@@ -88,7 +88,7 @@ raidz1          True       4       4           276               207
 
 A very common area of confusion has been how to size Sun Storage 7410 systems, and the relationship between the physical storage and the delivered capacity. I hope that this little tool will help to answer those questions. A side benefit should be still more interest in the [virtual version of the appliance](http://www.sun.com/storage/disk_systems/unified_storage/resources.jsp) — a subject I've been meaning to post about so stay tuned.
 
-**Update December 14, 2008:** A couple of folks requested that the script allow for modeling half-JBOD allocations because the 7410 allows you to split JBODs between heads in a cluster. To accommodate this, I've added a `\-h` option that takes as its parameter the number of half JBODs. For example:
+**Update December 14, 2008:** A couple of folks requested that the script allow for modeling half-JBOD allocations because the 7410 allows you to split JBODs between heads in a cluster. To accommodate this, I've added a `-h` option that takes as its parameter the number of half JBODs. For example:
 
 ```console
 $ ./sizecalc.py -h 12 192.168.18.134 ***** 0
