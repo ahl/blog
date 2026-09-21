@@ -1,0 +1,38 @@
+{
+  "post": "/2004/11/18/babys-first-dtrace/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1697,
+      "author": "Francois Dion",
+      "date": "2004-11-19T13:47:40Z",
+      "kind": "comment",
+      "html": "<p>Thanks for putting these hints up. I've been reading on DTrace (the big manual) but hadn't gotten to the point where I tought I could put it into practice (beside some basic sysadmin stuff) for development per say. I do count on that in the following months to increase performance of a web based application.<br>\nTurns out that one needs to start using dtrace to realise its potential...<br>\nI've been running povray under Solaris x86. Noticed it was slower than expected.<br>\nFor background info, see: http://groups.yahoo.com/group/solarisx86/message/15480<br>\nWell, today, I had a few minutes, stumbled on your blog and decided to try and see if I'd get anywhere. I did:<br>\nhttp://groups.yahoo.com/group/solarisx86/message/15708<br>\nI dont have the Sun compiler so I'll wait on Dennis (from Blastwave) to recompile a new version with this enabled, and I fully expect a performance gain of 30%+. I'll keep you posted.<br>\nFrancois</p>\n"
+    },
+    {
+      "id": 1698,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-11-20T10:22:21Z",
+      "kind": "comment",
+      "html": "<p>Francois,</p>\n<p>I'm delighted that you found this so immediately helpful. I'll try to put together more such first steps (and hope the timing of my blog post coincides with some performance problem cropping up on a open source discussion).</p>\n"
+    },
+    {
+      "id": 1699,
+      "author": "Denis T.",
+      "date": "2004-11-25T13:41:13Z",
+      "kind": "comment",
+      "html": "<p>How about using DTrace to learn about the internals of Solaris? Kinda like what Richard Stevens did to learn networking on unix (ie. discovery by experimentation).<br>\nThis would actually be helpful to learn about DTrace *and* Solaris. Can you engage your tech writers on this?</p>\n"
+    },
+    {
+      "id": 1700,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-11-25T21:51:21Z",
+      "kind": "comment",
+      "html": "<p>Hey Denis,</p>\n<p>You might want to check out <a href=\"http://www.solarisinternals.com\" rel=\"nofollow ugc noopener noreferrer\">Solaris Internals</a>. It currently doesn't include anything about DTrace (or Solaris 10), but Jim Mauro is working on rolling DTrace examples into various chapters.</p>\n"
+    }
+  ]
+}

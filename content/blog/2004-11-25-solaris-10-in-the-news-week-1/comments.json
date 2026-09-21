@@ -1,0 +1,38 @@
+{
+  "post": "/2004/11/25/solaris-10-in-the-news-week-1/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1693,
+      "author": "Yusuf Goolamabbas",
+      "date": "2004-11-25T19:35:43Z",
+      "kind": "comment",
+      "html": "<p>Adam, Other than licenses please get some C/C++ compilers available out-of-the box with Solaris. It seems paradoxical that whilst Jonathan/Scott are targetting developers with OpenSolaris/Solaris 10 with free RTU's. They aren't providing compilers out of the box. Sun has eliminated price as a comparision issue with Redhat. Don't let the compiler be the stumbling box. Also, make the compiler available on both Solaris 10 as well as OpenSolaris.<br>\nOn the GCC list, I see a lot of Solaris 10 patches coming out from Code Sourcery (Joseph Myers/Mark Mitchell). I don't know if they are doing it on their own or they are contracted by Sun and whether GCC 3.4.x is going to be the system compiler or would it be Sun's own compiler (just the command line).</p>\n"
+    },
+    {
+      "id": 1694,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-11-25T21:53:59Z",
+      "kind": "comment",
+      "html": "<p>Right. We <b>really</b> want to give the compilers away with Open Solaris. At the very least, you'll be able to use our compilers free to build Solaris itself. It sucks -- we're trying to fix it. And yes, we're sponsoring Code Sourcery for their AMD64 stuff. That might not be public... so don't tell anyone.</p>\n"
+    },
+    {
+      "id": 1695,
+      "author": "c0t0d0s0.org",
+      "url": "http://www.c0t0d0s0.org/index.php?p=238",
+      "date": "2004-11-26T08:27:31Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] Solaris 10 in the news: week 1</p>\n"
+    },
+    {
+      "id": 1696,
+      "author": "William Strathearn",
+      "url": "http://strathearns.org/wds/blog",
+      "date": "2004-11-27T22:15:24Z",
+      "kind": "comment",
+      "html": "<p>As a systems researcher, I am very excited about the possibility of being able to take advantage of the very advanced and professional suite of OS level advances put forth by the Solaris developer base. Linux is great, but is geared toward catching up with Windows rather than making real OS level advances.  It also suffers from a developer base that is too fractured and dispersed to put together anything coherent.  Solaris does not have that disadvantage.  If efforts can be organized in the way they have for Mozilla and other large but focused OSS projects, Solaris will still look professional after having hundreds hack on it.<br>\nLinux grew to what it is today after starting from much less.  It did so mainly becuase people wanted a free alternative, but Solaris is perfectly poised to become so much more than Linux.  Add some special native Java tools and you have the ability to actually make money from it as well.</p>\n"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "post": "/2012/10/11/illumos-hackathon-2012-user-land-types-for-dtrace/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 2772,
+      "author": "SmartOS News: – SmartOS.org",
+      "url": "http://smartos.org/2012/10/11/smartos-news-4/",
+      "date": "2012-10-11T21:41:26Z",
+      "kind": "pingback",
+      "html": "<p>[...] illumos hackathon 2012: user-land types for DTrace – “At the illumos hackathon last week, Robert Mustacchi and I prototyped better support for manipulating user-land structures.” – Adam Leventhal    « illumos / ZFS Days [...]</p>\n"
+    },
+    {
+      "id": 2886,
+      "author": "SmartOS News: October 19, 2012 – SmartOS.org",
+      "url": "http://smartos.org/2012/10/19/smartos-news-october-19-2012/",
+      "date": "2012-10-19T21:24:15Z",
+      "kind": "pingback",
+      "html": "<p>[...] Adam Leventhal @ahl: “at the illumos hackathon @rmustacc and I improved DTrace for user-land…“ [...]</p>\n"
+    },
+    {
+      "id": 3042,
+      "author": "illumos» Blog Archive » illumos News: November 7, 2012",
+      "url": "http://blog.illumos.org/2012/11/07/illumos-news-november-7-2012/",
+      "date": "2012-11-07T23:54:45Z",
+      "kind": "pingback",
+      "html": "<p>[...] illumos hackathon 2012: user-land types for DTrace – “At the illumos hackathon last week,&nbsp;Robert Mustacchi&nbsp;and I prototyped better support for manipulating user-land structures. As anyone who’s used it knows, DTrace is currently very kernel-centric — this both reflects the reality of how operating systems and DTrace are constructed, and the origins of DTrace itself in the Solaris Kernel Group. Discussions at&nbsp;dtrace.conf(12)&nbsp;this spring prompted me to chart a path to better user-land support. This prototype of copyin-automagic was a first step.” – Adam Leventhal [...]</p>\n"
+    }
+  ]
+}

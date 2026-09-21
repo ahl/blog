@@ -1,0 +1,13 @@
+{
+  "post": "/2004/07/01/dtrace-for-developers/",
+  "count": 1,
+  "comments": [
+    {
+      "id": 1779,
+      "author": "Paul Kent",
+      "date": "2004-07-09T17:59:14Z",
+      "kind": "comment",
+      "html": "<p>Is DTrace sort of like dyninst or kerninst?</p>\n"
+    }
+  ]
+}

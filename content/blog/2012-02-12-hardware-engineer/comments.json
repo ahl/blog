@@ -1,0 +1,87 @@
+{
+  "post": "/2012/02/12/hardware-engineer/",
+  "count": 10,
+  "comments": [
+    {
+      "id": 2213,
+      "author": "Kevin",
+      "url": "http://kevinclosson.wordpress.com",
+      "date": "2012-02-13T17:08:16Z",
+      "kind": "comment",
+      "html": "<p>\"and there’s still the occasional opportunity to stab at a jumper with a bread knife from the kitchen to generate an NMI and initiate a kernel panic!\"</p>\n<p>...that's ok so long as you have your ESD wrist-strap on, eh?  :-)</p>\n<p>...nice post!</p>\n"
+    },
+    {
+      "id": 2214,
+      "parent": 2213,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-02-13T17:30:45Z",
+      "kind": "comment",
+      "html": "<p>ESD... wrist... what? Sounds like something for people who don't get a running start...</p>\n"
+    },
+    {
+      "id": 2215,
+      "author": "Michelle Agul",
+      "url": "http://itilluminations.blogspot.com/",
+      "date": "2012-02-13T18:05:46Z",
+      "kind": "comment",
+      "html": "<p>Your conjoined twin Iwashis (SS7110) science project seems very similar to what has now become the Oracle Database Appliance (ODA).  Any idea if there is any truth to this speculation?</p>\n"
+    },
+    {
+      "id": 2216,
+      "parent": 2215,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-02-13T18:27:30Z",
+      "kind": "comment",
+      "html": "<p>Take a look at Chris Mellor's accurate article about the genesis of the Oracle Database Appliance:</p>\n<p>http://www.theregister.co.uk/2011/09/30/oracle_maguro_plus/</p>\n<p>The twin Iwashis did advise the specifications we provided for Maguro+ (also known as T4 for Thumper v4). The problem was that the hardware for Maguro+ (which was to be the 7320) was later, and later, and later, so Fishworks gave up on it and went with a plan for the 7320 that was basically just a simple refresh of the 7310 with new head nodes. It was good to see Oracle pull the design off the scrap heap and turn it into the ODA -- it's a fun box.</p>\n"
+    },
+    {
+      "id": 2217,
+      "author": "UX-admin",
+      "date": "2012-02-14T16:05:05Z",
+      "kind": "comment",
+      "html": "<p>\"Iwashi\"... now that is a cool name.</p>\n<p>Personally, I am still on a quest to build a supercheap HA cluster out of generic 1U i86pc servers  running Solaris, which do not require shared fiber channel storage, but utilize local disks as shared storage instead.</p>\n<p>Solaris clusters on the cheap - power to the startups</p>\n"
+    },
+    {
+      "id": 2218,
+      "parent": 2217,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-02-14T17:22:24Z",
+      "kind": "comment",
+      "html": "<p>All Fishworks product used sushi codenames: 7110/iwashi, 7210/fugu, 7310/maguro, 7410/toro, 7420/otoro. Our hope was that this would get us a fancy sushi dinner at the launch in 2008, a hope that was realized at great financial expense.</p>\n"
+    },
+    {
+      "id": 2219,
+      "author": "UX-admin",
+      "date": "2012-02-14T19:54:32Z",
+      "kind": "comment",
+      "html": "<p>Sushi, yum!</p>\n<p>SInce you love sushi:</p>\n<p>Jiro dreams of sushi<br>\nhttp://www.youtube.com/watch?v=0VB_DrsHDQ0</p>\n"
+    },
+    {
+      "id": 2220,
+      "author": "Geoff Flarity",
+      "url": "http://well.ca",
+      "date": "2012-02-15T18:13:11Z",
+      "kind": "comment",
+      "html": "<p>HA, I've done the hold 2.5 ssd in a 3.5 bay for testing trick. I used the silicate bead package to prop up the drive. I'm glad to see I'm not the only crazy one ;)</p>\n"
+    },
+    {
+      "id": 2221,
+      "parent": 2220,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-02-15T18:15:59Z",
+      "kind": "comment",
+      "html": "<p>If you look carefully, you can see my second favorite use of a PCI faceplate filler:<br>\nhttp://dtrace.org/blogs/ahl/files/2012/02/riverwalk_jr.jpg</p>\n"
+    },
+    {
+      "id": 2222,
+      "author": "Evaldas",
+      "date": "2012-02-16T09:26:22Z",
+      "kind": "comment",
+      "html": "<p>Yes ! I'm going to throw out these 2.5/3.5 adapters and try to insert a 2.5 SSD into Thumper the Adam's way !</p>\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "post": "/2013/09/13/delphix-plus-three-years/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 5909,
+      "author": "UX-admin",
+      "date": "2013-09-16T06:37:05Z",
+      "kind": "comment",
+      "html": "<p>\"College recruiting had been an important focus for me during my years at Sun. I had only been at Delphix a few weeks when I convinced our CEO that we should recruit from colleges, and left to interview at my alma mater, Brown University.\"</p>\n<p>Why? Why would you recruit from colleges, instead of recruiting experienced engineers, \"UNIX graybeards\"? What is the motivation behind preferring college graduates over experienced engineers?</p>\n"
+    },
+    {
+      "id": 5913,
+      "parent": 5909,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2013-09-16T13:51:33Z",
+      "kind": "comment",
+      "html": "<p>College recruiting wasn't as the exclusion of other hiring -- it's just that prior to my joining, Delphix had no college hiring. We shoot for a balance: junior folks and experienced engineers who can act as mentors. College recruiting yields very strong engineers and can be programitized; hiring each experienced engineer is a new endeavor.</p>\n"
+    }
+  ]
+}

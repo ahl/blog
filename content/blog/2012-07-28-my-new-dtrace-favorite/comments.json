@@ -1,0 +1,39 @@
+{
+  "post": "/2012/07/28/my-new-dtrace-favorite/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 2317,
+      "author": "Sean Silva",
+      "date": "2012-07-31T00:29:56Z",
+      "kind": "comment",
+      "html": "<p>How does this cope with the situation where the probedesc of the clause matches multiple probes with differing types for, say args[1]?</p>\n<p>For example, say provider \"prov\" has two probes \"prov:::foo\" and \"prov:::bar\", with args[1] types `struct foo*` and `struct bar*`, respectively. How is the following handled?:</p>\n<p># dtrace -n 'prov::: { print(*args[1]); }' -Se</p>\n<p>(also could you help me out by pointing out the code that handles this?)</p>\n<p>Thanks.</p>\n<p>(p.s. for concreteness, I think that 'proc:::*create { print(*args[0]); }' is a real-world example of such a conflict.)</p>\n"
+    },
+    {
+      "id": 2319,
+      "parent": 2317,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-07-31T05:45:18Z",
+      "kind": "comment",
+      "html": "<p>Since all translators are static, and resolved at compile-time, the same problem would exist today. DTrace currently imposes the limitation that arguments used have sufficient compatibility. The new addition is equivalent to tracing out each member of the translated type.</p>\n<p>In order to address the problem you describe, we'd need to complete the implementation of dynamic translators -- translators that happen when the probe fired rather than at compile-time as presently happens.</p>\n"
+    },
+    {
+      "id": 2321,
+      "parent": 2319,
+      "author": "Sean Silva",
+      "date": "2012-07-31T22:44:10Z",
+      "kind": "comment",
+      "html": "<p>Couldn't you just expand the probedesc wildcard and compile the clause body with each individual probedesc?</p>\n<p>E.g. turn</p>\n<p>proc:::*create { print(*args[0]); }</p>\n<p>into</p>\n<p>proc:::create, proc:::lwp-create { print(*args[0]); }</p>\n"
+    },
+    {
+      "id": 2322,
+      "parent": 2321,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-08-01T00:29:23Z",
+      "kind": "comment",
+      "html": "<p>Ah. I thought you meant two uses of args[0] that had different translators. In the case you mentioned, you'll get this:</p>\n<p>dtrace: invalid probe specifier proc:::*create{ print(*args[0]); }<br>\n: in action list: args[ ] may not be referenced because probe description proc:::*create matches an unstable set of probes</p>\n<p>The same happens in this case:<br>\n# dtrace -n 'fbt::*open:entry{ print(*args[0]); }'<br>\ndtrace: invalid probe specifier fbt::*open:entry{ print(*args[0]); }: in action list: args[ ] may not be referenced because probe description fbt::*open:entry matches an unstable set of probes</p>\n<p>That is to say that it's a larger issue, and not one that's impacted directly by the feature I was writing about.</p>\n"
+    }
+  ]
+}

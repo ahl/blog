@@ -1,0 +1,108 @@
+{
+  "post": "/2011/10/10/oel-this-is-not-dtrace/",
+  "count": 13,
+  "comments": [
+    {
+      "id": 2136,
+      "author": "Steve",
+      "date": "2011-10-10T23:05:32Z",
+      "kind": "comment",
+      "html": "<p>Stay classy, Adam.</p>\n"
+    },
+    {
+      "id": 2138,
+      "parent": 2136,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-10T23:52:45Z",
+      "kind": "comment",
+      "html": "<p>Steve, help me out. I don't think it's reasonable to announce DTrace for OEL and then roll out this -- even as a beta. Do you object to my calling this effort lazy? to asking for its removal until it's in a useable state? to pointing out serious and obvious problems?</p>\n"
+    },
+    {
+      "id": 2139,
+      "author": "xyzzy",
+      "date": "2011-10-10T23:55:31Z",
+      "kind": "comment",
+      "html": "<p>Maybe we should send some FreeBSD developers down to Oracle HQ to show 'em how it's done.</p>\n"
+    },
+    {
+      "id": 2140,
+      "parent": 2139,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-11T00:08:06Z",
+      "kind": "comment",
+      "html": "<p>Sure, or Apple, or QNX, or maybe just over Paul Fox with the code he's written for Linux which is already more functional.</p>\n"
+    },
+    {
+      "id": 2141,
+      "author": "Brendan Gregg",
+      "url": "http://dtrace.org/blogs/brendan",
+      "date": "2011-10-11T01:06:11Z",
+      "kind": "comment",
+      "html": "<p>Thanks for trying it out.  I was expecting a lot more to be functional, and certainly not expecting it to be harmful.  Were there any other providers besides syscall and profile?  I was hoping for fbt and maybe proc and io, at least.</p>\n<p>I'm very happy for Oracle to be attempting to port DTrace to Linux.  But I'm confused that Wim wrote \"The word <strong>evaluate</strong> is key here\" (http://blogs.oracle.com/wim/entry/trying_out_dtrace), with the current state as it is.  I hope that's misspoken: the words \"don't evaluate yet\" should be key!  I think _that_ would be in the best interests of OEL and DTrace, since evaluating this early release of code may scare people away from what will be an amazing technology, once fully ported, functional (dtrace test suite) and safe.  Evaluate then, not now.</p>\n"
+    },
+    {
+      "id": 2142,
+      "parent": 2138,
+      "author": "xyzzy",
+      "date": "2011-10-11T03:17:50Z",
+      "kind": "comment",
+      "html": "<p>Just ignore him. Steve is obviously a SystemTap advocate in disguise. ;)</p>\n"
+    },
+    {
+      "id": 2143,
+      "parent": 2141,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-11T04:26:46Z",
+      "kind": "comment",
+      "html": "<p>No other providers: just s subtly broken syscall provider and an obviously broken profile provider.</p>\n"
+    },
+    {
+      "id": 2145,
+      "author": "Rennie",
+      "date": "2011-10-11T05:05:44Z",
+      "kind": "comment",
+      "html": "<p>But the kernel is unbreakable right?  Can't complain when you have an unbreakable kernel now, can you ;-)</p>\n"
+    },
+    {
+      "id": 2146,
+      "author": "Nigel Smith",
+      "url": "http://nwsmith.blogspot.com/",
+      "date": "2011-10-11T09:52:11Z",
+      "kind": "comment",
+      "html": "<p>Oracle's port looks more alpha than beta, and Oracle should make that clear when they talk about it.</p>\n<p>I think its good that Oracle have announced that they are working on this, but then its inevitable that everyone wants to see what progress they are making.  Well now we know, and a little disappointed that they are not further along.</p>\n<p>But I'm not too surprised, since I'm sure it's very difficult challenge that has been set. From reading Paul Fox's blog I get the impression that DTrace on Linux, is quite a bit more difficult to get to work reliably, than DTrace for Solaris. Not helped by limitations forced by the CDDL/GPL licencing issues.</p>\n<p>I wonder how long Oracle have been working on this?  I wonder who at Oracle IS working on this?  Lets see what rate of progress they can make in the coming months.</p>\n<p>I would say to Oracle, publish your code to git, so the community can contribute. Publish you project plan, and be 'open'. Don’t just restrict this to Oracle support subscribers. Unfortunately I've a feeling that Oracle will not do that, but I hope I’m wrong.</p>\n<p>I would encourage anyone interested in DTrace for Linux to have a look at Paul Fox's work and provide feedback and assistance to Paul.</p>\n"
+    },
+    {
+      "id": 2147,
+      "author": "Keith Wesolowski",
+      "date": "2011-10-11T15:15:26Z",
+      "kind": "comment",
+      "html": "<p>You can't possibly be as surprised as you're pretending to be here.  If you'd stuck around long enough to experience more of the pain and suffering that is working for Oracle, you'd have seen this pattern in action several times.  While some poor intern undoubtedly deserves the blame for this shoddy \"port\", it's Oracle's vaunted executive team that deserves the blame for anyone seeing it.  Their combination of \"fire, ready, aim\" product announcements, exclusion of engineering from the decision-making process, and frequent purges of anyone expressing independent thought makes it impossible for them to tell good ideas from bad, beta-ready products from breadboards, or fundamentally sound engineering from hazards to their customers' businesses.  Now that something's been announced, Oracle will proceed to apply its \"million interchangeable parts\" approach to software engineering; somewhere a big team of mediocre engineers -- probably a sad sack mix of H-1 holders and underwater mortgagors who owe child support -- who first read about their new product on Slashdot are being whipped and bludgeoned into creating a product their bosses can sell as the one they announced.</p>\n<p>Does that \"[call] into question Oracle’s credibility as a technology provider\"?  It should, but Wall Street analysts will keep toeing the line and CIOs will keep playing golf with Larry, and nothing much will change.  They certainly don't care what you write or what I write or even what the truth is; they have the money to make the \"truth\" whatever they want it to be.  Oracle's nasty little secret is that it's one of the industry's worst-managed companies, up there with Yahoo and HP.  They keep getting a pass because they keep reporting nicely-managed earnings, a strategy that worked well for GE, until it didn't.  I would love for this not-DTrace DTrace to be its undoing, but it's going to take more than that to bring these guys down.  Perhaps the best we can hope for is to get the message out to everyone reading that this lousy DTrace port is actually very representative of the way Oracle creates and ships products.  There's a reason almost all of their product lines came from acquisitions: they have absolutely no idea how to do anything themselves, and they boil off any acquired talent that does.</p>\n<p>I challenge Oracle to produce the engineering architects who reviewed this piece of software, who approved its announcement.  I challenge them to explain why they thought it was ready and how that decision was made.  I issue this challenge because I know that no such review took place and no such architects were asked their opinion (if indeed they even exist).  That's just not the way Oracle does business, because Oracle simply is not an engineering company.</p>\n"
+    },
+    {
+      "id": 2149,
+      "author": "Paul Fox",
+      "url": "http://crtags.blogspot.com",
+      "date": "2011-10-11T22:44:00Z",
+      "kind": "comment",
+      "html": "<p>Just to add to the conversation (a little). If you havent tried my dtrace, please feel free to do so. Its very functional - there are a few things missing (kernel SDT probes, and work needs to be done on user space probes/process grabbing). But theres a lot in there and works on a wide variety of old and new kernels.</p>\n<p>I will try to avoid being drawn into the rights/wrong/potential of Oracles work - thats for others to partake in. Whatever Oracle does, I feel is beneficial. Even if that work gets aborted, its a win for various reasons.</p>\n<p>http://crtags.blogspot.com for the blog and link to the dtrace code.</p>\n<p>So far, from this conversation, Oracle are dipping toes in the water. I can hazard a guess why sshd would die on tracing, and hopefully Oracle will resolve that issue (and I hope they enjoy the land of GCC vs the Sun C compiler issues, which I have written about many times).</p>\n"
+    },
+    {
+      "id": 2150,
+      "author": "True Blue",
+      "date": "2011-10-11T22:54:22Z",
+      "kind": "comment",
+      "html": "<p>Imagine if they made automobiles or aeroplanes with so many missing or non-functional parts. I guess you could drag them around and take the customers for a ride just the same.</p>\n"
+    },
+    {
+      "id": 2153,
+      "author": "Michael Ernest",
+      "url": "http://radio.javaranch.com",
+      "date": "2011-10-17T17:06:47Z",
+      "kind": "comment",
+      "html": "<p>It'd be one thing to try and hold an industry powerhouse to a standard it has no interest in meeting. It's quite another to put out an announcement that implies way, way, WAY more than it delivers. Shameless promotion of things that don't work, I think, is something any software engineer has an obligation to be ashamed for producing and an obligation, as a peer, to call it out for the farce that it is.</p>\n"
+    }
+  ]
+}

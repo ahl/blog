@@ -1,0 +1,123 @@
+{
+  "post": "/2007/08/06/what-if-machine-dtrace-port/",
+  "count": 15,
+  "comments": [
+    {
+      "id": 1469,
+      "author": "renoX",
+      "date": "2007-08-06T06:33:40Z",
+      "kind": "comment",
+      "html": "<p>Well, you could also check what's happening in FreeBSD:<br>\nhttp://marc.info/?l=freebsd-current&amp;m=117469583227359&amp;w=2<br>\nApparently there is a debate whether it is legal to link BSD code in the kernel with the CDDL headers of the module and keep the result distributable under BSD.<br>\nAs a result of this debate, they won't ship DTrace as part of FreeBSDv7..<br>\nSo the licensing issues are not restricted to Linux :-( and no IMNL either, so I can't comment..</p>\n"
+    },
+    {
+      "id": 1470,
+      "author": "Alberto Ruiz",
+      "url": "http://aruiz.synaptia.net",
+      "date": "2007-08-06T07:04:19Z",
+      "kind": "comment",
+      "html": "<p>Hello,<br>\nfirst, my legal background:</p>\n<p>I've been working for two years in the free software office of my college reviewing the impact of free software license, open content license and open documents in the academic use, specially the impact of those license in final projects and how to handle the copyright requirements for it in that context.</p>\n<p>I've been also cooperating with the Foundation for a Free Information Infrastructure to spread the word about the impact of free software patents among the college community.</p>\n<p>Nowadays I'm working in the Sun Ray group assisting the opensource of APOC.</p>\n<p>I'm not a lawyer anyway, but I have some knowledege regarding licensing.</p>\n<p>Kernel modules are loaded with a simple ldload, which basically means, that once loaded, they linked on the same address space than the rest of the kernel.</p>\n<p>From the <a href=\"http://www.fsf.org/licensing/licenses/info/GPLv2.html\" rel=\"nofollow ugc noopener noreferrer\">FSF</a>, we can read:</p>\n<blockquote><br>\nThis General Public License does not permit incorporating your program into<br>\nproprietary programs.  If your program is a subroutine library, you may<br>\nconsider it more useful to permit linking proprietary applications with the<br>\nlibrary.  If this is what you want to do, use the GNU Library General<br>\nPublic License instead of this License.<br>\n</blockquote><br>\nThis General Public License does not permit incorporating your program into<br>\nproprietary programs.  If your program is a subroutine library, you may<br>\nconsider it more useful to permit linking proprietary applications with the<br>\nlibrary.  If this is what you want to do, use the GNU Library General<br>\nPublic License instead of this License.<br>\nProprietary, in this context, means GPL incompatible code.\n<p>As an example of this interpretation, the Trolltech business model is exactly based on that clause, they have a dual license, GPL, if you want to do GPL compatible programs/libraries, and for the rest you have to pay developer license.</p>\n<p>Regarding the nVidia violation, yes, they've violated the license. But that doesn't mean that it's legal, it only means that none has sued them yet about it.</p>\n<p>Does that means that we should do the same wrong thing or pretend it to be right?</p>\n<p>Now, a possibility might be a patchset and build-by-your-own model, that is factible and doesn't violate the license as long as people don't redistribute the binaries. But that would prevent the use of DTrace on lots of scenarios, and it wouldn't be available on distributions, which would prevent the \"DTrace everywhere\" goal to happen, in fact, I think that it would delay it.</p>\n<p>At some point someone has to relicense its software, either the linux kernel, or the dtrace/zfs/opensolaris code, and I can understand why people don't believe us when we say \"we want DTrace/ZFS everywhere\" right two years after of choosing a GPLv2 incompatible license when the biggest market that we want to target is using that license<br>\nThat doesn't mean that CDDL is a bad license, neither GPLv2 is a perfect license, but is just hard to understand us when we have made the choices that we have made.</p>\n<p>As I said in the previous post, both projects going to GPLv3 is the only exit that I see to have everyone happy, but I don't know if that would be possible on the Linux front.</p>\n"
+    },
+    {
+      "id": 1471,
+      "author": "Brian Utterback",
+      "url": "http://blogs.sun.com/blu",
+      "date": "2007-08-06T07:50:35Z",
+      "kind": "comment",
+      "html": "<p>I have to disagree about your assessment that making changes and then not releasing the source is morally bankrupt. This is falling into the open source license trap, that somehow the goal is to produce opensource software, rather than to get work done. Both the GPLv2 and CDDL are very explicit on this point. Neither applies any restriction to derivative works that are created for your own use and not re-distributed. In fact, if Google wanted to port DTrace to Linux for use on its own servers, then the conflict between GPL and CDDL would not be a barrier at all and they would not have to resort to the \"clean room\" efforts you described. Only if it decided to distribute the result would there be a problem.<br>\nSure, it would be nice for anybody that makes an improvement to any open source program to release  that improvement to the world, but the freedom to modify a program to make it more useful to *you* was the driving force behind the original opensource movement.  I find the statement that it is morally bankrupt to modify a open source program and not release the changes as source code even though you have not released the resulting executable to be tantamount to the idea that it is morally wrong to release your own programs without releasing the source code.</p>\n"
+    },
+    {
+      "id": 1472,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-06T13:21:54Z",
+      "kind": "comment",
+      "html": "<p>renoX,<br>\nIt's the opinion of Sun that the legality of what the BSD folks are trying<br>\nto do is clear and legitimate. My understanding is that they're getting some<br>\nconflicting advice from the legal team at NetApp.</p>\n<p>Alberto,<br>\nHow exactly has nVidia violated the GPL? They release an independent binary,<br>\nbut they haven't incorporated it into a work covered by the GPL. Can you<br>\nexplain your interpretation a bit more? Also, who would have the legal<br>\nstanding to sue them and on what grounds?</p>\n<p>Brian,<br>\nPerhaps I was being overly glib, but I do think it runs contrary to the spirit<br>\nof open source to make major advancements and then not release them back to<br>\nthe community -- especially if it actually were a company like Google who<br>\n<a href=\"http://code.google.com/oss.html\" rel=\"nofollow ugc noopener noreferrer\">professes great affection</a> for<br>\nopen source.</p>\n"
+    },
+    {
+      "id": 1473,
+      "author": "John Birrell",
+      "url": "http://dtrace.what-creek.com/",
+      "date": "2007-08-06T23:54:48Z",
+      "kind": "comment",
+      "html": "<p>I am not a lawyer.<br>\nAnd I don't think I should _need_ one to use open source code.</p>\n"
+    },
+    {
+      "id": 1474,
+      "author": "John Birrell",
+      "url": "http://dtrace.what-creek.com/",
+      "date": "2007-08-07T00:02:56Z",
+      "kind": "comment",
+      "html": "<p>One question, though....<br>\nWhy doesn't Sun port DTrace to Linux?</p>\n"
+    },
+    {
+      "id": 1475,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-07T08:00:47Z",
+      "kind": "comment",
+      "html": "<p>John,<br>\nI guess the business case isn't there for Sun to port DTrace to Linux. We're not a big seller or deployer of Linux -- someone in that space is most likely be keen to fund a port.</p>\n"
+    },
+    {
+      "id": 1476,
+      "author": "Paul Jakma",
+      "url": "http://blogs.sun.com/paulj",
+      "date": "2007-08-07T08:04:47Z",
+      "kind": "comment",
+      "html": "<p>(FWIW, I have both @sun.com and @member.fsf.org email addresses).<br>\nAlberto, your understanding of both the GPL and of software licencing is slightly off in places, e.g.:<br>\n\"This General Public License does not permit incorporating your program into proprietary programs.\"<br>\nThis is wrong. The GPL explicitely grants a *blanket* useage licence. You may use GPLed code in ANY way you want, without restriction. Including incorporating GPLed code into your proprietary (or otherwise GPL incompatible) code.<br>\nThe GPL restricts *REDISTRIBUTION* - this is a key point you seem to be unclear on, and a crucial distinction.<br>\n\"Regarding the nVidia violation, yes, they've violated the license. But that doesn't mean that it's legal, it only means that none has sued them yet about it.\"<br>\nIf no one has sued them, if no court has ever ruled on this, how can you state with such certainty that it is a licence violation? You are almost certainly not fully-informed for a start-off. E.g. you don't know what is in the blob - by some accounts that's code that was developed on Windows originally, or how that code was developed - likely the code in the blob is developed in such a way that NVs' legal counsel considers sufficiently walled-off to be a copyright barrier. Finally, presuming NV aren't deriving from GPLed Linux code (and there's no evidence of such), as Adam replied, NV arent distributing anything but their own code - so they can't be subject to the GPL through redistribution either. Many people may dislike binary-blob driver situations, but that no Linux developer has sued perhaps suggests none of them has ever received /real/ legal advice that they have any grounds to sue..<br>\n\"Now, a possibility might be a patchset and build-by-your-own model,\"<br>\nEh, what about Adam's suggestion? \"Reimplement the kernel code (likely has to be anyway) and re-use the userspace code\"? Copyright does not prevent cloning of interfaces, indeed isn't Linux a perfect example of that?<br>\nMy vote is that Adam's analysis is spot-on. The Linux community, despite the hoopla some make about legality of non-GPL kernel modules, seem quite willing to make it easy for /users/ to combine their GPL kernel with GPL-incompatible kernel modules (and such combination is quite within users rights under the GPL!). I.e. I bet various Linux distributions \"non-free\" repositories would carry CDDLed DTrace kernel module packages..</p>\n"
+    },
+    {
+      "id": 1477,
+      "author": "Adam West",
+      "date": "2007-08-07T17:24:36Z",
+      "kind": "comment",
+      "html": "<p>Why does not Sun dual license DTrace under both CDDL and GPL and let the Linux guys do the port? May be GPL+exception that all GPLed changes be also dual licensed? Why not the same about ZFS? Sure enough Sun did GPL Java without worrying about forks etc.</p>\n"
+    },
+    {
+      "id": 1478,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-08-07T17:29:53Z",
+      "kind": "comment",
+      "html": "<p>Mayor West,<br>\nThat's been discussed at some length elsewhere, and is off-topic for this post. If you're going to continue to comment, be sure to include some  declaration of your background on the matter (posting under a pseudonym is fine).</p>\n"
+    },
+    {
+      "id": 1479,
+      "author": "Darren Moffat",
+      "url": "http://blogs.sun.com/darren",
+      "date": "2007-08-08T04:00:20Z",
+      "kind": "comment",
+      "html": "<p>[Legal Background.  Similar to Adam, developer that has been exposed to much but more with a focus on export/import control due to my security interests ]<br>\nWith respect the dual licensing.  My personal stance is that dual licensing is the worst possible outcome in almost every case.  Licenses such as the CDDL and GPL (all versions) are complex enough to understand on either own, it becomes very complex to understand how derivative works and merge and remerge under a dual licensing case.  In my experience Dual licensing tends to result in two outcomes, forks to one of the licenses (thats a really bad outcome and is the same as having only used one license initially). The other is all contributions are made under both licenses, which in my opinion negates the whole reason for having to distinct liceneses.  The upshot is that the only reason dual licensing for two OSI approved licenses appears to exists is to deal with assembly into a larger system and this can be solved in other ways.<br>\nPersonally I think in this particular case the best way forward is for a Linux port to \"just appear\", once the code exists ways around the licensing debates will be found as it becomes clear that DTrace is what is reallly needed.   Of course that requires someone to dedicate the time to do the port.</p>\n"
+    },
+    {
+      "id": 1480,
+      "author": "Anonymous",
+      "date": "2007-08-08T08:44:45Z",
+      "kind": "comment",
+      "html": "<p>One of the linux community's concerns with zfs is that of patents, and the same would likely apply to dtrace.  Is there any reason to belay this concern?</p>\n"
+    },
+    {
+      "id": 1481,
+      "author": "Adam West",
+      "date": "2007-08-08T11:45:46Z",
+      "kind": "comment",
+      "html": "<p>My background - OSS developer who has studied OSS licenses for greater understanding and decision making on licensing my code.<br>\nDarren Said -<br>\n\"Of course that requires someone to dedicate the time to do the port.\"<br>\nMost Linux developers' license of choice is GPL (v2 to be specific) and unless they are certain that the work they are doing can be GPLed without any doubts, I bet you 1000 USD - no one will come forward and do the port. <br>\nEven companies like Google who were quick to kick off the ZFS/Fuse port since there were no license issues, will not even think of touching CDDL'ed (or for that matter any other GPL incompatible) code. <br>\nAnd even if someone did it, it would not be in mainline Linux kernel for sure and it will suffer from quality and maintenance problems just like any other out-of-tree Linux driver does - the pace of development/changes is so enormous that one would be totally wrong to even attempt to maintain any significant and non-trivial out-of-tree code that's expected to integrate and function well with Linux kernel.<br>\nSo what you are discussing here is totally vaporware - not realistic.</p>\n"
+    },
+    {
+      "id": 1482,
+      "author": "renoX",
+      "date": "2007-08-08T12:02:52Z",
+      "kind": "comment",
+      "html": "<p>@Darren Moffat: I don't understand how you can brush off dual licensing as if it had not interest, don't you understand that there can be historical reason for which two existing set of code have different incompatible license and you want to release some code for both?<br>\nRelicensing the existing set of code as you suggest may not be possible for various reason.<br>\nPlus I agree with Adam West that a port is unlikely to appear in Linux, as the port wouldn't be accepted in the main Linux kernel tree and wouldn't be used by Linux distribution either (except maybe Gentoo where users are used to recompile their own kernel so it would be legal), so unless the port was made mainly for 'private' needs, it wouldn't be interesting:<br>\nonly users willing to recompile their own kernel could use the patch AND the one who does the port is stuck maintaining it out of tree..</p>\n"
+    },
+    {
+      "id": 1483,
+      "author": "Trent",
+      "date": "2007-08-18T03:27:05Z",
+      "kind": "comment",
+      "html": "<p>Disclaimers: IANAL &amp; IAAPPP (I'm a P*ss poor programmer ;)<br>\nI don't know how hard it would be to do so, but couldn't Linux developers just re-implement the kernel parts of DTrace (therefor eliminating any licensing issues), and then just port the userland bits? <br>\nWould it be a tremendously difficult task to just relicense the DTrace kernel bits under the BSDL or something? <br>\nAwful lot of fuss to move code from one free/open system to another =/</p>\n"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "post": "/2011/06/03/engineers-and-customers/",
+  "count": 7,
+  "comments": [
+    {
+      "id": 2076,
+      "author": "UX-admin",
+      "date": "2011-06-03T18:13:51Z",
+      "kind": "comment",
+      "html": "<p>One will never be a true engineer without holistic understanding of the customers' needs and wants. Never.</p>\n<p>Product management, on the other hand, is completely superfluous and not only does it not add any value, it detracts from the overall effort.</p>\n<p>Practice has proved that management can successfully be cut out from the entire ecosystem with no ill effects.</p>\n<p>For an engineer to make the correct choices, he must practice genchi genbutsu - \"go and see\", every step of the way.</p>\n<p>How do the customers use the product? What do they want in it? What does a day in customer's life using the product look like? An engineer should experience this first hand, on a regular basis; in fact, I firmly believe, based on experience, that it should comprise 50% of the engineer's work!</p>\n<p>Same for support: let customers talk to developers directly, so that the developer himself can experience where the pain is. They will be more motivated and focused to enhance and fix the product that way.</p>\n"
+    },
+    {
+      "id": 2077,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-06-03T18:38:27Z",
+      "kind": "comment",
+      "html": "<p>Well I pretty strongly disagree with the condemnation of product management and management in general as superfluous. It's easy for a strong engineering culture to hold low opinions of these other roles in organizations where those roles aren't filled with top notch people, but great product managers, managers, and support people definitely exist and do their jobs better than a great engineer would. I agree that engineers should experience all aspects of the product, but, for example, I'm sure glad to have David, Don, and Fay supporting our customers -- they have a breadth of experience that wouldn't come from doing the job part time.</p>\n"
+    },
+    {
+      "id": 2078,
+      "author": "Charles",
+      "date": "2011-06-03T19:12:23Z",
+      "kind": "comment",
+      "html": "<p>Ivory tower ftw! Customers are unnecessary baggage :(<br>\n#oraclehateshumans</p>\n"
+    },
+    {
+      "id": 2079,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-06-03T21:08:23Z",
+      "kind": "comment",
+      "html": "<p>Another confusing comment. Perhaps I should have mentioned that this practice was taught to me at Sun (now Oracle). I'd credit Bryan Cantrill and Mike Shapiro for first pushing me into the field; I'm not sure if it started with them, but it was something engineers did in the kernel group and an important lesson that we brought to Fishworks and beyond.</p>\n"
+    },
+    {
+      "id": 2080,
+      "author": "Darren Moffat",
+      "date": "2011-06-05T13:43:57Z",
+      "kind": "comment",
+      "html": "<p>Glad to see the same practice being applied elsewhere. Some of the best customer conversations I've had involved top product managers, sales, senior support and product development all with the customer together.</p>\n"
+    },
+    {
+      "id": 2082,
+      "author": "Termyte",
+      "date": "2011-06-05T20:18:46Z",
+      "kind": "comment",
+      "html": "<p>Direct engineeering-customer dialogs work best when the discussion is about unsolved problems, as opposed to feature wish-lists.  Those wish-lists are usually preconceived notions about about how problem solutions should be solved.  Sometimes the desired feature is the right solution, sometimes not.</p>\n<p>The worst product managers are those that collect those wish-lists without ever attempting to understand the underlying unsolved problems. ;-)</p>\n"
+    },
+    {
+      "id": 2083,
+      "author": "UX-admin",
+      "date": "2011-06-14T17:58:23Z",
+      "kind": "comment",
+      "html": "<p>\"The worst product managers are those that collect those wish-lists without ever attempting to understand the underlying unsolved problems.\"</p>\n<p>Which are 99.99% of people working in marketing and management.</p>\n<p>Marketing is not \"just another job\", it is truly an art; and just like there are very few great painters and composers in the history of this world, so too are there very few marketing people who really understand technology and yet have a talent for marketing.</p>\n<p>It is high time for a new breed of engineers, the ones with the management and marketing talent, so that management and marketing can be completely cut out of the loop.</p>\n<p>Oh wait, that already exists: it is called an entrepreneur.</p>\n"
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+{
+  "post": "/2016/06/19/apfs-part1/",
+  "count": 42,
+  "comments": [
+    {
+      "id": 55937,
+      "author": "Patrick",
+      "date": "2016-06-20T04:19:13Z",
+      "kind": "comment",
+      "html": "<p>Let's hope that they reconsider the user data checksum decision. Claiming it's not required because of excellent components is kind of a strange thing to say, and makes the entire FS suspect.</p>\n"
+    },
+    {
+      "id": 55939,
+      "author": "#apple announced something inferior to what #linux had for years an… | Dr. Roy Schestowitz (罗伊)",
+      "url": "https://placeholderapi.wordpress.com/2016/06/20/apple-announced-something-inferior-to-what-linux-had-for-years-an/",
+      "date": "2016-06-20T07:20:06Z",
+      "kind": "pingback",
+      "html": "<p>[...] announced something inferior to what #linux had for years and media goes wild http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1/ Like this:Like [...]</p>\n"
+    },
+    {
+      "id": 55954,
+      "author": "Dominic Giampaolo",
+      "date": "2016-06-20T13:30:22Z",
+      "kind": "comment",
+      "html": "<p>The statement at the beginning of the article that \"APFS, the Apple File System, relies on Core Storage functionality\" is not accurate.  Apple File System does not use any functionality or code whatsoever from CoreStorage.  Apple File System was developed completely from scratch.</p>\n"
+    },
+    {
+      "id": 55955,
+      "parent": 55954,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-20T13:59:47Z",
+      "kind": "comment",
+      "html": "<p>Hey Dominic, thanks for the comment. That was the my understanding after our conversation at WWDC, my apologies for getting it wrong. I'll make the appropriate update. Was I wide of the mark on anything else?</p>\n"
+    },
+    {
+      "id": 55965,
+      "parent": 55955,
+      "author": "Dominic Giampaolo",
+      "date": "2016-06-20T16:10:33Z",
+      "kind": "comment",
+      "html": "<p>Thanks for updating it.  Everything else seems correct.  Also, thanks for the even handed review.</p>\n"
+    },
+    {
+      "id": 55988,
+      "author": "Links 21/6/2016: GNU/Linux in China’s HPC, Linux 4.7 RC4 | Techrights",
+      "url": "http://techrights.org/2016/06/20/linux-4-7-rc4/",
+      "date": "2016-06-20T22:36:16Z",
+      "kind": "pingback",
+      "html": "<p>[...] APFS in Detail: Overview Apple announced a new file system that will make its way into all of its OS variants (macOS, tvOS, iOS, watchOS) in the coming years. Media coverage to this point has been mostly breathless elongations of Apple’s developer documentation. With a dearth of detail I decided to attend the presentation and Q&amp;A with the APFS team at WWDC. Dominic Giampaolo and Eric Tamura, two members of the APFS team, gave an overview to a packed room; along with other members of the team, they patiently answered questions later in the day. With those data points and some first hand usage I wanted to provide an overview and analysis both as a user of Apple-ecosystem products and as a long-time operating system and file system developer. [...]</p>\n"
+    },
+    {
+      "id": 55991,
+      "author": "Michael Tsai - Blog - Apple File System (APFS)",
+      "url": "http://mjtsai.com/blog/2016/06/17/apple-file-system-afps/",
+      "date": "2016-06-21T00:53:20Z",
+      "kind": "pingback",
+      "html": "<p>[...] http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1/ [...]</p>\n"
+    },
+    {
+      "id": 55993,
+      "author": "Michael Tsai - Blog - Apple File System (APFS)",
+      "url": "http://mjtsai.com/blog/2016/06/17/apple-file-system-apfs/",
+      "date": "2016-06-21T00:55:57Z",
+      "kind": "pingback",
+      "html": "<p>[...] series of posts based on his talks with Apple engineers Dominic Giampaolo and Eric Tamura at WWDC. Overview (Hacker News): APFS, the Apple File System, was itself started in 2014 with Dominic as its lead [...]</p>\n"
+    },
+    {
+      "id": 56034,
+      "author": "WWDC 2016: Apple File System",
+      "url": "http://www.hightech-und-blech.de/apfs-24106/",
+      "date": "2016-06-21T15:01:41Z",
+      "kind": "pingback",
+      "html": "<p>[...] ) kümmert, dann könnte eventuell der Mac-Finder schneller kopieren. Weiterführend: dtrace.org.Sharen [...]</p>\n"
+    },
+    {
+      "id": 56043,
+      "author": "Check out this deep dive into Apple's new file system - Short News",
+      "url": "http://www.sa5b2.com/2016/06/21/check-out-this-deep-dive-into-apples-new-file-system/",
+      "date": "2016-06-21T20:25:57Z",
+      "kind": "pingback",
+      "html": "<p>[...] From Leventhal’s blog: [...]</p>\n"
+    },
+    {
+      "id": 56045,
+      "author": "Check out this deep dive into Apple's new file system 2016 – ipad deals",
+      "url": "http://ipad-deals.com/?p=15394",
+      "date": "2016-06-21T20:36:00Z",
+      "kind": "pingback",
+      "html": "<p>[...] From Leventhal’s blog: [...]</p>\n"
+    },
+    {
+      "id": 56046,
+      "author": "Check out this deep dive into Apple’s new file system | Mo.bi - Leading Brand In Mobile Business",
+      "url": "http://mo.bi/2016/06/21/check-out-this-deep-dive-into-apples-new-file-system/",
+      "date": "2016-06-21T20:40:31Z",
+      "kind": "pingback",
+      "html": "<p>[...] Leventhal’s blog: APFS first and foremost pays down the unsustainable technical debt that Apple has been carrying in [...]</p>\n"
+    },
+    {
+      "id": 56049,
+      "author": "Check out this deep dive into Apple’s new file system",
+      "url": "http://www.techgreatest.com/apple-news/check-out-this-deep-dive-into-apples-new-file-system/",
+      "date": "2016-06-21T21:13:32Z",
+      "kind": "pingback",
+      "html": "<p>[...] From Leventhal's blog: [...]</p>\n"
+    },
+    {
+      "id": 56060,
+      "author": "Chris",
+      "date": "2016-06-22T00:14:46Z",
+      "kind": "comment",
+      "html": "<p>One bit flip corruption in a typical file isn't a big deal. One bit flip corruption in a compressed file can be game over. And if that bit is in the core OS, do not pass go, do not collect $200.</p>\n"
+    },
+    {
+      "id": 56074,
+      "author": "csh",
+      "date": "2016-06-22T10:00:00Z",
+      "kind": "comment",
+      "html": "<p>Thank you Dominic, Eric, and the team. This has been on the top of my feature request list for many years. It will be a breathe of fresh air. Looking forward to it.</p>\n"
+    },
+    {
+      "id": 56083,
+      "author": "A one word review of macOS Sierra - Cool Tech Reviews",
+      "url": "http://cooltechreview.net/startups/a-one-word-review-of-macos-sierra/",
+      "date": "2016-06-22T21:21:45Z",
+      "kind": "pingback",
+      "html": "<p>[...] TV had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56084,
+      "author": "A one word review of macOS Sierra | Gulf News Today",
+      "url": "http://gulfnewstoday.com/2016/06/22/a-one-word-review-of-macos-sierra/",
+      "date": "2016-06-22T21:22:01Z",
+      "kind": "pingback",
+      "html": "<p>[...] TV had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56085,
+      "author": "A one word review of macOS Sierra - Bain Daily",
+      "url": "http://www.baindaily.com/a-one-word-review-of-macos-sierra/",
+      "date": "2016-06-22T21:25:28Z",
+      "kind": "pingback",
+      "html": "<p>[...] TV had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56086,
+      "author": "A one word review of macOS Sierra | EuroMarket News",
+      "url": "http://euromarketnews.com/2016/06/22/a-one-word-review-of-macos-sierra/",
+      "date": "2016-06-22T21:37:03Z",
+      "kind": "pingback",
+      "html": "<p>[...] had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56087,
+      "author": "A one word review of macOS Sierra | BizTechPartners",
+      "url": "http://www.biztechpartners.net/a-one-word-review-of-macos-sierra/",
+      "date": "2016-06-22T21:43:59Z",
+      "kind": "pingback",
+      "html": "<p>[...] TV had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56088,
+      "author": "A one word review of macOS SierraTech Giant News",
+      "url": "http://techgiantnews.com/a-one-word-review-of-macos-sierra/",
+      "date": "2016-06-22T21:58:50Z",
+      "kind": "pingback",
+      "html": "<p>[...] had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56089,
+      "author": "A one word review of macOS Sierra | Tech News Daily",
+      "url": "http://technewsdaily24.com/2016/06/22/a-one-word-review-of-macos-sierra/",
+      "date": "2016-06-22T23:12:23Z",
+      "kind": "pingback",
+      "html": "<p>[...] TV had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56093,
+      "author": "A one word review of macOS Sierra | Read-Buy",
+      "url": "http://www.read-buy.com/a-one-word-review-of-macos-sierra/",
+      "date": "2016-06-23T02:21:37Z",
+      "kind": "pingback",
+      "html": "<p>[...] TV had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56094,
+      "author": "DTraceの開発者によるAppleの新しいファイルシステム「APFS」のファーストレビュー。 | AAPL Ch.",
+      "url": "http://applech2.com/archives/20160623-apfs-in-detail.html",
+      "date": "2016-06-23T03:03:17Z",
+      "kind": "pingback",
+      "html": "<p>[...] Adam Leventhal’s blog » APFS in Detail: Overview [...]</p>\n"
+    },
+    {
+      "id": 56099,
+      "author": "A one word review of macOS Sierra | Gadget News",
+      "url": "http://gadgetnews24.net/a-one-word-review-of-macos-sierra/",
+      "date": "2016-06-23T06:48:10Z",
+      "kind": "pingback",
+      "html": "<p>[...] TV had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56104,
+      "author": "一个ZFS开发者眼中的苹果最新文件存储系统APFS – Log@X.X.B",
+      "url": "http://www.xuxiaobo.com/?p=1327",
+      "date": "2016-06-23T12:40:07Z",
+      "kind": "pingback",
+      "html": "<p>[...] APFS in Detail: Overview APFS in Detail: Encryption, Snapshots, and Backup APFS in Detail: Space Efficiency and Clones APFS [...]</p>\n"
+    },
+    {
+      "id": 56146,
+      "author": "APFS in Detail | We Are 4n6",
+      "url": "http://www.weare4n6.com/apfs-in-detail/",
+      "date": "2016-06-26T08:17:36Z",
+      "kind": "pingback",
+      "html": "<p>[...] Basics [...]</p>\n"
+    },
+    {
+      "id": 56148,
+      "author": "A ZFS developer’s analysis of the good and bad in Apple’s new APFS file system – Diashmond",
+      "url": "http://diashmond.com/blog/2016/06/26/a-zfs-developers-analysis-of-the-good-and-bad-in-apples-new-apfs-file-system/",
+      "date": "2016-06-26T13:26:58Z",
+      "kind": "pingback",
+      "html": "<p>[...] This article was originally published on Adam Leventhal’s blog in multiple parts. [...]</p>\n"
+    },
+    {
+      "id": 56149,
+      "author": "A ZFS developer’s analysis of the good and bad in Apple’s new APFS file system | Curtis Ryals Reports",
+      "url": "http://www.curtisryals.com/2016/06/26/a-zfs-developers-analysis-of-the-good-and-bad-in-apples-new-apfs-file-system/",
+      "date": "2016-06-26T13:33:11Z",
+      "kind": "pingback",
+      "html": "<p>[...] This article was originally published on Adam Leventhal’s blog in multiple parts. [...]</p>\n"
+    },
+    {
+      "id": 56155,
+      "author": "Adam Leventhal's blog » APFS in Detail: Performance",
+      "url": "http://dtrace.org/blogs/ahl/2016/06/19/apfs-part4/",
+      "date": "2016-06-26T16:18:33Z",
+      "kind": "pingback",
+      "html": "<p>[...] series of posts covers APFS, Apple’s new filesystem announced at WWDC 2016. See the&nbsp;first post&nbsp;for the table of [...]</p>\n"
+    },
+    {
+      "id": 56156,
+      "author": "A ZFS developer’s analysis of the good and bad in Apple’s new APFS file system - Apple Mac Training UK",
+      "url": "http://macresource.co.uk/news/a-zfs-developers-analysis-of-the-good-and-bad-in-apples-new-apfs-file-system/",
+      "date": "2016-06-26T18:39:44Z",
+      "kind": "pingback",
+      "html": "<p>[...] Two hours or so of WWDC keynoting and Tim Cook didn’t mention a new file system once? Andrew Cunningham This article was originally published on Adam Leventhal’s blog in multiple parts. [...]</p>\n"
+    },
+    {
+      "id": 56162,
+      "author": "Tab Sweep – 26 June 2016 | Colin Charles Agenda",
+      "url": "http://www.bytebot.net/blog/archives/2016/06/27/tab-sweep-26-june-2016",
+      "date": "2016-06-27T02:05:21Z",
+      "kind": "pingback",
+      "html": "<p>[...] APFS in Detail: Overview [...]</p>\n"
+    },
+    {
+      "id": 56166,
+      "author": "Infinite Loop: A ZFS developer’s analysis of the good and bad in Apple’s new APFS file system – Jann.com",
+      "url": "http://www.jann.com/infinite-loop-a-zfs-developers-analysis-of-the-good-and-bad-in-apples-new-apfs-file-system/",
+      "date": "2016-06-27T06:17:59Z",
+      "kind": "pingback",
+      "html": "<p>[...] This article was originally published on Adam Leventhal’s blog in multiple parts. [...]</p>\n"
+    },
+    {
+      "id": 56168,
+      "author": "rockhound",
+      "date": "2016-06-27T07:02:34Z",
+      "kind": "comment",
+      "html": "<p>What is the maximum filesize / volume size for APFS?</p>\n"
+    },
+    {
+      "id": 56169,
+      "author": "The good and bad in Apple’s new APFS file system: A ZFS developer’s analysis",
+      "url": "http://www.sogotechnews.com/2016/06/27/the-good-and-bad-in-apples-new-apfs-file-system-a-zfs-developers-analysis/",
+      "date": "2016-06-27T08:03:11Z",
+      "kind": "pingback",
+      "html": "<p>[...] This article was originally published on Adam Leventhal’s blog in multiple parts. [...]</p>\n"
+    },
+    {
+      "id": 56233,
+      "author": "APFS, el nuevo sistema de archivos de Apple, en detalle — Parte 1 [ENG]",
+      "url": "https://www.meneame.net/m/SysDevs/apfs-nuevo-sistema-archivos-apple-detalle-parte-1-eng",
+      "date": "2016-06-28T15:58:45Z",
+      "kind": "pingback",
+      "html": "<p>[...] APFS, el nuevo sistema de archivos de Apple, en detalle — Parte 1 [ENG]   Apple anunció hace unos días su nuevo sistema de archivos, APFS, sistema que en el futuro va a ir integrado en todos sus sistemas operativos. Después de su presentación, Dominic Giampaolo y Eric Tamura, dos miembros del equipo de diseño, junto con otros miembros del equipo respondieron pacientemente a nuestras preguntas al final del día. Con estos datos y con el uso de primera mano de este sistema de archivos, voy a hacer un análisis de APFS como usuario y com diseñador de sistemas de archivos. etiquetas: apfs, sistema de archivos,  apple, adam leventhal, dominic giampaolo   usuarios: 1&nbsp;&nbsp; anónimos: 0&nbsp;&nbsp; negativos: 0&nbsp;&nbsp;  compartir:        sin comentarios  SysDevs  karma:  14        (adsbygoogle = window.adsbygoogle || []).push({});          (adsbygoogle = window.adsbygoogle || []).push({}); [...]</p>\n"
+    },
+    {
+      "id": 56238,
+      "author": "APFS : le futur système de fichiers d’Apple qui va changer votre vie - Apple24 Boutique",
+      "url": "http://apple24boutique.com/apfs-le-futur-systeme-de-fichiers-dapple-qui-va-changer-votre-vie/",
+      "date": "2016-06-29T03:21:42Z",
+      "kind": "pingback",
+      "html": "<p>[...] a participé à cette session et il en a livré un récit aussi complet que possible sur son blog. Nous avons puisé dans ces observations ainsi que dans les docs d’Apple pour faire le point sur [...]</p>\n"
+    },
+    {
+      "id": 56318,
+      "author": "A ZFS developer’s analysis of Apple’s new APFS file system (arstechnica.com) - FreeBSDNews.com",
+      "url": "https://www.freebsdnews.com/2016/07/08/zfs-developers-analysis-apples-apfs-file-system/",
+      "date": "2016-07-08T18:41:29Z",
+      "kind": "pingback",
+      "html": "<p>[...] (an earlier version of this post noted a dependency on Core Storage, but Giampaolo set me straight in this comment). I asked him about looking for inspiration in other modern file systems such as BSD’s [...]</p>\n"
+    },
+    {
+      "id": 56396,
+      "author": "A ZFS developer’s analysis of the good and bad in Apple’s new APFS file system - NSA Facts",
+      "url": "http://www.nsafacts.org/nsa-leaks/a-zfs-developers-analysis-of-the-good-and-bad-in-apples-new-apfs-file-system/",
+      "date": "2016-07-16T08:22:57Z",
+      "kind": "pingback",
+      "html": "<p>[...] Andrew Cunningham   This article was originally published on Adam Leventhal’s blog in multiple parts. [...]</p>\n"
+    },
+    {
+      "id": 56461,
+      "author": "A one word review of macOS Sierra – Tech News Release",
+      "url": "http://technewsrelease.com/2016/07/22/a-one-word-review-of-macos-sierra/",
+      "date": "2016-07-22T04:02:56Z",
+      "kind": "pingback",
+      "html": "<p>[...] TV had where you can watch two footy games at once but that he&nbsp;never really used. There’s a new file system that is super frickin’ cool and could eliminate data loss forever but is not really even [...]</p>\n"
+    },
+    {
+      "id": 56488,
+      "author": "Mertie Viele",
+      "url": "http://makbuildersph.com",
+      "date": "2016-07-25T10:00:23Z",
+      "kind": "comment",
+      "html": "<p>That's a  nice post. I hope you will have a separate blog post for smart home and can you recommend a smart home builder.</p>\n"
+    },
+    {
+      "id": 56560,
+      "author": "2016 WWDC 上推出的神秘 Apple File System，將會成為「appleOS」的底層 | TechNews 科技新報",
+      "url": "http://technews.tw/2016/08/01/apple-file-system-and-appleos/",
+      "date": "2016-08-01T13:11:46Z",
+      "kind": "pingback",
+      "html": "<p>[...] APFS in Detail: Overview [...]</p>\n"
+    }
+  ]
+}

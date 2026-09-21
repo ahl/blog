@@ -1,0 +1,81 @@
+{
+  "post": "/2007/01/29/a-small-zfs-hack/",
+  "count": 10,
+  "comments": [
+    {
+      "id": 1554,
+      "author": "Chris Gerhard",
+      "url": "http://blogs.sun.com/chrisg",
+      "date": "2007-01-29T02:37:52Z",
+      "kind": "comment",
+      "html": "<p>Useful? Yes<br>\nThe trouble with any compression in the file system and this one makes it even more clear that you would want to be able to get at both the compressed and the uncompressed data.<br>\nConsider an ftp server it would be good if it could offer compressed data without having the system uncompress in the file system only to compress again in the ftp server.<br>\nThen there is NFS......</p>\n"
+    },
+    {
+      "id": 1555,
+      "author": "ivanvdb25",
+      "date": "2007-01-29T03:57:48Z",
+      "kind": "comment",
+      "html": "<p>Useful? Yes<br>\nIt's very interesting that a compression algorithm could easily added to ZFS.  Is this hack available as source code somewhere? :-)<br>\nThanks and best regards,<br>\nIvan</p>\n"
+    },
+    {
+      "id": 1556,
+      "author": "Robert Milkowski",
+      "url": "http://milek.blogspot.com",
+      "date": "2007-01-29T04:26:59Z",
+      "kind": "comment",
+      "html": "<p>Of course it would be useful and should be integrated! I was playing with the same idea some time ago and adding another compression algorithm to ZFS is easy - the hard part is to do compression/decompression in kernel. If you've got gzip it should be integrated ASAP. There's one thing which can limit performance - there's open bug that couses all compression/decompression in ZFS being run by only one thread so only one CPU is utilized. Anyway lot of people especially with SATA disks are using ZFS for long term storage and do not necessary need lot of IOs. Simple way of specifying level of compression would be also useful - maybe in form of compression=gzip-N where N is compression level. Without specyfying -N (so only compression=gzip) default level would be enforced. Hope to see it integrated in hours... ok, in days :))) Great job!<br>\nIf you can provide you code changes privately right now it would be great.</p>\n"
+    },
+    {
+      "id": 1557,
+      "author": "Anantha",
+      "date": "2007-01-29T06:25:41Z",
+      "kind": "comment",
+      "html": "<p>One side effect of the compression feature is that it skews the CPU utilization. I've been using the compress feature on a 3TB filesystem with excellent results. The one issue I notice is that when I've a decent amount of I/O against the filesystem my CPU spends most of its time in 'sys', &gt;40% is not abnormal on my E2900 (24 x 96GB)</p>\n"
+    },
+    {
+      "id": 1558,
+      "author": "ivanvdb25",
+      "date": "2007-01-29T08:07:03Z",
+      "kind": "comment",
+      "html": "<p>Hi,<br>\nI was just wondering if the gzip compression has been enabled,  does it give problems when an ZFS volume is created on an X86 system and afterwards imported on a Sun Sparc?<br>\nBest regards,<br>\nIvan</p>\n"
+    },
+    {
+      "id": 1559,
+      "author": "UX-admin",
+      "date": "2007-01-29T10:29:53Z",
+      "kind": "comment",
+      "html": "<p>Adam, this is positively and without a doubt some really great stuff! One could choose between lzjb for day-to-day use, or bzip2 for heavily compressed, \"archival\" file systems (as we all know, bzip2 beats the living daylights out of gzip in terms of  compression about 95-98% of the time).</p>\n<p>Historical tidbit:</p>\n<p>ZFS finally implemented per-filesystem, one could say \"per-directory\" compression that AmigaOS had with the XFH: pseudo drive implemented with the xpkmaster.library (http://www.dstoecker.eu/xpkmaster.html).</p>\n"
+    },
+    {
+      "id": 1560,
+      "author": "dennis",
+      "date": "2007-01-29T16:01:49Z",
+      "kind": "comment",
+      "html": "<p>Are there any documents somewhere explaining the hooks of zfs and how to add features like this to zfs? Would be useful for developers who want to add features like filesystem-based encryption to it.<br>\nThanks for your great work!</p>\n"
+    },
+    {
+      "id": 1561,
+      "author": "Derek Morr",
+      "date": "2007-01-29T17:02:14Z",
+      "kind": "comment",
+      "html": "<p>UX-admin, how do you claim that bzip2 \"beats the living daylights out of gzip\" ? I haven't seen it compress files significantly better than gzip, and it uses considerably more CPU time to do so.</p>\n"
+    },
+    {
+      "id": 1562,
+      "author": "Robert Milkowski",
+      "url": "http://milek.blogspot.com",
+      "date": "2007-01-30T00:47:31Z",
+      "kind": "comment",
+      "html": "<p>Dennis - just look into source, in .h files which have lot of useful comments. See also http://opensolaris.org/os/community/zfs/source/.<br>\nZFS is really nicely written and as i wrote before if you want to add another compression algorithm to ZFS the hard part is to implement the algorithm in kernel rather than hook it up into ZFS which is easy.</p>\n"
+    },
+    {
+      "id": 1563,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-01-31T22:34:54Z",
+      "kind": "comment",
+      "html": "<p>Thanks for all the feedback! I've <a href=\"http://dtrace.org/blogs/ahl/gzip_for_zfs_update\" rel=\"nofollow ugc noopener noreferrer\">posted an update</a> that includes some more information and responses to your questions and suggestions.</p>\n"
+    }
+  ]
+}

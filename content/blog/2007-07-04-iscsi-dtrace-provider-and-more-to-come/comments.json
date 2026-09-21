@@ -1,0 +1,46 @@
+{
+  "post": "/2007/07/04/iscsi-dtrace-provider-and-more-to-come/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 1536,
+      "author": "Dick Davies",
+      "url": "http://number9.hellooperator.net/",
+      "date": "2007-07-04T01:37:44Z",
+      "kind": "comment",
+      "html": "<p>Excellent news, thanks!<br>\nGlad to see I'm not the only one typing 'iscis' too :)</p>\n"
+    },
+    {
+      "id": 1537,
+      "author": "Greg S",
+      "date": "2007-07-04T03:37:16Z",
+      "kind": "comment",
+      "html": "<p>Are you interested in suggestions for DTrace?<br>\nI think what's missing is a stable abstract programmatic interface to allow programs to watch themselves.<br>\nAs an example, databases can keep track of how many writes and reads they perform for each table but have no idea how many of those writes and reads turn into actual i/o and unless they incur expensive gettimeofday calls no idea how long they take.<br>\nCurrently to watch this kind of stuff would mean interfacing via a text configuration file and running an external compiler binary. It seems there should be some kernel syscalls the program can do to request counts and measurements and get back the results in usable binary form.</p>\n"
+    },
+    {
+      "id": 1538,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-07-04T08:39:42Z",
+      "kind": "comment",
+      "html": "<p>Greg,<br>\nWe do have a supported API in Java. The C interface is available, but -- as you observe -- not a stable interface. Creating such an interface will require a large amount of engineering work, so we were waiting to evaluate the demand.</p>\n"
+    },
+    {
+      "id": 1539,
+      "author": "Terry Dontje",
+      "date": "2007-07-16T11:34:20Z",
+      "kind": "comment",
+      "html": "<p>So in the conninfo are the ci_local and ci_remote just the ip addr or do you expect some sort of port number to be added to the string?</p>\n<p>I am still plinking around with creating a usdt for Open MPI, mainly probing PERUSE events.  Adding the conninfo might prove helpful.</p>\n<p>For the most part I have the usdt working, I am just coming up with some logical names and how to expose the arguments (via parameters or structures).</p>\n"
+    },
+    {
+      "id": 1540,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-07-16T19:06:47Z",
+      "kind": "comment",
+      "html": "<p>Terry,<br>\nThose fields are just meant to be the IP addresses without the TCP port number. The idea was to be as generic as possible to accommodate other protocols in the future (e.g. infiniban). I'm looking forward to seeing your proposed provider on the DTrace discussion list.</p>\n"
+    }
+  ]
+}

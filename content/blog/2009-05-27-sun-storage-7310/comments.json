@@ -1,0 +1,98 @@
+{
+  "post": "/2009/05/27/sun-storage-7310/",
+  "count": 12,
+  "comments": [
+    {
+      "id": 1240,
+      "author": "Karl",
+      "date": "2009-05-27T07:54:52Z",
+      "kind": "comment",
+      "html": "<p>Any chance of getting a super low end fishworks box like in an x2270 (4 drive) box? Or even charge for an uplift to fishworks on the small boxes?</p>\n"
+    },
+    {
+      "id": 1241,
+      "author": "kangcool",
+      "date": "2009-05-27T16:38:19Z",
+      "kind": "comment",
+      "html": "<p>Nice to see you listen to your customer base. Even though we did mention the huge gap in the product line up at the orignal launch.<br>\nHope you can ship these quicker that the last lot.</p>\n"
+    },
+    {
+      "id": 1242,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-05-27T20:44:32Z",
+      "kind": "comment",
+      "html": "<p>@Karl I don't think we're going to go smaller than what we have today with the 7110. With something like the X2270 once we use two disks for booting it's not that interesting as a storage box.<br>\n@kangcool While it might seem like a long time coming, we're fairly happy with our ability to bring a new member of the 7000 series to market in about the 4 months that it took us. That said, we're looking to streamline our process to move even faster in the future. While our pace might look slow compared to the server market, we're moving at light speed for the storage market.</p>\n"
+    },
+    {
+      "id": 1243,
+      "author": "Darren Moffat",
+      "url": "http://blogs.sun.com/darren/",
+      "date": "2009-05-28T03:02:18Z",
+      "kind": "comment",
+      "html": "<p>I think there is a market for a Fishworks based NAS below the 7110.  However it is IMO a very different market than the 7110 is even in, it is the consumer and really small business market.  In that market a max 4 drive system is likely much more interesting, particular if we are talking about 2TB drives.  Maybe there is scope for a compromise for such a low end system that the OS and data pools need not be separate - but for a 4 drive system that means solving the boot from raidz or non simple mirror issue.</p>\n"
+    },
+    {
+      "id": 1244,
+      "author": "jruss",
+      "url": "http://www.society86.com",
+      "date": "2009-05-28T06:47:18Z",
+      "kind": "comment",
+      "html": "<p>Regarding the \"smaller than 7110\" talks...  With the 4 disk boxes, why put fishworks on the disks?  After removing some of the enterprise features (clustering, JBOD support, etc..) I would think it feasible to get the OS footprint small enough to fit on some mirrored flash tucked away inside the machine, freeing the disk slots for just storage.. Perhaps SD storage is just still too expensive?</p>\n"
+    },
+    {
+      "id": 1245,
+      "author": "kangcool",
+      "date": "2009-05-28T14:36:07Z",
+      "kind": "comment",
+      "html": "<p>I was actually talking about the time it will take for this item to turn up on our doors...<br>\nIn that I could rush off and buy one today, and expect to see it - what late 2010?<br>\nThe VARs have been promising a faster supply, but nothing in the last 6yrs.<br>\nhopefully oracle will resolve this issue.</p>\n"
+    },
+    {
+      "id": 1246,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-05-28T19:12:06Z",
+      "kind": "comment",
+      "html": "<p>@Darren Sure. I don't know that we have a lot of experience in the SMB market, but it would certainly be interesting.<br>\n@jruss We actually have heftier needs on the boot disks than you might imagine due to allowing users to manage a bunch of versions of the software, but even more so for Analytics data which can be extensive.<br>\n@kangcool Hear hear.</p>\n"
+    },
+    {
+      "id": 1247,
+      "author": "Chris Williams",
+      "date": "2009-06-10T05:37:05Z",
+      "kind": "comment",
+      "html": "<p>I was hoping to see the 12-bay JBOD as the lowest end unit connected to the 7310.  I have SWAP issues where I would like to install this (not a data center) and the extra 2U of the 24-bay might be a deal breaker.  I need the read/write SSD's so the 7110/7220 are out at the moment.  Either way, I love the product...</p>\n"
+    },
+    {
+      "id": 1248,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-06-10T08:23:35Z",
+      "kind": "comment",
+      "html": "<p>@Chris Glad to hear you like the product. The limitation in the system today is that the HBA can only see a limited number of targets (a bit over 100), therefore we can attach at most 4 J4400 JBODs. It's useful input, however, that you'd like to see more capacity behind a smaller head unit; do you have a rule of thumb in terms of head unit horsepower and system capacity?</p>\n"
+    },
+    {
+      "id": 1249,
+      "author": "NAGARAJAN IYER",
+      "date": "2009-06-16T05:21:02Z",
+      "kind": "comment",
+      "html": "<p>Hi Can anyone help me with the practical Read and Write IOPS of 7310 with any configuration</p>\n"
+    },
+    {
+      "id": 1250,
+      "author": "NAGARAJAN IYER",
+      "date": "2009-06-16T05:49:48Z",
+      "kind": "comment",
+      "html": "<p>Hi,<br>\nWe require more read &amp; Write IOPS, Can anyone help us with the practical Read and Write IOPS of 7310 with Read Zlog and few Write Zlog as well..<br>\nWith regards<br>\nNagarajan S</p>\n"
+    },
+    {
+      "id": 1251,
+      "author": "Charles Soto",
+      "date": "2009-06-20T06:25:51Z",
+      "kind": "comment",
+      "html": "<p>I was happy to see this, as we're testing a 7410 (nice!) but weren't sure it was overkill.  Liking the density of the 7210, I was going to go that direction, but it limits clustering and expansion potential.  This might work out instead.<br>\nOne quick question - has anyone done any comparison with the EMC CX3-40?  We're faced with paying way too much for continued maintenance on our box, and if a 7310 can beat it, we're interested in just getting new gear and moving the expensive Clariion to less critical jobs (though we love it immensely - a very nice box, just too much $).<br>\nCharles</p>\n"
+    }
+  ]
+}

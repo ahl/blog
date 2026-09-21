@@ -1,0 +1,68 @@
+{
+  "post": "/2008/12/01/casting-the-shadow-of-the-hybrid-storage-pool/",
+  "count": 8,
+  "comments": [
+    {
+      "id": 1304,
+      "author": "saf",
+      "date": "2008-12-03T13:07:36Z",
+      "kind": "comment",
+      "html": "<p>Nice article.<br>\nI'm asking me what have been changed in ZFS to be adapted to SSD disks?<br>\nAnd when does Sun will sell Server with SSDs?</p>\n"
+    },
+    {
+      "id": 1305,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-12-04T12:51:29Z",
+      "kind": "comment",
+      "html": "<p>@saf To build the hybrid storage pool, we added the L2ARC to ZFS. We also use the ability to have separate intent-log devices, but that was already part of ZFS. We already sell the Sun Storage 7000 series with flash drives; I don't know when we'll be selling SSDs in general-purpose servers.</p>\n"
+    },
+    {
+      "id": 1306,
+      "author": "Ts",
+      "date": "2008-12-05T17:54:15Z",
+      "kind": "comment",
+      "html": "<p>Well, whether or not people should use flash ssd should depend on how fast the data gets updated.  Too fast, flash will fail prematurely, driving up the cost.  If data is written once and never updated, then even mlc ssd devices can be used even with 10k cycle endurance.  Things like historical tick data is perfect for mlc flash.  Things like 2k sized images that gets deleted once a while should be cached in l2arc with slc ssd.  Things that update too fast you have to use either memcache or pure brute force 15k sas drives.<br>\nWhat is interesting is that with intel ssd on the market now, other samsung mlcs are going for 150 dollars per 64gb of mlc flash.  At that price zfs should try to use it as a massive l2arc anyways</p>\n"
+    },
+    {
+      "id": 1307,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-12-09T16:38:54Z",
+      "kind": "comment",
+      "html": "<p>@Ts I think you're still thinking in terms of flash as primary storage. With the Hybrid Storage Pool, you can easily limit the rate at which you write to flash. Further, the primary ARC serves data under heavy churn -- transient data is unlikely to survive long enough to ever be written to flash. Again, this is like HSM without the M.</p>\n"
+    },
+    {
+      "id": 1308,
+      "author": "Storage Guy",
+      "date": "2008-12-11T00:43:14Z",
+      "kind": "comment",
+      "html": "<p>These day most NAS devices are being built as N-way clusters. Like Isilon, ONTAP-GX and HP storage works. These generally require an N-way clustered file system as well.<br>\nWhen will the storage 7000 series from Sun be N-way clustered. Is it because ZFS is not a clustered file system.</p>\n"
+    },
+    {
+      "id": 1309,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-12-11T09:50:47Z",
+      "kind": "comment",
+      "html": "<p>@Storage Guy I'm not sure; you might find a blog post about clustering and ask there...</p>\n"
+    },
+    {
+      "id": 1310,
+      "author": "Dave Nicholson",
+      "date": "2008-12-18T01:36:31Z",
+      "kind": "comment",
+      "html": "<p>Where do you see flash as an \"extension of system memory\" in servers and RDMA (remote direct memory access) fitting in to your vision of the future? Flash is obviously a game changing technology that makes all of the assumptions upon which current storage systems are based a bit out of whack. Leveraging ZFS and creating a Hybrid Pool doesn't change the plumbing between the server and the storage. Nor does it change the nature of the applications that all of this machinery is designed to support. If every node in a grid of servers had TBs of on-board flash at it's disposal, the future for storage vendors may include monster farms of \"50TB SATA-V\" drives instead of the sexy flash they crave.<br>\nOn another note, delivering flash as part of a legacy architecture in the form of stuffing it into a disk can is simply a method of accomplishing the first mover advantage you reference above. No one sees it as the optimal use of flash. Least of all the folks who currently do the stuffing.  :-)<br>\nGreat discussion.</p>\n"
+    },
+    {
+      "id": 1311,
+      "author": "TS",
+      "date": "2008-12-18T14:46:16Z",
+      "kind": "comment",
+      "html": "<p>\"Further, the primary ARC serves data under heavy churn -- transient data is unlikely to survive long enough to ever be written to flash. Again, this is like HSM without the M.\"<br>\nI know.  But you do have to consider the cases where transient data doesn't fit in memory.  We are at an age where data is so massive, we need more memory than maxing out the  64 DIMM slots in the servers with the biggest DIMMs you can find, at exponental price steps.  Take cases where in a web 2.0 site, that when user logs in, you have to show on the web site that they are logged in and a timestamp.  That is one small transcient IOPS of a few bytes at most.  Right now it is stored in a cluster of memcache boxes(if you wanted to reduce database IO write load).  In other word, it is not persistent.  You can have redundent memcache boxes, but you can't preserve those transcient data if power suddenly goes out, which means, you can only store transcient data in memory if you can afford to lose them.<br>\nThere are use cases where the churn rate is extremely high(real time stock ticks for example) that right now, we use a delayed non-persistent model(in-memory cache), which is incorrect from database ACID perspective(Durability perspective).  You cannot assume that ZFS can handle all of the high churn rate data in the ARC from a practical perspective.<br>\nOn the other hand, on the slow churn rate data such as  profile pictures on dating sites(where once uploaded will hardly be updated), using non raided MLC flash as L2ARC devices makes perfect sense.  If they break, you can still fetch the data from RAID10 hard drives below the L2ARC.<br>\nI don't ever think that even SLC SSDs can be used as primary storage.  Reason being that you need minimum 2x for RAID.  RAID1 or RAID10 that was really good for hard drive cannot be used for flash because that data are mirrored, which means the SSDs with similar write cycles will fail at about the same time, even with really good write leveling algorithm.  RAID5/6 has a problem where one IO is spread across multiple SSDs, thus is a write IOPS amplification factor, which effectively reduces SSD life cycle by the number of drives in the array<br>\nWe will see.  ZFS kicks ass.</p>\n"
+    }
+  ]
+}

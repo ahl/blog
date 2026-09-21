@@ -1,0 +1,77 @@
+{
+  "post": "/2009/03/06/fishworks-vm-the-7000-series-on-your-laptop/",
+  "count": 9,
+  "comments": [
+    {
+      "id": 1279,
+      "author": "Trunk Monkey, Equire",
+      "date": "2009-03-06T17:33:15Z",
+      "kind": "comment",
+      "html": "<p>Is there any reason that you provide a VMware image that requires proprietary software as opposed to Sun's own free VM offering? Bizarre.</p>\n"
+    },
+    {
+      "id": 1280,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-03-06T18:19:44Z",
+      "kind": "comment",
+      "html": "<p>@Trunk Thanks for the question. That's something I specifically meant to address, but forgot to include. I update the blog post, but the answer is that we had gone in with the assumption that we'd use VirtualBox, but hedged our bets by preparing a VMware version as well. At the last minute we hit a couple of issues with VirtualBox -- notably the lack of a proper distribution mechanism or host-only networking on Mac OS X. Both of those features I'm told will be available in an upcoming release at which time we'll publish the VirtualBox version as well. I'll update this blog post when that happens and it will be included on the Fishworks blog: blogs.sun.com/fishworks</p>\n"
+    },
+    {
+      "id": 1281,
+      "author": "erast",
+      "url": "http://www.nexenta.com",
+      "date": "2009-03-07T09:22:33Z",
+      "kind": "comment",
+      "html": "<p>Also, take a look on Community developed NexentaStor VMware image: <a href=\"http://www.nexenta.com/community\" rel=\"nofollow ugc noopener noreferrer\">http://www.nexenta.com/community</a></p>\n"
+    },
+    {
+      "id": 1282,
+      "author": "Anonymous",
+      "date": "2009-03-08T03:01:06Z",
+      "kind": "comment",
+      "html": "<p>What are the chances of the fishworks software being released for use on other hardware, eg thumper?  Even without an official release we could potentially hack it up from this VM which you supply, right?</p>\n"
+    },
+    {
+      "id": 1283,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-03-08T20:14:45Z",
+      "kind": "comment",
+      "html": "<p>We of course have a version of the 7000 series in the Thumper/Thor/x4500/x4540 form factor: the Sun Storage 7210. Apparently there's an official upgrade path under consideration. I suppose it might be possible to hack it up from the software in the VM, but some stuff just isn't going to work with the arrangement and it will be a highly unsupported configuration so we won't be able to help when you hit the inevitable issues with that hacked up config.</p>\n"
+    },
+    {
+      "id": 1284,
+      "author": "John C. Fowler",
+      "url": "http://www.incentra.com",
+      "date": "2009-03-09T10:36:45Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nI love the demo... I have used a few times over the last month while my VMware workstation license was active.  It now expired and I am using VMware server as it does not require a license.  When I attempt to import the Sun VMware Image it crashed the management daemon and will not install. Has anyone attempted to use this image under VMware Server?  <br>\nTIA,<br>\nJohn</p>\n"
+    },
+    {
+      "id": 1285,
+      "author": "Thomas Volke",
+      "url": "http://www.sdu.dk",
+      "date": "2009-03-13T02:35:10Z",
+      "kind": "comment",
+      "html": "<p>I have been running the emulator on vmware ESX 3.5 for quite som time now. Use the vmware converter tools to migrate the emulator from the original zip file. You can always use the vmware player which is free, but it does not run along side the server version.</p>\n"
+    },
+    {
+      "id": 1286,
+      "author": "Joe Greer",
+      "date": "2009-03-14T07:08:21Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nCan the VMware storage simulator be used on ESX 3.5 for actual testing?  I know the IO will be slower than read hardware but it would be one heck of a demo on existing hardware.  It would also convince some VMware end users to purchase storage from Sun vs. from Dell, EMC, NetApp or HP.  The company I work for needs Sun's storage but they are a EMC shop and the small sites like mine get stuck with the Dell/EMC stuff.<br>\nI would like to test running my terminal servers, one Linux clustered Print server and NFS/CIFS/ZFS.  I do not really want to have to order Sun demo servers.  Our approval process at work can take more than 90 days. :-(<br>\nThanks,<br>\nThe Average Joe</p>\n"
+    },
+    {
+      "id": 1287,
+      "author": "Thomas Volke",
+      "url": "http://www.sdu.dk",
+      "date": "2009-03-16T01:17:37Z",
+      "kind": "comment",
+      "html": "<p>Joe,<br>\nWe have been using the simulator on ESX 3.5 for testing snapshot backup/restore of Exchange 2007 running in a CCR cluster on Windows 2008. The exchange is all virtual. The simulator is running smoothly, and with acceptable performance on ESX. I am looking forward to test \"the real thing\" during the next couple of weeks.</p>\n"
+    }
+  ]
+}

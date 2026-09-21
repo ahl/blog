@@ -1,0 +1,39 @@
+{
+  "post": "/2004/08/06/number-19-of-20-per-thread-p-tools/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1735,
+      "author": "Dennis Clarke",
+      "url": "http://www.blastwave.org",
+      "date": "2004-08-06T20:47:04Z",
+      "kind": "comment",
+      "html": "<p>This is all fantastic!  Just yesterday ( or the day before, they all blur for me ) I ran into something that I had not seen in a very very long time; I saw a Lotus Domino server freeze all its server threads on Solaris 9.  I was stunned.  I have been working with Lotus Notes and Lotus Domino since my days at Lotus over a decade ago now and I have seen it all quite frankly.  Or so I think.  In the past we could generate BRB ( big red box ) errors that would point to some null handle problem or a nasty exception not caught within the Windows world.  The Solaris client was pulled off the shelf a few years ago, let's not talk about why.  The Domino server product for Solaris is alive and well, on Sparc that is.  If you are living in the Domino version 5 world then most people know that it is rock solid.  Super stable.  At least until the most recent patch from IBM called version 5.0.13a that is. Oh I know that we are in the version 6.5 world and 7 beta is out but a lot of organizations ( banks and insurance companies ) are living just fine with V5 because it works.  I made it crash.  I have a software agent that is about 200 pages of code and it is a web agent. Part of my inventory and order processing system that is pure web based for any standard browser.  I watched as I entered a line that would return the base class name of an object and then when my browser requested the service, boom.  The Domino server stopped with a message about \"freezing all server threads\".   This can not be true?  Can it?  This is just too stable and I did not ask for anything complex.  I weaved my way through all of the code and created a test code component with only three lines and a few class objects defined.  It crashed the server over and over.  I trussed the PID of the httpd server.  I gathered the output but could not determine the the real problem yet.  What I think that I shall do is to move the server to the global zone on my Solaris 10 build 60 server and then use these new tools to trace the problem.  I may just have something to report back to IBM about their Domino server patch.</p>\n"
+    },
+    {
+      "id": 1736,
+      "author": "Octave Orgeron",
+      "date": "2004-08-09T14:03:15Z",
+      "kind": "comment",
+      "html": "<p>The p-tools are some of the best tools in Solaris and definitely make it stand out from the other Unices. I started using them in S9 when I was working for Sun and I remember pfiles and pargs helping me out a lot with Sun Cluster. I've also used the tools extensively in my last job, which was a large Oracle/BEA shop. I'm really glad that the ptools can be used on threads now, it definitely helps out with java apps and wacky things like apache or qmail. I always find it interesting to see what other sysadmins think after I show them the ptools. It's always \"Wow.. that's the coolest thing I've seen\" or \"That's better than lsof..\". So these tools add a lot of value to Solaris.</p>\n"
+    },
+    {
+      "id": 1737,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-08-11T11:37:06Z",
+      "kind": "comment",
+      "html": "<p>Dennis, great to hear that this is going to be helpful with your problem. If you think this stuff is exciting, try thowing <a href=\"http://www.sun.com/bigadmin/content/dtrace/\" rel=\"nofollow ugc noopener noreferrer\">DTrace</a> at the problem and see how much more quickly you figure it out.</p>\n"
+    },
+    {
+      "id": 1738,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-08-11T11:41:31Z",
+      "kind": "comment",
+      "html": "<p>Octave, thanks so much for the praise. The p-tools grew largely out of our own needs and our own use in Solaris kernel development -- developers know what developers want.</p>\n<p>If people's eyes pop out when you show them p-tools wait until you show them <a href=\"http://blogs.sun.com/roller/page/bmc/20040805#demo_ing_dtrace\" rel=\"nofollow ugc noopener noreferrer\">this stuff</a> (in particular tracing a thread through user-land into the kernel).</p>\n"
+    }
+  ]
+}

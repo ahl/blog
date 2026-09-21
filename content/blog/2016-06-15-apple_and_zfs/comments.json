@@ -1,0 +1,292 @@
+{
+  "post": "/2016/06/15/apple_and_zfs/",
+  "count": 36,
+  "comments": [
+    {
+      "id": 55886,
+      "author": "DineshN",
+      "date": "2016-06-15T13:58:38Z",
+      "kind": "comment",
+      "html": "<p>Thanks for outlining the history, I had always wondered why Apple never adopted ZFS. BTW that claim about Steve and Larry never wanting to do business together is suspect, Apple stores used (and maybe still do use) Oracle software for their order processing, which is mentioned in the Isaacson biography along with comments from Ellison on the exacting requirements made by Jobs on Oracle developers...</p>\n"
+    },
+    {
+      "id": 55888,
+      "author": "Dan McD.",
+      "date": "2016-06-15T15:34:57Z",
+      "kind": "comment",
+      "html": "<p>We all have our stories about why we left Oracle post-acquisition. Your 2010 section is new to me, and I suspect was the impetus for more than a few departures.</p>\n"
+    },
+    {
+      "id": 55889,
+      "author": "Richard Yao",
+      "date": "2016-06-15T15:43:25Z",
+      "kind": "comment",
+      "html": "<p>A member of the pre-Oracle Sun ZFS team told me something that matches the 2010 section in private. I am not naming him because he told me in private, but I consider him to be an extremely reliable source on the matter.</p>\n"
+    },
+    {
+      "id": 55890,
+      "author": "Tim",
+      "date": "2016-06-15T19:58:00Z",
+      "kind": "comment",
+      "html": "<p>\"... really just a bunch of hard links to directories. For those who don’t know a symlink from a ...\"</p>\n<p>For anyone else confused by this, a hard link and a symlink are very different things.  Time Machine uses hard links, not symlinks.</p>\n"
+    },
+    {
+      "id": 55892,
+      "author": "Rich Teer",
+      "date": "2016-06-15T21:24:24Z",
+      "kind": "comment",
+      "html": "<p>I think that Apple not adopting ZFS as HFS+'s replacement does their users a gross injustice. As you say, writing a file system from scratch is non-trivial task, even with Apple's considerable engineering resources.</p>\n<p>Just thinking of the possibilities that could've been had Apple invested as much effort in improving ZFS rather than going their own way makes me sad...</p>\n"
+    },
+    {
+      "id": 55893,
+      "parent": 55890,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-15T21:43:12Z",
+      "kind": "comment",
+      "html": "<p>Yeah... sorry if that was confusing. The first sentence is the technical explanation; the second is the layman description and I figured using a related detail (symlinks) would still separate the folks who needed the analogy from those who did not.</p>\n"
+    },
+    {
+      "id": 55895,
+      "author": "Failed request",
+      "date": "2016-06-16T01:03:36Z",
+      "kind": "comment",
+      "html": "<p>I always suspected Apple dumped zfs due to the volumes of software written and in use at the 2000's time frame that assumes case insensitive file storage . For example many games ported to OS X do not work on hfsx (hfs with case sensitivity ) . There are are few other notable trouble children, some of the major audio editing apps and some productivity apps .</p>\n"
+    },
+    {
+      "id": 55896,
+      "parent": 55895,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-16T01:19:51Z",
+      "kind": "comment",
+      "html": "<p>ZFS supports case insensitivity. I think it took a weekend to code up.</p>\n"
+    },
+    {
+      "id": 55897,
+      "author": "Minh Pithan",
+      "url": "http://www.promouber.us",
+      "date": "2016-06-16T05:09:19Z",
+      "kind": "comment",
+      "html": "<p>p</p>\n"
+    },
+    {
+      "id": 55898,
+      "author": "IAA",
+      "date": "2016-06-16T08:28:25Z",
+      "kind": "comment",
+      "html": "<p>I deal with certain Oracle software originally created by Sun. It is being used widely at Apple, one of largest product customers, for many years now. With that in mind, it's hard to believe Jobs and Ellison were refusing doing business together.</p>\n"
+    },
+    {
+      "id": 55900,
+      "author": "Paul M. Lambert",
+      "date": "2016-06-16T16:25:54Z",
+      "kind": "comment",
+      "html": "<p>I'd imagine that the process of porting Oracle 10g to Mac OS X Server left both companies less eager to collaborate on another project, and especially one with such a critical role in Apple's products as a filesystem.</p>\n<p>The mismatch between the companies' development processes, release cycles, certification processes, and goals made the project challenging, and the Mac OS X focus on consumer-relevant features left a lot of gaps that had to be filled by hand.  This is why, for example, there was (is?) a \"raw device filesystem driver,\" that allowed a raw device to always have the same device name in /dev.</p>\n"
+    },
+    {
+      "id": 55902,
+      "parent": 55886,
+      "author": "PowerAtom",
+      "date": "2016-06-17T05:44:34Z",
+      "kind": "comment",
+      "html": "<p>Then the relationship was probably as he originally heard, that Larry had issues doing business with Steve. Having worked for Oracle briefly myself (through acquisition, not by choice), I can tell you from experience that trying to get an Apple product is like pulling teeth: It requires an approval from the Office of the CEO (you read that right) and would take weeks for the approval. And Oracle employee's Apple product discounts are pretty much non-existent.</p>\n"
+    },
+    {
+      "id": 55903,
+      "author": "Michael Tsai - Blog - Apple File System (AFPS)",
+      "url": "http://mjtsai.com/blog/2016/06/17/apple-file-system-afps/",
+      "date": "2016-06-17T16:19:07Z",
+      "kind": "pingback",
+      "html": "<p>[...] Adam Leventhal (via Hacker News): [...]</p>\n"
+    },
+    {
+      "id": 55904,
+      "author": "2:00PM Water Cooler 6/17/2016 | naked capitalism",
+      "url": "http://www.nakedcapitalism.com/2016/06/200pm-water-cooler-6172016.html",
+      "date": "2016-06-17T18:06:22Z",
+      "kind": "pingback",
+      "html": "<p>[...] Apple’s New Filesystem That Wasn’t” [Adam Leventhal’s blog]. How the software sausage is [...]</p>\n"
+    },
+    {
+      "id": 55911,
+      "author": "Illtud",
+      "date": "2016-06-19T00:02:53Z",
+      "kind": "comment",
+      "html": "<p>Thanks - always great to have an insider view on historically significant tech decisions.</p>\n"
+    },
+    {
+      "id": 55967,
+      "author": "Andy Lawrence",
+      "url": "http://DidgetMaster.blogspot.com",
+      "date": "2016-06-20T16:47:12Z",
+      "kind": "comment",
+      "html": "<p>Every time a major vendor (Apple, Microsoft, etc.) announces some kind of new file system technology, I have been very disappointed. File systems suffer from core architectural problems that have existed for decades.</p>\n<p>They need major changes that will allow users to create millions of files; put tags on anything/everything; and then find subsets of those files based on the file type and/or the tags attached to it very fast. Basically, we need a file system/database hybrid. Apple and Microsoft (and others) have some stopgap solutions (Spotlight and Windows Search) that try to speed up searches by placing a copy of file system metadata into a database, but there are too many flaws with this approach to list.</p>\n<p>Microsoft tried to meld a file system with a database when it attempted to create WinFS, but failed miserably. I finally gave up on waiting for someone else to do this, so I started my own project. The project is far from complete, but so far everything is showing incredible promise.</p>\n<p>I can create a container that has data objects that can mimic both files and database tables. It implements a tagging system that allows tags to be attached to the file objects and queried like a column in a database table. I have tested it up to 200 million objects so far.</p>\n<p>It can find all you photos (or more specifically, all your JPEG photos) in just a second or two; even if you have millions of them. It can find everything with a certain tag (or a set of tags) in equally blinding speed. So far, its database features are faster than MySQL or PostgreSQL.</p>\n<p>We continue to add new functionality every week, but every feature we have implemented so far has outperformed everything out there.</p>\n"
+    },
+    {
+      "id": 55980,
+      "author": "Kebabbert",
+      "date": "2016-06-20T20:14:48Z",
+      "kind": "comment",
+      "html": "<p>@Andy Lawrence,<br>\nWhat filesystem do you use? Ive heard that NTFS can have problems with 200 million files.</p>\n"
+    },
+    {
+      "id": 55987,
+      "parent": 55980,
+      "author": "Andy Lawrence",
+      "url": "http://DidgetMaster.blogspot.com",
+      "date": "2016-06-20T21:37:02Z",
+      "kind": "comment",
+      "html": "<p>I don't use any existing file system. My system is a file system replacement. I do block allocation and block read/write operations to the disk just like every other file system out there. (It can also reside in a 'virtual disk' that is made up of a few very big files in the host file system if you want.)</p>\n<p>My objects are not just pointers to files somewhere within some other file system. Each object is just like a file in that it contains the actual data (photo, document, software program, etc.) along with my own special set of metadata.</p>\n<p>So I can create millions of my 'file objects' faster than any file system out there. It is more than twice as fast as ext4 at creating them and many times faster than NTFS. I timed an operation that took me 45 seconds to do that took NTFS over 90 minutes to do the same thing.</p>\n<p>My metadata table is much smaller than any file system as well. It is just 64 bytes per object. iNodes are now 256 bytes and NTFS file record segments are now 4096 bytes per file! This means that I can read my entire table into memory using just 6.4 GB when I have 100 million objects. Linux needs 25.6 GB and NTFS needs a whopping 409.6 GB to do the same thing for that many files. Even with the fastest SSD, that takes a long time and a lot of memory to read it in and cache it all.</p>\n"
+    },
+    {
+      "id": 55996,
+      "parent": 55967,
+      "author": "Abhi Beckert",
+      "url": "http://abhibeckert.com",
+      "date": "2016-06-21T01:29:15Z",
+      "kind": "comment",
+      "html": "<p>&gt; It can find all you photos (or more specifically, all your JPEG photos) in just a second or two; even if you have millions of them. It can find everything with a certain tag (or a set of tags) in equally blinding speed. So far, its database features are faster than MySQL or PostgreSQL.</p>\n<p>Apple already has that feature working on HFS+. My disk has around 30 million files and printing a list of search results for `kMDItemContentType = public.jpeg` takes 2 seconds.</p>\n"
+    },
+    {
+      "id": 56002,
+      "parent": 55996,
+      "author": "Andy Lawrence",
+      "url": "http://DidgetMaster.blogspot.com",
+      "date": "2016-06-21T02:59:27Z",
+      "kind": "comment",
+      "html": "<p>Interesting. If 10 million of those 30 million files are jpeg photos, does it still take 2 seconds?</p>\n<p>Does it retrieve this information from the file system itself or from the Spotlight database? In other words...do you have to have Spotlight scan your whole drive before this will work and find every jpeg?</p>\n<p>Can you attach custom tags to each photo (e.g. Vacation = 'Hawaii' or Camera = \"Canon\") and then find all the photos taken on vacation; all photos taken in Hawaii; or all photos taken in Hawaii with a Canon camera in just a couple seconds as well?</p>\n<p>I am curious. HFS+ is one of my least familiar file systems and I have not researched that much into its tagging capabilities.</p>\n<p>What happens to your tags if you copy the file to a different file system?</p>\n<p>Tagging is just one of dozens of features of my system, but I want it to do that better than any other system out there.</p>\n"
+    },
+    {
+      "id": 56062,
+      "parent": 56002,
+      "author": "Scott Bayes",
+      "date": "2016-06-22T02:20:02Z",
+      "kind": "comment",
+      "html": "<p>Andy Lawrence:<br>\n\"Can you attach custom tags to each photo (e.g. Vacation = ‘Hawaii’ or Camera = “Canon”) and then find all the photos taken on vacation; all photos taken in Hawaii; or all photos taken in Hawaii with a Canon camera in just a couple seconds as well?\"</p>\n<p>Unfortunately there's no tag name; all tags are specified by the constant kMDItemUserTags. The tags themselves are anonymous, e.g. \"Billy the Kid\", \"John the Baptist\", but no tagname like MiddleName. I'd love it if there were a kMDItemUserFreeText, but each free text tag becomes a new tag so you can't specify \"FreeText contains 'the'\". Or even \"tagname contains 'Free'\". Add to this that there are few management tools for tags--the list of tags is not even sorted, though oddly some subsequences of the list ARE sorted; you can't count or easily export the list--and the thing scales like a house of cards in a windstorm.</p>\n<p>On the upside, Apple actually paid attention when I submitted a report that as the tag \"dictionary\" (wordlist) grew past a couple hundred, adding a new tag became excruciatingly slow, and at near 800 tags in the dictionary, the Finder crashed. They fixed the crash soon after and part of the performance issue. In a later rev they cleared up performance; adding a new tag takes 1000 tags and millions of files.</p>\n<p>Apple often creates unscalable stuff. Who needs scalable for tweets and facebook?</p>\n<p>\"I am curious. HFS+ is one of my least familiar file systems and I have not researched that much into its tagging capabilities.</p>\n<p>What happens to your tags if you copy the file to a different file system?\"</p>\n<p>Copying a file carries tags with it, but if the file is on a NAS or other remote filesystem (AFP), the shell tool mdls can't list them through the mountpath, though Finder can report them (and I guess Spotlight finds them; I only search on the local USB backups to the NAS drives, since I haven't found a way around this; secret sauce there).</p>\n"
+    },
+    {
+      "id": 56063,
+      "parent": 56062,
+      "author": "Scott Bayes",
+      "date": "2016-06-22T02:33:07Z",
+      "kind": "comment",
+      "html": "<p>BTW, the tags are probably recovered from Spotlight; I can do a successful tag search on a local USB drive (but couldn't with Spotlight excluding that drive IIRC), but search on the NAS comes up empty; I haven't excluded either of these volumes from Spotlight, though I assume that for sanity's sake, remote FS are not Spotlight-ed. But Finder correctly reports tags on NAS drives in the file Info box.<br>\nApple has certainly mastered inconsistency along with unscalability./s</p>\n"
+    },
+    {
+      "id": 56064,
+      "parent": 56062,
+      "author": "Scott Bayes",
+      "date": "2016-06-22T02:36:02Z",
+      "kind": "comment",
+      "html": "<p>\" adding a new tag takes 1000 tags and millions of files.\" should read<br>\n\" adding a new tag takes &lt;1 sec with 1000 tags and millions of files.\" Damn fingers!</p>\n"
+    },
+    {
+      "id": 56065,
+      "parent": 56062,
+      "author": "Scott Bayes",
+      "date": "2016-06-22T02:48:35Z",
+      "kind": "comment",
+      "html": "<p>I originally wrote<br>\ntakes [less than symbol]1 sec with [greater than symbol]1000 tags</p>\n<p>I think your web server turned the pair into an HTML entity. Math hard, me tired. :-)</p>\n"
+    },
+    {
+      "id": 56067,
+      "parent": 56062,
+      "author": "Andy Lawrence",
+      "url": "http://DidgetMaster.blogspot.com",
+      "date": "2016-06-22T04:55:06Z",
+      "kind": "comment",
+      "html": "<p>Scott Bayes:</p>\n<p>Thanks for the info.</p>\n<p>The tags I implemented for my system do have context, so it can distinguish between a (LastName =  Baker) tag and a (Profession = Baker) tag attached to something. You define a tag (or use one of the predefined ones) and start using it. So every defined tag set is like a column in a relational table.</p>\n<p>In fact the whole container is a lot like a huge sparse database table where every object is a row in the table. One of the columns is the actual data stream for the object, but all the other ones are tags. You can define tens of thousands of different tags, but I limit the number of tags you can attach to any one object to 256 hence the table is sparse.</p>\n<p>You can attach multiple tags of the same type to an object too. So if you have a photo of 10 people you can attach (name = Mary), (name = Bob), (name = Steve)....tags, one for each person in the picture.</p>\n<p>Just like a database, you can do searches. For example: Find all photos where person's name starts with 'A'.</p>\n<p>My system is designed to be scalable. It doesn't start slowing down until I have 100+ million objects and more than a billion tags.</p>\n<p>Even with your edits, I had trouble figuring out what the performance was for Apple's tags. Was that less than a second to add 1000 tags? or less than a second to add a single tag even after there were 1000 tags already added to the system.</p>\n<p>For comparison, I am able to create 10 million new objects (each equivalent to a zero byte file) and attach a random number of tags (between 1 and 20) to each one (105 million total) in 156 seconds. That works out to be about 65,000 objects and 675,000 tags per second. This is on my 3 year old desktop machine (i7 3770K) with an SSD.</p>\n"
+    },
+    {
+      "id": 56097,
+      "author": "DTraceの開発者によるAppleの新しいファイルシステム「APFS」のファーストレビュー。 | AAPL Ch.",
+      "url": "http://applech2.com/archives/20160623-apfs-in-detail.html",
+      "date": "2016-06-23T05:38:42Z",
+      "kind": "pingback",
+      "html": "<p>[...] ZFS: Apple’s New Filesystem That Wasn’t [...]</p>\n"
+    },
+    {
+      "id": 56121,
+      "parent": 55892,
+      "author": "SteveS",
+      "date": "2016-06-24T18:50:13Z",
+      "kind": "comment",
+      "html": "<p>Injustice?  I don't think so.  Look, ZFS is a great file system.  Nobody is denying that.  However, there is a reason that so many different file systems exist and why different file systems are optimized for different functions.  ZFS is a great solution for the server environment.  Is it the best solution for something like the Apple Watch?  I'm sure APFS won't be perfect.  We know the design goals are different from ZFS for things like data integrity.  However, I expect APFS to be a better fit for Apple's use cases.  For that matter, Dominic Giampaolo isn't exactly a rookie with regards to file system design.  I've admired his work back when he was at Be.  I have a lot of confidence that this is probably the better solution for Apple's needs... and by extension Apple's user's needs.</p>\n"
+    },
+    {
+      "id": 56126,
+      "parent": 56121,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-24T22:03:15Z",
+      "kind": "comment",
+      "html": "<p>Imagine a world in which Apple spent the same number of engineer hours that have been dedicated to the false starts and eventual results instead to refining OpenZFS to suit the needs of their users. There was an opportunity to have a compatible format where servers in the cloud, laptops, and, yes, watches could all speak the same data language.</p>\n"
+    },
+    {
+      "id": 56143,
+      "parent": 56062,
+      "author": "Scott Bayes",
+      "date": "2016-06-26T04:42:15Z",
+      "kind": "comment",
+      "html": "<p>\"Even with your edits, I had trouble figuring out what the performance was for Apple’s tags. Was that less than a second to add 1000 tags? or less than a second to add a single tag even after there were 1000 tags already added to the system.\"</p>\n<p>Sorry for the messed-up description.</p>\n<p>I have more than 1000 tags in the \"dictionary\". To add a new tag to the dictionary takes less than 1 sec. Big whoop. But compared to where it was a year or two ago (when it would take 2 minutes or more to add a new tag to the dict when it contained around 800 unique tags, if it didn't crash or hang instead), this is rocket science on Apple's part. But for anyone else, it would be meh. Apple doesn't scale.</p>\n<p>Most of my files have less than 10 tags attached to them, though some may have 15 or so, but that's very rare. Search is fast enough, taking about a second to start to show the potentially dozens of files containing a searched tag; quite possibly limited by UI speed of displaying the list of results, not the search itself. Haven't really tried many searches on more than one tag.</p>\n<p>So, yes, it's OK if your needs are very light, but has never really scaled well, even when bugs are fixed, since tag management tools are almost non-existent.</p>\n<p>\"For comparison, I am able to create 10 million new objects (each equivalent to a zero byte file) and attach a random number of tags (between 1 and 20) to each one (105 million total) in 156 seconds. That works out to be about 65,000 objects and 675,000 tags per second. This is on my 3 year old desktop machine (i7 3770K) with an SSD.\"</p>\n<p>I don't think the Mac file-/tagging system can come anywhere near that speed.</p>\n<p>I mostly do this tag-related stuff on a 27\" Core i7 iMac11,1, from late 2009, 12GB RAM, 3TB spinning boot drive. I do have 4 USB drives attached (USB 2) and 3 NAS drives mounted on the iMac; 3 of the USB drives are manual backups of the 3 NAS drives (mp4 movie library, so file count is not huge); all 3 NAS drives dip into the same population of tags, and the USB drives mirror the respective NAS's mp4-containing subtrees; the fourth USB drive is a Time Machine backup of the boot.</p>\n<p>It'll be nice when APFS comes out (bug-free of course ;-) and ACLs and tags/other metadata, and journaling and other features are integrated rather than being bolted on after the fact.<br>\nBasically what you have done blows Apple out of the water.</p>\n"
+    },
+    {
+      "id": 56179,
+      "parent": 56062,
+      "author": "Andy Lawrence",
+      "url": "http://DidgetMaster.blogspot.com",
+      "date": "2016-06-27T14:27:37Z",
+      "kind": "comment",
+      "html": "<p>The big question is whether or not APFS will build these features into the core file system or continue to use the Spotlight database instead.</p>\n<p>That is the biggest weakness of the current system. The tags are not part of the actual file meta-data. They are stored and managed by a separate database system. If you fail to index all your files on all your drives, then searches for things with tags will give you only partial results. The indexing process can take hours to do each time and must be started over if it gets messed up.</p>\n<p>I think that is also why it doesn't work if you have an external drive or a NAS device. The metadata is not part of the file system where it needs to be in order for all the computers have access to the same set of tags. Instead they are localized to each machine.</p>\n"
+    },
+    {
+      "id": 56188,
+      "parent": 55902,
+      "author": "Gary Dauphin",
+      "date": "2016-06-27T20:41:45Z",
+      "kind": "comment",
+      "html": "<p>I worked at Oracle, too, but had a slightly different experience.  When they hired me on, they had a MacBook Pro waiting for me as my primary laptop.  When I suggested maybe having a Windows one was also a good idea, a second laptop showed up on my doorstep a week later.</p>\n"
+    },
+    {
+      "id": 56195,
+      "parent": 56188,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2016-06-27T23:25:37Z",
+      "kind": "comment",
+      "html": "<p>What was your position? CEO?</p>\n"
+    },
+    {
+      "id": 56229,
+      "parent": 55895,
+      "author": "Panajev",
+      "date": "2016-06-28T13:21:37Z",
+      "kind": "comment",
+      "html": "<p>Those apps need to be fixed. Case insensitivity is a crutch that causes more pain than it solves IMHO. I hope that APFS pushes ahead with case sensitive by default with an option for case insensitivity for those pro users who may really really need it badly.</p>\n"
+    },
+    {
+      "id": 56234,
+      "author": "ZFS: The other new Apple file system that almost was—until it wasn’t - Apple Mac Training UK",
+      "url": "http://macresource.co.uk/news/zfs-the-other-new-apple-file-system-that-almost-was-until-it-wasnt/",
+      "date": "2016-06-28T19:38:14Z",
+      "kind": "pingback",
+      "html": "<p>[...] by Justin Sullivan / Getty — Edited by Aurich Lawson This article was originally published on Adam Leventhal’s blog and is reprinted here with his [...]</p>\n"
+    },
+    {
+      "id": 56291,
+      "author": "Michael Donahue",
+      "date": "2016-07-05T20:50:33Z",
+      "kind": "comment",
+      "html": "<p>Adam,</p>\n<p>This is a loooooong post. tl;dr if you don’t have the time or patience.</p>\n<p>But I think it is &gt;very&lt; pertinent.</p>\n<p>With respect to Apple, ZFS and APFS, I hope you can help me understand some things:</p>\n<p>Other than NIH (“Not Invented Here”) syndrome, I can see no reason for Apple to introduce Yet Another File System.</p>\n<p>The OBVIOUS choice is OpenZFS, given that:</p>\n<p>1.) Apple invested heavily in a ZFS port</p>\n<p>2.) Apple included ZFS “read only” in past milestone versions of OS X</p>\n<p>3.) And given that Apple was “ready to go” with ZFS on OS X until, if you take Apple at its word, licensing issues precluded Apple from launching ZFS on OS X</p>\n<p>4.) Given the OpenZFS project exists</p>\n<p>5.) Given that an OpenZFS port for the Mac has happened</p>\n<p>6.) Given that Jordan Hubbard, co-founder the FreeBSD project – the flavor of Unix that Mac OS X is most closely based – joined Apple Computer in July 2001 in the role of manager of the BSD technology group, became Apple’s “Director of UNIX Technology” in 2005 and after October 2007 was Apple’s “Director of Engineering of Unix Technologies” until he left Apple on June, 2013 for the position of CTO at iXsystems (https://www.ixsystems.com/blog/openzfs-vs-the-competition/)</p>\n<p>7.) Given that iXsystems – where Hubbard, Apple’s head of Unix technology from 2001 to 2013, serves as CTO – is purely committed to one file system: OpenZFS</p>\n<p>7 b.) Apple has more than enough resources to acquire iXsystems, bring Jordan Hubbard back into the fold, redress the under appreciation he felt that I’m sure played some role in his decision to leave Apple, give him an executive management position, give him “golden handcuffs” with an enormous salary and lucrative stock options that vest over time, and give him the financial incentive to stay at Apple and “give it his all” for the foreseeable future</p>\n<p>8.) Given that any present file system, mature in its development or in early- or mid-development – including btrfs – falls far short of the almost “infinite” nature of ZFS (OpenZFS)</p>\n<p>9.) Given that ZFS (OpenZFS) seems so robust that it may hold up far more than “adequately” for the next 50 years (at least!)</p>\n<p>I see no rational reason for Apple not to replace HFS+ on Macs, on iOS devices and all Apple devices with ZFS (OpenZFS).</p>\n<p>I can only speculate as to why Apple – once SO interested in ZFS – will not replace HFS+ with OpenZFS:</p>\n<p>1.) “NIH” syndrome</p>\n<p>2.) OpenZFS is scalable in both directions, but is unsuitable for implementation on devices that may not have been foreseen when ZFS was developed, namely, the Apple Watch, where the ZFS file system itself would consume huge amounts of storage on a device like the Apple Watch, which may require only 1% of what ZFS offers. ZFS was simply designed without small and mobile devices in mind</p>\n<p>3.) Apple’s enterprise agreement with IBM includes several “no compete” clauses including ones that allow Apple to offer OS X server, but do not permit Apple to make and market dedicated Servers like the Xserve rack server anymore, large-scale Network Attached Storage devices, enterprise-class software, “workstations,” Mac-hardware-based server farms, “minicomputers,” mainframes, Supercomputers or anything more powerful than a powerful desktop Mac Pro – as this would put Apple in direct competition with IBM’s products and services</p>\n<p>4.) Longtime Mac users have suffered through many disruptive changes, absolutely necessary for the advancement of the platform</p>\n<p>• The first I remember was System 7, which brought long-awaited improvements to the Mac platform, but which necessarily broke compatibility with a significant portion of existing apps, required at least the recompiling of apps by ISVs, if not major modifications of code to apps only to achieve compatibility with System 7 and not necessarily to implement advancements and features to these existing apps</p>\n<p>• I recall there was one or more of these “disruptions” when Apple moved from a Motorola 68000 to a 680x0 that may have had necessary architecture changes if they were to offer performance leaps beyond what can be achieved by higher clock speeds</p>\n<p>• The transition from 680x0 to the RISC PowerPC processor architecture was anything but painless. I suffered through it, and it was a rough haul</p>\n<p>• The transition from “Classic” Mac OS, to Next’s OpenStep-based OS X was not without pain, but was far less painful and disruptive a transition than any that preceded it on the Mac platform</p>\n<p>• The transition from PowerPC CPUs to Intel CPUs beat even the above transition as the smoothest, least-disruptive and least painful transition</p>\n<p>• Beating even that, was the transition to all-64 bit hardware and software on the Mac platform. It was barely noticeable</p>\n<p>5.) Given everything enumerated in 4.), a switch from HFS+ to ZFS would be too disruptive both for users and Mac ISVs that it could have a significant impact on the Mac in the marketplace</p>\n<p>6.) APFS improves greatly upon HFS+, but is the least disruptive option – less disruption than a switch to ZFS, btrfs or any other FS on all Apple devices from the Mac to the Apple Watch</p>\n<p>Again, this is all speculation or theory, but I am very interested in where I am inaccurate or wrong.</p>\n"
+    },
+    {
+      "id": 56466,
+      "author": "Avant APFS : les tribulations sans avenir de ZFS chez Apple - Apple24 Boutique",
+      "url": "http://apple24boutique.com/avant-apfs-les-tribulations-sans-avenir-de-zfs-chez-apple/",
+      "date": "2016-07-22T09:02:42Z",
+      "kind": "pingback",
+      "html": "<p>[...] privilégié la grande histoire entre Apple et ZFS… mais aussi les coulisses un peu crapoteuses dévoilées sur son blog (via [...]</p>\n"
+    }
+  ]
+}

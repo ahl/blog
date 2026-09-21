@@ -1,0 +1,158 @@
+{
+  "post": "/2008/06/07/apple-updates-dtrace/",
+  "count": 20,
+  "comments": [
+    {
+      "id": 1344,
+      "author": "Anantha",
+      "date": "2008-06-07T20:32:29Z",
+      "kind": "comment",
+      "html": "<p>I'm constantly amazed at the worshipping of Apple. Here they are screwing up, by design, and then fixing the issue a little bit and you're happy? I bet you'd be livid if Microsoft were to be in a similar situation. You are openly sharing DTrace with the world and here comes the most 'closed' company in the world, hijacks your baby and you are happy (ecstatic if I were to accurately characterize your post) that they just fixed it and that too silently without admitting any mistake! Biased comes to my mind.</p>\n"
+    },
+    {
+      "id": 1345,
+      "author": "nothanks",
+      "date": "2008-06-07T21:49:09Z",
+      "kind": "comment",
+      "html": "<p>What's really annoying to me is that, if I understand their documentation correctly, I have to change my DTRACE_PROBEn macro calls for usdt probes to use their different generated macros for my provider. Do I get that right? Seems a quite gratuitous change that makes life a touch painful for cross-platform applications.</p>\n"
+    },
+    {
+      "id": 1346,
+      "author": "mind",
+      "date": "2008-06-07T22:02:38Z",
+      "kind": "comment",
+      "html": "<p>But wait a minute... If you're root, why should there be _any_ \"untraceable\" processes?</p>\n"
+    },
+    {
+      "id": 1347,
+      "author": "anil",
+      "date": "2008-06-07T23:17:36Z",
+      "kind": "comment",
+      "html": "<p>poofter!</p>\n"
+    },
+    {
+      "id": 1348,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-06-08T00:37:05Z",
+      "kind": "comment",
+      "html": "<p>@Anantha The reality of the situation is that Apple has to apply the same restrictions in DTrace as pertain to the rest of the system (e.g. gdb). And yes, I'm happy that Apple recognized the problem and fixed it. Somewhat. Realize that sometimes the world exists in shades of gray.<br>\n@nothanks Yeah, that's a drag. You should be using the new USDT methodology with dtrace -h.<br>\n@mind That's a question for Apple, but it boils down preventing users from understanding the inner workings of applications that interact with copyright-protected music and movies (the euphemistically named DRM). I'm not happy about it, but then I can't imagine music or movie companies getting onboard without it.<br>\n@anil Fair enough.</p>\n"
+    },
+    {
+      "id": 1349,
+      "author": "Eddie D.",
+      "date": "2008-06-08T04:23:41Z",
+      "kind": "comment",
+      "html": "<p>For me, if you can not attach, trace and debug any process you want, then the DTrace implementation is flawed. Some time into the future, iTunes will have a conflict with some software and DTrace will not be of any help because Apple deliberately crippled it. I'm just not interested in developing for Apple Computers anymore because P_LNOATTACH is feature compatible with the EVIL_BIT as defined in the RFC.<br>\nWhat would be the use of DTrace if now every software for Max OSX under the sun starts to mark their processes with P_LNOATTACH? It would be useless. Adobe will use it, Microsoft will use it, any privative software will use it, some Apple system software will use it. The megabytes DTrace takes of disk space will be wasted space and wasted expectations.</p>\n"
+    },
+    {
+      "id": 1350,
+      "author": "Mark",
+      "url": "http://www.netytan.com",
+      "date": "2008-06-08T07:05:42Z",
+      "kind": "comment",
+      "html": "<p>This is good news, will you all please stop your whining. If you don't like it don't use it, but there's no need to make this personal.</p>\n"
+    },
+    {
+      "id": 1351,
+      "author": "TH",
+      "date": "2008-06-08T08:09:18Z",
+      "kind": "comment",
+      "html": "<p>@Anantha: I'm really tired of hearing this \"if Microsoft did it\" argument. In case you didn't notice, people *were* livid when Apple did this - just look at all the anger from the Register and Slashdot articles mentioned above.<br>\nApple receives plenty of negative feedback when they screw up, both from Mac users and everyone else.</p>\n"
+    },
+    {
+      "id": 1352,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-06-08T09:11:24Z",
+      "kind": "comment",
+      "html": "<p>@Eddie D I completely agree that artificially limiting the scope of DTrace is deleterious, and it's frankly something that we would never do in Solaris (and ISVs have asked). That said, Apple's business is different than ours and what they've implemented has been an attempt to maintain the same restrictions that were already in place (something that we also did with our privilege model for DTrace).<br>\nThe bigger problem is that in limiting the scope, they actually damaged DTrace for uses that even Apple would deem legitimate (again, not that I'm anointing them the arbiters of legitimacy). I'm pleased to see that they're taking steps to correct this. The lesser problem is restricting visibility in the first place, and that already applied to debuggers before DTrace was ported to Mac OS X. Fortunately Apple's engineers apparently realize the reality that perfect enforcement would never be possible.</p>\n"
+    },
+    {
+      "id": 1353,
+      "author": "reason",
+      "date": "2008-06-08T10:13:19Z",
+      "kind": "comment",
+      "html": "<p>Isn't it curious that this DRM limitation only exists for apps that deal with multimedia- not OS X in general? Apple doesn't use copy protection system-wide, it only uses it when copyright owners would sue Apple if it didn't use DRM. This anger would be better directed at Hollywood than Apple.</p>\n"
+    },
+    {
+      "id": 1354,
+      "author": "Jean-Daniel",
+      "date": "2008-06-08T10:30:29Z",
+      "kind": "comment",
+      "html": "<p>It's even more fine grain that that. Application that uses the QuickTime Framework for example are untraceable only while they are reading a media that conatins DRM.<br>\n@Eddie D: I don't see the point here. That's not because MS, Adobe, and even Apple are using the ptrace hack that gdb is useless ? Why would it be different with dtrace (now that they fixed the major issue)</p>\n"
+    },
+    {
+      "id": 1355,
+      "author": "Todd Patrick",
+      "date": "2008-06-11T05:58:41Z",
+      "kind": "comment",
+      "html": "<p>Heads up, Slashdot's a-comin'. Be prepared for the headline: \"Apple 'Actually Damaged' DTrace.\"</p>\n"
+    },
+    {
+      "id": 1356,
+      "author": "Paul Davis",
+      "url": "http://ardour.org",
+      "date": "2008-06-11T06:23:51Z",
+      "kind": "comment",
+      "html": "<p>Not only is perfect enforcement of debugger-based inspection not possible, but as was revealed when the last round of publicity showed up about what Apple has done, their attempts to keep a debugger out can be removed with a couple of lines in .gdbinit:<br>\nfuture-break ptrace<br>\ncommand 1<br>\nreturn<br>\ncontinue<br>\nend<br>\nI don't know what they promised ISV's but they certainly didn't offer what they were probably asking for.</p>\n"
+    },
+    {
+      "id": 1357,
+      "author": "Jeff Craig",
+      "url": "http://blog.foxxtrot.net/",
+      "date": "2008-06-11T08:07:06Z",
+      "kind": "comment",
+      "html": "<p>@Paul,<br>\nThat's largely because what the ISVs really want is impossible for Apple to offer.  The amusing part is that anyone with the knowledge to decode a DRM scheme using a debugger, is going to know how to recompile a working version of GDB and DTrace that don't have Apple's crippling in it.<br>\nAt least they've made the tool more useful now.</p>\n"
+    },
+    {
+      "id": 1358,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-06-11T08:23:56Z",
+      "kind": "comment",
+      "html": "<p>@Jeff I think what they offer is pro forma protection that's enough to satisfy executives that a mechanism is in place. If people start being noisy about methods to circumvent it, Apple's engineers may have to put something more complex in place, but I'm sure they understand, as we do, that they cannot win that arms race: once they give you the bits, it's game over (especially with DTrace in your toolbelt).</p>\n"
+    },
+    {
+      "id": 1359,
+      "author": "Eddie D.",
+      "date": "2008-06-11T08:26:36Z",
+      "kind": "comment",
+      "html": "<p>@Jean-Daniel I do agree that making processes unsuitable to gdb is evil. But, it is evil only if you want to trace that very process.<br>\nThe Dtrace situation is much worse because it provides system-wide metrics. Apple just seems to have fixed Dtrace so it gives accurate system metrics while not allowing introspection in P_LNOATTACH processes. Think about it, is it a fix? to what extent?<br>\nAt the end of the road, any well motived hacker CAN and WILL trace itunes, no matter what. Deliberately crippling DTrace is just wrong. Just imagine that the next step were to turn of ZFS autohealing features because of protecting their DRM scheme. Excuses are just shameful.</p>\n"
+    },
+    {
+      "id": 1360,
+      "author": "Paul Davis",
+      "url": "http://ardour.org/",
+      "date": "2008-06-11T08:47:14Z",
+      "kind": "comment",
+      "html": "<p>@Adam - the gdb situation is terrible for apps that dynamically load plugins. My main app does this, and when I was debugging with gdb (before finding the fix), loading a \"copy protected\" plugin would just break gdb instead, even though I wanted to actually debug my app. The .dylib for the plugin was marked P_LNOATTACH, and hence requires the workaround for ptrace(2).</p>\n"
+    },
+    {
+      "id": 1361,
+      "author": "Jim",
+      "date": "2008-06-11T16:49:49Z",
+      "kind": "comment",
+      "html": "<p>@Anantha: Apple are hardly the most closed company in the world... <br>\nYes they're secretive with regards to product development, but they're so incredibly open with their software its amazing. <br>\nThis post is exactly the case in point.. Did Apple have to port DTrace? No. Did Apple have to commit their changes back to the upstream project? No. Did Apple have to fix the concerns raised earlier? No. Did they do all the above? Yes!<br>\nJust look at the amount of Open Source software they're using and contributing to (Darwin (OSX Kernel and Userland minus Aqua), DTrace, ZFS, mDNSresponder, CUPS, Samba, etc), and you'll find you're so incredibly far away from the point its amazing.</p>\n"
+    },
+    {
+      "id": 1362,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-06-12T00:20:06Z",
+      "kind": "comment",
+      "html": "<p>@Paul I can imagine how annoying the interference with gdb would be, and I didn't mean to defend the practice. I just mean to say that I can understand why they did it. Fortunately, it's fairly easy to circumvent.</p>\n"
+    },
+    {
+      "id": 1363,
+      "author": "Yuhong Bao",
+      "date": "2008-06-12T21:50:19Z",
+      "kind": "comment",
+      "html": "<p>@Jim: In fact, since the kernel source code is freely available, P_LNOATTACH can easily be hacked out. I am sure there is a debate or war inside Apple (probably political) over this.</p>\n"
+    }
+  ]
+}

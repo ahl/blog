@@ -1,0 +1,21 @@
+{
+  "post": "/2005/01/25/dtrace-is-open/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1691,
+      "author": "tsj",
+      "date": "2005-01-26T01:44:44Z",
+      "kind": "comment",
+      "html": "<p>I am from TAIWAN I'm a collge student. My majority is computer science. I am a freshman. I want to learn unix kernel. I find a book\"Lion's Commentary on UNIX 6th Edition\"in our college's library. please tell me how to learn UNIX kernel. Do you have any friend who is kernel developer in SUN ? could they give me a direction? THANKS you for tolerating my poor english</p>\n"
+    },
+    {
+      "id": 1692,
+      "author": "Kamen",
+      "url": "http://dtrace.org/blogs/ahl/the_pid_provider_and_10",
+      "date": "2005-10-20T08:35:58Z",
+      "kind": "comment",
+      "html": "<p>Hi Adam,<br>\nFirst of all thanks for maintaining this useful blog.<br>\nThe problem:<br>\nI've tried dereferencing arg15 from the stack (32bit app, SPARC 64bit), but unfortunately it didn't work for me!<br>\nI still can't get why..<br>\nThe problem I have is that the arg15 is actually a pointer to int. The code I'm using is:<br>\nthis-&gt;arg15=*(uint32 *)copyin(*(uint32 *)(uregs[R_SP] + sizeof (uint32_t) * (15 + 17)), sizeof(uint32_t));<br>\nAny ideas what I'm doing wrong??<br>\nRegards!</p>\n"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "post": "/2012/04/09/dtrace-conf12-wrap-up/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 2240,
+      "author": "UX-admin",
+      "date": "2012-04-10T13:57:20Z",
+      "kind": "comment",
+      "html": "<p>\"...is the relatively low level of DTrace adoption\"</p>\n<p>I remember when I took my DTrace courses: it took nothing short of a kernel engineer to be able to leverage the power of DTrace. Back then I was just starting to get my feet wet with kernel-level structures in Solaris, and I distinctly remember that my every second question was</p>\n<p>\"--WAIT! Where did THAT structure come from now!?! How did you know to access that?!?\"</p>\n<p>And the answer was always the same: \"you have to be familiar with the internal kernel structures.\"</p>\n<p>Unfortunately, the contemporary system administrator, who is ironically the prime beneficiary of the power DTrace offers, is very far removed from any kind of C programming and kernel engineering. That is why DTrace never saw wider adoption outside of kernel engineering circles.</p>\n"
+    },
+    {
+      "id": 2242,
+      "parent": 2240,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-04-10T16:25:15Z",
+      "kind": "comment",
+      "html": "<p>You're right. As I use DTrace, I spend a lot of my time browsing kernel source code, picking through /usr/lib/dtrace, looking at old blog posts, and reviewing the docs. The dtrace(1M) command itself could do more to be helpful.</p>\n"
+    },
+    {
+      "id": 2243,
+      "parent": 2240,
+      "author": "Brendan Gregg",
+      "date": "2012-04-12T05:25:12Z",
+      "kind": "comment",
+      "html": "<p>I wouldn't confuse DTrace with the original DTrace course taught by Sun.  It was written for kernel engineers, not system administrators.</p>\n<p>I've taught that course, and I also flew to the US during its development and met the author.  It was the first course he wrote, and he did a pretty good job, but -- he wrote it as an internal 2 day crash course for kernel engineers.  Sun decided to reuse it as the customer course, without changing the content.  I attended a trial run and was pretty shocked - one of my recommendations was to make it either 4 or 5 days, to have a chance for the instructor to ad-lib all the assumed knowledge.</p>\n<p>Years later, Sun/Oracle have now split it into two courses: one for developers and one for sysadmins, which makes much more sense.  If I were teaching the sysadmin course, I would structure it to avoid such a need for kernel structure familiarity.</p>\n<p>I hope the years this was taught as a kernel engineering course hasn't hurt adoption too badly.</p>\n"
+    },
+    {
+      "id": 2244,
+      "author": "Kevin Montagne",
+      "date": "2012-04-13T03:34:39Z",
+      "kind": "comment",
+      "html": "<p>I would like to push another avenue for increasing developer adoption. The idea was mentioned in passing near the end of Jarod's presentation. Certainly a port to Linux will increase the number of developers who have access but its adoption percentage may not be significantly different. If a plugin was available for Eclipse that provided integration with DTrace similar to the language debuggers. It does not necessarily have to be full featured at first but it should be easily extensible and allow access to the native DTrace scripts. I know there is a growing number of languages that support DTrace probes but if plugin was created for Java the underlying framework could be reused for other languages.</p>\n<p>I would argue that the percentage of developers that regularly use a debugger would be significantly lower without IDE integration. How many people enjoy using jdb &amp; gdb? It would be shocking how much more popular printf and its cousins would become.</p>\n<p>I have used DTrace to probe Java applications and even written Java programs that use the DTrace clases to probe other processes. I have never developed a plugin but my assertion would be that somebody that has teamed up with somebody that knew DTrace well an incubator would be soon in coming. I would volunteer to help in developing some requirements and early tester.</p>\n"
+    },
+    {
+      "id": 2247,
+      "parent": 2244,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-04-23T20:33:33Z",
+      "kind": "comment",
+      "html": "<p>Kevin,</p>\n<p>Great point and one that I should have highlighted in my post. Making DTrace easy to use, and right at the finger tips of every developer will be a huge step forward.</p>\n"
+    }
+  ]
+}

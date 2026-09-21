@@ -1,0 +1,27 @@
+{
+  "post": "/2006/11/02/dtrace-a-history/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1566,
+      "author": "Nik Clayton",
+      "date": "2006-11-03T08:12:54Z",
+      "kind": "comment",
+      "html": "<p>I've got a fair amount of experience wrangling XML and SGML (c.f., huge amounts of work on the <a href=\"http://www.freebsd.org/handbook/\" rel=\"nofollow ugc noopener noreferrer\">FreeBSD Handbook</a>),  so when my <a href=\"http://jc.ngo.org.uk/blog/2006/10/27/i-didnt-win/\" rel=\"nofollow ugc noopener noreferrer\">Ultra 40 arrives</a> I'll make a point of looking over the docs.</p>\n"
+    },
+    {
+      "id": 1567,
+      "author": "Jim Litchfield",
+      "date": "2006-11-03T16:58:03Z",
+      "kind": "comment",
+      "html": "<p>Please break them out by update release as well.</p>\n"
+    },
+    {
+      "id": 1568,
+      "author": "Tomas",
+      "date": "2006-11-09T03:35:56Z",
+      "kind": "comment",
+      "html": "<p>Hey Adam!</p>\n<p>We've been using MoinMoin[1] wiki for a while now and AFAIK, there's a menu option which allows you to export given wiki page to DocBook file. Getting DocBook working might be a little bit of a challenge (for me anyway), but it could be something worth trying.</p>\n<p>Another option is to write your documents in reStructuredText[2] markup (MoinMoin understands that too) and it's possible to generate LaTeX from it and then PDFs etc. It's my favorite.</p>\n<p>[1] <a href=\"http://moinmoin.wikiwikiweb.de/MoinMoin\" rel=\"nofollow ugc noopener noreferrer\">MoinMoin</a><br>\n[2] <a href=\"http://docutils.sourceforge.net/rst.html\" rel=\"nofollow ugc noopener noreferrer\">reStructuredText</a></p>\n<p>Cheers,<br>\nTomas</p>\n"
+    }
+  ]
+}

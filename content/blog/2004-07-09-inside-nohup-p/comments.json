@@ -1,0 +1,14 @@
+{
+  "post": "/2004/07/09/inside-nohup-p/",
+  "count": 1,
+  "comments": [
+    {
+      "id": 1764,
+      "author": "Alan Hargreaves",
+      "url": "http://blogs.sun.com/tpenta",
+      "date": "2004-07-09T18:54:00Z",
+      "kind": "comment",
+      "html": "<p>I had never actually looked into the innards of nohup -p. That is a seriously cool bit of coding Adam.</p>\n"
+    }
+  ]
+}

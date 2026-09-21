@@ -1,0 +1,31 @@
+{
+  "post": "/2006/06/16/dtrace-on-geek-muse/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1586,
+      "author": "Nem Schlecht",
+      "url": "http://geekmuse.net/",
+      "date": "2006-06-16T15:29:27Z",
+      "kind": "comment",
+      "html": "<p>Hey Adam.<br>\nI'm the one who said \"scripting language\", Travis had the XML-RPC comment.  Like I said in the podcast, I just started looking at Dtrace, and I was immediately impressed (I hope I at least got that across in the podcast).<br>\nBeing a UNIX guy, I consider remarking that something is like a scripting language to be a compliment. ;-)<br>\nIf you're interested, we'd love to you have on the show to talk more about Dtrace (and set me straight!)<br>\n-- Nem</p>\n"
+    },
+    {
+      "id": 1587,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2006-06-16T15:38:28Z",
+      "kind": "comment",
+      "html": "<p>Nem,</p>\n<p>Done and done. I'll send you some mail.</p>\n"
+    },
+    {
+      "id": 1588,
+      "author": "trav",
+      "url": "http://travis.kroh.net",
+      "date": "2006-06-17T10:54:51Z",
+      "kind": "comment",
+      "html": "<p>Yeah, that was me with the (in hindsight) self-depricating \"just a web developer\" bit. I use FreeBSD on my server here at home, so I'll have to play with the PHP extensions. I've got a really big web engine project coming up where I'll need to squeeze every ounce of performance I can, so this could turn out to be really useful.</p>\n"
+    }
+  ]
+}

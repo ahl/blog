@@ -1,0 +1,37 @@
+{
+  "post": "/2008/06/11/flash-hybrid-pools-and-future-storage/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1340,
+      "author": "Amit Kulkarni",
+      "url": "http://forestlaw.blogspot.com/",
+      "date": "2008-06-13T09:01:53Z",
+      "kind": "comment",
+      "html": "<p>One thing Sun can do is to request manufacturers to radically reduce the x, y, z co-ordinates of the flash drives currently being fitted into the hard drive slots... Bitmicro sells SSD/Flash in multiple connector technologies like SCSI, SATA, IDE etc<br>\nSunFire servers can have separate dedicated slots which are about 10-25% of the space given for traditional hot swap drives.</p>\n"
+    },
+    {
+      "id": 1341,
+      "author": "Peter Schow",
+      "date": "2008-06-27T12:44:27Z",
+      "kind": "comment",
+      "html": "<p>Article is out and online!  Good stuff.  You mentioned that most flash drives attempt to estimate their remaining time-to-live. How would an OS read this?<br>\nLearned a new word, too:  \"obduracy\"</p>\n"
+    },
+    {
+      "id": 1342,
+      "author": "Peter Schow",
+      "date": "2008-06-29T15:13:09Z",
+      "kind": "comment",
+      "html": "<p>One more thing - a RAMAC video from IBM:<br>\n<a href=\"http://www.archive.org/details/SearchAtSanJose_IBM_RAMAC\" rel=\"nofollow ugc noopener noreferrer\">http://www.archive.org/details/SearchAtSanJose_IBM_RAMAC</a></p>\n"
+    },
+    {
+      "id": 1343,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-07-01T15:49:53Z",
+      "kind": "comment",
+      "html": "<p>@Amit Drives expose that in their SMART data. Glad to teach a new word :-)<br>\n@Peter Very cool! Thanks for the link.</p>\n"
+    }
+  ]
+}

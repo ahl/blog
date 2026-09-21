@@ -1,0 +1,22 @@
+{
+  "post": "/2004/07/23/dtrace-coming-attractions/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1749,
+      "author": "Alan Hargreaves",
+      "url": "http://blogs.sun.com",
+      "date": "2004-07-25T18:39:05Z",
+      "kind": "comment",
+      "html": "<p>I believe that my comment on this one on the internal Dtrace alias was ...<br>\n</p><blockquote><i><b>mmmm, yummy</b></i></blockquote><br>\nThose of us that get stuck with user-space performance calls with a (decided lack of data) are going to find this one useful... Well, it will be useful when we can get these folks onto Solaris 10, many are still running 2.6 (and some even on 2.5.1!).<br>\nalan.<p></p>\n"
+    },
+    {
+      "id": 1750,
+      "author": "Alan Hargreaves' Weblog",
+      "url": "http://blogs.sun.com/roller/page/tpenta/20040830#wow_bryan_and_adam_have",
+      "date": "2004-08-30T21:26:49Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] Just noticed two rather large dtrace putbacks into build 67 today.<br>\nBryan  has just completed a whole lot of small fixes that include the gas/as problem with the fbt provider that was discussed on the bigadmin forum and some interaction issues wit...</p>\n"
+    }
+  ]
+}

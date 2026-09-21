@@ -1,0 +1,135 @@
+{
+  "post": "/2015/06/22/first-rust-program-pain/",
+  "count": 16,
+  "comments": [
+    {
+      "id": 54699,
+      "author": "Rudolf",
+      "url": "http://neverfriday.com/",
+      "date": "2015-06-23T00:46:10Z",
+      "kind": "comment",
+      "html": "<p>It looks like some more documenting or a different library API is needed. I stumbled on a simple program earlier today in just the same way as you and it's hard to see how and why the data ownership works as it does. Your blog post and code examples should be included as part of the Rust tutorial to show the evolution of coding in Rust.</p>\n"
+    },
+    {
+      "id": 54701,
+      "author": "Havvy",
+      "date": "2015-06-23T02:46:20Z",
+      "kind": "comment",
+      "html": "<p>\"This was wrong because we need to pass s as a reference or else its borrowed and destroyed;\"</p>\n<p>Not quite. If you pass a value directly, ownership is transferred to that function. References allow the value to be borrowed by the value so that somebody else in the call chain still owns the value so that it doesn't get destroyed when the function ends.</p>\n<p>---</p>\n<p>In your sort_str function, you don't really need the type on line 11, and since you don't actually do anything with the value other than return it right away, you don't need to declare a name for it. Just drop the `let` statement stuff and the semicolon at the end, so it'd be `v.into_iter().collect()` for line 11 and there'd be no line 12. Unless you're doing some global side effect (like printing to the console) there's very few cases where you'd need only a variable name on the final line.</p>\n"
+    },
+    {
+      "id": 54702,
+      "author": "Mark",
+      "url": "https://markshroyer.com/",
+      "date": "2015-06-23T04:33:01Z",
+      "kind": "comment",
+      "html": "<p>Excellent post! I found this very informative, as someone who hasn't yet set aside the time to invest in giving Rust a try.</p>\n<p>One minor typo: In the sample under \"Now let’s build up our map\", you have dict.get_mut() where I think you meant dict.get() instead.</p>\n"
+    },
+    {
+      "id": 54703,
+      "author": "Bookmarks for June 22nd | Chris's Digital Detritus",
+      "url": "http://chris.cothrun.com/2015/06/22/bookmarks-for-june-22nd-5/",
+      "date": "2015-06-23T06:00:18Z",
+      "kind": "pingback",
+      "html": "<p>[...] Adam Leventhal’s blog » First Rust Program Pain (So you can avoid it…) –    asmccompilerrustscheme [...]</p>\n"
+    },
+    {
+      "id": 54704,
+      "author": "contradictioned",
+      "url": "http://www.polythematik.de",
+      "date": "2015-06-23T07:53:47Z",
+      "kind": "comment",
+      "html": "<p>I enjoyed reading through your pain. Probably because it (a) reminds me of how I started with Rust and (b) how I feel like every time I do a week Ruby, Python, ... and then go back to Rust :)</p>\n"
+    },
+    {
+      "id": 54705,
+      "author": "Ms2ger",
+      "date": "2015-06-23T08:45:06Z",
+      "kind": "comment",
+      "html": "<p>Nice post. There are still a few small improvements possible to your final solution:</p>\n<p>The path variable isn't necessary; you can simply write `File::open(\"../word.lst\")`.</p>\n<p>`Error::description(&amp;why)` is usually written as just `why.description()`.</p>\n<p>`sort_str` takes `&amp;String`, but it is better to take `&amp;str`: this lets you pass an `&amp;String` transparently, but also allows passing a substring, and there's very little (if anything) you can do with an `&amp;String` that you can't do with `&amp;str`.</p>\n<p>HTH</p>\n"
+    },
+    {
+      "id": 54706,
+      "author": "tos-kamiya",
+      "date": "2015-06-23T09:22:24Z",
+      "kind": "comment",
+      "html": "<p>Thanks for your post. I'm now learning Rust lang and I've tried to rewrite to the 2nd `match` (at line 37) with 'if let'.<br>\nhttps://gist.github.com/tos-kamiya/69c88290024f147f3e31</p>\n"
+    },
+    {
+      "id": 54712,
+      "parent": 54702,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2015-06-23T16:38:44Z",
+      "kind": "comment",
+      "html": "<p>Thanks for catching that! A little transcription error. Fixed now.</p>\n"
+    },
+    {
+      "id": 54713,
+      "parent": 54701,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2015-06-23T16:39:48Z",
+      "kind": "comment",
+      "html": "<p>Yeah, I think I cleaned up sort_str() in the final form.</p>\n"
+    },
+    {
+      "id": 54714,
+      "parent": 54705,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2015-06-23T16:41:26Z",
+      "kind": "comment",
+      "html": "<p>To improve is to change; to be perfect is to change often. My goal was not perfection ;-)</p>\n"
+    },
+    {
+      "id": 54715,
+      "parent": 54706,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2015-06-23T16:43:55Z",
+      "kind": "comment",
+      "html": "<p>Nice revision!</p>\n"
+    },
+    {
+      "id": 54722,
+      "author": "Go Anagram and Distributed Storage | 21st century storage: more than just faster disks",
+      "url": "http://storagetarget.com/2015/06/25/go-anagram-and-distributed-storage/",
+      "date": "2015-06-25T05:33:02Z",
+      "kind": "pingback",
+      "html": "<p>[...] programmers I like to try out new languages” – a&nbsp;quote from&nbsp;Adam Leventhal’s&nbsp;blog&nbsp; on&nbsp;his first Rust program: anagrammer. My contention as well 2. Not sure about Rust though but [...]</p>\n"
+    },
+    {
+      "id": 54723,
+      "author": "Alex Aizman",
+      "url": "http://storagetarget.com",
+      "date": "2015-06-25T05:49:44Z",
+      "kind": "comment",
+      "html": "<p>Go Anagram and Distributed Storage, at http://wp.me/p6keHU-2G - inspired in part!</p>\n"
+    },
+    {
+      "id": 54757,
+      "author": "*NIX & Hacking (2) | Nan Xiao's Blog",
+      "url": "http://nanxiao.me/en/nix-hacking-2/",
+      "date": "2015-07-06T08:42:29Z",
+      "kind": "pingback",
+      "html": "<p>[...] First Rust Program Pain (So you can avoid it…) [...]</p>\n"
+    },
+    {
+      "id": 54758,
+      "author": "*NIX & Hacking —— 第2期 | 我的站点",
+      "url": "http://nanxiao.me/nix-hacking-issue-2/",
+      "date": "2015-07-06T08:46:31Z",
+      "kind": "pingback",
+      "html": "<p>[...] First Rust Program Pain (So you can avoid it…) [...]</p>\n"
+    },
+    {
+      "id": 54785,
+      "author": "Karl Reitschuster",
+      "url": "http://orcasoracle.squarespace.com/",
+      "date": "2015-08-03T12:04:57Z",
+      "kind": "comment",
+      "html": "<p>Every comfort comes with some costs; Talking about RUST : the counterintuitive written code;</p>\n<p>a) even match() is comfortable - the whole syntax is not intrinsic;<br>\nb) a 'trait' is not an ailien type but what then ? :-D<br>\nc) the whole stuff of ownerhsip force you to think about like the compiler anf memory management works - not so natural<br>\nd) ...</p>\n<p>So RUST is comaparable ot SQL in that aspect - you must understand what the code is doing in behind to get proper results.</p>\n<p>An example for a clean language design for example is OBERON from Niklaus Wirth (it was the 3rd generation), but it lacked a community which RUST indeed has.</p>\n<p>But if you like to digg into it - I htink you will have a lot of fun and ROI, ...</p>\n<p>Personally : Compiler installed - will track the very interesting language development as one of the new stars where also GO and others ar part of it - happy rusting ;<br>\n/Karl</p>\n"
+    }
+  ]
+}

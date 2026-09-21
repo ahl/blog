@@ -1,0 +1,114 @@
+{
+  "post": "/2009/07/21/triple-parity-raid-z/",
+  "count": 14,
+  "comments": [
+    {
+      "id": 1226,
+      "author": "Graham",
+      "date": "2009-07-22T14:48:59Z",
+      "kind": "comment",
+      "html": "<p>Another great addition to the RAIDZ feature set, but you know what's still missing! Is the BP rewrite work still on hold, or can we expect to see news about the raft of new features that will bring if/when it finally happens, i.e. vdev resizing/evacuating etc. It's been talked about for years and seems to be a real missing feature of ZFS compared with other RAID systems. Maybe it's less important for enterprise customers, but even here I'm sure there are those who would like an 'undo' option after adding the wrong vdev to a pool or adding a vdev to the wrong pool.</p>\n"
+    },
+    {
+      "id": 1227,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-07-22T16:21:10Z",
+      "kind": "comment",
+      "html": "<p>@Graham BP rewrite and device removal and looking good. Keep an eye out for them later this year.</p>\n"
+    },
+    {
+      "id": 1228,
+      "author": "Matt Simmons",
+      "url": "http://www.standalone-sysadmin.com/blog",
+      "date": "2009-07-27T12:20:53Z",
+      "kind": "comment",
+      "html": "<p>I'm curious about the logical terminus of always needing one more parity set. <br>\nThe law of diminishing returns is going to kick in and enterprise storage is going to be even more expensive than it is now, which is saying something. <br>\nDrive access times may eventually catch up with SSDs, and hopefully MTBF will too, but I'm not familiar with how those are looking yet. Something has to give somewhere.</p>\n"
+    },
+    {
+      "id": 1229,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-07-27T13:51:17Z",
+      "kind": "comment",
+      "html": "<p>@Matt Interesting observation. My guess is that for a fixed BER and MTBF the number of parity device desired with increase logarithmically compared with the size of the drives; I'll run the numbers when I get the opportunity.<br>\nRegarding the cost of enterprise storage, I actually believe that the sort of software we're building in ZFS and the Sun Storage 7000 series has and will continue to dramatically reduce the cost of enterprise storage by enabling the use of cheaper components.<br>\nAs to flash-based SSDs, drive access times are NEVER going to catch up. Today a 15K RPM drive will give you 2ms average rotational latency; to reach the &lt; 200us of today's you'd need to spin drives at least 10 times faster which simply isn't practical for a variety of reasons. Conversely, as feature sizes get smaller flash SSDs will need increasingly elaborate tricks to maintain their MTBF.</p>\n"
+    },
+    {
+      "id": 1230,
+      "author": "Cinetica Blog",
+      "url": "http://blogs.cinetica.it/cinetica/2009/07/28/raid-a-tripla-parita-non-e-la-strada-giusta/",
+      "date": "2009-07-28T01:34:46Z",
+      "kind": "comment",
+      "html": "<p>[Trackback]  Distribuendo il carico su tutto il sistema ottengo risultati di eccellenza, un disco SATA da 1TB (utilizzato oltre il 80%) ha un tempo di ricostruzione dell'ordine delle 16 ore (visto sul campo con un  Compellent  con un controller serie 20 in produzi...</p>\n"
+    },
+    {
+      "id": 1231,
+      "author": "sophie",
+      "date": "2009-07-29T02:01:26Z",
+      "kind": "comment",
+      "html": "<p>Good News on addition of Raidz3, at what point does RaidzN become redundant and it more sensible to mirror the RaidzN?</p>\n"
+    },
+    {
+      "id": 1232,
+      "author": "JMK",
+      "date": "2009-07-29T05:43:03Z",
+      "kind": "comment",
+      "html": "<p>Serious respect for this and all of ZFS.<br>\nBut what i want /ideally :)/ most of all is someone to implement a ZFS&gt;CIFS stack on a PCIe card. (hand waving the details, naturally)<br>\nI'd like to say i'm joking, or dreaming, but the object would be to allow Win desktops to deal with serious datasets without needing infrastructure or loading the same infrastructure. There's enough desktop horsepower, but the combination of proprietary RAID hardware + NTFS is a integrity and management mess. Put ZFS right at a trader / quant's machine and it'd be simple to copy a dataset and round trip it to larger systems or shared storage. <br>\nSurely someone is working on this? :)</p>\n"
+    },
+    {
+      "id": 1233,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-07-29T09:18:01Z",
+      "kind": "comment",
+      "html": "<p>@sophie The advantages of RAID-Z (or RAID-5, RAID-6, etc) over mirroring are that capacity can be used more efficiently and there's more redundancy per grouping of disks. If you start to combine mirroring and RAID-Z you eliminate those. That said, mirroring has a significant performance advantage for random IOPS.<br>\n@JMK Well, what if that PCIe card is a 10GbE, FC or SAS card and it connects to a Sun Storage 7000 series system to provide the power of ZFS on that Windows desktop? We're definitely working on that, and have delivered on much of it already.</p>\n"
+    },
+    {
+      "id": 1234,
+      "author": "JMK",
+      "date": "2009-07-29T09:46:45Z",
+      "kind": "comment",
+      "html": "<p>Hi Adam, thanks for your reply . .<br>\ncan you imagine I'm a little skeptical of pseudo-DAS, throwing LUNs at desktops?<br>\n(this really woudn't feel good with big media files in post for sure)<br>\nI do think I've missed something about ZFS development. Any hints please?<br>\nRegards 10GbE etc - my point is to drop latency below that fabric, as close to what ICH10 can do. You get scaling when doing e.g. time series overhead over the network on a MatLab sim. Without \"local\" ZFS goodbye inefficiencies due to lack of pool optimisation.<br>\nNote this is a backhanded compliment in every way, though i'm caffiene twitching :)<br>\nWhat i can't do is port the front end apps to Sol10x86. Not easily anyhow:)<br>\nIntiguing is the HP Z series boxen, which allow simul VM for Win/Linux. Now, if that worked with Solaris . . . problem solved! (save for boot order!)<br>\nI have a problematic app: huge metadata + good sized amounts of underlying media objects. I'd like to sandbox that closest to the user without paying for low-lat 10GbE everywhere. Cost that against what you can do with the latest RE4 WD drives in a bundle, allowing your f/e licenses are already paid.<br>\nI want to hint at how it's be great to have Sol management for all data, and you sell the upstream end for that. I'd love even to say that you could do all this in VirtualBox, but that'd knock people doing serious VIS in OpenGL.<br>\nthis idealist signs out . . :-)<br>\n - john</p>\n"
+    },
+    {
+      "id": 1235,
+      "author": "David Halko",
+      "url": "http://netmgt.blogspot.com/",
+      "date": "2009-07-29T16:33:35Z",
+      "kind": "comment",
+      "html": "<p>If ZFS is adding triple parity, ZFS should also add an option to bypass the hardware CRC checking on the drive so the disk space can be reclaimed, since ZFS is really guaranteeing the integrity of the data.</p>\n"
+    },
+    {
+      "id": 1236,
+      "author": "Maarten",
+      "url": "http://storage-news.com/",
+      "date": "2009-07-30T00:37:27Z",
+      "kind": "comment",
+      "html": "<p>@sophie That's exactly what I was thinking; capacity is continually increasing, but disk speeds are not keeping up, so for keeping a decent speed you'll have to look at RAID-10 and other simpler RAID-levels. You lose a bit of protection, but that is partly offset by faster rebuilds and having to read data from only a single disk for the restore.</p>\n"
+    },
+    {
+      "id": 1237,
+      "author": "sophie",
+      "date": "2009-07-30T06:57:50Z",
+      "kind": "comment",
+      "html": "<p>@sophie  About three years ago my nightmare scenario happened when 3 disks failed in a 14 disk RAID set, despite having 2 hot spare drives the RAID set was dead. Is there a formulae for ZFS to calculate the tipping point where switching from single raidzN to a mirrored pair of raidzN drives becomes advantageous. Yes, there will be a cost issue for the extra drives, cabinets and power but when Availability and Performance takes priority because the downtime costs are more expensive.</p>\n"
+    },
+    {
+      "id": 1238,
+      "author": "Graham",
+      "date": "2009-07-31T09:58:42Z",
+      "kind": "comment",
+      "html": "<p>@Adam Thanks for the update on BP rewrite - looks like interesting developments are ahead. Presumably this would also allow an existing raidz2 pool to be upgraded to raidz3. Otherwise and until then the raidz3 feature will only be available for new vdevs.<br>\n@Sophie I notice you mentioned 2 hot spares but was this a single parity raid set? The hot spares only help make sure the array is rebuilt as soon as the fault is found, but they don't add redundancy. Also 14 disks in one raid set is probably a bit much and outside the recommended number of disks for a single raidz set. The more disks in a raid set, the greater the probability that one will fail. It would be better to have two 7-disk sets.<br>\nI had a recent scare when an arbitrary decision to run a one-off scrub on an 11-disk set uncovered 4 disks with checksum errors (silent corruption). Fortunately the affected blocks were all in different places so ZFS repaired them all from the raidz2 redundancy information. This is another reason for wanting higher parity protection - silent corruption will degrade your effective redundancy level for the effective blocks. If you use single-parity raidz, then regular scrubbing is strongly recommended, because if a disk fails whilst there is some undetected/unrepaired corruption on another disk, data will be lost.</p>\n"
+    },
+    {
+      "id": 1239,
+      "author": "sophie",
+      "date": "2009-08-03T05:16:25Z",
+      "kind": "comment",
+      "html": "<p>@Sophie, Unfortunately, it was a single parity raid set. The 14 disk raidset was imposed due to a limitation of the hardware/firmware of the disk system, it was replaced and that hardware is no longer being made. <br>\nWhat is best practice for ZFS raids?<br>\nie for 10TB of usable storage<br>\na) 10 x 1TB drives + 2 x 1TB @ Raidz2<br>\nb) 10 x 1TB drives + 3 x 1TB @ Raidz3<br>\nc) 14 x 750GB hdd  + 2 x 750GB hdd @ Raidz2<br>\nd) 5 x 2TB hdd + 2 x 2TB hdd @ Raidz2<br>\ne) 5 x 2TB hdd + 3 x 2TB hdd @ Raidz3</p>\n"
+    }
+  ]
+}

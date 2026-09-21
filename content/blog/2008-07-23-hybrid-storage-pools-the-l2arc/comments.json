@@ -1,0 +1,45 @@
+{
+  "post": "/2008/07/23/hybrid-storage-pools-the-l2arc/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 1333,
+      "author": "UX-admin",
+      "date": "2008-07-24T07:42:04Z",
+      "kind": "comment",
+      "html": "<p>This will probably be a stop-gap measure. It's plain to see, we're moving towards solid state storage, and it wouldn't be surprising if this type of storage became prevalent in the next five years.<br>\nWhat I find ironic is that in spite of having storage with no moving parts, we will still have to do RAID configurations, because it will still be a failure point. So solid state storage will take away some of the pain, but it won't solve the problem (thereby abolishing the need for RAID altogether).<br>\nWhen we're in a position to abolish RAID completely, THEN we can say the storage problem has finally been solved. At least until a new computing and storage paradigm hits, but that's hard to predict even for me.</p>\n"
+    },
+    {
+      "id": 1334,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-07-24T10:14:01Z",
+      "kind": "comment",
+      "html": "<p>@UX-admin I couldn't disagree more with everything you wrote.<br>\nTo the issue of RAID, RAID is not a problem. It's a fine solution. Components will always be susceptible to failures, and redundancy will exist at some layer of the stack. I'd much prefer to have it in ZFS than obscured behind layers of device firmware.<br>\nYour point about RAID on flash actually supports my position that flash should not be used for primary storage. Even as the price of flash decreases, disks are still much cheaper. Further, the appeal of flash is its ability to deliver high IOPS. If we use RAID, then we reduce the IOPS by a factor of the stripe width. If we mirror, then we've increased the cost -- already greater than that of disk -- by a factor of two.<br>\nDisks are cheap, so we'll use them for bandwidth and capacity with RAID to ensure reliability. Flash is more expensive, but fits nicely between DRAM and disk in cost and performance. The L2ARC lets us use flash as our high IOPS, large capacity cache without the need for redundancy.<br>\nUntil flash literally costs the same or less than cheap, slow disks, it will always be more economical to build a hybrid storage pool with both disk and flash for general purpose storage.</p>\n"
+    },
+    {
+      "id": 1335,
+      "author": "UX-admin",
+      "date": "2008-08-06T01:56:12Z",
+      "kind": "comment",
+      "html": "<p>\"To the issue of RAID, RAID is not a problem. It's a fine solution. Components will always be susceptible to failures, and redundancy will exist at some layer of the stack. I'd much prefer to have it in ZFS than obscured behind layers of device firmware.\"<br>\nDon't misunderstand me; I do not run hardware RAID, and employ ZFS at every opportunity where it makes sense to do so. I have no hardware RAID systems because I stopped believing in such solutions years ago.<br>\nDisks are indeed cheap, but I am arguing that once Flash-based storage reaches sufficient volume, the hype will wear off and the prices will drop down to or below our cheap SATA disks. I agree with you that disks are cheap, but that is temporary and will change - of this I am certain, and can clearly see it.<br>\n\"Until flash literally costs the same or less than cheap, slow disks, it will always be more economical to build a hybrid storage pool with both disk and flash for general purpose storage.\"<br>\nAgreed. However, attempt not to see that which lies immidiately before you, but instead, try to envision that which lies far ahead.<br>\nMight the whole RAID concept be overthrown somehow? How can we turn the whole paradigm upside down on its head? Is there a completely different way to approaching the storage paradigm?<br>\nThat's the next big thing. Otherwise, we're just running around in circles, limited by that which is known.</p>\n"
+    },
+    {
+      "id": 1336,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-08-06T17:41:34Z",
+      "kind": "comment",
+      "html": "<p>@UX-admin Even with cheap flash, you'll want to have data redundancy between devices. The options are mirroring and RAID. RAID will always be more economically viable.<br>\nI'm very interested in looking at possibilities on the horizon, but I tend to constrain my excitement to the concrete rather than the possible.</p>\n"
+    },
+    {
+      "id": 1337,
+      "author": "UX-admin",
+      "date": "2008-08-07T00:23:11Z",
+      "kind": "comment",
+      "html": "<p>Isn't that what I wrote in the first place? (;-)<br>\nSo we do agree after all.<br>\nI just can't wait for the day on which storage will no longer have to be made redundant, because it will be so simple and reliable. I keep thinking about these transparent cubes and optics, storing stuff in 3D...<br>\nBTW, excellent essay in \"It's tested or it's broken\".</p>\n"
+    }
+  ]
+}

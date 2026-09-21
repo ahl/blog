@@ -1,0 +1,77 @@
+{
+  "post": "/2005/12/13/dtrace-for-linux/",
+  "count": 9,
+  "comments": [
+    {
+      "id": 1616,
+      "author": "Andreas Bruse",
+      "date": "2005-12-14T08:12:12Z",
+      "kind": "comment",
+      "html": "<p>Awsome! I've been waiting to try out dtrace for a long time now. Thanks!</p>\n"
+    },
+    {
+      "id": 1617,
+      "author": "Bob Palowoda",
+      "date": "2005-12-14T20:49:44Z",
+      "kind": "comment",
+      "html": "<p>Rather than jump to profiling an application I'd<br>\nmuch perfer to see the results of a three<br>\nway comparison of the libMicro benchmark running<br>\non the same machine, Solaris/Linux/Linux_translated.<br>\nAt least this will give us an idea of how much<br>\noverhead the translator has on system calls<br>\nin a controlled condition.  If there is a large<br>\nanomaly a dtrace session would be interesting.<br>\n---Bob<br>\npalowoda@fiver.net</p>\n"
+    },
+    {
+      "id": 1618,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-12-14T23:33:05Z",
+      "kind": "comment",
+      "html": "<p>Bob,<br>\nThat would be a different investigation entirely -- one I've started to do and will continue to do, no doubt -- but the point was to demonstrate how performance of a Linux application could be improved not that of the emulation environment.</p>\n"
+    },
+    {
+      "id": 1619,
+      "author": "Michael Weiner",
+      "url": "http://hunter.userfriendly.net",
+      "date": "2005-12-15T05:35:21Z",
+      "kind": "comment",
+      "html": "<p>Agreed :) Its nice to see dtrace coming to linux. My only problem currently, is that the documentation for installing Brandz on a linux box is not very clear and i am somewhat confused on what to do with the required 2 packages on a Fedora Core server.</p>\n"
+    },
+    {
+      "id": 1620,
+      "author": "Johnd",
+      "date": "2005-12-16T11:21:57Z",
+      "kind": "comment",
+      "html": "<p>Adam, This is great work, thanks.<br>\nCouple of observations:<br>\nLooks like Linux is going to have a tool to do the similar analysis natively. Here is the link to their version of the script you tried.<br>\nhttp://sourceware.org/ml/systemtap/2005-q4/msg00437.html<br>\nLooking at the Linux native analysis, the problem you have experienced doesn't seem to be there when ran natively. That brings to my mind a question, is it really true that Solaris virtually environment and native Linux are so close that one can do performance problem analysis in one environment and apply in the other. Your thoughts on this and if possibly explanation of the difference in results would be appreciated.<br>\n(I understand that the details of the machine configuration and software versions are missing hence that might be the difference in the results.)</p>\n"
+    },
+    {
+      "id": 1621,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-12-18T23:45:06Z",
+      "kind": "comment",
+      "html": "<p>Michael,<br>\nIf there's something in particular that needs clarification, could you post a question to brandz-discuss@opensolaris.org? We're looking for feedback from the community.</p>\n<p>Johnd,<br>\nAs you point out, differences in the hardware and software configurations could account for the difference in the results. It's possible that the performance problem could be exagerated in the BrandZ environment, but this result is still valid in that mapping and unmapping memory is surely not the most efficient way for the allocator to behave in this situation. We don't have much data to support this claim, but I do think analysis under BrandZ will yeild results which are applicable on a native Linux system. The results will tend to be more accurate for investigations that deal strictly with application code rather than interactions with the kernel. What I didn't see in that email thread you referenced was any sort of analysis of the user-land flow control (map.d and malloc.d above). Being able to follow your investigation accross the user/kernel boundary and into applications (in a bunch of different languages) is one of the key differences between DTrace and every other tracing framework. Without user-land tracing even if their analysis of the system call timing had matched mine, it's not clear that they would have been able to drive to the root cause.</p>\n"
+    },
+    {
+      "id": 1622,
+      "author": "John",
+      "date": "2005-12-19T00:58:30Z",
+      "kind": "comment",
+      "html": "<p>I havnt seen anything here that wouldnt have been possible with a combination of strace and ltrace. And I wouldnt have had to write any scripts to use them either. Congratulations on writing a cool utility, but this stuff is nothing new, and certainly not only possible on solaris.</p>\n"
+    },
+    {
+      "id": 1623,
+      "author": "ahl",
+      "url": "http://blogs.sun.com",
+      "is_author": true,
+      "date": "2005-12-19T04:59:58Z",
+      "kind": "comment",
+      "html": "<p>John,<br>\nPerhaps you're right about these specific examples, but DTrace lets you do far more than strace and ltrace. For example, you can mix data from the kernel, system libraries and Java in a single stream as I describe <a href=\"http://dtrace.org/blogs/ahl/open_sourcing_the_javaone_keynote\" rel=\"nofollow ugc noopener noreferrer\">here</a>.  You can't do that in Linux or on any other operating system for that matter. And that's just one example. You may want to understand a bit more about what DTrace is capable of before you discount it.</p>\n"
+    },
+    {
+      "id": 1624,
+      "author": "Albert Cahalan",
+      "url": "http://procps.sf.net/",
+      "date": "2005-12-20T20:51:34Z",
+      "kind": "comment",
+      "html": "<p>To avoid a stripped binary, build and install<br>\nprocps like this:</p>\n<p>&lt;tt&gt;make CFLAGS=-g3 install&lt;/tt&gt;</p>\n<p>I think I have a fairly good handle on problems<br>\nactually seen on Linux. The munmap() problem does<br>\nnot exist; the name \"Slowaris\" exists for a reason.<br>\n(be thankful, because performance problems give<br>\nSun a reason to pay your salary)</p>\n<p>Every system has it's cruddy part though, and /proc is surely where Linux collects cruft.</p>\n<p><b>What top is required to do is quite ugly:</b></p>\n<p>First, it must support up to 4 million tasks.<br>\nProbably top can only do this at a reduced<br>\nrefresh rate, but anyway, this means that top<br>\ncan't leave the file descriptors open.</p>\n<p>The per-task info is about 400 to 600 bytes.<br>\nThis is not nice to the cache or TLB. At only<br>\n1000 tasks, that's half a meg of RAM to cache<br>\nand a full 128 TLB entries. Ouch. That's not<br>\nanywhere near 4 million tasks! Just playing around with the order of fields in a struct can make a huge difference for top.</p>\n<p>Then there is the problem of doing lots of<br>\n64-bit division on a register-starved 32-bit<br>\nprocessor. This happens on both sides of the<br>\nuser/kernel boundry, creating and parsing<br>\nnumbers as ASCII decimal. Timestamps also<br>\nrequire 64-bit division.</p>\n<p>A custom stack-like allocator would help.<br>\nThe glibc obstacks stuff would work great.<br>\n(hey, add that to Solaris and send it off<br>\nto POSIX to be set in stone as a standard)</p>\n<p>Smaller data structures would sure help,<br>\nin the short run at least, but top may be<br>\ngetting support for more data columns in<br>\nthe future. This also reduces code sharing<br>\nwith the ps program, making maintenence hard.</p>\n"
+    }
+  ]
+}

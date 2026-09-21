@@ -1,0 +1,22 @@
+{
+  "post": "/2005/06/27/open-sourcing-the-javaone-keynote/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1659,
+      "author": "Tim Butler",
+      "date": "2005-06-29T06:43:32Z",
+      "kind": "comment",
+      "html": "<p>Even more useful if the dtrace output could be<br>\ndemangled automatically. Can you do that from<br>\nwithin the dtrace script itself, or is piping<br>\nthrough c++filt the only option?</p>\n"
+    },
+    {
+      "id": 1660,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-06-29T12:57:23Z",
+      "kind": "comment",
+      "html": "<p>Tim, that's going to be pretty much impossible to do from the D code itself. c++filt(1) is probably your best option.</p>\n"
+    }
+  ]
+}

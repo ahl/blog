@@ -1,0 +1,55 @@
+{
+  "post": "/2009/05/26/mirroring-flash-ssds/",
+  "count": 6,
+  "comments": [
+    {
+      "id": 1252,
+      "author": "Matty",
+      "url": "http://prefetch.net",
+      "date": "2009-05-26T12:01:02Z",
+      "kind": "comment",
+      "html": "<p>Hey Adam,<br>\nAwesome post. Do you happen to know if the FMA disk-transport module cover SSDs in addition to physical disk drives? I would assume so, since the SSDs look like a drive from the operating systems (and the fault management daemons) perspective.<br>\n- Ryan</p>\n"
+    },
+    {
+      "id": 1253,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-05-26T16:28:10Z",
+      "kind": "comment",
+      "html": "<p>@Ryan That's right. It's the same mechanism as for conventions HDDs.</p>\n"
+    },
+    {
+      "id": 1254,
+      "author": "RC",
+      "date": "2009-05-27T10:02:36Z",
+      "kind": "comment",
+      "html": "<p>I don't like this post because it is a lot of talking and not a lot of proof.  If the best you can do is explain the basics of ssd construction, you don't have a strong case.<br>\nThe core of what you're trying to do here is address peoples concerns that ssds off the line are more identical to each other than hard drives.  But I don't think you were successful at all!<br>\n\"if you install new light bulbs in a fixture, they might burn out in the same month, but how often do they fail on the same day?\"  Ugh... that sounds like something a random internet person would say, not an expert.</p>\n"
+    },
+    {
+      "id": 1255,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-05-27T11:30:40Z",
+      "kind": "comment",
+      "html": "<p>@RC Apologies if I've failed to make a strong enough case. When you say that there's \"a lot of talking and not a lot of proof\" I assume that you'd like to see a study performed with a number of mirrored SSDs over time that demonstrates that data integrity is preserved. Indeed, that would be a useful datapoint, but insufficient without examining the underlying software and hardware at work. Any one of those three points should be sufficiently convincing as to the safety of mirroring flash SSDs. I welcome the observation of any holes in my arguments.<br>\nThe tungsten filament in an incandescent light bulb evaporates over time as voltage is applied; microscopic variations in the thickness, uniformity, and quality of the filament determine the overall longevity of the bulb. The same concept applies to the construction of a flash cell where the thickness, uniformity, and quality of the oxide layer (as well as other physical characteristics) determine the longevity. It may be that my light bulb analogy sounds inexpert -- indeed analogies are often intended to render concepts more accessible to the lay person -- but it's apt nonetheless.</p>\n"
+    },
+    {
+      "id": 1256,
+      "author": "andor",
+      "date": "2009-06-05T08:15:10Z",
+      "kind": "comment",
+      "html": "<p>Good post. I have a few questions. The mapping between logical and physical address spaces seems to be distributing the writes, and hence all hardware inside a single device fails approx'ly at the same time. If you just mirror the content at another device, it would receive every write processed by the earlier one. Though the FTL of the 2nd device places blocks at different physical positions, I think the characteristic of perfectly distributing the writes would mean its hardware also suffers approximately similar erase patterns. And the flash cells more or less seem to show similar physical characteristics with some minor deviations (from what I understood). Hence, wouldn't it be the case that using another flash disk as a mirror helps in recovering from failures caused by reasons other than wear? I think some data to show that the 2nd device (or parts of it) suffered different erase patterns would add a lot of weight to your post. I agree to your point that one part of physical address space might not at the same time fail at both SSDs. But betting on it would probably be risky. Feel free to point out any glaring mistakes in my arguments, I am new to this field and yet to understand all the intricacies.</p>\n"
+    },
+    {
+      "id": 1257,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-06-05T09:44:16Z",
+      "kind": "comment",
+      "html": "<p>@andor Thanks for the comment. You're point is a good one: the FTLs on both drives are going to attempt to weal-level and assuming the same average cell-reliability, two drives in a mirror will fail around the same time. However, the same is true of conventional hard drives. Both SSDs and HDDs have an expected lifespan, and in each the drive firmware detects its approach as indicated by physical measurements taken on the drive, and reports an expected failure at which time the drives should be replaced. My first point about SMART was perhaps the most salient: SSDs like HDDs can detect and report failures due to age and wear; mirroring is intended to account for bit errors and larger failures unrelated to normal wear.</p>\n"
+    }
+  ]
+}

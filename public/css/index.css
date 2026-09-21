@@ -386,3 +386,103 @@ figcaption {
 	padding-bottom: 10px;
 	font-size: 1.4em;
 }
+
+/* Archived comments ------------------------------------------------------ */
+/* Imported from the WordPress blog (2004-2020). Read-only: there is no form,
+   and the originals were closed long ago. Uses the existing theme variables so
+   it tracks light/dark automatically. */
+
+.comments {
+	margin-top: 3em;
+	border-top: 1px solid var(--color-gray-20);
+	padding-top: 1em;
+}
+
+.comments h2 {
+	margin-bottom: 0.2em;
+}
+
+.comments-note {
+	margin-top: 0;
+	font-size: 0.85em;
+	font-style: italic;
+	color: var(--text-color-caption);
+}
+
+.comment-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Nested replies. Threads run at most four deep, and the indent shrinks with
+   the viewport so a deep chain does not squeeze the text column on a phone. */
+.comment-list .comment-list {
+	margin-left: min(1.5em, 4vw);
+	padding-left: min(1.5em, 4vw);
+	border-left: 2px solid var(--color-gray-20);
+}
+
+.comment {
+	margin: 1.25em 0;
+}
+
+.comment-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.5em;
+	font-size: 0.9em;
+}
+
+.comment-name {
+	font-weight: 600;
+}
+
+.comment-permalink {
+	color: var(--text-color-caption);
+	text-decoration: none;
+	font-size: 0.85em;
+}
+
+.comment-permalink:hover {
+	text-decoration: underline;
+}
+
+/* ahl's own replies. Outlined rather than filled: --color-gray-20 and
+   --color-gray-90 are both light in dark mode, so a filled badge would put
+   light text on a light chip and disappear. A border and inherited text colour
+   read correctly in both themes. */
+.comment-badge {
+	font-size: 0.72em;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	padding: 0.1em 0.45em;
+	border: 1px solid var(--color-gray-50);
+	border-radius: 0.5em;
+	color: var(--text-color-caption);
+}
+
+.comment-author > .comment-meta .comment-name {
+	color: var(--text-color-link);
+}
+
+.comment-body {
+	margin-top: 0.15em;
+}
+
+.comment-body p {
+	margin: 0.5em 0;
+}
+
+.comment-body blockquote {
+	margin: 0.5em 0;
+	padding-left: 0.8em;
+	border-left: 3px solid var(--color-gray-20);
+	color: var(--text-color-caption);
+}
+
+/* 2005-era comments contain hand-typed URLs that can overflow the column. */
+.comment-body a {
+	overflow-wrap: anywhere;
+}

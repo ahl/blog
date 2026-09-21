@@ -1,0 +1,23 @@
+{
+  "post": "/2004/06/25/dtrace-bookkeeping/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1780,
+      "author": "Alan Hargreaves",
+      "url": "http://blogs.sun.com/tpenta",
+      "date": "2004-06-26T22:43:11Z",
+      "kind": "comment",
+      "html": "<p>Adam, you may do better to upload a seperate html file containing this information and upload it to your files area; as well as pointing to it from your bookmarks. Any time that it gets updated, add a blog entry stating that. This way, the table stays at a fixed url.</p>\n"
+    },
+    {
+      "id": 1781,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-06-27T18:16:34Z",
+      "kind": "comment",
+      "html": "<p>Done and done. Thanks for the suggestion, Alan.</p>\n"
+    }
+  ]
+}

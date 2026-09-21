@@ -1,0 +1,29 @@
+{
+  "post": "/2011/07/01/flash-news-i-wish-i-could-read/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 2099,
+      "author": "Andrew",
+      "date": "2011-07-05T17:04:16Z",
+      "kind": "comment",
+      "html": "<p>Yes, that article was terrible but here's the elephant in the room with journalism. For an article to have any credibility it must have quotes from people who can be portrayed as knowledgeable in the field. By writing harsh comparative articles journalists know that the losing company's PR department will start to restrict their access to interesting employees. A journalist with nobody to call for quotes is going to start going hungry awfully quickly.</p>\n<p>The satirical nature of \"El-Reg\" means that they have to rely less on that type of access to insiders and early embargoed news but it still bleeds through from time to time. Plus, while I'm sure you'd like to read a well researched comparison between NetApp and Compellent I'll bet the payback simply isn't there, especially for an entertainment site like the register. If you want that type of analysis you'll have to do the hard work yourself and is one of the reasons marketing departments exist.</p>\n"
+    },
+    {
+      "id": 2100,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-07-12T17:51:50Z",
+      "kind": "comment",
+      "html": "<p>Indeed. So are we content with ostensible news sites as press release aggregators and reformulators? Is there a way to make actual news and actual research pay the bills?</p>\n"
+    },
+    {
+      "id": 2101,
+      "author": "Robin Harris",
+      "url": "http://storagemojo.com/",
+      "date": "2011-07-17T20:12:24Z",
+      "kind": "comment",
+      "html": "<p>I used to get invited to NetApp analyst days. But then I dinged them over their silly patent suits and - worse - figured out who at corporate must have been behind them.</p>\n<p>So I'm off their list.</p>\n<p>But to your 1st question: our news media aren't being ravaged by the Internet; they are simply paying the price for news \"coverage\" that is shallow and ignorant and therefore unworthy of our attention or respect.</p>\n<p>As to your 2nd: I sure hope so!</p>\n"
+    }
+  ]
+}

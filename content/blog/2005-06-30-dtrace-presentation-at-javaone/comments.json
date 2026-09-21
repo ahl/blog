@@ -1,0 +1,30 @@
+{
+  "post": "/2005/06/30/dtrace-presentation-at-javaone/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1652,
+      "author": "Sebastien Stormacq",
+      "url": "http://blogs.sun.com/sebsto",
+      "date": "2005-06-30T22:23:43Z",
+      "kind": "comment",
+      "html": "<p>Hi Adam,<br>\nI was one of the 900+ attendees this afternoon :-)  Great speach and demo !  We will definitively need to officially publish more on the subject (tutorial etc ...).  I think the complexity is not so in knowing all the command detail, probes command and script language, but more in being able to interpret the results.<br>\nMaybe a nice subjetc for a book !<br>\nSeb</p>\n"
+    },
+    {
+      "id": 1653,
+      "author": "RoboGeek",
+      "url": "http://blogs.sun.com/roller/page/robogeek/20050630#java_and_dtrace",
+      "date": "2005-07-01T13:36:39Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] dtrace is this amazingly cool new feature in Solaris 10 (hence, part of<br>\nOpen Solaris).&amp;nbsp; It is a solaris-only feature (by the way).<br>\nI‘ve had in the back of my mind a nagging idea that dtrace could be<br>\nused by my team (we are the  SQE  f...</p>\n"
+    },
+    {
+      "id": 1654,
+      "author": "BlogicBlog: View from the trenches",
+      "url": "http://blogicblog.blogspot.com/2005/07/viva-solaris-10-supportability.html",
+      "date": "2005-07-04T20:12:18Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] Allowing DTrace to work with Java has a really strong promise for the Java support teams.</p>\n"
+    }
+  ]
+}

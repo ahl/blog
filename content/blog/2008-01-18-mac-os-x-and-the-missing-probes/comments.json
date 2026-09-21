@@ -1,0 +1,589 @@
+{
+  "post": "/2008/01/18/mac-os-x-and-the-missing-probes/",
+  "count": 77,
+  "comments": [
+    {
+      "id": 1387,
+      "author": "JohnS",
+      "url": "http://i18n-freedom.blogspot.com",
+      "date": "2008-01-19T00:30:31Z",
+      "kind": "comment",
+      "html": "<p>I think you'll find you can yell and scream at apple all you please, they're not a company that listens to the demands of their users, particularly those in a minority.</p>\n"
+    },
+    {
+      "id": 1388,
+      "author": "Darren Moffat",
+      "url": "http://blogs.sun.com/darren",
+      "date": "2008-01-19T01:24:35Z",
+      "kind": "comment",
+      "html": "<p>Now we just need a port of mdb so that the proc flags can be changed :-).</p>\n"
+    },
+    {
+      "id": 1389,
+      "author": "Erik Tjernlund",
+      "date": "2008-01-19T03:52:08Z",
+      "kind": "comment",
+      "html": "<p>Wtf?! Can Apple do ANYTHING without being evil? They are like the anti-Google. At least Microsoft doesn't pretend to like it's customers. And I've been so happy about using dtrace on my Macbook Pro. A sad day.</p>\n"
+    },
+    {
+      "id": 1390,
+      "author": "Dick Davies",
+      "url": "http://number9.hellooperator.net/",
+      "date": "2008-01-19T12:21:02Z",
+      "kind": "comment",
+      "html": "<p>I can understand them not wanting people probing too deeply into iTunes' guts. The record companies are on their case already.<br>\n@Erik : 'evil'? Take my advice mate and go for a walk outside.</p>\n"
+    },
+    {
+      "id": 1391,
+      "author": "Erik Tjernlund",
+      "date": "2008-01-19T13:19:01Z",
+      "kind": "comment",
+      "html": "<p>@Dick: Yeah, sure. Maybe you're right and I'm overreacting a bit, but I'm just so tired of copyright politics (which I suspect this is all about...) making our tech lives miserable.</p>\n"
+    },
+    {
+      "id": 1392,
+      "author": "Anonymous",
+      "date": "2008-01-19T14:03:35Z",
+      "kind": "comment",
+      "html": "<p>Is this so bad? While this makes system wide tracing unreliable using dtrace on your own programs sounds like it is at the heart of dtrace right? Plus, something is better than nothing...<br>\nAny chance you can post a quick comment giving examples of useful program level things this will break?</p>\n"
+    },
+    {
+      "id": 1393,
+      "author": "millenomi",
+      "date": "2008-01-19T14:03:48Z",
+      "kind": "comment",
+      "html": "<p>PL_NOATTACH's main purpose is to prevent gdb from attaching to certain processes, which I think is done to hinder a few attack vectors trying to obtain an unencrypted version of DRM'd media by attaching to the iTunes process. <br>\nNo other Apple-shipped application seems to make use of this flag.</p>\n"
+    },
+    {
+      "id": 1394,
+      "author": "p",
+      "date": "2008-01-19T14:26:14Z",
+      "kind": "comment",
+      "html": "<p>@Erik: you aren't overreacting.  I've worked with apple as a partner in the past, and quite literally gotten a call from one of their execs for telling a customer that their issue was a result of a bug in OSX.  \"WE DO NOT HAVE BUGS, DON'T YOU EVER TELL A CUSTOMER THAT AGAIN!!!\".<br>\nThey're more concerned with their image than doing the right thing.  That is the essence of evil.</p>\n"
+    },
+    {
+      "id": 1395,
+      "author": "Michael Scherer",
+      "date": "2008-01-19T15:32:26Z",
+      "kind": "comment",
+      "html": "<p>They also blocked gdb on itunes : <a href=\"http://steike.com/code/debugging-itunes-with-gdb/.\" rel=\"nofollow ugc noopener noreferrer\">http://steike.com/code/debugging-itunes-with-gdb/.</a><br>\nOf course, that's not very effective to do it when you can recompile the source code :)</p>\n"
+    },
+    {
+      "id": 1396,
+      "author": "Tom Shaw",
+      "date": "2008-01-19T15:59:53Z",
+      "kind": "comment",
+      "html": "<p>Surely this code is trivial to circumvent, either through a destructive DTrace script (akin to the hostid \"daemon\") or even an old fashoned shim library to prevent P_LNOATTACH from ever being set.<br>\nIf this is the case, the argument to Apple becomes much simpler: \"You are crippling DTrace for absolutely zero benefit, real or imagined.\"</p>\n"
+    },
+    {
+      "id": 1397,
+      "author": "Matt",
+      "url": "http://kaiwai.blogspot.com",
+      "date": "2008-01-19T17:12:34Z",
+      "kind": "comment",
+      "html": "<p>Hmm, did you realise that maybe this is due to the fact that they will be supporting BluRay soon, and allowing Dtrace to probe might allow someone to hack easier at the video? Until Sun has the same level of penetration on the consumer desktop, quite frankly Sun has no place giving lectures on the virtues of how someone implements Dtrace.</p>\n"
+    },
+    {
+      "id": 1398,
+      "author": "Robert Milkowski",
+      "url": "http://milek.blogspot.com",
+      "date": "2008-01-19T17:20:02Z",
+      "kind": "comment",
+      "html": "<p>I still wonder why tick-X didn't work properly...</p>\n"
+    },
+    {
+      "id": 1399,
+      "author": "richlowe",
+      "date": "2008-01-19T17:36:18Z",
+      "kind": "comment",
+      "html": "<p>Robert,<br>\nMy semi informed guess is that iTunes was on the CPU when the tick (or profile) probes would have wished to fire, and were prevented from doing same by the above.<br>\n(ie, that their \"Don't trace itunes\" logic actually means \"don't trace anything when itunes is on this cpu\", which would include unrelated probes in unrelated places)<br>\nI'm sure Adam will correct me if (or more likely when) he notices I'm entirely wrong.</p>\n"
+    },
+    {
+      "id": 1400,
+      "author": "Stan",
+      "date": "2008-01-19T19:20:54Z",
+      "kind": "comment",
+      "html": "<p>The DTrace limit on iTunes is probably to protect DRMed music data from being grabbed in an unencrypted state from memory.  There is an existing Fairplay crack that plays exactly this trick on iTunes for Windows, where the memory is not protected from user inspection.<br>\nIn Tiger, I discovered that you cannot attach a debugger to the DVD Player process, also presumably to prevent me from intercepting the raw, unencrypted DVD data.  I assume the Leopard version has the same restriction.</p>\n"
+    },
+    {
+      "id": 1401,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-01-19T19:38:08Z",
+      "kind": "comment",
+      "html": "<p>Thanks for all the comments and interest folks -- sorry I've fallen a bit behind. Here are some replies:<br>\n@JohnS: I completely agree. On issues like this, Apple certainly will listen more to their ISVs than to their customers. But developers probably have more sway than you might imagine.<br>\n@Darren: I'm sure Apple would have yet another mechanism to protect access with mdb. But you're right that they do need it...<br>\n@81.96.206.228: This _is_ so bad, and I don't think I put a fine enough point on it. What this means is that D programs that use the tick provider to emit output are flat broken on Mac OS X. This was an unintended result of how they decided to restrict visibility for certain applications.<br>\n@millenomi: Yes, and PL_NOATTACH is set via a call to ptrace(2) with the PT_DENY_ATTACH flag. I understand that this is to protect what litigious<br>\nparties deem to be private code paths, but it's kind of a nonsense argument since we do, afterall, have the bits. Fortunately it's easy to circumvent; more on that later.<br>\n@Tom Shaw: Agreed. And they're not just crippling DTrace in the way they intended, but also in ways that are, in some ways, more pervasive.<br>\n@Robert: I should have explained in more detail why the tick-1s probe didn't work: if we get unlucky and the timer expires while iTunes or some other sneaky app is running the probe simply won't fire as the thread that gets interrupted belongs, in essence, to that process. (And @richlowe, you're absolutely right).</p>\n"
+    },
+    {
+      "id": 1402,
+      "author": "Steve Jobbs",
+      "date": "2008-01-19T20:53:39Z",
+      "kind": "comment",
+      "html": "<p>Much like our invention of the worlds first portable cellular phone, our invention of the GUI, our class leading RAM pricing, and our 100% hardware reliability DTrace shows exactly what Apple is capable of!<br>\nI am saddened that Sun would try to imply that they had anything to do with the invention of DTrace!  Such thinking goes against the FACT that apple is the inventor of EVERY technological innovation in the past 80 years!<br>\nP</p>\n"
+    },
+    {
+      "id": 1403,
+      "author": "meneame.net",
+      "url": "http://meneame.net/story/limitaciones-dtrace-mac-os-x-ing",
+      "date": "2008-01-20T02:26:28Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] Apple, al parecer por presiones de los ISV (desarrolladores de software independientes), ha limitado su implementación de DTrace en Mac OS X, de forma que los programas pueden hacerse invisibles para DTrace.</p>\n"
+    },
+    {
+      "id": 1404,
+      "author": "Not Sun",
+      "date": "2008-01-20T07:04:02Z",
+      "kind": "comment",
+      "html": "<p>You want freedom, don't buy a Mac or a WinTel machine! Run Linux, develop for Linux, advocate Linux, and all your freedom will be returned to you. If Sun decides to fully Open Source and provide an ISO for the community, then by all means run Solaris. Otherwise, these corporations will make you their bitch. Apple, just like M$, is just another greedy company with its own objectives that do not coincide with the objectives of the people... The word user is appropriate because what they produce is crack.</p>\n"
+    },
+    {
+      "id": 1405,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-01-20T08:28:01Z",
+      "kind": "comment",
+      "html": "<p>@Flame Bait: Sure, run Linux _or_ you could run an open source operating system that actually has the technology under discussion.</p>\n"
+    },
+    {
+      "id": 1406,
+      "author": "Alok",
+      "date": "2008-01-20T09:04:15Z",
+      "kind": "comment",
+      "html": "<p>@Adam@Flame Bait: Have you heard of System Tap? Or you want to conveniently ignore the fact?</p>\n"
+    },
+    {
+      "id": 1407,
+      "author": "dlight",
+      "date": "2008-01-20T09:30:24Z",
+      "kind": "comment",
+      "html": "<p>@Alok when it comes to systemtap nothing is convenient</p>\n"
+    },
+    {
+      "id": 1408,
+      "author": "foo bar",
+      "date": "2008-01-20T10:56:20Z",
+      "kind": "comment",
+      "html": "<p>Did you consider that maybe Apple has a legal obligation to not allow debugging tools to attach to apps like iTunes or DVD Player?<br>\nOr, even if not a formal legal obligation, then an implied legal obligation?<br>\nBy putting in such blocks, one must do an act of circumvention to screw with the process in question.    DMCA anyone?<br>\nApple seems to have a history of being the only company that has gotten anything resembling reasonable terms out of the MPAA and RIAA.   That has to have a cost.</p>\n"
+    },
+    {
+      "id": 1409,
+      "author": "Andy",
+      "date": "2008-01-20T12:44:06Z",
+      "kind": "comment",
+      "html": "<p>@foo bar<br>\nIf that's the case, they should say \"sorry, we can't port dtrace because of legal obligations with third-party providers\" rather than providing a crippled version and claiming that dtrace has been ported in its entirety.  At the very least, the fact that it is crippled should be mentioned, rather than hidden.</p>\n"
+    },
+    {
+      "id": 1410,
+      "author": "Anantha",
+      "date": "2008-01-20T13:05:36Z",
+      "kind": "comment",
+      "html": "<p>I'm not in he least bit surprised about Apple's behavior. They're the 'most' propreitary company on the planet, far(?) worse than Microsoft. For whatever reason the media worships at their altar and gives them a free ride. Can you imagine the media blitz if Microsoft were to port DTrace to Win2008 and have this type of a 'block'? There would be calls for DoJ investigation.</p>\n"
+    },
+    {
+      "id": 1411,
+      "author": "millenomi",
+      "date": "2008-01-20T13:21:15Z",
+      "kind": "comment",
+      "html": "<p>@Andy: You're right. Apple's always sneaky in this regard.<br>\n@Anantha: Microsoft gets the flak it does because, rather than porting dtrace, they'd spend years baking their own solution, or two, adding nothing and putting it under a uberrestrictive license. Apple's slightly better from this point of view. Sneaky, but slightly better.</p>\n"
+    },
+    {
+      "id": 1412,
+      "author": "Damien Sorresso",
+      "date": "2008-01-20T13:29:02Z",
+      "kind": "comment",
+      "html": "<p>@Andy: It's hardly \"hidden\" if the source code is available to the public.</p>\n"
+    },
+    {
+      "id": 1413,
+      "author": "Dtrace on Mac tops MySQL",
+      "date": "2008-01-20T14:55:58Z",
+      "kind": "comment",
+      "html": "<p>Congrats Adam, for topping Jonathan's blog in hits.  And you haven't been slashdotted either!</p>\n"
+    },
+    {
+      "id": 1414,
+      "author": "Much Ado About Nothing",
+      "date": "2008-01-20T15:19:46Z",
+      "kind": "comment",
+      "html": "<p>The fix is to either not run that particular kind of trace (which, honestly, is not as common as you pretend), or only run it when you aren't using iTunes (can you really not spare the music?) or recompile with the source that you obviously have right in front of you.<br>\nThis is impolite on Apple's part, but hardly as scandal-worthy as some are acting.</p>\n"
+    },
+    {
+      "id": 1415,
+      "author": "Rolf",
+      "date": "2008-01-20T15:34:30Z",
+      "kind": "comment",
+      "html": "<p>This has nothing to do with Apple being an evil large corporation.<br>\nLike it or not, content creators and patent owners *do* have certain legal rights, which they can and do enforce against Apple, or anyone else who wants to use their intellectual property. In order for Apple to legally license and use patented DVD playback technology they're contractually obliged to do all they possibly can to prevent direct access to the decoded images (eg. via a debugger). Likewise, in order to be allowed to distribute copyright-protected via iTunes they're contractually obliged to prevent access to the decoded audio.<br>\nYes, you may be able to circumvent this, but in doing all they can to try and stop you (which includes disabling dtrace and gdb in iTunes) Apple have done their part, and if you persist and circumvent such mechanism to access copyrighted data you're not entitled to then you're committing a criminal offence (DMCA and similar).<br>\nJust because it's easy and fun for us as developers to pry into other people's code and data which happens to be resident as a temporary guest on our hard disk doesn't mean it's morally right or legal to do so. Just because it happens to be a lot easier to rip a CD than photocopy and bind an entire book doesn't actually alter the equation in any way.</p>\n"
+    },
+    {
+      "id": 1416,
+      "author": "Rolf",
+      "date": "2008-01-20T15:46:23Z",
+      "kind": "comment",
+      "html": "<p>I should add that I think it's great that Apple have embraced open source and opened up OS X as much as they have. As a developer it's just fantastic that gdb and dtrace, perl and gcc, ssh and ant etc. are all just there when I need them. Apple could just have easily turned around and said \"we don't see the value of those tools for our core customers, why should we bother to include them?\" Minor gripes like dtrace not working on some processes are a very small price to pay for this convenience.</p>\n"
+    },
+    {
+      "id": 1417,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-01-20T18:13:21Z",
+      "kind": "comment",
+      "html": "<p>@Much Ado: You're missing the point. This doesn't just impede my ability to examine certain apps (as Apple intended), it actually will cause a user to get invalid results from correctly phrased DTrace queries.<br>\nIt's annoying that Apple decided to disallow tracing for applications that choose to opt out, and it's a fairly serious issue, but the bigger issue is that in doing so they've broken DTrace.<br>\nI'd argue that the right and noble way to fix this is to allow DTrace to examine all apps, but Apple could also fix DTrace's profile and tick probes without exposing what they deem to be sensitive information.</p>\n"
+    },
+    {
+      "id": 1418,
+      "author": "kris kelvin",
+      "date": "2008-01-20T18:35:14Z",
+      "kind": "comment",
+      "html": "<p>@Rolf: Did you know why the Darwin project failed?<br>\nWhy Darwin Failed<br>\n<a href=\"http://www.synack.net/~bbraun/writing/osfail.html\" rel=\"nofollow ugc noopener noreferrer\">http://www.synack.net/~bbraun/writing/osfail.html</a><br>\nApple and 'getting' Open Source<br>\n<a href=\"http://www.synack.net/~bbraun/writing/gettingos.txt\" rel=\"nofollow ugc noopener noreferrer\">http://www.synack.net/~bbraun/writing/gettingos.txt</a><br>\n\"Apple's Open Source efforts with the Darwin project have been a failure. Apple failed to build a community around Darwin in the 7 years since its original release because it was not a corporate direction, but rather a marketing stunt. Culturally, Apple did not and does not understand what it means to be open source or to build a working community.\" -- Rob Braun</p>\n"
+    },
+    {
+      "id": 1419,
+      "author": "Joe Ranieri",
+      "url": "http://alacatia.com",
+      "date": "2008-01-20T21:22:30Z",
+      "kind": "comment",
+      "html": "<p>What sucks more than them having this mechanism, is the inability to build DTrace from source. Sure, they provide you with *most* of what you need, but it's missing key components.<br>\nFirst you need to get libiberty on there (make sure to build a universal binary!). This was a PITA for me, but perhaps I did it wrong.<br>\nThen it relies on the private framework Symbolication, which ships with no headers. You can get the headers for this by using class-dump on the Symbolication binary (/System/Library/PrivateFrameworks/Symbolication.framework).<br>\nIt also relies on \"Scanalyzer\", which seems to deal with determining if a PPC function is safe to be probed. Of course, this library also doesn't have headers - in fact, it doesn't even have a binary file for it! It was compiled into libdtrace as a static library. Not sure how safe it is to comment out the Scanalyzer stuff.<br>\nAt this point, I was able to compile, but it didn't link because I apparently screwed up libiberty:<br>\nld: warning in /usr/local/lib/libiberty.a, file is not of required architecture<br>\nThat's where I gave up.<br>\nAlso, you need more spacing (or some sort of separation) between each comment on this blog. It's hard to read!</p>\n"
+    },
+    {
+      "id": 1420,
+      "author": "vasi",
+      "date": "2008-01-20T21:54:49Z",
+      "kind": "comment",
+      "html": "<p>Hmm, seems that dtrace on OS X doesn't give precisely the right results even with iTunes not running. On my single-CPU system, I get numbers slightly above and below 1000:<br>\n  0  18616                         :tick-1s <br>\n1000<br>\n  0  18616                         :tick-1s <br>\n999<br>\n  0  18616                         :tick-1s <br>\n1002<br>\n  0  18616                         :tick-1s <br>\n997<br>\n  0  18616                         :tick-1s <br>\n999</p>\n"
+    },
+    {
+      "id": 1421,
+      "author": "Chris",
+      "date": "2008-01-20T22:46:02Z",
+      "kind": "comment",
+      "html": "<p>Does Landon Fuller's kernel extension which fixes ptrace() help here? Googling for \"landon fuller ptrace\" will find the page...</p>\n"
+    },
+    {
+      "id": 1422,
+      "author": "Chat Siteleri",
+      "url": "http://sohbet-chat-siteleri.blogspot.com",
+      "date": "2008-01-21T04:45:47Z",
+      "kind": "comment",
+      "html": "<p>Thanks</p>\n"
+    },
+    {
+      "id": 1423,
+      "author": "Peter Clay",
+      "date": "2008-01-21T05:16:53Z",
+      "kind": "comment",
+      "html": "<p>How does this flag become set? Presumably there is some syscall which turns it on, which might be locatable in the itunes binary, which can be removed?</p>\n"
+    },
+    {
+      "id": 1424,
+      "author": "Daniel Stux",
+      "url": "http://blogs.sun.com/dannyboy",
+      "date": "2008-01-21T05:36:04Z",
+      "kind": "comment",
+      "html": "<p>Adam, this is fantastic information. As a fellow Sun employee this just underscores what we keep saying: the OS matters. Now we know another reason about why the COMPANY matters as well. Lots of people complain that if Sun would just GPL everything then somehow we'd achieve world peace. It's not necessarily so. Any piece of code can be altered to suit a need, be it political or technical. If you don't have a bona fide development force behind it, it's not much good.<br>\nAs you said, Solaris is out there, it's open sourced and has a company behind it that has an undeniable decades-long track record of contributing to the open source community.</p>\n"
+    },
+    {
+      "id": 1425,
+      "author": "CatXTwo",
+      "date": "2008-01-21T06:12:16Z",
+      "kind": "comment",
+      "html": "<p>It doesn't matter if Apple sets the P_LNOATTACH flag for certain applications.  That action does *nothing* to impede a serious hacker.  <br>\nIMHO doing stuff like this just makes Apple look silly.  If they *have* to implement ridiculous \"hurdles\" to make the record companies happy... fine, but then just document it and move on.<br>\nThis definitely isn't something someone should have stumbled across.</p>\n"
+    },
+    {
+      "id": 1426,
+      "author": "Joe Ranieri",
+      "url": "http://alacatia.com",
+      "date": "2008-01-21T06:34:38Z",
+      "kind": "comment",
+      "html": "<p>@Peter Clay<br>\nIt's certainly doable to patch the iTunes library, but it shouldn't need to be done. Btw, the call is:<br>\nptrace(PT_DENY_ATTACH, 0, 0, 0);<br>\nPT_DENY_ATTACH is actually documented in the ptrace(2) manpage if you're interested for a more detailed explanation.</p>\n"
+    },
+    {
+      "id": 1427,
+      "author": "Joe Ranieri",
+      "url": "http://alacatia.com",
+      "date": "2008-01-21T06:57:12Z",
+      "kind": "comment",
+      "html": "<p>@Chris<br>\nLandon's kernel extension doesn't work on Leopard. Apple removed the functions he was using to hook ptrace -- just like they said they were going to. Here's part of the comment from the Tiger kernel source:<br>\nWARNING - these are temporary KPI that allow binary compatibility with shipping product that must patch ptrace.  These KPI will be removed in the next system release that follows Tiger.  radar - 3928003</p>\n"
+    },
+    {
+      "id": 1428,
+      "author": "Sikon",
+      "url": "http://lucidfox.org",
+      "date": "2008-01-21T08:35:36Z",
+      "kind": "comment",
+      "html": "<p>I'm amazed and ashamed that anyone is even trying to defend Apple's behavior. There's simply no excuse.</p>\n"
+    },
+    {
+      "id": 1429,
+      "author": "Eric Goff",
+      "date": "2008-01-21T12:36:55Z",
+      "kind": "comment",
+      "html": "<p>Well, now you know.  GPL v3</p>\n"
+    },
+    {
+      "id": 1430,
+      "author": "Robert McNally",
+      "url": "http://ironwolf.dangerousgames.com/blog/",
+      "date": "2008-01-21T17:45:56Z",
+      "kind": "comment",
+      "html": "<p>It's the Bozo Bit all over again.<br>\n<a href=\"http://zhurnal.net/ww/zw?BozoBit\" rel=\"nofollow ugc noopener noreferrer\">http://zhurnal.net/ww/zw?BozoBit</a></p>\n"
+    },
+    {
+      "id": 1431,
+      "author": "Landon Fuller",
+      "url": "http://landonf.bikemonkey.org/",
+      "date": "2008-01-22T04:04:08Z",
+      "kind": "comment",
+      "html": "<p>Regarding my pt_deny_attach.kext, I've implemented a new version for Leopard: <a href=\"http://landonf.bikemonkey.org/code/macosx/Leopard_PT_DENY_ATTACH.20080122.html\" rel=\"nofollow ugc noopener noreferrer\">http://landonf.bikemonkey.org/code/macosx/Leopard_PT_DENY_ATTACH.20080122.html</a></p>\n"
+    },
+    {
+      "id": 1432,
+      "author": "Agnel Kurian",
+      "url": "http://corner-house.blogspot.com",
+      "date": "2008-01-23T00:43:07Z",
+      "kind": "comment",
+      "html": "<p>From <a href=\"http://en.wikipedia.org/wiki/DTrace\" rel=\"nofollow ugc noopener noreferrer\">http://en.wikipedia.org/wiki/DTrace</a><br>\n\"Unlike other platforms that DTrace is supported on, Mac OS X has a flag (P_LNOATTACH) that a program may set that disallows tracing of that process by debugging utilities such as DTrace and gdb.\"<br>\nProblem is not with the DTrace port. It has to do with the fact that iTunes sets P_LNOATTACH.</p>\n"
+    },
+    {
+      "id": 1433,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-01-23T00:53:49Z",
+      "kind": "comment",
+      "html": "<p>@Agnel: This is the magic of wikipedia: that text was added *as a result* of this post. And if you read all of this post, you'll see how there's a problem with Apple's implementation of DTrace in and of itself.<br>\nIf we haven't all learned our lesson about trusting wikipedia, read the cautionary tale of Wikipedia Brown: <a href=\"http://adamcadre.ac/content/brown/\" rel=\"nofollow ugc noopener noreferrer\">http://adamcadre.ac/content/brown/</a></p>\n"
+    },
+    {
+      "id": 1434,
+      "author": "Anonymous",
+      "date": "2008-01-23T02:51:11Z",
+      "kind": "comment",
+      "html": "<p>Considering how heavily Apple profits depend on iPods and other gadgets which use DRM, makes you wonder why they would port dtrace in the first place. Crippling dtrace was just .. stupid.</p>\n"
+    },
+    {
+      "id": 1435,
+      "author": "sigh",
+      "date": "2008-01-23T03:21:51Z",
+      "kind": "comment",
+      "html": "<p>Why don't you recognise Apple may have legitimate concerns and reasons for doing this and instead of whining instead offer to assist them in improving how their implementation works?</p>\n"
+    },
+    {
+      "id": 1436,
+      "author": "Leo Davidson",
+      "url": "http://www.pretentiousname.com",
+      "date": "2008-01-23T04:27:42Z",
+      "kind": "comment",
+      "html": "<p>The people excusing this by saying that Apple have legitimate and/or contractual obligations to protect DRM'd content seem to be ignoring two important points:<br>\na) They could have implemented the opt-out in a way which doesn't break everything else. They deserve criticism for their poor implementation regardless of the reasons behind it.<br>\nb) Since it is so trivial to bypass their opt-out and add traces to iTunes with patches people have already made, they have not fulfilled their obligations to protect DRM'd content at all, unless the obligation was to make it take five minutes longer for someone to break the DRM.<br>\nFail.</p>\n"
+    },
+    {
+      "id": 1437,
+      "author": "Dick Davies",
+      "url": "http://number9.hellooperator.net/",
+      "date": "2008-01-23T04:51:09Z",
+      "kind": "comment",
+      "html": "<p>@Leo DTracing iTunes != breaking DRM.  It just makes it easier.</p>\n"
+    },
+    {
+      "id": 1438,
+      "author": "Andrew John Hughes",
+      "url": "http://fuseyism.com",
+      "date": "2008-01-23T04:55:47Z",
+      "kind": "comment",
+      "html": "<p>I don't see the surprise here.  Apple produce a proprietary operating system, it's hardly surprising that they'd try and extend those sensibilities into their implementations of a technology, regardless of whether that technology is itself open source or not. If Sun really wanted DTrace and its ilk to be used in the 'spirit of open source', it wouldn't have chosen a license that prevented it being used by GPLed software (such as Linux) but allows it to be freely used by proprietary vendors such as Apple and Microsoft (who would have added similar modifications to their own implementation).</p>\n"
+    },
+    {
+      "id": 1439,
+      "author": "J Cromartie",
+      "date": "2008-01-23T07:17:46Z",
+      "kind": "comment",
+      "html": "<p>I downloaded the latest DTrace source from <a href=\"http://www.opensource.apple.com/darwinsource/10.5/\" rel=\"nofollow ugc noopener noreferrer\">http://www.opensource.apple.com/darwinsource/10.5/</a> and don't see any mention of P_LNOATTACH.  Is the modification limited to the commercial release of OS X 10.5?  Or am I looking in the wrong place?</p>\n"
+    },
+    {
+      "id": 1440,
+      "author": "J Cromartie",
+      "date": "2008-01-23T07:28:53Z",
+      "kind": "comment",
+      "html": "<p>I take that previous comment back :)<br>\nI realize that the offending code lives in the Mac OS X kernel's implementation of DTrace hooks, and not the DTrace client software.</p>\n"
+    },
+    {
+      "id": 1441,
+      "author": "InTheShelter",
+      "date": "2008-01-23T07:35:31Z",
+      "kind": "comment",
+      "html": "<p>I'm not defending Apple in this post, but merely making an observation that others have made above.  Namely that this probably has more to do with DRM and their relationships with big media than the overblown \"evil\" theories mentioned here.  I don't like it either, but if using dtrace can potentially lead to circumventing the DRM on iTunes media then Apple has to take reasonable steps to stop this in order to protect their relationship with their partners.  Yes, DRM sucks, I hate it too.  Yes, wouldn't it be nice if they only listened to their customers instead of big media.  But the reality is they are trying to create an ecosystem for digital media and right now they have to protect and nurture their relationships with big media until the media companies pull their collective head out and realize that DRM is not the answer.  <br>\nIt's called balancing priorities and it's an unfortunate tightrope walk that many companies have to do.  They aren't any more \"evil\" than any other company in this day and age.  ALL companies have to cover their ass and do what is best for stockholders these days or they risk a lawsuit from someone.  I don't think there is any company that can avoid these types of comprimises when then get as large as Apple.  The dtrace issue is unfortunate, but let's not throw out the baby with the bathwater here.</p>\n"
+    },
+    {
+      "id": 1442,
+      "author": "Brian",
+      "date": "2008-01-23T07:38:25Z",
+      "kind": "comment",
+      "html": "<p>Are you kidding me?!!  My comment that I wrote was just rejected.  Why? . . . <br>\nYour comment was marked as spam and will not be displayed.<br>\n    * Comment contains blacklisted/ignored words<br>\nConsidering my post just discussed Apple's relationship with big media and how this might affect the dtrace issue I'm at a loss to see why it was blocked.  Maybe you could fix your own censorship on your site before you start throwing stones at anyone else.  This seems a bit hypocritical.</p>\n"
+    },
+    {
+      "id": 1443,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-01-23T07:56:39Z",
+      "kind": "comment",
+      "html": "<p>@Dick Davies: Yes, yes, that's been mentioned...<br>\n@Andrew Hughes: First, wrong; also, off topic. Go ahead and read some of my previous posts.<br>\n@Cromartie: Right; check the xnu source. The DTrace code that's in the kernel is really more than should be considered \"hooks.\"<br>\n@Brian: Calm down, calm down. I have no idea why your comment was rejected, and it will surprise you to hear that I don't actually run blogs.sun.com myself. But I've approved your comment \"making an observation that others have made above\"; it should now be displayed.</p>\n"
+    },
+    {
+      "id": 1444,
+      "author": "Brian",
+      "date": "2008-01-23T08:20:25Z",
+      "kind": "comment",
+      "html": "<p>Thanks Adam.  Maybe it was the use of the word \"a$$\"?  I just noticed that.  Maybe I should calm down. . . I thought I was drinking decaf!<br>\nAnyway, thanks for posting it.</p>\n"
+    },
+    {
+      "id": 1445,
+      "author": "John Thayer",
+      "date": "2008-01-23T08:33:59Z",
+      "kind": "comment",
+      "html": "<p>As a software developer that has never used DTrace, I can't speak for DTrace or the severity of the missing ticks or how easy it would have been for Apple to code it correctly - meaning with unintended consequences.  But I can speak for how easy it is for even an expert coder to make what you think is a clever enhancement to someone else's complicated system (I assume the DTrace software is complex) and have it produce undesirable consequences.<br>\nI'm sure Apple (the company) was afraid of traceability of DRM.  I'm sure Apple (the company) told Apple (the coder) to see what could be done.  I'm sure the coder found this clever enhancement to satisfy the company's requirements with minimal intrusiveness to the code.  I'm sure the coder didn't intend, expect or notice the other consequences.  I'm sure that the DTrace experts at Sun might have a suggestion at how to implement a better trace op-out that the coder could make that would still keep the company satisfied.<br>\nApple is evil?  Maybe - maybe not.  But certainly not for the lone coder at Apple making a simple mistake, the kind we all make all the time.<br>\nLet's celebrate the fact that we actually have access to the source and can find their bug and contribute to solution.</p>\n"
+    },
+    {
+      "id": 1446,
+      "author": "Jeff Holt",
+      "date": "2008-01-23T09:03:59Z",
+      "kind": "comment",
+      "html": "<p>I wonder how many Oracle technicians would complain if Oracle prevented DTrace efficacy?<br>\nSurely, Oracle has considered the possibility. Their revenues shadow Apple's, but they don't have any fear.<br>\nWhat's Apple afraid of? They clearly have a better product in many ways to their real competitors. I predict they WILL listen and react soon to the empowerment of a uniform diagnostic method.</p>\n"
+    },
+    {
+      "id": 1447,
+      "author": "Thomas",
+      "date": "2008-01-23T14:37:06Z",
+      "kind": "comment",
+      "html": "<p>This is what you get when using CDDL.<br>\nIt' too late to complain now.<br>\nIf dtrace was GPL code, you could just recompiled the<br>\n(then GPL'ed) Mac OS X kernel with dtrace enabled all over and be happy.<br>\nSomething to consider for your next great project...</p>\n"
+    },
+    {
+      "id": 1448,
+      "author": "Dick Davies",
+      "url": "http://number9.hellooperator.net/",
+      "date": "2008-01-23T17:03:49Z",
+      "kind": "comment",
+      "html": "<p>@Thomas - this is hard to say, but the GPL is not the solution to all the worlds ills.<br>\nReleasing DTrace under GPL wouldn't magically make OS X GPLed. They just wouldn't use it.  Nor would the BSDs, or anyone else who wants to be free to choose what license to release  code *they* write under .<br>\nThe license is irrelevant - it can't make AAPL write good code, and having to rebuild your system with custom code just to monitor an app isn't really in the spirit of DTrace.</p>\n"
+    },
+    {
+      "id": 1449,
+      "author": "John Birrell",
+      "url": "http://dtrace.what-creek.com/",
+      "date": "2008-01-23T18:14:24Z",
+      "kind": "comment",
+      "html": "<p>(Off topic)<br>\n@Dick - It doesn't matter if the DTrace source is CDDL'd or GPL'd for the BSDs. The fact that it is not BSD licensed just means that the interface needs to be shimmed so that no kernel code requires a CDDL/GPL file to compile.<br>\nFrom the work I've done on FreeBSD, I believe it is possible to port DTrace to Linux in the same manner. The trick is to make the shim headers BSD licensed.</p>\n"
+    },
+    {
+      "id": 1450,
+      "author": "Andrew John Hughes",
+      "url": "http://blog.fuseyism.com",
+      "date": "2008-01-24T04:57:11Z",
+      "kind": "comment",
+      "html": "<p>@Adam: Maybe you could justify why you think my comment is wrong and off-topic, given it answers directly a comment made in the main story.<br>\nI wasn't the one who brought up the topic of licensing, you mention it yourself with your comments on Apple's behaviour being 'antithetical to the spirit of open source' and my reading of this has this as the central topic of this blog.  What would you expect from a proprietary software company who promote themselves as open source players  (<a href=\"http://www.apple.com/opensource/)\" rel=\"nofollow ugc noopener noreferrer\">http://www.apple.com/opensource/)</a> but don't contribute back to the community (just look at the OpenDarwin fiasco).<br>\n@John, yes there's nothing stopping DTrace technically being implemented in Linux AFAIK.  But it can't be done legally as the CDDL and GPL are incompatible.  This is why ZFS is ported as a FUSE module and not as part of the filesystem (<a href=\"http://zfs-on-fuse.blogspot.com/2006/05/announcing-zfs-on-fuselinux.html).\" rel=\"nofollow ugc noopener noreferrer\">http://zfs-on-fuse.blogspot.com/2006/05/announcing-zfs-on-fuselinux.html).</a><br>\nTo include them at present would mean not using the Sun code but rewriting from scratch under the GPL.</p>\n"
+    },
+    {
+      "id": 1451,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-01-24T08:28:47Z",
+      "kind": "comment",
+      "html": "<p>@John: I don't want to revisit this specific issue, but it's worth noting that Sun's lawyers disagree with John on the specific mechanism of what's required to construct a legal port. So do others. I deliberately don't have a law degree so can't elucidate.<br>\n@Brian: Agreed! There are several other bits of \"cleverness\" in the Apple port, though the worst of them is only minimally damaging.<br>\n@Andrew:<br>\n1) Saying \"the spirit of open source\" is not an incantation which summons the demon of licensing pedantry.<br>\n2) Apple has or intends to contribute all the changes they've made to DTrace back to OpenSolaris (I don't think we'll be buying back P_LNOATTACH  though...).<br>\n3) I suppose if you interpreted my phrase \"the spirit of open source\" to mean some RMS-ian utopia where source code is made open at knife-point I can see why your comment would be construed as on-topic. What I meant by that phrase was something far less radical: just that modifying open source software to disable certain features runs counter to what I deem to be a culture of leaving the software better than you found it.<br>\n4) Like I said before, read some of my other recent blog posts; then tell me why you couldn't port DTrace to Linux.<br>\n5) I happen to agree with the choice of the CDDL because of its ability to mix closed-source code with open-source code -- there's no such thing as a tainted OpenSolaris-derived kernel. That compiling CDDL code together with GPL v2 code would violate the GPL (not the CDDL however) is unfortunate for the reasons you described, but I'm sure the legal issues aren't insurmountable.<br>\n<a href=\"http://dtrace.org/blogs/ahl/what_if_machine_dtrace_port\" rel=\"nofollow ugc noopener noreferrer\">http://dtrace.org/blogs/ahl/what_if_machine_dtrace_port</a></p>\n"
+    },
+    {
+      "id": 1452,
+      "author": "Bobbert Smithe",
+      "date": "2008-01-24T09:36:47Z",
+      "kind": "comment",
+      "html": "<p>You say that Apple's modifications to DTrace are \"antithetical to the spirit of open source.\" iTunes is not an open-source application.</p>\n"
+    },
+    {
+      "id": 1453,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-01-24T09:56:10Z",
+      "kind": "comment",
+      "html": "<p>@Bobbert: Welcome Slashdot reader. I believe the expression is 'RTFA'.</p>\n"
+    },
+    {
+      "id": 1454,
+      "author": "J Edwards",
+      "url": "http://blogs.sun.com/jone",
+      "date": "2008-01-24T12:07:15Z",
+      "kind": "comment",
+      "html": "<p>it's an interesting problem for apple - particularly since through iTunes apple is trying to appease both the MPAA (Movie sales and Rentals) and RIAA .. i mean i can understand why they might want to limit what can be seen and modified to protect some of the keys .. but the roll up the drawbridge and prevent kernel snooping sort of approach seems a little dysfunctional and inelegant .. perhaps they should have grabbed more of the crypto kit to get at a deeper understanding of how these sorts of things can both be openly snooped and quite well protected at the same time .. it just reveals some of the inexperience of their implementors</p>\n"
+    },
+    {
+      "id": 1455,
+      "author": "Andrew John Hughes",
+      "url": "http://blog.fuseyism.com",
+      "date": "2008-01-24T14:32:41Z",
+      "kind": "comment",
+      "html": "<p>@Adam: Thanks very much for the explanation, it's very much appreciated.  I think we are actually on the same wavelength, although it may not have seemed so.  If there is some vehemence in my initial post, then it's because I'm sick and tired of licensing compatibility issues within the FOSS community stopping what is technically possible, having had to  deal with them in various forms for the last four years or so.<br>\nMy open source stuff wasn't an RMS-inspired rant, although now you've brought it up my feelings do swing that way.  I think a lot of the issue there though is that people tend to take the issue out of all proportions.  I just feel that if I'm going to share my code, then those who use it should also share.  And what you've highlighted here is the main reason for that.<br>\nYou're exactly right in that such a hack goes against the grain of improving the source.  If that patch was submitted in an open source community, it wouldn't be committed.  I guess it would be laughed at, much the same as a patch to 'phone home' would be (another 'feature' of some proprietary applications).  Why? Because such a patch has no technical advantage, it's purely a code hiding tactic -- legal responsibilities again, and I think they are the bane of developers everywhere and more so by the day.<br>\nThanks for pointing me at your other blog.  I came here via Simon Phipps' blog so hadn't seen it.  I agree with what you say there, it is possible.  I suppose I should have been clearer in saying it's not possible to do a direct port.  Again, legal issues create greater technical problems.  The ideal solution would be to port largely wholesale (as much as possible) and have no legal worries.<br>\nI have no allegiance to Linux in particular.  I'd much rather be running some GNU/Solaris combo to be honest as I feel Solaris is the much more mature, developed and developing kernel.  The problem?  The driver support just isn't at the same level as on x86 yet but it's getting there.  That's not just hyperbole; I tried Indiana recently on an x86 box and it couldn't pick up my NIC (I need to download the Via Rhine drivers separately).  Not a problem for me, but a problem for some of the users we'd hope to eventually attract.</p>\n"
+    },
+    {
+      "id": 1456,
+      "author": "Anon",
+      "date": "2008-01-24T17:17:51Z",
+      "kind": "comment",
+      "html": "<p>So if you look in the OpenSolaris dtrace source (<a href=\"http://cvs.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/uts/common/dtrace/dtrace.c\" rel=\"nofollow ugc noopener noreferrer\">http://cvs.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/uts/common/dtrace/dtrace.c</a> ), what do you find:<br>\n   5390 \t/*<br>\n5391 \t * Kick out immediately if this CPU is still being born (in which case<br>\n5392 \t * curthread will be set to -1) or the current thread can't allow<br>\n5393 \t * probes in its current context.<br>\n5394 \t */<br>\n5395 \tif (((uintptr_t)curthread &amp; 1) || (curthread-&gt;t_flag &amp; T_DONTDTRACE))<br>\n5396 \t\treturn;<br>\nA flag that disallows dtrace probes???  I am outraged!  How can Sun violate the spirit of dtrace in this way?</p>\n"
+    },
+    {
+      "id": 1457,
+      "author": "kris kelvin",
+      "date": "2008-01-24T18:35:01Z",
+      "kind": "comment",
+      "html": "<p>@Anon: Another day, another Slashdot reader...<br>\n\"If there is one thing I learned from Slashdot, it is that people are dumb.\" -- Rob Braun</p>\n"
+    },
+    {
+      "id": 1458,
+      "author": "James Reynolds",
+      "url": "http://www.magnusviri.com",
+      "date": "2008-01-25T16:01:21Z",
+      "kind": "comment",
+      "html": "<p>I once made a web database of movies.  Some movies were copyright, some were public domain.  I had to do everything I could to make it impossible for unapproved people to download the copyright movies cause I had a bit of a legal obligation to do so.  If, in the process, I screwed something up, that would be a bug and I would then go fix it.<br>\nSomeone can file this as a bug at bugreporter.apple.com.  If Apple closes the bug saying that it works as intended, then you can say Apple has done Dtrace a disservice.  Or you could just find the lone programmer who wrote that code and tell them it busted Dtrace and he will probably say \"DOH!\" and go back and fix it.<br>\nAs a side note, no wonder I couldn't find the iPod tracks playing in iTunes with 10.5.  I had to put it on a 10.4 box and run fs_usage...</p>\n"
+    },
+    {
+      "id": 1459,
+      "author": "Anon",
+      "date": "2008-01-26T08:35:03Z",
+      "kind": "comment",
+      "html": "<p>@Kris Kelvin<br>\nNice guess, but I'm not a slashdot reader.<br>\nHow about commenting on my post, that Solaris itself has an equivalent dtrace feature to the one being complained about in Apple's dtrace port?</p>\n"
+    },
+    {
+      "id": 1460,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-01-27T09:57:56Z",
+      "kind": "comment",
+      "html": "<p>@Anon: Kevin and I made the same assumption (i.e. that you were just an obnoxious spammer) because your comment was fairly inflammatory and obviously wrong. For people trying to understand why DTrace in the OpenSolaris code base contains code to ignore a thread, it's not because we're preventing users from viewing content that shouldn't be seen, rather there are some contexts in which it would be invalid to perform the sort of activities we do during tracing (i.e. arbitrary loads from memory) due to hardware reconfiguration. In other words, this is necessary for DTrace to work _properly_.<br>\nIf you take a look at the _one_ place in the source base where we set this flag, it should be fairly obvious what's going on:<br>\n<a href=\"http://cvs.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/uts/sfmmu/vm/hat_sfmmu.c#6598\" rel=\"nofollow ugc noopener noreferrer\">http://cvs.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/uts/sfmmu/vm/hat_sfmmu.c#6598</a></p>\n"
+    },
+    {
+      "id": 1461,
+      "author": "Nick Sieger",
+      "url": "http://blog.nicksieger.com/articles/2008/02/05/why-dtrace-makes-leopard-a-must-have-upgrade",
+      "date": "2008-02-05T13:12:22Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] I feel like I</p>\n"
+    },
+    {
+      "id": 1462,
+      "author": "Juan de Dios Santander Vela",
+      "url": "http://juandesant.blogsite.org/",
+      "date": "2008-02-15T02:29:29Z",
+      "kind": "comment",
+      "html": "<p>Do you have any further information on what other Apple applications might enable the P_LNOATTACH flag? I suspect iDVD, or DVD Studio Pro, might also be guilty…</p>\n"
+    },
+    {
+      "id": 1463,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-02-15T08:58:07Z",
+      "kind": "comment",
+      "html": "<p>@Juan I haven't done that myself, but it seems like you can use nm(1) to see if an application or shared library contains a reference to the ptrace(2) system call:<br>\n$ nm /Applications/iTunes.app/Contents/MacOS/iTunes | grep ptrace<br>\nU _ptrace<br>\n$ nm /Applications/iCal.app/Contents/MacOS/iCal | grep ptrace<br>\n$</p>\n"
+    }
+  ]
+}

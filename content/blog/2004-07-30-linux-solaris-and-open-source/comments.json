@@ -1,0 +1,69 @@
+{
+  "post": "/2004/07/30/linux-solaris-and-open-source/",
+  "count": 8,
+  "comments": [
+    {
+      "id": 1740,
+      "author": "John Clingan",
+      "url": "http://blogs.sun.com/jclingan",
+      "date": "2004-07-30T15:43:43Z",
+      "kind": "comment",
+      "html": "<p>Hey Adam, what's the license going to be? :)</p>\n"
+    },
+    {
+      "id": 1741,
+      "author": "Sahil",
+      "date": "2004-07-30T16:16:22Z",
+      "kind": "comment",
+      "html": "<p>What John said... :)</p>\n<p>No mention of BitKeeper or Andrew Morton's<br>\nmm tree?</p>\n<p>OSDL also runs some tests: <br>\nhttp://www.osdl.org/lab_activities/kernel_testing/stp/reports</p>\n<p>including compile tests: <br>\nhttp://groups.google.com/groups?dq=&amp;start=250&amp;hl=en&amp;lr=&amp;ie=UTF-8&amp;group=linux.kernel&amp;c2coff=1&amp;selm=2n0g1-4Ex-15%40gated-at.bofh.it</p>\n<p>Good luck. Waiting for OpenSolaris on PPC64.</p>\n"
+    },
+    {
+      "id": 1742,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-07-30T16:52:54Z",
+      "kind": "comment",
+      "html": "<p>There was some discussion of BitKeeper and of the mm tree. BitKeeper is a lot like (and was based on) the source control stuff we use in the kernel group and elsewhere in Sun. We're trying to figure out exactly what to use by way of source control for OpenSolaris so it was reassuring to hear Greg bow down and worship at the alter of BitKeeper for a little while.</p>\n<p>The mm tree was the \"unstable\" repository I refered to. Perhaps that was a little glib -- \"development\" would probably be the PC term...</p>\n"
+    },
+    {
+      "id": 1743,
+      "author": "Brad Fitzpatrick",
+      "url": "http://brad.livejournal.com/",
+      "date": "2004-07-31T11:36:20Z",
+      "kind": "comment",
+      "html": "<p>I /was/ excited to try Solaris 10, but the download process proved way too difficult.<br>\nI guess I'll have to wait for it to be open sourced.<br>\nToo bad the CDs ran out at OSCON.  That would've been much easier.</p>\n"
+    },
+    {
+      "id": 1744,
+      "author": "Dan Price",
+      "url": "http://blogs.sun.com/dp",
+      "date": "2004-08-01T15:18:46Z",
+      "kind": "comment",
+      "html": "<p>Brad, I've sent you an email; let's work together to get you some CDs.  I don't want something like the download process to stand in your way.</p>\n"
+    },
+    {
+      "id": 1745,
+      "author": "Alan Hargreaves' Weblog",
+      "url": "http://blogs.sun.com/roller/page/tpenta/20040802#dtrace_solaris_open_sourcing",
+      "date": "2004-08-02T03:28:16Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] Adam Leventhal  has just got back from OSCon and has made some interesting blog entries in the last few days.<br>\nLinux, Solaris and Open Source  is definitely worth a read. He discusses a conversation he had with Greg Kroah-Hartman about Linux kerne...</p>\n"
+    },
+    {
+      "id": 1746,
+      "author": "Nils",
+      "date": "2004-08-02T14:30:21Z",
+      "kind": "comment",
+      "html": "<p>&lt;em&gt;If that's true then everyone in the Solaris kernel group is going to have PowerBooks in 6 months plus a day.&lt;/em&gt;<br>\nThose of us who don't have them already...</p>\n"
+    },
+    {
+      "id": 1747,
+      "author": "justin",
+      "url": "http://linuxnotes.blogspot.com",
+      "date": "2004-08-03T17:25:33Z",
+      "kind": "comment",
+      "html": "<p>\"The one thing that disappointed me was the lack of knowledge about Solaris 10\"<br>\ntherein lies the problem.<br>\nbut by open sourcing solaris you potentially ensure a regular posting on Slashdot - and thereby giving greater exposure to Solaris.<br>\nWe OSS'ers live in a world of Debian, Slack , Mandrake, Suse, the kernel, KDE, Gnome and assorted flame fests on whether my distro is better than yours. Comes with the territory of OSS.<br>\nThrowing Solaris into that mix, can only be a good thing, in the long run. It'll be a rough ride, with ups and downs, and a heck of lot of criticism and flamefests. But it WILL be worth it in the long run if you manage to get the critiques managed into hard , cold,  patches and fixes.</p>\n"
+    }
+  ]
+}

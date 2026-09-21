@@ -1,0 +1,39 @@
+{
+  "post": "/2009/12/09/log_devices_to_mirror_or/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1220,
+      "author": "Marcelo Leal",
+      "url": "http://www.eall.com.br/blog",
+      "date": "2009-12-09T14:53:00Z",
+      "kind": "comment",
+      "html": "<p>Hello Adam!<br>\nIf i did understand correctly what you are saying, you are making a parallel between the probability of two disk failures (same mirror), and two failures in sequence: slog and controller (7410 head). It is that right? Well, if that is right, who wants to have a triple mirror configuration, should mirror the slog devices. <br>\nSo, my question is: the 7410 storage has a sla like 99.995% ? In that calculation you are accounting the probability about the first scenario (the two disk failures)? Because seems to me that two disks failures are more easy to happen than a failure of a controller after the slog. The last one i think is so small, that is better to have the performance rather than the redundancy.</p>\n"
+    },
+    {
+      "id": 1221,
+      "author": "Christopher George",
+      "url": "http://www.ddrdrive.com",
+      "date": "2009-12-13T10:33:52Z",
+      "kind": "comment",
+      "html": "<p>Thank you for answering in detail, a question we get asked<br>\nquite frequently.  As you said, logzillas are integral to data<br>\nintegrity so defining a ZFS Intent Log (ZIL) best practice is<br>\ncritical.<br>\nFor the high-end segment, we take this one step further and<br>\nrecommend that the ZIL not be hard disk based.  This avoids not<br>\nonly the well known reliability issues of spinning disk but the<br>\ncomplexity of the RAID based solutions required to compensate.<br>\nAlthough we do believe NAND (flash) based SSD's offer very<br>\ntangible benefits over disk, the ultimate matching of technology<br>\nto purpose leads to a mirrored NVRAM based solution.  By<br>\nnature of the self-contained PCIe card design, each offers a<br>\ncompletely independent controller in addition to storage.<br>\nChristopher George<br>\nFounder/CTO<br>\nDDRdrive LLC<br>\nwww.ddrdrive.com</p>\n"
+    },
+    {
+      "id": 1222,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-12-13T22:04:58Z",
+      "kind": "comment",
+      "html": "<p>@Marcelo A weakness of this post was that it was too qualitative, but the quantitative data was not immediately available to me and I wanted to make some information available. Once the data has been collected and analyzed, I'll post another update that examines those issues in more depth.<br>\n@Chris Agreed! The requirements for a Logzilla -- small capacity, low latency -- match very well with NV-DRAM. Indeed, the SSD that we use in the Sun Storage 7000 series combines a fair bit of NV-DRAM with flash in order to achieve much lower latency than other SSDs. PCIe doesn't work for the 7310 and 7410 because for clustering we require Logzillas to be dual-attached so that both heads can see them. While it doesn't have the performance of PCIe, this is why we've chosen SAS as the interconnect for Logzillas today.</p>\n"
+    },
+    {
+      "id": 1223,
+      "author": "Christopher George",
+      "url": "http://www.ddrdrive.com",
+      "date": "2009-12-14T01:50:17Z",
+      "kind": "comment",
+      "html": "<p>Excellent point.  A PCIe based SSD (DDRdrive X1) is not a solution for<br>\ndual-attached 7310/7410 clustering.  With the inherent benefits of a<br>\nnative PCIe implementation and recent standout products such as the<br>\nSun F20 PCIe card, I wonder if such a limitation could be addressed<br>\nin the future?<br>\nChristopher George<br>\nFounder/CTO<br>\nDDRdrive LLC<br>\nwww.ddrdrive.com</p>\n"
+    }
+  ]
+}

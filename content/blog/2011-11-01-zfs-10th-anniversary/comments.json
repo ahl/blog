@@ -1,0 +1,53 @@
+{
+  "post": "/2011/11/01/zfs-10th-anniversary/",
+  "count": 6,
+  "comments": [
+    {
+      "id": 2159,
+      "author": "Anantha",
+      "date": "2011-11-01T20:45:58Z",
+      "kind": "comment",
+      "html": "<p>Congratulations to the ZFS team! I'm a huge fan of all things Solaris and ZFS is one of the reasons I love Solaris.</p>\n"
+    },
+    {
+      "id": 2160,
+      "parent": 2159,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-11-01T22:37:38Z",
+      "kind": "comment",
+      "html": "<p>Don't miss Matt's blog post on the 10th anniversary of ZFS: http://blog.delphix.com/matt/2011/11/01/zfs-10-year-anniversary/</p>\n"
+    },
+    {
+      "id": 2161,
+      "author": "kj",
+      "date": "2011-11-02T17:30:08Z",
+      "kind": "comment",
+      "html": "<p>10 years and you still cant remove a disk from a zpool.</p>\n<p>Great work !</p>\n"
+    },
+    {
+      "id": 2162,
+      "parent": 2161,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-11-02T17:32:20Z",
+      "kind": "comment",
+      "html": "<p>Haha.. true! Some problems are just more relevant depending on the domain.</p>\n"
+    },
+    {
+      "id": 2163,
+      "author": "DavidH",
+      "url": "http://netmgt.blogspot.com/",
+      "date": "2011-11-03T18:32:20Z",
+      "kind": "comment",
+      "html": "<p>It is GREAT to see such progress in 10 years!</p>\n<p>With \"zfs send\", \"zfs diff\", and ZIL - when will ZFS get asyncronous replication? ;-)</p>\n"
+    },
+    {
+      "id": 2164,
+      "author": "Marsell",
+      "date": "2011-11-05T09:04:56Z",
+      "kind": "comment",
+      "html": "<p>Don't trust your data on anything less.</p>\n"
+    }
+  ]
+}

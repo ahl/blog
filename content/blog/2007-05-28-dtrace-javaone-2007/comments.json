@@ -1,0 +1,31 @@
+{
+  "post": "/2007/05/28/dtrace-javaone-2007/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1541,
+      "author": "Thorleif Wiik",
+      "url": "http://www.wiik.de/blog",
+      "date": "2007-05-29T02:16:07Z",
+      "kind": "comment",
+      "html": "<p>Hi,<br>\nin your presentation are some \"demo slides\". Can you make the used DTrace scripts for the demos downloadable?<br>\n-<br>\nThanks, Thorleif</p>\n"
+    },
+    {
+      "id": 1542,
+      "author": "Matthias Ernst",
+      "url": "http://mernst.org/blog",
+      "date": "2007-05-29T02:42:59Z",
+      "kind": "comment",
+      "html": "<p>That's cool news. I've tinkered with DTrace and Java and the best I could come up with was a JNI-based version that didn't support arbitrary numbers of Probes [http://mernst.org/blog/rss.xml#SDT-probes-for-Java]. <br>\nCare to share any details how this is implemented? I sense some support from the Hotspot Compilers is required.<br>\nThanks, Matthias</p>\n"
+    },
+    {
+      "id": 1543,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2007-05-30T10:20:15Z",
+      "kind": "comment",
+      "html": "<p>Thorleif,<br>\nUnfortunately, Jarod was pretty much just ad-libbing -- next year we'll try to remember to save the session. For a DIY demo, check out <a href=\"http://blogs.sun.com/roller/page/bmc?entry=demo_ing_dtrace\" rel=\"nofollow ugc noopener noreferrer\">Bryan's guide to giving a DTrace demo</a>.</p>\n<p>Matthias,<br>\nI'll let the author of this -- Lev Serebryakov -- provide the full explanation when things are a bit further along, but the basic idea is that the JVM (hotspot) ships a bundle of helper DOF (D Object Format) to the kernel. The DOF describes the providers and probes; the kernel makes those available through the DTrace framework.</p>\n"
+    }
+  ]
+}

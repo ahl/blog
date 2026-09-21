@@ -1,0 +1,43 @@
+{
+  "post": "/2005/10/19/opensolaris-and-svk/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 1627,
+      "author": "Bart",
+      "date": "2005-10-19T10:36:38Z",
+      "kind": "comment",
+      "html": "<p>SVK isn't the only option available, of course. There are lots of other distributed revision control systems (perhaps a bit too many even) which are already pretty mature.<br>\n&lt;dl&gt;<br>\n&lt;dt&gt;<a href=\"http://www.selenic.com/mercurial/\" rel=\"nofollow ugc noopener noreferrer\">Mercurial</a>&lt;/dt&gt;<br>\n&lt;dd&gt;Relatively <a href=\"http://lwn.net/Articles/151624/\" rel=\"nofollow ugc noopener noreferrer\">new</a>, a little bit rough around the edges still, but already used by &lt;a<br>\nhref=\"http://xenbits.xensource.com/xen-unstable.hg\"&gt;Xen as a replacement for BitKeeper.&lt;/dd&gt;<br>\n&lt;dt&gt;<a href=\"http://venge.net/monotone/\" rel=\"nofollow ugc noopener noreferrer\">Monotone</a>&lt;/dt&gt;<br>\n&lt;dd&gt;More mature than Mercurial, uses SHA1 to &lt;a<br>\nhref='http://www.venge.net/monotone/docs/Historical-records.html#Historical-records'&gt;identify changesets.&lt;/dd&gt;<br>\n&lt;dt&gt;<a href=\"http://bazaar.canonical.com/\" rel=\"nofollow ugc noopener noreferrer\">Bazaar</a>&lt;/dt&gt;<br>\n&lt;dd&gt;An implementation of the &lt;a<br>\nhref=\"http://www.gnu.org/software/gnu-arch/\"&gt;Arch protocol. Focuses on bringing more usability to Arch.&lt;/dd&gt;<br>\n&lt;/dl&gt;<br>\nNo doubt you've already looked at the other options available, and I shouldn't turn this into a listing of all available rcs (there are &lt;a<br>\nhref='http://zooko.com/revision_control_quick_ref.html'&gt;much &lt;a<br>\nhref='http://www.livejournal.com/users/bramcohen/17319.html'&gt;better &lt;a<br>\nhref='http://www.dwheeler.com/essays/scm.html'&gt;resources available for that), so I'll just stop here. :)</p>\n"
+    },
+    {
+      "id": 1628,
+      "author": "Nik Clayton",
+      "date": "2005-10-20T03:21:14Z",
+      "kind": "comment",
+      "html": "<p>I'm not sure you've completely understood how SVK works.  I've been using it for a couple of weeks now, and I think your workflow would broadly be as follows.<br>\nYou would have one or more Subversion repositories.  These would be hosted somewhere central, and are your master copies of everything.<br>\nYour developers use 'svk mirror' and 'svk sync' to maintain their local mirrors of these repositories (or some subset thereof, depending on what they're working on).<br>\nBy convention, these mirrors end up in some directory under '//mirror'.<br>\nThen the developers make a copy of the files under //mirror to somewhere else (by convention, starting with //local).  Suppose, for the sake of argument, that you had the kernel in its own Subversion repo.  A developer working on the kernel might start with:</p>\n<p>svk mirror //mirrors/kernel URL-for-kernel-repo<br>\nsvk sync //mirrors/kernel<br>\nsvk copy //mirrors/kernel //local/kernel</p>\n<p>The first command creates the mirror mapping.  The second command does the actual mirroring, and the third command makes the copy.<br>\nNow your developers can check out //local/kernel in to their local filesystem (\"svk co //local/kernel\") and start editing files, and so on.<br>\nSo far, there's no real difference to what you can do with Subversion.<br>\nThe clever bit is that your developers can now commit to //local/kernel without needing network connectivity to the master repository.<br>\nSubversion doesn't let you do that -- in order to commit you need to be able to reach the main repo.  With svk you commit to your locally mirrored repo.<br>\nWhen your developer has network connectivity again they can \"svk push\" to put their changes back to the master repository<br>\nBranches and the like are still useful in this situation.  Suppose the kernel source is organised following Subversion guidelines, so you have /kernel/trunk for the mainline of development and/or stable code, and /kernel/branches/name-of-branch for development that's in progress but that is not ready to hit the trunk yet.<br>\nSuppose your developer is working on some spiffy new feature for the kernel that's going to take some time to develop.  Instead of working on the trunk they'd likely want to work on a branch instead.  To do that, they'd do this (after running the three commands previously).</p>\n<p>svk copy //local/kernel/trunk //local/kernel/branches/spiffy<br>\nsvk checkout //local/kernel/branches/spiffy<br>\ncd spiffy<br>\n... edit away, making as many commits as they like ...</p>\n<p>As before, when your developer has network connectivity back to the main repo they can \"svk push\".  This will create the branch back in the master repo, and propogate all the developers commits (either one by one, or as one large commit) back to the repository.<br>\nOne of the really useful features about svk is that it remembers what was propogated back and forth when you do \"svk push\", so the command can be run multiple times and it will do the right thing.<br>\nDrop me a line if you'd like me to talk through this some more.</p>\n"
+    },
+    {
+      "id": 1629,
+      "author": "Bill Sommerfeld",
+      "url": "http://blogs.sun.com/roller/page/sommerfeld?entry=packaging_svk",
+      "date": "2005-10-20T06:16:14Z",
+      "kind": "comment",
+      "html": "<p>don't panic.  i've already worked through packaging svk for solaris -- see above URL</p>\n"
+    },
+    {
+      "id": 1630,
+      "author": "Stephen",
+      "url": "http://blogs.sun.com/sch/",
+      "date": "2005-10-20T14:51:57Z",
+      "kind": "comment",
+      "html": "<p>SVK is certainly a candidate for use with OpenSolaris but, as Bart's list suggests, it is neither the only candidate or the leading candidate.  (There is no leading candidate.)</p>\n<p>Evaluation of the distributed SCM choice is an upcoming phase, after the current items blocking development of the governance documents and project source code release are addressed.  Investment in any particular choice may end up having limited returns...</p>\n<p>&amp;mdash; Stephen</p>\n"
+    },
+    {
+      "id": 1631,
+      "author": "Anonymous",
+      "date": "2005-11-28T03:55:33Z",
+      "kind": "comment",
+      "html": "<p>A distributed SCM with very solid foundation (theory of patches) is DARCS (http://abridgegame.org/darcs). It is definitely worth having a thorough look into it.</p>\n"
+    }
+  ]
+}

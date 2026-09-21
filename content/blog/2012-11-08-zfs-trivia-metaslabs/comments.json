@@ -1,0 +1,71 @@
+{
+  "post": "/2012/11/08/zfs-trivia-metaslabs/",
+  "count": 8,
+  "comments": [
+    {
+      "id": 3046,
+      "author": "Peter Tribble",
+      "date": "2012-11-09T12:04:10Z",
+      "kind": "comment",
+      "html": "<p>Which makes me wonder what the best strategy is for growing a pool based on LUNs presented from a SAN - add more empty LUNs to the pools, or grow the LUNs you already have?</p>\n"
+    },
+    {
+      "id": 3048,
+      "parent": 3046,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-11-09T18:16:26Z",
+      "kind": "comment",
+      "html": "<p>We typically advise our customers to expand by growing their LUNs rather than by adding more LUNs. ZFS at present doesn't handle imbalanced LUNs especially well -- especially when some LUNs are more than 80-90% full. It's something that we're working actively working on here at Delphix.</p>\n"
+    },
+    {
+      "id": 3078,
+      "author": "David",
+      "url": "http://netmgt.blogspot.com/",
+      "date": "2012-11-11T21:03:43Z",
+      "kind": "comment",
+      "html": "<p>Is one of the reasons we don't have the ability to shrink a zfs pool today due to the fact that one or more metaslabs may exist towards the end of the pool (in the shrinkage area), and there may be some complexity in dropping the metaslab[s] (not to mention deal with the data)?</p>\n<p>Any plans to deal with the inability to \"shrink a zpool\"?</p>\n"
+    },
+    {
+      "id": 3082,
+      "parent": 3078,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-11-12T04:00:47Z",
+      "kind": "comment",
+      "html": "<p>Usually when people talk about shrinking a pool they're talking about removing entire devices rather than shrinking those devices. Delphix doesn't have any immediate plans to allow customers to shrink their pool; I don't think that it's likely that anyone in the open source community will do it; and I'd say it's practically impossible that we'd see it in Oracle Solaris.</p>\n"
+    },
+    {
+      "id": 3084,
+      "author": "Ron",
+      "date": "2012-11-12T09:20:09Z",
+      "kind": "comment",
+      "html": "<p>Do the ZFS userspace tools provide a way (or some other interface) to view the size of metaslabs, and how many exist etc?</p>\n"
+    },
+    {
+      "id": 3087,
+      "parent": 3084,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-11-12T16:34:17Z",
+      "kind": "comment",
+      "html": "<p>If you can export your pool you can do: zdb -m -e </p>\n<p>On a running system you can do something like this:</p>\n<p># echo ::spa -c | mdb -k | awk -F= '/metaslab_shift/{ print \"1&lt;&lt;0x\" $2 \"=D\"; }' | mdb<br>\n                134217728</p>\n"
+    },
+    {
+      "id": 3356,
+      "author": "Adam Leventhal's blog » ZFS fundamentals: transaction groups",
+      "url": "http://dtrace.org/blogs/ahl/2012/12/13/zfs-fundamentals-transaction-groups/",
+      "date": "2012-12-13T06:18:28Z",
+      "kind": "pingback",
+      "html": "<p>[...] (typeof(addthis_share) == \"undefined\"){ addthis_share = [];}I’ve continued to explore ZFS as I try to understand performance pathologies, and improve performance. A [...]</p>\n"
+    },
+    {
+      "id": 3420,
+      "author": "SmartOS News: Dec 13, 2012 – SmartOS.org",
+      "url": "http://smartos.org/2012/12/13/smartos-news-dec-13-2012/",
+      "date": "2012-12-13T22:43:21Z",
+      "kind": "pingback",
+      "html": "<p>[...] fundamentals: transaction groups – “I’ve continued to explore ZFS as I try to understand performance pathologies, and improve performance. A [...]</p>\n"
+    }
+  ]
+}

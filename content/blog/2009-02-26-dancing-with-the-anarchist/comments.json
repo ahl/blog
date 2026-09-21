@@ -1,0 +1,55 @@
+{
+  "post": "/2009/02/26/dancing-with-the-anarchist/",
+  "count": 6,
+  "comments": [
+    {
+      "id": 1294,
+      "author": "Chris Caldwell",
+      "date": "2009-02-27T11:23:20Z",
+      "kind": "comment",
+      "html": "<p>From reading Barry's roundup it would appear that not only has he chosen his horse, but that he's planted squarely on its back wearing an EMC jersey.</p>\n"
+    },
+    {
+      "id": 1295,
+      "author": "Bryan Cantrill",
+      "url": "http://blogs.sun.com/bmc",
+      "date": "2009-02-27T11:28:23Z",
+      "kind": "comment",
+      "html": "<p>Adam is (understandably) being a tad modest here about both of the key observations, but just to set the record straight:  it was Adam who initially suggested the use of flash in lieu of NVRAM for ZIL performance, and it was he again who (after we had decided to use write-optimized flash for the ZIL) wondered if we couldn't use flash on the read side as well.  There is also a degree to which necessity (or at least, opportunity) was the mother of this invention:  in toro (a.k.a. the 7410), we had six empty 2.5\" SATA drive bays that were just begging to be filled with something -- and it was Adam who asked \"why not flash-based SSDs?\"  Now that flash is in vogue, these innovations may seem obvious or self-evident in retrospect, but having been there at the moment, I can say with confidence that they were much subtler than they might now appear!</p>\n"
+    },
+    {
+      "id": 1296,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-03-02T08:33:06Z",
+      "kind": "comment",
+      "html": "<p>@Chris Thanks for the tip; I posted an update:<br>\n<a href=\"http://dtrace.org/blogs/ahl/more_anarchy\" rel=\"nofollow ugc noopener noreferrer\">http://dtrace.org/blogs/ahl/more_anarchy</a><br>\n@Bryan Thank you as always for helping to write an accurate history, and for the kind words.</p>\n"
+    },
+    {
+      "id": 1297,
+      "author": "Anatol Studler",
+      "url": "http://blogs.sun.com/studler",
+      "date": "2009-03-17T06:58:07Z",
+      "kind": "comment",
+      "html": "<p>I wrote a blog entry a while ago about how smart it is to replace Hard Disks Drives with SSDs in traditional Arrays.<br>\n<a href=\"http://blogs.sun.com/studler/entry/why_you_should_avoid_placing\" rel=\"nofollow ugc noopener noreferrer\">http://blogs.sun.com/studler/entry/why_you_should_avoid_placing</a></p>\n"
+    },
+    {
+      "id": 1298,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-03-17T08:59:57Z",
+      "kind": "comment",
+      "html": "<p>@Anatol That's an interesting post, but I'm not sure I agree with your assertions. In particular, I think there's a place for flash both in servers and in storage boxes. The former may provide better performance for some applications, but the latter gives seamless and OS agnostic integration and the usual benefits of consolidation and virtualization.</p>\n"
+    },
+    {
+      "id": 1299,
+      "author": "Anatol Studler",
+      "url": "http://https://blogs.sun.com/studler",
+      "date": "2009-03-19T00:34:53Z",
+      "kind": "comment",
+      "html": "<p>@Adam<br>\nI think we don't disagree with each other. The key message in my blog entry was to avoid using the traditional Raid Controller Technology to run SSD, they are not build for this. Controllers can benefit from Flash, but not by just replacing traditional Disks with Flash Disks, it needs more.<br>\nMy most recent blog about Flash mentions a few ideas where and how you could use Flash. But, you need to build new \"systems/solutions\" to use the complete advantage of Flash technology.<br>\n<a href=\"http://blogs.sun.com/studler/entry/open_flash\" rel=\"nofollow ugc noopener noreferrer\">http://blogs.sun.com/studler/entry/open_flash</a></p>\n"
+    }
+  ]
+}

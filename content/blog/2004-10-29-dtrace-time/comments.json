@@ -1,0 +1,39 @@
+{
+  "post": "/2004/10/29/dtrace-time/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1703,
+      "author": "Manu Garg",
+      "url": "http://manugarg.freezope.org",
+      "date": "2004-10-30T00:10:14Z",
+      "kind": "comment",
+      "html": "<p>Dtrace is good. Well, your case shows that it'll get its full power with OpenSolaris. I just cann't wait to see Solaris source code :-)</p>\n"
+    },
+    {
+      "id": 1704,
+      "author": "Alan Beale",
+      "date": "2004-10-30T16:18:50Z",
+      "kind": "comment",
+      "html": "<p>Shouldn't you be able to use the 32-bit in 32bit mode and the orginal implementation in 64bit mode by using shared object filter to load the appropriate implementation ?<br>\nhttp://blogs.sun.com/roller/page/rie/20041022#shared_object_filters</p>\n"
+    },
+    {
+      "id": 1705,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-11-01T07:11:00Z",
+      "kind": "comment",
+      "html": "<p>Manu,</p>\n<p>We can't wait to get the source code released. Some people are worried that it's going to be a security risk or -- worse -- a risk to Sun's intellectual property. Those risks seem far outweighed by the benefits to people trying to understand the system (with DTrace) and -- even more exciting -- modifying Solaris and contributing code.</p>\n"
+    },
+    {
+      "id": 1706,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2004-11-01T07:12:52Z",
+      "kind": "comment",
+      "html": "<p>Alan,</p>\n<p>There are actually 32-bit and 64-bit versions of every library (actually, there are a couple missing on amd64, but we're working on it). As a result, we don't even need to do any of Rod's fancy linker tricks -- we automatically get the the library appropriate for the data model we've chosen.</p>\n"
+    }
+  ]
+}

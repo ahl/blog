@@ -1,0 +1,31 @@
+{
+  "post": "/2006/05/08/user-land-tracing-gets-better-and-better/",
+  "count": 3,
+  "comments": [
+    {
+      "id": 1611,
+      "author": "Matty",
+      "url": "http://daemons.net/~matty",
+      "date": "2006-05-09T06:35:51Z",
+      "kind": "comment",
+      "html": "<p>Great work Adam! This is awesome stuff!!!!!<br>\n- Ryan</p>\n"
+    },
+    {
+      "id": 1612,
+      "author": "Sted",
+      "url": "http://www.eidosmedia.com",
+      "date": "2006-05-18T08:02:33Z",
+      "kind": "comment",
+      "html": "<p>Very nice. We will surely add USDT probes in our applications.<br>\nA question:<br>\nDoes an appplication with USDT probes work on Solaris &lt; 10 ?</p>\n"
+    },
+    {
+      "id": 1613,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2006-05-19T16:24:48Z",
+      "kind": "comment",
+      "html": "<p>Sted,</p>\n<p>Applications with USDT probes will run on earlier versions of Solaris, but the probes won't do anything of course.</p>\n"
+    }
+  ]
+}

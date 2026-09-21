@@ -1,0 +1,22 @@
+{
+  "post": "/2008/07/01/hybrid-storage-pools-in-cacm/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1338,
+      "author": "Andrei",
+      "date": "2008-07-02T00:03:32Z",
+      "kind": "comment",
+      "html": "<p>Nice article, Adam.  I agree that flash is going to change the landscape pretty soon, but I wouldn't dismiss 15K RPM drives quiet yet though, especially since there are rumors floating around that WD is working on a 20K RPM version to combat SDD drives :)<br>\n<a href=\"http://www.bit-tech.net/news/2008/06/06/western-digital-working-on-20-000-rpm-raptor/1\" rel=\"nofollow ugc noopener noreferrer\">http://www.bit-tech.net/news/2008/06/06/western-digital-working-on-20-000-rpm-raptor/1</a><br>\nGodspeed!</p>\n"
+    },
+    {
+      "id": 1339,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-07-10T01:43:55Z",
+      "kind": "comment",
+      "html": "<p>@Andrei Interesting link, but note that the WD Raptor line does not seem to be intended for use in enterprise environments as evidenced by the fact that it uses a non-standard position for it's 3.5\" connector. In other words: good luck plugging a Raptor into a standard JBOD.<br>\nI can see the utility of a hyper fast desktop drive if it turns out to be cheaper than an SSD, but filling a JBOD with 20K RPM drives will never make sense.</p>\n"
+    }
+  ]
+}

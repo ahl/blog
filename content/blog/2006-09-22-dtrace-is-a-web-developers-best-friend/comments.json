@@ -1,0 +1,22 @@
+{
+  "post": "/2006/09/22/dtrace-is-a-web-developers-best-friend/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1569,
+      "author": "Thomas F. O'Connell",
+      "date": "2006-09-22T10:36:37Z",
+      "kind": "comment",
+      "html": "<p>With any luck, Apple will follow suit with WebKit if they haven't already. The performance of JavaScript is not exactly worth showcasing in Safari.</p>\n"
+    },
+    {
+      "id": 1570,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2006-09-22T10:45:53Z",
+      "kind": "comment",
+      "html": "<p>Freddie,</p>\n<p>At the WWDC we were certainly trying to make that point to the Apple folks. In addition to WebKit, we were hoping they'd use their inclusion of Ruby on Rails as an opportunity to use the DTrace support for Ruby.</p>\n"
+    }
+  ]
+}

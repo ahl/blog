@@ -1,0 +1,36 @@
+{
+  "post": "/2005/03/01/pid-provider-exposed/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 1679,
+      "author": "kfu",
+      "date": "2005-03-01T15:27:31Z",
+      "kind": "comment",
+      "html": "<p>The more the merrier! It helps us read the source codes!<br>\nThank you!</p>\n"
+    },
+    {
+      "id": 1680,
+      "author": "Michael van der Westhuizen",
+      "date": "2005-03-02T14:15:20Z",
+      "kind": "comment",
+      "html": "<p>Great slides - I had no idea there was a statically defined userland tracing API... now you've got my mind working :-)</p>\n"
+    },
+    {
+      "id": 1681,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-03-02T15:12:36Z",
+      "kind": "comment",
+      "html": "<p>We have USDT there now in the initial release of S10, and we're working on a bunch of cool additions to it which will make USDT much more powerful and userful.</p>\n"
+    },
+    {
+      "id": 1682,
+      "author": "Nguyen Le",
+      "date": "2005-03-28T17:46:39Z",
+      "kind": "comment",
+      "html": "<p>I am having a hard time finding an answer to my Dtrace question of whether Dtrace is capable of assisting me in debugging a servlet. I have read in the expert exchange that this was not possible due to the complexity of the JVM but I have read elsewhere that give hints that this is possible.</p>\n"
+    }
+  ]
+}

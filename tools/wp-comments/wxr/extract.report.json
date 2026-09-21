@@ -1,0 +1,53 @@
+{
+  "posts_with_comments": 132,
+  "comments_emitted": 1064,
+  "by_kind": {
+    "comment": 981,
+    "pingback": 83
+  },
+  "skipped": {
+    "on_non_post_item": 4,
+    "on_unpublished_draft": 5,
+    "spam": 3,
+    "unapproved": 1
+  },
+  "accounting": {
+    "comment_elements_in_file": 1077,
+    "emitted": 1064,
+    "skipped_total": 13,
+    "balances": true
+  },
+  "links": {
+    "hrefs_in_source": 73,
+    "rewritten": 0,
+    "rewrites_by_rule": {},
+    "unresolved_internal": [
+      "http://dtrace.org/blogs/ahl/dtrace_presentation_at_javaone",
+      "http://dtrace.org/blogs/ahl/dtrace_for_linux",
+      "http://dtrace.org/blogs/ahl/open_sourcing_the_javaone_keynote",
+      "http://dtrace.org/blogs/ahl/opensolaris_and_svk",
+      "http://dtrace.org/blogs/ahl/comment_out_of_context",
+      "http://dtrace.org/blogs/ahl/what_if_machine_dtrace_port",
+      "http://dtrace.org/blogs/ahl/what_if_machine_dtrace_port",
+      "http://dtrace.org/blogs/ahl/gzip_for_zfs_update",
+      "http://dtrace.org/blogs/ahl/more_anarchy"
+    ],
+    "lost": [],
+    "bare_internal": [
+      "http://dtrace.org/blogs/ahl/2011/10/10/oel-this-is-not-dtrace/",
+      "http://dtrace.org/blogs/ahl/2013/09/17/openzfs/",
+      "http://dtrace.org/blogs/ahl/2014/08/31/openzfs-tuning/",
+      "http://dtrace.org/blogs/ahl/2016/03/07/big-news-for-zfs-on-linux/",
+      "http://dtrace.org/blogs/ahl/2016/03/07/big-news-for-zfs-on-linux/",
+      "http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1/",
+      "http://dtrace.org/blogs/ahl/2016/06/19/apfs-part1/",
+      "http://dtrace.org/blogs/ahl/2016/06/19/apfs-part5/"
+    ]
+  },
+  "tags_dropped": {
+    "poolname": 1
+  },
+  "unmatched_posts": [],
+  "reparented": [],
+  "fidelity_mismatches": []
+}

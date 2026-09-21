@@ -1,0 +1,311 @@
+{
+  "post": "/2010/08/18/leaving_oracle/",
+  "count": 40,
+  "comments": [
+    {
+      "id": 1785,
+      "author": "TimC",
+      "date": "2010-08-18T17:20:00Z",
+      "kind": "comment",
+      "html": "<p>Wow, you guys are dropping like flies!  :)</p>\n<p>So Nexenta or Joyent?</p>\n"
+    },
+    {
+      "id": 1786,
+      "author": "Sean",
+      "date": "2010-08-18T18:22:00Z",
+      "kind": "comment",
+      "html": "<p>I am actually wondering who would be next, Brendan or Roche?</p>\n"
+    },
+    {
+      "id": 1787,
+      "author": "Przemyslaw Bak (przemol)",
+      "url": "http://przemol.blogspot.com",
+      "date": "2010-08-18T19:20:41Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nwhen you, Brian and others engineers are leaving Oracle we can expect that Solaris 11 is not going to be the next Solaris 10 (in terms of features and technical advantages). Is is going to be just another *nix. Very sad .... :-(</p>\n"
+    },
+    {
+      "id": 1789,
+      "author": "Tweets that mention Adam Leventhal's blog » Leaving Oracle -- Topsy.com",
+      "url": "http://topsy.com/dtrace.org/blogs/ahl/2010/08/18/leaving_oracle/?utm_source=pingback&utm_campaign=L2",
+      "date": "2010-08-18T19:49:32Z",
+      "kind": "pingback",
+      "html": "<p>[...] This post was mentioned on Twitter by Stephan Schmidt, Koen Vervloesem, Hacker News YC, Rene Gröschke, eBot and others. eBot said: Leaving Oracle - http://su.pr/1jwCh4 [...]</p>\n"
+    },
+    {
+      "id": 1790,
+      "author": "Iain",
+      "url": "http://thinsliced.wordpress.com/",
+      "date": "2010-08-18T20:15:59Z",
+      "kind": "comment",
+      "html": "<p>Thanks for the many interesting and in depth blogs over the years, it's certainly enhanced my understanding of Solaris and the capabilities.</p>\n<p>Best of luck whatever comes your way.</p>\n"
+    },
+    {
+      "id": 1791,
+      "author": "Al",
+      "date": "2010-08-18T20:23:15Z",
+      "kind": "comment",
+      "html": "<p>Best of luck for the future Adam!</p>\n"
+    },
+    {
+      "id": 1792,
+      "parent": 1786,
+      "author": "UX-admin",
+      "date": "2010-08-18T20:51:54Z",
+      "kind": "comment",
+      "html": "<p>Mike will be next.</p>\n<p>Just wondering how long before the ZFS team throws in the towel too.</p>\n<p>Something really really bad must be going on at ORCL. Managers must be really pissing engineers off.</p>\n"
+    },
+    {
+      "id": 1793,
+      "author": "Dave",
+      "date": "2010-08-18T21:30:06Z",
+      "kind": "comment",
+      "html": "<p>What Al and Iain said :)</p>\n"
+    },
+    {
+      "id": 1794,
+      "author": "Michael Ernest",
+      "url": "http://radio.javaranch.com/michael",
+      "date": "2010-08-18T22:31:54Z",
+      "kind": "comment",
+      "html": "<p>It's been a great pleasure reading your blog entries and reviewing your slide decks over the years, Adam. Wherever you land next, I hope you'll keep it coming. Best wishes on your next venture!</p>\n"
+    },
+    {
+      "id": 1795,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2010-08-19T01:36:06Z",
+      "kind": "comment",
+      "html": "<p>@TimC none of the above!</p>\n<p>@Sean and UX-admin we'll see. My money's not on Mike though -- Oracle will at least retain one third of the original DTrace trio :-)</p>\n<p>@Przemyslaw Well there will never be another Solaris 10; that release was a rare gem. There are a bunch of good folks working on Solaris 11, and I'm sure it will be a solid product.</p>\n<p>@Iain, Al, Dave, and Michael Thanks!</p>\n"
+    },
+    {
+      "id": 1796,
+      "author": "TimC",
+      "date": "2010-08-19T02:48:24Z",
+      "kind": "comment",
+      "html": "<p>Interesting :)  So when will the announcement be made?</p>\n<p>And I'd argue there won't be another Opensolaris, THAT was a rare gem.  Solaris 10 was nice, but the progress made over the last several years with Opensolaris was rather stunning IMO.</p>\n"
+    },
+    {
+      "id": 1797,
+      "author": "Twitted by jasonh",
+      "url": "http://real-url.org/twitted.php?id=21547566109",
+      "date": "2010-08-19T04:02:44Z",
+      "kind": "pingback",
+      "html": "<p>[...] This post was Twitted by jasonh [...]</p>\n"
+    },
+    {
+      "id": 1798,
+      "author": "Tobi",
+      "date": "2010-08-19T07:39:18Z",
+      "kind": "comment",
+      "html": "<p>http://twitter.com/cperciva/status/21085691559</p>\n"
+    },
+    {
+      "id": 1799,
+      "author": "Adam Leventhal leaves Oracle : Andrade",
+      "url": "http://andrade.blogaliza.org/2010/08/19/adam-leventhal-leaves-oracle/",
+      "date": "2010-08-19T07:49:50Z",
+      "kind": "pingback",
+      "html": "<p>[...] Leventhal is one of the three authors of Dtrace, a dynamic tracing facility in Solaris 10. In this post he announces that August 20th is his last day in [...]</p>\n"
+    },
+    {
+      "id": 1800,
+      "author": "Nigel Smith",
+      "url": "http://nwsmith.blogspot.com/",
+      "date": "2010-08-19T08:45:28Z",
+      "kind": "comment",
+      "html": "<p>Adam, this looks like a good opportunity to thank you for the excellent work you have done on (Open)Solaris, and to wish you continued success in the future.</p>\n"
+    },
+    {
+      "id": 1801,
+      "author": "Frederik",
+      "date": "2010-08-19T10:53:38Z",
+      "kind": "comment",
+      "html": "<p>Adam, me to would like to thank you for all the innovation you brought us. And more important that we could actually see how it was done and learn something from it by opening the source. (I know that was not your decision)<br>\nPerhaps you could contribute to the various \"open\" solaris projects currently really taking off or FreeBSD for that matter.<br>\nBest of luck to you.</p>\n<p>Please mail me regarding a project that could use your help.</p>\n"
+    },
+    {
+      "id": 1802,
+      "author": "Frank Ch. Eigler",
+      "date": "2010-08-19T12:08:54Z",
+      "kind": "comment",
+      "html": "<p>Good luck, Adam.</p>\n"
+    },
+    {
+      "id": 1803,
+      "author": "Patrick Finch",
+      "url": "http://patrickfinch.com",
+      "date": "2010-08-19T12:39:14Z",
+      "kind": "comment",
+      "html": "<p>Oracle seems to be bleeding talent.  All the very best for your next move - I look forward to hearing all about it.</p>\n"
+    },
+    {
+      "id": 1804,
+      "author": "anonymous supporter",
+      "date": "2010-08-19T14:00:50Z",
+      "kind": "comment",
+      "html": "<p>Let's go Linux!</p>\n"
+    },
+    {
+      "id": 1805,
+      "author": "Andy",
+      "date": "2010-08-19T14:42:29Z",
+      "kind": "comment",
+      "html": "<p>Good luck Adam, I understand believe me lots of us including me have found greener pastures since Oracle's takeover, Andy</p>\n"
+    },
+    {
+      "id": 1806,
+      "author": "TimC",
+      "date": "2010-08-19T15:51:42Z",
+      "kind": "comment",
+      "html": "<p>One other thing... the front page of dtrace.org still links back to your sun blog.  Perhaps it could be updated to this one?</p>\n"
+    },
+    {
+      "id": 1807,
+      "author": "Devon O'Dell",
+      "url": "http://www.sitetronics.com",
+      "date": "2010-08-19T16:41:43Z",
+      "kind": "comment",
+      "html": "<p>Hey Adam, was great to know you in the heyday of OpenSolaris -- I'm sure it's slightly bittersweet, but I wish you the best in your upcoming ventures!</p>\n<p>--dho</p>\n"
+    },
+    {
+      "id": 1808,
+      "author": "Rich Teer",
+      "url": "http://www.rite-group.com/rich",
+      "date": "2010-08-19T17:11:52Z",
+      "kind": "comment",
+      "html": "<p>Another one bites the dust...  Happy trails, and thanks for all your contributions to [Open]Solaris the last few years.</p>\n"
+    },
+    {
+      "id": 1809,
+      "author": "Mark Mayo",
+      "date": "2010-08-19T18:57:21Z",
+      "kind": "comment",
+      "html": "<p>Good luck Adam, and thanks for all the fish!</p>\n"
+    },
+    {
+      "id": 1810,
+      "author": "links for 2010-08-19 « that dismal science",
+      "url": "http://dismalsci.wordpress.com/2010/08/19/links-for-2010-08-19/",
+      "date": "2010-08-19T19:32:17Z",
+      "kind": "pingback",
+      "html": "<p>[...] Adam Leventhal's blog » Leaving Oracle (tags: oracle google solaris) [...]</p>\n"
+    },
+    {
+      "id": 1811,
+      "author": "Graham",
+      "date": "2010-08-19T21:46:15Z",
+      "kind": "comment",
+      "html": "<p>Hi Adam,<br>\nbest wishes for the future.<br>\nI was wondering whatever happened to the BP rewrite feature for ZFS. I guess Oracle had other priorities. I don't suppose there's any chance you'll be pushing that code to the gate before you go? Ha Ha</p>\n"
+    },
+    {
+      "id": 1812,
+      "parent": 1811,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2010-08-19T21:53:41Z",
+      "kind": "comment",
+      "html": "<p>Hey Graham,<br>\nYou gotta bug Matt Ahrens -- that was never on me.</p>\n"
+    },
+    {
+      "id": 1813,
+      "author": "Sid Wilroy",
+      "date": "2010-08-20T02:04:18Z",
+      "kind": "comment",
+      "html": "<p>I wonder if Rickey C. Weisner is still there? I had hoped the acquisition by Oracle would breath new life into SUN; but the realization seems to be the demise of SUN engineers hard work.<br>\nVery disappointing..</p>\n"
+    },
+    {
+      "id": 1814,
+      "author": "The Observation Deck » The liberation of OpenSolaris",
+      "url": "http://dtrace.org/blogs/bmc/2010/08/19/the-liberation-of-opensolaris/",
+      "date": "2010-08-20T04:49:32Z",
+      "kind": "pingback",
+      "html": "<p>[...] talent has been indisputably and irrevocably broken — as most recently demonstrated by the departure of my former colleague, Adam [...]</p>\n"
+    },
+    {
+      "id": 1815,
+      "author": "DTrace, Illumos e Google. Cosa pensa veramente Oracle? | bruno trani dot info",
+      "url": "http://www.brunotrani.info/blog/2010/08/20/dtrace-illumos-e-google-cosa-pensa-veramente-oracle-2/",
+      "date": "2010-08-20T08:42:29Z",
+      "kind": "pingback",
+      "html": "<p>[...] in luglio. Al momento rimane ancora al lavoro il solo Mike Shapiro del trio originale. Nell’articolo in cui parla della sua partenza, Leventhal, descrive gli ultimi anni in Sun come eccezionali per il [...]</p>\n"
+    },
+    {
+      "id": 1816,
+      "author": "DTrace, Illumos e Google. Cosa pensa veramente Oracle? | Giovanni Raco",
+      "url": "http://www.giovanniraco.com/?p=30651",
+      "date": "2010-08-20T10:00:52Z",
+      "kind": "pingback",
+      "html": "<p>[...] in luglio. Al momento rimane ancora al lavoro il solo Mike Shapiro del trio originale. Nell’articolo in cui parla della sua partenza, Leventhal, descrive gli ultimi anni in Sun come eccezionali per il [...]</p>\n"
+    },
+    {
+      "id": 1817,
+      "author": "» DTrace, Illumos e Google. Cosa pensa veramente Oracle?",
+      "url": "http://www.bestnotizie.com/84347/dtrace-illumos-e-google-cosa-pensa-veramente-oracle/",
+      "date": "2010-08-20T11:00:41Z",
+      "kind": "pingback",
+      "html": "<p>[...] in luglio. Al momento rimane ancora al lavoro il solo Mike Shapiro del trio originale. Nell’articolo in cui parla della sua partenza, Leventhal, descrive gli ultimi anni in Sun come eccezionali per il [...]</p>\n"
+    },
+    {
+      "id": 1818,
+      "author": "Richard Bruce",
+      "date": "2010-08-20T15:06:52Z",
+      "kind": "comment",
+      "html": "<p>Adam, I wish you all the best on your future endeavors. Discovering ZFS and finding your blog posts inspired me to become an Opensolaris fan and subsequent Fishworks supporter in our enterprise.  The changes over the past year are saddening.  Hopefully the dispersed Sun talent will find ways to continue to create amazing things.</p>\n"
+    },
+    {
+      "id": 1819,
+      "parent": 1818,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2010-08-20T17:59:43Z",
+      "kind": "comment",
+      "html": "<p>Richard, I was so pleased to read your comment. Stay tuned for me, Bryan, and the rest of the ex-Sun folks to create some more useful stuff for you!</p>\n"
+    },
+    {
+      "id": 1820,
+      "author": "Robert Milkowski",
+      "url": "http://milek.blogspot.com",
+      "date": "2010-08-20T18:26:02Z",
+      "kind": "comment",
+      "html": "<p>Hmmm... big loss for Oracle, great win for your new employer! :)</p>\n<p>Hopefully you will be still working on Solaris one way or the other.</p>\n<p>All the best!</p>\n"
+    },
+    {
+      "id": 1823,
+      "author": "Dave McDorman",
+      "date": "2010-08-21T04:32:15Z",
+      "kind": "comment",
+      "html": "<p>Adam,</p>\n<p>This is *not* a surprize... If not for Fishworks you'd have done this several years ago.</p>\n<p>So, I can't wait to see who snaps you up or who you link up with to create something amazing.... again.</p>\n"
+    },
+    {
+      "id": 1825,
+      "author": "Danhua Shao",
+      "date": "2010-08-21T06:22:35Z",
+      "kind": "comment",
+      "html": "<p>Hi, Adam,</p>\n<p>Thanks for your valuable helps on my NFSv3 and NFSv4.1 DTrace project. (You are busy in Fishworks at that time). Hope to see our name on some amazing projects in near future.</p>\n"
+    },
+    {
+      "id": 1828,
+      "author": "Chris Mellor",
+      "date": "2010-08-22T08:30:59Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\nBest wishes for the future and thanks for all your feisty, illuminating and authoritative comments to me in the past about Fishworks, Solaris and ZFS.<br>\nChris Mellor,<br>\nThe Register.</p>\n"
+    },
+    {
+      "id": 1830,
+      "parent": 1828,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2010-08-23T06:06:56Z",
+      "kind": "comment",
+      "html": "<p>@Chris And thank you for the steady stream of articles; I'll be all the most interested as an outsider :-)</p>\n"
+    },
+    {
+      "id": 1832,
+      "author": "Adam Leventhal's blog » Joining Delphix",
+      "url": "http://dtrace.org/blogs/ahl/2010/08/24/delphix/",
+      "date": "2010-08-24T05:19:24Z",
+      "kind": "pingback",
+      "html": "<p>[...] I wrote about last time, I’ve left Oracle. What I was looking for in my next gig was technology that excites me, excellent management, and a [...]</p>\n"
+    }
+  ]
+}

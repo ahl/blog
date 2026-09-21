@@ -1,0 +1,258 @@
+{
+  "post": "/2011/10/05/dtrace-for-linux-2/",
+  "count": 32,
+  "comments": [
+    {
+      "id": 2108,
+      "author": "Derek",
+      "date": "2011-10-06T14:46:48Z",
+      "kind": "comment",
+      "html": "<p>Awesome news. :-) Now all we need are SMF and ZFS... or I could just stick to Solaris. ;)</p>\n"
+    },
+    {
+      "id": 2109,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-06T15:12:21Z",
+      "kind": "comment",
+      "html": "<p>Or Oracle could rebrand Solaris as the new OEL and we could all call it a day...</p>\n"
+    },
+    {
+      "id": 2110,
+      "author": "Chris Samuel",
+      "url": "http://www.csamuel.org/",
+      "date": "2011-10-06T20:12:29Z",
+      "kind": "comment",
+      "html": "<p>@Derek: ZFS for Linux is already on the way, LLNL require it for the 50PB Lustre filesystem backends for their planned 10 Petaflop  BlueGene/Q supercomputer Sequoia..</p>\n<p>http://zfsonlinux.org/</p>\n"
+    },
+    {
+      "id": 2111,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-06T21:24:24Z",
+      "kind": "comment",
+      "html": "<p>@Chris I wasn't aware of that project, and while it's that there are some ports of the illumos ZFS source base to Linux, what would really be interesting is if Oracle decided to expose the last year's worth of development for a Linux port.</p>\n"
+    },
+    {
+      "id": 2112,
+      "author": "bdha",
+      "url": "http://mirrorshades.net",
+      "date": "2011-10-06T21:34:45Z",
+      "kind": "comment",
+      "html": "<p>I've used the most recent RC from zfsonlinux.org under a decent amount of load on EC2 for the last several months. It's worked quite well.</p>\n<p>DTrace on Linux is extremely exciting.</p>\n"
+    },
+    {
+      "id": 2113,
+      "author": "fashion jewelry",
+      "url": "http://www.jewellerybest.com/",
+      "date": "2011-10-07T01:05:43Z",
+      "kind": "comment",
+      "html": "<p>Awesome news.  Now all we need are SMF and ZFS… or I could just stick to Solaris.</p>\n"
+    },
+    {
+      "id": 2114,
+      "author": "Sum Yung Gai",
+      "date": "2011-10-07T17:10:52Z",
+      "kind": "comment",
+      "html": "<p>\"Oracle apparently thinks that the CDDL license will make DTrace too toxic for other Linux vendors to touch\"</p>\n<p>This was the original reason for Sun writing and using the CDDL, according to Danese Cooper, who worked at Sun at the time this was done.  It was specifically to prevent use of CDDL code in Linux or other GPL'd code, which Sun execs viewed as a direct threat to Slowaris.  Oracle execs don't seem to view Linux as an enemy, but rather Red Hat, which they're scared of.  They don't want Red Hat to be able to include DTrace.</p>\n<p>Problem for Oracle:  to comply with the GPL v2, they essentially *have* to allow others to distribute any part of the code that links with Linux itself (the kernel).  Thus, Red Hat can do it with RHEL, and thus presumably CentOS and others (Slackware, et. al.?) could include it as well.  It'd be the userland stuff that might need to be rewritten, depending on how Oracle execs decide to license the userland code.</p>\n"
+    },
+    {
+      "id": 2115,
+      "author": "Shane",
+      "date": "2011-10-07T18:59:05Z",
+      "kind": "comment",
+      "html": "<p>ZFS on Linux won't be necessary with BTRFS on the way.</p>\n"
+    },
+    {
+      "id": 2116,
+      "parent": 2114,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-08T00:58:09Z",
+      "kind": "comment",
+      "html": "<p>It is so disappointing that these conversations inevitably circle the drain around licensing rather than focusing on technology. Danese Cooper did work at Sun at the time. I did as well. I'm fairly certain her statements are not definitive.</p>\n<p>As I wrote above, Oracle will be using the CDDL for the kernel modules, libraries, and commands; they will use the GPL for a few header files and some kernel-level hooks. If you find that Oracle is out of compliance with the GPL then I suggest you find someone with standing who can demonstrate damages, and have that person take action. Let me know when that happens.</p>\n"
+    },
+    {
+      "id": 2117,
+      "parent": 2115,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-08T01:00:40Z",
+      "kind": "comment",
+      "html": "<p>... in the same way that DTrace isn't necessary because of SystemTap is my guess. It's taken 10 years to get ZFS where it is today; many may prefer not to wait for BTRFS to be completed or reach stability.</p>\n"
+    },
+    {
+      "id": 2118,
+      "author": "Keith Wesolowski",
+      "date": "2011-10-08T03:13:52Z",
+      "kind": "comment",
+      "html": "<p>This sounds like typical Oracle:</p>\n<p>1. Some VP puts some collection of spit and baling wire in front of Larry because he thinks he'll get a big bonus.</p>\n<p>2. Larry likes the idea, even though he's really too dumb to understand it, and tells the VP, most of whose engineers have never heard of it, that he's announcing it as a product next week.</p>\n<p>3. Months pass, during which analysts completely forget to ever ask about it again, even though the initial ship date has long since passed.</p>\n<p>4. Something using the same set of keywords but bearing little or no technological resemblance to the product that was initially announced is quietly shipped to three customers.</p>\n<p>I'm embarrassed for the people who still work for this worthless company.  And they ought to be ashamed of themselves for lying there and taking it.  I'm also ashamed for you, who ought to be indignant that Larry is using your work to promote a piece of garbage he'll probably never ship while doing everything he can to make sure it remains of absolutely no benefit to anyone except himself.</p>\n<p>DTrace is dead, just like Solaris.  It's sad, but move on.  It's not like you did anything to prevent it.</p>\n"
+    },
+    {
+      "id": 2119,
+      "parent": 2118,
+      "author": "Bryan Cantrill",
+      "url": "http://dtrace.org/blogs/bmc",
+      "date": "2011-10-08T03:40:17Z",
+      "kind": "comment",
+      "html": "<p>Good to see you back in the saddle, Mr. Mayor!</p>\n"
+    },
+    {
+      "id": 2120,
+      "author": "Han Solo",
+      "date": "2011-10-08T04:48:09Z",
+      "kind": "comment",
+      "html": "<p>You can keep it.</p>\n<p>Linux already has SystemTap.</p>\n<p>Thanks but no thanks.</p>\n"
+    },
+    {
+      "id": 2121,
+      "parent": 2120,
+      "author": "Brendan Gregg",
+      "date": "2011-10-08T05:19:48Z",
+      "kind": "comment",
+      "html": "<p>Have you used them both?</p>\n"
+    },
+    {
+      "id": 2122,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-08T05:19:53Z",
+      "kind": "comment",
+      "html": "<p>Welcome, slashdotters. If you want to wax vitriolic about licensing, do it somewhere else. If you want to talk about various technologies, great. If you want to share your opinions of Oracle, great. Ad hominem attacks against your author are a privilege allotted exclusively to former colleagues.</p>\n"
+    },
+    {
+      "id": 2123,
+      "author": "Jonathan Wilson",
+      "date": "2011-10-08T05:53:29Z",
+      "kind": "comment",
+      "html": "<p>Because the CDDL is an OSI-approved open source license, anyone is free to take any and all code Oracle releases (GPL or CDDL) and use/modify/distribute it.</p>\n<p>If Oracle thought they would be sued by Linux kernel developers for mixing CDDL and GPL code, they would not be doing it. So the only thing preventing RedHat or SUSE from using whatever Oracle releases is whether their own legal teams disagree with the Oracle legal assessment of the risks of being sued for mixing GPL and CDDL code.</p>\n"
+    },
+    {
+      "id": 2124,
+      "parent": 2120,
+      "author": "Keith Wesolowski",
+      "date": "2011-10-08T07:02:38Z",
+      "kind": "comment",
+      "html": "<p>I really hope you're a troll, because SystemTap is complete garbage.  The point of all this, and the real tragedy of all of it, is that DTrace isn't coming to Linux at all.  Something Oracle will call DTrace, which may or may not end up resembling DTrace itself, is coming to *Oracle Linux*, which is like saying the Fed is going to lower interest rates: they don't mean *your* interest rates, silly!  The only people who will be using it are people who've paid Larry for the privilege of using a tool created by our esteemed author, his colleague Mr. Cantrill, and the man who shall not be named because he deserves whatever Satan has in store for people who throw their friends to the wolves.  Also unclear is just who is doing this \"porting\" and who will be planning to support, maintain, and extend the result.  It's not like Oracle's Linux division is known for having a bunch of superstars on staff; Oracle is the land of the cog and the home of the interchangeable part.</p>\n<p>SystemTap is not a substitute for DTrace; it's the cheapest of cheap knockoffs.  Trust me, I've tried to use it and ended up stripping the whole thing down to the exception handler in an effort to build atop something that's not hopelessly broken.  Let's see, imagine a stone cylinder, attached to another stone cylinder by some sort of rod... what a bloody waste of time.  Quite honestly, Linux's BUG() mechanism is a better starting point for a tracing framework than SystemTap.</p>\n<p>No, if SystemTap were any good I wouldn't care.  But anyone who's used it knows it's not.  My money says you'll never find a conforming DTrace implementation in any supported GNU/Linux distribution but Oracle's (part of me wants to go ahead and discard the qualifiers because I don't think I'm giving up much), but I guess we can give it 6 months and see what happens.</p>\n"
+    },
+    {
+      "id": 2125,
+      "parent": 2116,
+      "author": "David Gerard",
+      "url": "http://newstechnica.com",
+      "date": "2011-10-08T09:10:48Z",
+      "kind": "comment",
+      "html": "<p>Danese was largely responsible for the CDDL, wasn't she? She'd be as close to definitive as is available.</p>\n"
+    },
+    {
+      "id": 2126,
+      "parent": 2116,
+      "author": "David Gerard",
+      "url": "http://newstechnica.com",
+      "date": "2011-10-08T09:11:47Z",
+      "kind": "comment",
+      "html": "<p>Reponsible for implementation, I mean, not the original initiative.</p>\n"
+    },
+    {
+      "id": 2127,
+      "parent": 2124,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-08T15:20:31Z",
+      "kind": "comment",
+      "html": "<p>... I'm just relieved that you hold me in ostensible esteem.</p>\n"
+    },
+    {
+      "id": 2128,
+      "parent": 2126,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-08T15:29:14Z",
+      "kind": "comment",
+      "html": "<p>In WWII Ronald Reagan was responsible for reviewing film of the liberation of the concentration camps. He later claimed on multiple occasions to have been there in person. This wasn't mendacity or dementia, just the nature of human memory.</p>\n"
+    },
+    {
+      "id": 2129,
+      "author": "Dimo",
+      "date": "2011-10-08T19:54:27Z",
+      "kind": "comment",
+      "html": "<p>Glad to know fish folk are as eloquent and active as ever :)</p>\n"
+    },
+    {
+      "id": 2130,
+      "parent": 2123,
+      "author": "Terry Lambert",
+      "date": "2011-10-09T02:17:31Z",
+      "kind": "comment",
+      "html": "<p>The licensing issue is the same one we faced when we (when \"we\" meant \"Apple\") ported DTrace to Mac OS X.  It's ultimately the issue that killed ZFS on Mac OS X.</p>\n<p>There are parts of the kernel that are severable, and parts that are not, for performance/operational reasons.  The biggest is the trap handler for the FBT and SDT2.0 (cost-free SDT) interposition, which relies on an interrupt frequently shared with debuggers.  Even if you could make it hookable without a performance penalty, on something like Mac OS X, it's going to be shared by chud/shark developer tools, and it's got to at least be possible to runtime select one or the other.</p>\n<p>The end run around binary only modules on the Linux side of things has been to declare kernel internal interfaces to be exported GPL'ed -- one of the reasons there is no reasonable binary nVidia driver for Linux systems, and therefore no nVidia Wayland support (Wayland is one of the more promising technologies potentially supplant the aging X11).</p>\n<p>If they do release in CDDL, and hook deeply -- I was very involved in the kernel part of the Mac OS X port, and they will in fact need to do so -- those deep hooks can be declared GPL'ed or refactored to be DTrace-unfriendly, should they not simply dual-license the code.</p>\n<p>There is no discussion of technology in the Linux community that does not involve a discussion of license.  In this particular case, I come down on the side of the community</p>\n<p>If Oracle dual-licenses the code rather than trying to carry around CDDL'ed modules, they can expect to have a great deal of help from the Linux community (which includes me - I work at Google these days).</p>\n<p>--- Terry</p>\n"
+    },
+    {
+      "id": 2131,
+      "parent": 2124,
+      "author": "Terry Lambert",
+      "date": "2011-10-09T04:37:25Z",
+      "kind": "comment",
+      "html": "<p>I have to agree with Keith. We recently has an issue where gettimeofday() was being called on Chrome OS an absurd number of times a second.  On Mac OS X, which has dtrace, we were able to do a speculative trace and get the call stack up into user space to pinpoint the responsible call site.</p>\n<p>Linux's systemtap operates at the boundary, and so is useless for something like this, where you have a system call, and you want a backtrace int a plugin loaded into a binary in user space that's calling a particular system call.</p>\n<p>As another example, it's possible to identify call sites for system calls resulting in an error.  Definitionally, these are place where you are doing (potentially) a metric buttload of work on something you could apriori know was going to fail.  The fastest work you can do is the work you don't do because it would result in failure.</p>\n<p>We identified that the majority of failures was a case of something resulting in an fd being created by open/socket/etc.... some 900 times, but close being called some 70,000 times.  Using a speculative trace, it was possible to pinpoint the place in Chrome where the close call on an already closed fd was being called (speculate, and only trace stacks for closes that result in errno=EBADF).  This is a basically impossible task on a Linux system without a DTrace analogue.</p>\n<p>The systemtap facility has utility, it's better to have it than not, and it's orders of magnitude better than what existed before (nothing), but it falls orders of magnitude again below the utility of DTrace, even for just watching something run and seciding to reoder elements in a PATH environment variable to reduce path lookup misses.</p>\n<p>-- Terry</p>\n"
+    },
+    {
+      "id": 2132,
+      "author": "UX-admin",
+      "date": "2011-10-09T15:01:52Z",
+      "kind": "comment",
+      "html": "<p>...And indeed, the freetard outrage on Slashdot was very great; I think it is cheaper for us who are on Solaris to just stay on Solaris and keep enjoying the inherent luxuries of DTrace and ZFS without \"waiting for Godot\".</p>\n<p>My take on the whole debacle is that Oracle is no longer relevant in either Linux or Solaris space: thanks to the efforts of you and Bryan, and Eric and Garrett and other Sun engineers who left, the rest of us have become inspired to roll out our own code and our own versions of the SunOS operating system. The point is that we are no longer dependent upon Oracle, and Oracle has made themselves irrelevant to those of us who would really use Solaris and push SunOS to the limit.</p>\n<p>And if I have seen further and have been able to achieve more, it is because I am standing on your collective shoulders... the shoulders of giants.</p>\n<p>Your work and your return to the Bell Labs' culture and mentality are a tremendous inspiration. Before you guys decided to split off and do your own OS, maintaining one's own kernel code, packaging subsystem and installer apart from the direction Oracle is taking was deemed largely impractical; you guys showed that it can be done and that it works. And for leading the way, those of us that are hardcore about Solaris owe you a debt of gratitude.</p>\n"
+    },
+    {
+      "id": 2133,
+      "parent": 2132,
+      "author": "Keith Wesolowski",
+      "date": "2011-10-10T03:41:12Z",
+      "kind": "comment",
+      "html": "<p>What a lovely fantasy land you live in; perhaps you'd consider a merger with Crazytown?</p>\n<p>Meanwhile, in the real world, you can rest assured that if Joyent, Delphix, or anyone else becomes a serious competitor to Oracle in a market or technology area it cares about, they will disappear in a flash of cash and anyone who wants to continue work on a SunOS-based operating platform will have to start all over... again.</p>\n<p>There are only two kinds of good things in the world: those that have been destroyed by Oracle, and those that will be.</p>\n"
+    },
+    {
+      "id": 2134,
+      "author": "UX-admin",
+      "date": "2011-10-10T21:32:29Z",
+      "kind": "comment",
+      "html": "<p>Dear Keith, that is a lot of vitriol from a former Solaris kernel engineer. I would almost pay to sit down with you and hear what caused all that vitriol, although I have a pretty good idea.</p>\n<p>Now, about Oracle: it appears to me you misunderstand our motives: we are not going to compete with Oracle. Oracle simply does not matter, because Solaris 11 is unusable with IPS in it.</p>\n<p>This is not about competing with Oracle. This is about rolling out one's own version of Solaris, complete with SVR4 pkgadd(1M), JumpStart anf Flash. Oracle can keep their \"Oracle Solaris\". We do not need them. We can roll out our own Solaris, and fix our own kernel code. We can develop our own software for it.</p>\n<p>Oracle can stick their \"Solaris 11\" and IPS where the Sun does not shine.</p>\n"
+    },
+    {
+      "id": 2135,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-10-10T22:50:47Z",
+      "kind": "comment",
+      "html": "<p>After trying out DTrace on OEL, I wrote this follow-up called Oracle’s port: this is not DTrace.<br>\nhttp://dtrace.org/blogs/ahl/2011/10/10/oel-this-is-not-dtrace/</p>\n"
+    },
+    {
+      "id": 2137,
+      "author": "Seth",
+      "date": "2011-10-10T23:16:58Z",
+      "kind": "comment",
+      "html": "<p>This is fantastic entertainment. Thanks, guys.</p>\n"
+    },
+    {
+      "id": 2148,
+      "parent": 2134,
+      "author": "Keith Wesolowski",
+      "date": "2011-10-11T18:59:11Z",
+      "kind": "comment",
+      "html": "<p>If you're ever in San Francisco, I'll join you for a beer and tell you all about it.  I hope you're right about the future of non-Oracle Solaris; it will be a challenge to create a self-sustaining ecosystem that will remain innovative and relevant for an extended time.  Whether it's legal threats from Oracle or diversion of talent to Linux or simply lack of capital to build big new things, there are a lot of bombs to dodge on the way to that world.</p>\n"
+    },
+    {
+      "id": 2151,
+      "parent": 2148,
+      "author": "UX-admin",
+      "date": "2011-10-12T18:57:47Z",
+      "kind": "comment",
+      "html": "<p>You'll have to leave me your new e-mail address. Adam has mine, so he can supply it to you. Next time I'm in California, I will be looking forward to \"storytime\". And beer.</p>\n<p>Regarding Oracle, I do not concern myself with them any more. <br>\nThe only thing that matters is code, and that we can get automate everything that can be automated with a computer.</p>\n"
+    },
+    {
+      "id": 2186,
+      "author": "Ramon F. Herrera",
+      "date": "2011-11-10T18:03:43Z",
+      "kind": "comment",
+      "html": "<p>What needs to happen is the following: IBM, HP, RedHat and some big-leaguers like that port DTrace to Linux, AND give a lot of public crap to Oracle: \"freeloaders\", \"disrespect the OS community\", etc.</p>\n"
+    }
+  ]
+}

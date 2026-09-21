@@ -1,0 +1,44 @@
+{
+  "post": "/2011/05/20/another-reason-apple-misses-zfs/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 2072,
+      "author": "Rich Teer",
+      "date": "2011-05-20T17:06:26Z",
+      "kind": "comment",
+      "html": "<p>It is indeed a crying shame--a crime even--that Apple decided to ditch ZFS. Their reasons were no doubt idiotic (and I'm typing this on my iMac, which I quite like).</p>\n"
+    },
+    {
+      "id": 2073,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2011-05-21T00:25:22Z",
+      "kind": "comment",
+      "html": "<p>I hope the reasons come to light at some point, but in both Apple and Oracle there's a real culture of secrecy...</p>\n"
+    },
+    {
+      "id": 2074,
+      "author": "Fazal Majid",
+      "date": "2011-05-21T14:30:29Z",
+      "kind": "comment",
+      "html": "<p>I agree dropping ZFS was a crying shame, but to be fair to Apple, no one sued Sun for DTrace, but NetApp did for ZFS. Thus Apple had some grounds to worry about indemnification, and they probably don't have as extensive a patent portfolio as Sun in server-side technology to be able to countersue NetApp.</p>\n"
+    },
+    {
+      "id": 2075,
+      "author": "rektide",
+      "url": "http://rektide.voodoowarez.com",
+      "date": "2011-05-24T21:05:30Z",
+      "kind": "comment",
+      "html": "<p>Just to name one more player in this space, DragonflyBSD has a swapcache.  From the man page:<br>\n\"swapcache is a system capability which allows a solid state disk (SSD) in a swap space configuration to be used to cache clean filesystem data and meta-data in addition to its normal function of backing anonymous memory.\"</p>\n"
+    },
+    {
+      "id": 2081,
+      "author": "Martin Englund",
+      "url": "http://blog.codenursery.com",
+      "date": "2011-06-05T17:32:46Z",
+      "kind": "comment",
+      "html": "<p>It looks like Ten's Complement (http://tenscomplement.com/) is going to release ZFS for Mac OS X:<br>\nhttp://www.zdnet.com/blog/storage/zfsmac-coming-soon/1316</p>\n"
+    }
+  ]
+}

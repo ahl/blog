@@ -1,0 +1,39 @@
+{
+  "post": "/2012/04/24/btrace-dtrace-for-java-ish/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 2248,
+      "author": "Jaroslav Bachorik",
+      "url": "http://kenai.com/projects/btrace",
+      "date": "2012-04-24T20:11:21Z",
+      "kind": "comment",
+      "html": "<p>Hi Adam, thanks for an excellent article. I am glad you find BTrace useful if a bit clumsy.</p>\n<p>I wonder - would you be willing contribute to the BTrace project and participate in creating a new syntax for tracing scripts?</p>\n"
+    },
+    {
+      "id": 2249,
+      "parent": 2248,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2012-04-24T20:48:50Z",
+      "kind": "comment",
+      "html": "<p>Hey Jaroslav, BTrace is a great tool! I'd definitely be interested in participating.</p>\n"
+    },
+    {
+      "id": 2251,
+      "parent": 2248,
+      "author": "Joachim Haagen Skeie",
+      "url": "http://haagen.name",
+      "date": "2012-04-26T15:55:17Z",
+      "kind": "comment",
+      "html": "<p>It would be great if this new syntax was in addition to the .class-based BTrace scripts. Being able to write your scripts using Java makes these scripts very powerful and open up the possibility for fine-grained probes into your running application.</p>\n<p>But having an option to supply a config file with that specifies some \"standard\" probes, would be great as well :)</p>\n"
+    },
+    {
+      "id": 2252,
+      "author": "Angelo",
+      "date": "2012-05-03T18:00:45Z",
+      "kind": "comment",
+      "html": "<p>Hey Adam,</p>\n<p>Great you are thinking on these lines. Some time ago I worked on something similar. I called it DFrame. It never got published but I did write up a white paper about it. <br>\nSee: http://bit.ly/DFrame</p>\n<p>We used my framework to instrument some pretty hefty workload. It was not perfect but did the job.</p>\n<p>Let me know if I can help in any way.</p>\n<p>-Angelo</p>\n"
+    }
+  ]
+}

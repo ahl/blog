@@ -1,0 +1,61 @@
+{
+  "post": "/2008/10/20/hybrid-storage-pool-goes-glossy/",
+  "count": 7,
+  "comments": [
+    {
+      "id": 1316,
+      "author": "abelian",
+      "date": "2008-10-20T13:32:45Z",
+      "kind": "comment",
+      "html": "<p>Hello Adam,<br>\n   I read this last week and it is a good discussion.<br>\n   One thing though, the sidebar mentions 1 SSD ( $1000) and 30 <br>\n1T SATA drives ($150 each) = $5500. <br>\n   If one applies that to the J4500 JBOD we have 48*$150+$1000.= $8200. <br>\n   Including 3 years of Platinum support, the online price is:<br>\n$62,000. <br>\n   Thus, the disks only account for 13% of the end-user cost. <br>\n    Sidebars can be dangerous.</p>\n"
+    },
+    {
+      "id": 1317,
+      "author": "Roger",
+      "date": "2008-10-20T13:38:09Z",
+      "kind": "comment",
+      "html": "<p>Adam,<br>\n  I've been looking forward to using the L2ARC and ZIL in a project.<br>\nAny idea when Sun's going to sell HSPs ( other than SSDs in a few blades)?<br>\n Looking forward to an updated 4540 with SSD bays, or 4450 with SSD option instead of SAS coupled with a J4000 JBOD.</p>\n"
+    },
+    {
+      "id": 1318,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-10-20T18:13:52Z",
+      "kind": "comment",
+      "html": "<p>@abelian No disagreement there. We price list a 1TB 7200 RPM drive for the J4400 JBOD for $689. Fortunately, the numbers are also wrong for 15K RPM drives, and the math works out about the same. Maybe calling it \"terrific\" was a bit over-adulatory.<br>\n@Roger I can't give you dates, but it's not going to be long now. We're not going to be quiet about it so keep an eye on sun.com, and I'll certainly be chiming in once we ship.</p>\n"
+    },
+    {
+      "id": 1319,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-10-20T18:27:08Z",
+      "kind": "comment",
+      "html": "<p>@abelian To follow up, I did the math with our price-listed numbers for the 15K RPM, 300GB SAS and 7200 RPM, 1TB SATA drives. I get the conventional pool weighing in at $74,900 and the HSP at about $21,670 depending on how many SSDs you want. This, of course, ignores the cost of wrapping those additional 70 drives in arrays, rack space, etc. It's not quite order of magnitude cost difference from the paper, but the HSP is still less than a third of the cost and that's before you house, rack, power, and cool everything.</p>\n"
+    },
+    {
+      "id": 1320,
+      "author": "abelian",
+      "date": "2008-10-20T19:06:06Z",
+      "kind": "comment",
+      "html": "<p>Thanks Adam,<br>\n   The next question then, is SSD or FusionIO (or equivalent). <br>\n   The price/performance you mention is based on a target of <br>\n   ~30,000 Iops for L2ARC?<br>\n    Your ZIL will be smaller, so maybe mirrored 80 GB FusionIO<br>\n(100,000 Iops each).<br>\n     Still need density of 7200 RPM disks at the backend though, not for IOPS but for archiving.  <br>\n     I suppose I see the L2ARC and ZIL as additional expenditures to make NAS/Databases run faster and not to reduce the number of rotating disks on the backend. <br>\n     That's why I like what you guys are doing. <br>\n      Perfect box from Sun:<br>\n      4 CPU ( 8 to 24 core) Thumper with 16 Read-Biased SSD, Mirrored Write Biased SSD or FusionIO, Dual 10 Gigabit Ethernet Link Aggregated, and 40 onboard 1.5T 7200 RPM SATA. <br>\n       Essentially an HP DL580 G5 with 7 built-in SAS/SATA controllers. <br>\n       Of course, OpenSolaris too. :) <br>\nKeep up the great work.<br>\n     The</p>\n"
+    },
+    {
+      "id": 1321,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2008-10-20T22:08:57Z",
+      "kind": "comment",
+      "html": "<p>@abelian There are good reasons to use either SSDs or PCI card flash products. For example, SSDs have the attractive property of being scalable, naturally dual-attached, and relatively cheaper. PCI cards can be a bit faster, consume precious slot budget which you would likely need for network cards and HBAs.<br>\nI like your idea for a perfect NAS box, but I'd like to see a handful of read-optimized SSDs with larger capacity: say 100GB or more each. In any case, that hybrid storage pool built on ZFS would blow the competition out of the water on price, performance, power, and petabytes (well, terabytes, but I liked the alliteration).</p>\n"
+    },
+    {
+      "id": 1322,
+      "author": "abelian",
+      "date": "2008-10-20T23:15:23Z",
+      "kind": "comment",
+      "html": "<p>When I said 16, I mean 16 drives = 2.56 Terabytes<br>\n16 X-25M 160 GB would do well. <br>\nXstore has 8, 10 and 24 drive 2.5 inch SAS enclosures that should work well externally. The miniJBOD is particularly interesting/cheap.  Would be nice to place them internally though. <br>\nI'll be doing some testing soon and keep you informed.<br>\nThanks for your poetry. <br>\nLooking forward to seeing the new products</p>\n"
+    }
+  ]
+}

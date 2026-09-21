@@ -1,0 +1,21 @@
+{
+  "post": "/2004/08/31/a-new-view-into-software/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1718,
+      "author": "Robert",
+      "date": "2004-08-31T12:57:04Z",
+      "kind": "comment",
+      "html": "<p>I can't wait to use it!<br>\nGreat work!</p>\n"
+    },
+    {
+      "id": 1719,
+      "author": "c0t0d0s0.org",
+      "url": "http://www.c0t0d0s0.org/index.php?p=86",
+      "date": "2004-09-07T04:03:48Z",
+      "kind": "comment",
+      "html": "<p>[Trackback] Ich kenne das Problem, in Programmen nach Fehler zu suchen, ja auch schon zur Gen�ge. Ich sitze beim Kunden, eine vom Kunden pr�ferierte Version eines Opensource-Tools funktioniert nicht richtig, und dann steht man erstmal da. Das Fehlersuchen ist dann...</p>\n"
+    }
+  ]
+}

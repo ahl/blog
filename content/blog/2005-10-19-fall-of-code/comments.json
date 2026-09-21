@@ -1,0 +1,22 @@
+{
+  "post": "/2005/10/19/fall-of-code/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1625,
+      "author": "Anonymous",
+      "date": "2005-10-20T19:16:34Z",
+      "kind": "comment",
+      "html": "<p>What ever happened with the Solaris Challenge? http://blogs.sun.com/roller/page/dp/?anchor=solaris_challenge_competiton_update</p>\n<p>The link to the competition is dead, and the last I heard mention of it, the winners \"are currently being contacted.\" http://forum.sun.com/thread.jspa?threadID=22659&amp;messageID=72479</p>\n"
+    },
+    {
+      "id": 1626,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2005-10-22T08:17:21Z",
+      "kind": "comment",
+      "html": "<p>Good question -- I'll investigate.</p>\n"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "post": "/2009/05/04/ss-7000-simulator-update-plus-virtualbox/",
+  "count": 12,
+  "comments": [
+    {
+      "id": 1258,
+      "author": "Mikael Gueck",
+      "url": "http://blog.gueck.com/",
+      "date": "2009-05-05T00:41:42Z",
+      "kind": "comment",
+      "html": "<p>Thanks, I have the appliance downloaded and was waiting to have some time on my hand so I could get it running on virtualbox, but now that you posted instructions it seems that I don't have to wait so long.</p>\n"
+    },
+    {
+      "id": 1259,
+      "author": "Fat Bloke",
+      "url": "http://blogs.sun.com/fatbloke",
+      "date": "2009-05-05T00:47:11Z",
+      "kind": "comment",
+      "html": "<p>Adam, <br>\nthe Sun Product Page (<a href=\"http://www.sun.com/storage/disk_systems/unified_storage/resources.jsp\" rel=\"nofollow ugc noopener noreferrer\">http://www.sun.com/storage/disk_systems/unified_storage/resources.jsp</a> ) makes no mention of the simulator working in VirtualBox. Plans to change that page?<br>\n- FB</p>\n"
+    },
+    {
+      "id": 1260,
+      "author": "Andy Holdaway",
+      "date": "2009-05-05T02:29:30Z",
+      "kind": "comment",
+      "html": "<p>Just downloaded the simulator, and it's still the old version without the .ovf file.  Any idea when the new version will be there?<br>\nAndy</p>\n"
+    },
+    {
+      "id": 1261,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-05-05T07:51:12Z",
+      "kind": "comment",
+      "html": "<p>I seem to have jumped the gun by a couple of hours, but the 2009.Q2.0.0 version is definitely available now for VirtualBox and VMware at the links listed.</p>\n"
+    },
+    {
+      "id": 1262,
+      "author": "dk",
+      "date": "2009-05-07T20:13:56Z",
+      "kind": "comment",
+      "html": "<p>The VirtualBox 2.2.2 host-only networking mode doesn't appear to provide a DNS proxy on the internal network.  How are you guys getting past the \"Configure DNS\" configuration step (screen 2 of 6 in the BUI)?  I'm not being allowed to continue unless the system gets a response from a valid DNS server.</p>\n"
+    },
+    {
+      "id": 1263,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-05-07T21:14:08Z",
+      "kind": "comment",
+      "html": "<p>@dk Fair question, but all I know on that front is that I used the settings I listed in the graphic above and everything worked fine.</p>\n"
+    },
+    {
+      "id": 1264,
+      "author": "Dick Davies",
+      "url": "http://number9.hellooperator.net/",
+      "date": "2009-05-08T13:21:41Z",
+      "kind": "comment",
+      "html": "<p>@dk You could try it bridged rather than host-only - then it should be able to directly reach the same DNS servers as the host OS.<br>\nVery glad to see virtual appliance support in Virtualbox by the way, that's going to make  it much more useful.</p>\n"
+    },
+    {
+      "id": 1265,
+      "author": "mael_",
+      "date": "2009-05-15T02:16:33Z",
+      "kind": "comment",
+      "html": "<p>I've downloaded the \"Sun Unified Storage Simulator 2009.Q2.0.0\" virtualbox image but I can't seem to make it work on my vista 64 with VBox 2.2.2.<br>\n1- importation failed with a crash of Vbox when it was importing the ss7000_b00.vmdk file and vbox crash with the following:<br>\nSignature du problème&nbsp;:<br>\nNom d’événement de problème:\tBEX64<br>\nNom de l’application:\tVBoxSVC.exe<br>\nVersion de l’application:\t2.2.2.0<br>\nHorodatage de l'application:\t49f5f0a2<br>\nNom du module par défaut:\tVBoxSVC.exe<br>\nVersion du module par défaut:\t2.2.2.0<br>\nHorodateur du module par défaut:\t49f5f0a2<br>\nDécalage de l’exception:\t00000000000f8b83<br>\nCode de l’exception:\tc000000d<br>\nDonnées d’exception:\t0000000000000000<br>\nVersion du système:\t6.0.6001.2.1.0.768.3<br>\nIdentificateur de paramètres régionaux:\t1036<br>\nInformation supplémentaire n°&nbsp;1:\t851c<br>\nInformation supplémentaire n°&nbsp;2:\t0a865bc5a05833e715200dce02325d3c<br>\nInformation supplémentaire n°&nbsp;3:\t4134<br>\nInformation supplémentaire n°&nbsp;4:\tda06290d59180562ef3be579a1ac45ab<br>\n2- I've tried to recreate the vm and import the disk manually based on the ovf informations. This way I can boot but the vm then crashes with a<br>\npanic[cpu0]/thread=fffffffffbc2c6a0: BAD TRAP: type=d (#gp General protection)...<br>\nHas anyone successfully managed to get the virtualbox image running on vista 64?<br>\nCheers</p>\n"
+    },
+    {
+      "id": 1266,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-05-15T10:07:49Z",
+      "kind": "comment",
+      "html": "<p>@mael This is known issue with VirtualBox Open Source Edition (OSE) which lacks a SATA controller. If you switch to the standard edition of VirtualBox it should work. There's another known import issue that you may be hitting; this will be fixed in the next release of VirtualBox expected soon.</p>\n"
+    },
+    {
+      "id": 1267,
+      "author": "mael_",
+      "date": "2009-05-15T13:30:47Z",
+      "kind": "comment",
+      "html": "<p>Thanks Adam for the answer.<br>\nI'm pretty sure I have the non OSE edition of virtual box 2.2.2 (I have seen the entry in the VBox Bug Tracker about this), so I guess I am hitting the other issue.<br>\nI'll be waiting for the new release then!</p>\n"
+    },
+    {
+      "id": 1268,
+      "author": "Jerome Haynes-Smith",
+      "date": "2009-05-29T03:34:10Z",
+      "kind": "comment",
+      "html": "<p>Hi Adam<br>\nYou mention in the comment on the 15th that you are aware of 'another known import issue that you may be hitting;' - I wonder if you could expand on that? <br>\nI have a problem importing into vb 2.2.2 - it seems to hang on import, and the strange thing is that if I try to repeat the import (after having tidied up the files etc), the import seems to fail at a different place next time. Sometimes it gets as far as 60%, other times, only 30%.<br>\nIs this the other issue you are aware of?<br>\nJ</p>\n"
+    },
+    {
+      "id": 1269,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-05-29T15:15:28Z",
+      "kind": "comment",
+      "html": "<p>@Jerome Apologies, but yes there is another import bug that will be fixed in 2.2.4. We've verified that it addresses the import problem that people have seen with the simulator. It's at its core a race condition so it's not surprising that you see the point of failure change between runs. For the time being you can try to make do with the VMware version.</p>\n"
+    }
+  ]
+}

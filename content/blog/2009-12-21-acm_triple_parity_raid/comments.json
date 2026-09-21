@@ -1,0 +1,54 @@
+{
+  "post": "/2009/12/21/acm_triple_parity_raid/",
+  "count": 6,
+  "comments": [
+    {
+      "id": 1214,
+      "author": "Chicago Web Development",
+      "url": "http://www.marketwithartemis.com/online-marketing-chicago.html",
+      "date": "2009-12-22T00:28:33Z",
+      "kind": "comment",
+      "html": "<p>Its true that Third-Party RAID is about to become the standard, but i wonder how does it take so long to make it popular in the market.</p>\n"
+    },
+    {
+      "id": 1215,
+      "author": "Craig Morgan",
+      "date": "2009-12-22T03:20:06Z",
+      "kind": "comment",
+      "html": "<p>Just a note to warn away from the term \"RAID-7\", not sure what its current status is today, but it was certainly trademarked as a proprietary term, originally by SCC, to describe a particular implementation of a hardware based RAID operation they were pushing … so RAIDzN or similar I guess.</p>\n"
+    },
+    {
+      "id": 1216,
+      "author": "ahl",
+      "is_author": true,
+      "date": "2009-12-22T03:58:49Z",
+      "kind": "comment",
+      "html": "<p>@Chicago I wonder too, but with current trends, my guess is that it will be common in the next 5-10 years. We'll see if hard drive manufacturers change direction.<br>\n@Craig Fortunately, the RAID-7 trademark was canceled September 11, 2004. RAID-8 and RAID-9 were also trademarked at one point, but have since been canceled or abandoned along with a bunch of other trivial RAID derivatives; only a couple of dubious trademarks remain. In any case... not really the point.</p>\n"
+    },
+    {
+      "id": 1217,
+      "author": "Blissex",
+      "url": "http://www.sabi.co.uk/",
+      "date": "2010-01-04T04:20:48Z",
+      "kind": "comment",
+      "html": "<p>Unfortunately that seems to be a phenomenally bad idea, just like RAID5 and RAID6, and essentially all forms of parity RAID as argued here:<br>\n  <a href=\"http://WWW.BAARF.com/\" rel=\"nofollow ugc noopener noreferrer\">http://WWW.BAARF.com/</a><br>\nso I won't repeat the pretty obvious points there.<br>\nMostly I shudder at the idea of ever wider RAIDs with ever greater alignment requirements and fragility with wider parity. i have seen morons \"designing\" 23+1 RAIDs and on Thumpers other morons doing 46+2.<br>\nParity RAID as a RAID developer told me mostly only make sense as \"salesman's RAID\", to help persuade suckers that they can have it all: lots of storage and very little capacity wasted on redundancy. I have been persuaded by a smart guy from BNL that there is one case where parity RAID makes sense (essentially RO caches containing data bulk archived on slower mass storage like tape) though.<br>\nThe obvious alternatives are RAID10, which scales up pretty well, and full redundant R-S chunking, which is used in distributed and highly redundant systems where <br>\nWhen technology serves you certain skewed performance envelopes, there is no way to use fancy snake oil like RAID with N+3 stripes to work around that; disk drive trends mean they are becoming mostly archive storage, and fortunately we have SSDs now for the cases where storage with the traditional relative performance envelope of disk drives is still required.</p>\n"
+    },
+    {
+      "id": 1218,
+      "author": "Blissex",
+      "url": "http://www.sabi.co.uk/",
+      "date": "2010-01-04T04:27:08Z",
+      "kind": "comment",
+      "html": "<p>BTW, in repopulating a drive there is a subtle problem: the capacity of current drives is at the limit or beyond that of the undetected error rate of the checksumming systems used.<br>\nThat is, duplicating a drive has a significant chance of incurring one or more undetected copying errors. Fortunately ZFS and other systems have their own layer of checksumming, but this adds to the other problems about \"silent corruption\" described for example here:<br>\n<a href=\"https://indico.desy.de/contributionDisplay.py?contribId=65&amp;sessionId=42&amp;confId=257\" rel=\"nofollow ugc noopener noreferrer\">https://indico.desy.de/contributionDisplay.py?contribId=65&amp;sessionId=42&amp;confId=257</a></p>\n"
+    },
+    {
+      "id": 1219,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2010-01-07T17:18:39Z",
+      "kind": "comment",
+      "html": "<p>@Blissex The arguments you cited should hardly be revelations to anyone. As with many things, you have to make a choice with storage: cheap, fast, or reliable, pick two. For example, mirroring will have higher IOPS than parity RAID schemes, but cost more for each unit capacity. People who elect to have very wide stripes are hardly morons -- they've merely evaluated the tradeoff between storage efficiency (cost), and performance. Further, if your problem is throughput rather than IOPS, parity RAID-Z schemes are actually better than mirroring with the same total number of disks.<br>\nIn addition, mirroring doesn't provide the reliability it once did (read the paper) which is why we see customers deploying three-way mirroring for critical data in, say, OLTP environments.<br>\nIn short, there's no grand RAID conspiracy. In fact, with the Sun storage 7000 we make very clear the choices and tradeoffs between various storage configurations. Triple-parity RAID is far from marketing hokum -- it addresses a real problem and fills a niche distinct from that of mirroring.</p>\n"
+    }
+  ]
+}

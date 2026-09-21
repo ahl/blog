@@ -1,0 +1,42 @@
+{
+  "post": "/2013/02/25/on-systems-software/",
+  "count": 5,
+  "comments": [
+    {
+      "id": 4175,
+      "author": "Dan Sutton",
+      "url": "http://www.opwernby.com",
+      "date": "2013-02-26T16:56:12Z",
+      "kind": "comment",
+      "html": "<p>I'm pretty sure it's possible to define systems software quite simply: as anything at level 5 or below in the OSI Seven-Layer Model, which, incredibly, is still relevant after all this time:<br>\nhttp://en.wikipedia.org/wiki/OSI_seven_layer_model</p>\n"
+    },
+    {
+      "id": 4176,
+      "author": "Mark P",
+      "date": "2013-02-26T17:26:22Z",
+      "kind": "comment",
+      "html": "<p>Systems programming traditionally meant Mainframe programming (FORTRAN, COBOL, etc.). I'm sure that is what the professor meant.</p>\n"
+    },
+    {
+      "id": 4177,
+      "author": "david",
+      "date": "2013-02-26T19:46:21Z",
+      "kind": "comment",
+      "html": "<p>Actually, on the mainframe, COBOL and Fortran are part of the Application Programmer's scope.  A systems programmer is responsible for tuning the MVS operating system on which these programs run, by tweaking parameters or modifying  system exit routines written in either Mainframe Assembler language, Rexx, or PL/S (a proprietary IBM language.)  The sysprog also installs regular updates and patches to either the MVS OS (lowest level), or various databases/services that run on top - CICS, IMS, DB2.  The MF systems programmers perform less actual programming than ever, so there probably is a trend of declining systems \"programming\" on all platforms.  The job mainly consists of changing parameters, installing patches, troubleshooting what vendor product is hosing up  the system, and accepting blame from the user community when the system is unavailable for 5 minutes.</p>\n"
+    },
+    {
+      "id": 4267,
+      "author": "UX-admin",
+      "date": "2013-03-02T15:02:56Z",
+      "kind": "comment",
+      "html": "<p>I'm pretty sure the \"professor\" meant (and I question his insight for such a statement) that there is nothing more to innovate or do in the operating systems arena, with which I disagree vehemently.</p>\n<p>In the times where everyone and their brother wants to be writing \"cool\" high-level applications in Rubies, Pythons, JavaScripts and C#'s of the \"Web 2.0\" world, who is going to be writing the low-level system software which interfaces with the hardware? Who is going to fix it, patch it, maintain it? Who is going to architect it, add support for new hardware, if everyone is \"high up\" in the stack writing web applications, and the art of debugging and writing good old operating system code and drivers in C is lost?</p>\n<p>The entire argument of \"systems programming is dead\" is ridiculously short sighted. I would like to see what the \"professor\" would do with \"Web 2.0\" programming to fix a bug in a device driver, or how he/she would write a new low-level device driver, for example adding support for a new processor, as a \"Web 2.0\" application! Such statements are absolutely ridiculous, and it is alarming that they are coming from the academic corner.</p>\n"
+    },
+    {
+      "id": 4435,
+      "author": "Ali Bahrami",
+      "date": "2013-03-06T20:52:03Z",
+      "kind": "comment",
+      "html": "<p>At a guess, that professor was channeling Rob Pike's<br>\n\"Systems Software Research is Irrelevant\":</p>\n<p>http://doc.cat-v.org/bell_labs/utah2000/<br>\nor<br>\n    http://www.cs.bell-labs.com/cm/cs/who/rob/utah2000.ps</p>\n<p>Clearly he was talking about a fairly specific form of pure research.</p>\n"
+    }
+  ]
+}

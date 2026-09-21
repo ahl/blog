@@ -1,0 +1,22 @@
+{
+  "post": "/2006/02/12/dtrace-at-scale-4x/",
+  "count": 2,
+  "comments": [
+    {
+      "id": 1614,
+      "author": "Mikael Gueck",
+      "date": "2006-02-12T22:55:32Z",
+      "kind": "comment",
+      "html": "<p>Nice presentation, you don't happen to have a video of the demo available to, say, upload to Google Videos and share it with the rest of us?</p>\n"
+    },
+    {
+      "id": 1615,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2006-02-13T07:15:12Z",
+      "kind": "comment",
+      "html": "<p>Mikael,<br>\nSorry, it wasn't video taped. The talks were audio recorded, but even that isn't going to help much (except when I was DTracing xmms as it played \"Super Freak\"). The demos I gave were very roughly a concatenation of what Bryan wrote about <a href=\"http://blogs.sun.com/roller/page/bmc?entry=demo_ing_dtrace\" rel=\"nofollow ugc noopener noreferrer\">demo'ing DTrace</a> and what I wrote about <a href=\"http://dtrace.org/blogs/ahl/dtrace_for_linux\" rel=\"nofollow ugc noopener noreferrer\">DTrace for Linux</a>.</p>\n"
+    }
+  ]
+}

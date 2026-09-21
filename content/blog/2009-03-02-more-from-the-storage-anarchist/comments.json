@@ -1,0 +1,53 @@
+{
+  "post": "/2009/03/02/more-from-the-storage-anarchist/",
+  "count": 6,
+  "comments": [
+    {
+      "id": 1288,
+      "author": "TimC",
+      "date": "2009-03-02T09:41:12Z",
+      "kind": "comment",
+      "html": "<p>Adam: How exactly did you measure latency on the enterprise class array?  Just wondering in case someone independent perhaps had a symm they'd be willing to test with ;)<br>\nAs you said, doing it without fishworks tends to be a bit trickier.</p>\n"
+    },
+    {
+      "id": 1289,
+      "author": "Bryan Cantrill",
+      "url": "http://blogs.sun.com/bmc",
+      "date": "2009-03-02T10:42:38Z",
+      "kind": "comment",
+      "html": "<p>TimC:  we gathered statistics that were proprietary to the unit.  While nowhere near as detailed (nor as visual nor as powerful) as analytics, they did at least show average latency on a per-second basis -- and we were able to confirm that the shouting-induced latency wasn't unique to our disks or their speed or their protocol.  (As an aside:  gathering even this crude amount of data was such an excruciating experience that we viscerally felt why customers have such a strong positive reaction when they first see analytics.)  My recommendation for measuring this with other machines:  create a LUN that has a single disk associated with it, export the LUN to an OS that has rich analysis tools (e.g. DTrace on Solaris), get the disk loaded up, and then shout at it.  (And if you wish to challenge Brendan's celebrity in this domain, video yourself doing same...)</p>\n"
+    },
+    {
+      "id": 1290,
+      "author": "mikee",
+      "date": "2009-03-02T11:00:08Z",
+      "kind": "comment",
+      "html": "<p>I'll bite.. Bryan, does it make sense for you to put together a \"shoutAnalyzer.d\" script that somewhat follows what you did for the exercise you just described? <br>\nCustomers could run this on variety of devices and perhaps share their experiences. (since they'll all go against the same source-base the results might be (at least on the surface) comparable.)<br>\n(( although I think caches in some of the larger arrays are going to mask whats going on from the host-perspective, unless driven to exhaustion... Sadly as you mentioned... getting this level of detail directly out of a proprietary frame is going to be a challenge at best... ))<br>\n-- MikeE</p>\n"
+    },
+    {
+      "id": 1291,
+      "author": "Brendan Gregg",
+      "url": "http://blogs.sun.com/brendan",
+      "date": "2009-03-03T21:33:02Z",
+      "kind": "comment",
+      "html": "<p>Tim, to add to what Bryan said; you want the disks to have a heavy write workload (I've been told they are more sensitive when writing data.)  My disks were also about 80% busy when I shouted at them - which is very busy.  If you find a statistic for average disk I/O time, consider what happens if you vibrate (or as we've learned, 'shock') only a few out of many disks; you'll still see a change, it just won't be as obvious as it could be, as it has been averaged out.  In fact, this is exactly why we implemented disk I/O latency in Analytics as a heat map (as the video showed) - so that data wasn't lost by averaging it.</p>\n"
+    },
+    {
+      "id": 1292,
+      "author": "Paul Murphy",
+      "url": "http://blogs.zdnet.com/Murphy",
+      "date": "2009-03-10T16:15:15Z",
+      "kind": "comment",
+      "html": "<p>One of my friends works in a place with a couple of T2000s in one room, a fairly thick door, and EMC/HP set up running Informix under HP-UX 11i in the next (heavily air conditioned!) room.<br>\nAfter watching the shouting demo I asked him to repeatedly run and time a script I wrote man years ago that does a lot of serial I/O from Informix to disk (Now 1E8+ records) - it sets up the source files from which the data warehouse table inversion gets done in Perl with the result then queued in another serial file for transmission.<br>\nIf he stands there rapidly opening and closing that door, the script takes a few seconds longer to complete than if he stays out and thus keeps the door closed.<br>\nNot exactly a proper test, and not a highly precise measure, but suggestive.</p>\n"
+    },
+    {
+      "id": 1293,
+      "author": "ahl",
+      "url": "http://blogs.sun.com/ahl",
+      "is_author": true,
+      "date": "2009-03-10T17:01:39Z",
+      "kind": "comment",
+      "html": "<p>@Paul Pretty neat. I'm still surprised that we haven't seen a video given the mountain of anecdotal evidence I have for EMC customers screaming at their systems...</p>\n"
+    }
+  ]
+}

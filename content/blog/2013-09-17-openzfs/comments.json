@@ -1,0 +1,37 @@
+{
+  "post": "/2013/09/17/openzfs/",
+  "count": 4,
+  "comments": [
+    {
+      "id": 5932,
+      "author": "OpenZFS | Rocketboom",
+      "url": "http://www.rocketboom.com/news/openzfs/",
+      "date": "2013-09-17T12:09:27Z",
+      "kind": "pingback",
+      "html": "<p>[...] OpenZFS  Source: http://dtrace.org/blogs/ahl/2013/09/17/openzfs/ 0 &nbsp;&nbsp; [...]</p>\n"
+    },
+    {
+      "id": 5933,
+      "author": "OpenZFS – IzaakNews",
+      "url": "http://izaak.my/openzfs/",
+      "date": "2013-09-17T12:17:09Z",
+      "kind": "pingback",
+      "html": "<p>[...] OpenZFS Comments [...]</p>\n"
+    },
+    {
+      "id": 5935,
+      "author": "Dor Laor",
+      "date": "2013-09-17T14:19:36Z",
+      "kind": "comment",
+      "html": "<p>+1, we at osv.io use ZFS and excited to participate!<br>\nDor</p>\n"
+    },
+    {
+      "id": 10029,
+      "author": "Installing ZFS on CentOS 6.4 | Planet Santosh",
+      "url": "http://planetsantosh.wordpress.com/2013/10/07/installing-zfs-on-centos-6-4/",
+      "date": "2013-10-06T22:15:43Z",
+      "kind": "pingback",
+      "html": "<p>[...] OpenZFS (dtrace.org)  Share this:TwitterFacebookGoogleLike this:Like Loading...   This entry was posted in Linux. Bookmark the permalink. [...]</p>\n"
+    }
+  ]
+}
